@@ -180,6 +180,14 @@ const Header = () => {
 											}}>
 											Blog
 										</li>
+
+										<li
+											className="font-semibold text-base"
+											onClick={() => {
+												navigate("/docs");
+											}}>
+											Developers
+										</li>
 									</ul>
 									<div className="flex flex-col space-y-6">
 										<div className="flex gap-3 items-center">
@@ -356,6 +364,15 @@ const Header = () => {
 								navigate("/blog");
 							}}>
 							Blog
+						</li>
+
+						{/* Developers */}
+						<li
+							className="cursor-pointer text-slate-500"
+							onClick={() => {
+								navigate("/docs");
+							}}>
+							Developers
 						</li>
 					</ul>
 

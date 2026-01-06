@@ -1,9 +1,39 @@
 export const paths = {
 	LANDING_PAGE: "/",
-	WHY_OTTO_BUSINESS: "/why-choose-otto-business",
-	WHY_OTTO_PERSONAL: "/why-choose-otto-personal",
-	QR_PAYMENTS: "/qr-payments",
-	GIFT_CARDS: "/gift-cards",
-	BLOG: "/blog",
-	DATA_DELETION: "/otto-data-deletion",
+
+	// Products
+	PRODUCTS_QR_PAYMENTS: "/products/qr-payments",
+	PRODUCTS_GIFT_CARDS: "/products/gift-cards",
+	PRODUCTS_LOYALTY: "/products/loyalty",
+
+	// Solutions
+	SOLUTIONS_BUSINESS: "/solutions/business",
+	SOLUTIONS_PERSONAL: "/solutions/personal",
+
+	// Support
+	SUPPORT: "/contact",
+
+	// Developers
+	DEVELOPERS: "/developers",
+
+	// Company
+	ABOUT: "/about",
+	CONTACT: "/contact",
+
+	// Documentation routes
+	DOCS: "/docs",
+	DOCS_GETTING_STARTED: "/docs/getting-started",
+	DOCS_AUTHENTICATION: "/docs/authentication",
+	DOCS_GIFT_CARDS: "/docs/gift-cards",
+	DOCS_TRANSACTIONS: "/docs/transactions",
+	DOCS_LOYALTY: "/docs/loyalty",
+	DOCS_QR_CODES: "/docs/qr-codes",
+	DOCS_SETTLEMENTS: "/docs/settlements",
+	DOCS_USER_MANAGEMENT: "/docs/user-management",
+	DOCS_WEBHOOKS: "/docs/webhooks",
+	DOCS_ERROR_HANDLING: "/docs/error-handling",
+	DOCS_RATE_LIMITS: "/docs/rate-limits",
+	DOCS_SDKS: "/docs/sdks",
+	DOCS_TESTING: "/docs/testing",
+	DOCS_SUPPORT: "/docs/support",
 };

@@ -47,7 +47,7 @@ const LandingPage = () => {
                           Join the Waitlist
                         </button>
                         <button className="h-[48px] lg:h-[52px] text-[#1b3359]  px-6 rounded-lg ">
-                          or Contact Sales
+                          or Contact Us
                         </button>
                       </div>
                       {/* <div className="flex flex-col w-[75%] lg:mt-2 max-lg:w-full max-lg:ml-0">
@@ -59,7 +59,7 @@ const LandingPage = () => {
 												</label>
 												<button
 													type="submit"
-													className="text-sky-950 text-center text-base font-semibold leading-10 tracking-tight capitalize whitespace-nowrap shadow-sm bg-white self-stretch justify-center px-9 py-0.5 rounded-md max-lg:px-5">
+													className="text-sky-950 text-center text-base font-semibold leading-10 tracking-tight capitalize whitespace-nowrap bg-gradient-to-br from-white to-gray-50 self-stretch justify-center px-9 py-0.5 rounded-md max-lg:px-5 border border-gray-200"
 													Sign up for free
 												</button>
 											</div>
