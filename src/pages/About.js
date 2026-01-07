@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
+import Avatar from "../components/Avatar";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const About = () => {
@@ -11,13 +13,19 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="About Us - Otto Africa"
+        description="Learn about Otto Africa - the payment infrastructure platform built for Africa's most ambitious businesses. Discover our mission, vision, and commitment to transforming payments across the continent."
+        keywords="about Otto Africa, payment platform, fintech company, Africa fintech, payment solutions company"
+        url="https://ottoafrica.com/about"
+      />
       <Header />
 
       {/* Hero Section */}
       <section ref={heroRef} className="pt-20 pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-light text-gray-900 mb-6 scroll-animate">
+            <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-6 scroll-animate">
               Powering Africa's
               <span className="block text-otto-blue font-medium">
                 Digital Economy
@@ -37,7 +45,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 scroll-animate">
+              <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6 scroll-animate">
                 Our Mission
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed scroll-animate delay-100">
@@ -54,30 +62,24 @@ const About = () => {
               </p>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 scroll-animate delay-300">
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-3 gap-6">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-otto-blue mb-2">
-                    2019
+                    2023
                   </div>
                   <div className="text-sm text-gray-600">Founded</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-green-600 mb-2">
-                    10,000+
+                    100+
                   </div>
                   <div className="text-sm text-gray-600">Businesses</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-purple-600 mb-2">
-                    ₵500M+
+                    2
                   </div>
-                  <div className="text-sm text-gray-600">Processed</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">
-                    6
-                  </div>
-                  <div className="text-sm text-gray-600">Countries</div>
+                  <div className="text-sm text-gray-600">Cities</div>
                 </div>
               </div>
             </div>
@@ -85,36 +87,40 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team */}
+      {/* Founders */}
       <section ref={teamRef} className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 scroll-animate">
-              Meet Our Team
+            <h2 className="text-4xl font-medium text-gray-900 mb-4 scroll-animate">
+              Founders
             </h2>
             <p className="text-xl text-gray-600 scroll-animate delay-100">
               The innovators behind Otto's success
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div
               className="text-center scroll-animate"
               style={{ animationDelay: "200ms" }}
             >
-              <img
-                src="/img/team-1.jpg"
-                alt="Team Member"
-                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-              />
-              <h3 className="text-xl font-bold text-gray-900 mb-1">
-                Sarah Johnson
+              <div className="flex justify-center mb-4">
+                <Avatar
+                  src={null}
+                  name="Kofi Addo Atuah"
+                  alt="Kofi Addo Atuah"
+                  size={128}
+                  loading="lazy"
+                />
+              </div>
+              <h3 className="text-xl font-medium text-gray-900 mb-1">
+                Kofi Addo Atuah
               </h3>
               <p className="text-otto-blue font-medium mb-2">
-                CEO & Co-founder
+                Cofounder / Tech Lead
               </p>
               <p className="text-gray-600 text-sm">
-                Former fintech executive with 10+ years in payments
+                Serial entrepreneur and blockchain
               </p>
             </div>
 
@@ -122,19 +128,23 @@ const About = () => {
               className="text-center scroll-animate"
               style={{ animationDelay: "300ms" }}
             >
-              <img
-                src="/img/team-2.jpg"
-                alt="Team Member"
-                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-              />
-              <h3 className="text-xl font-bold text-gray-900 mb-1">
-                Michael Osei
+              <div className="flex justify-center mb-4">
+                <Avatar
+                  src={null}
+                  name="Jonathan Addo Atuah"
+                  alt="Jonathan Addo Atuah"
+                  size={128}
+                  loading="lazy"
+                />
+              </div>
+              <h3 className="text-xl font-medium text-gray-900 mb-1">
+                Jonathan Addo Atuah
               </h3>
               <p className="text-otto-blue font-medium mb-2">
-                CTO & Co-founder
+                Cofounder / Business Lead
               </p>
               <p className="text-gray-600 text-sm">
-                Serial entrepreneur and blockchain expert
+                Finance executive with 10+ years
               </p>
             </div>
 
@@ -142,37 +152,23 @@ const About = () => {
               className="text-center scroll-animate"
               style={{ animationDelay: "400ms" }}
             >
-              <img
-                src="/img/team-3.jpg"
-                alt="Team Member"
-                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-              />
-              <h3 className="text-xl font-bold text-gray-900 mb-1">
-                Grace Mensah
-              </h3>
-              <p className="text-otto-blue font-medium mb-2">Head of Product</p>
-              <p className="text-gray-600 text-sm">
-                Product leader with experience at top tech companies
-              </p>
-            </div>
-
-            <div
-              className="text-center scroll-animate"
-              style={{ animationDelay: "500ms" }}
-            >
-              <img
-                src="/img/team-4.png"
-                alt="Team Member"
-                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-              />
-              <h3 className="text-xl font-bold text-gray-900 mb-1">
-                David Nkrumah
+              <div className="flex justify-center mb-4">
+                <Avatar
+                  src={null}
+                  name="Amen Olabode"
+                  alt="Amen Olabode"
+                  size={128}
+                  loading="lazy"
+                />
+              </div>
+              <h3 className="text-xl font-medium text-gray-900 mb-1">
+                Amen Olabode
               </h3>
               <p className="text-otto-blue font-medium mb-2">
-                Head of Engineering
+                Head of Product
               </p>
               <p className="text-gray-600 text-sm">
-                Distributed systems expert and open source contributor
+                Product leader with experience in Banking, and at top tech companies
               </p>
             </div>
           </div>
@@ -183,7 +179,7 @@ const About = () => {
       <section ref={valuesRef} className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 scroll-animate">
+            <h2 className="text-4xl font-medium text-gray-900 mb-4 scroll-animate">
               Our Values
             </h2>
             <p className="text-xl text-gray-600 scroll-animate delay-100">
@@ -305,7 +301,7 @@ const About = () => {
       {/* Contact CTA */}
       <section className="py-20 bg-otto-blue">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl font-medium text-white mb-6">
             Ready to Build Something Amazing?
           </h2>
           <p className="text-xl text-blue-100 mb-8">

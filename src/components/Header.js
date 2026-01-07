@@ -29,7 +29,8 @@ const Header = () => {
             <Link to="/">
               <img
                 src="/img/logos/Logo Black.png"
-                alt="Otto"
+                alt="Otto Africa Logo"
+                loading="eager"
                 className="h-10 w-auto"
               />
             </Link>

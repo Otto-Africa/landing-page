@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
+import CookieConsent from "./components/CookieConsent";
 
 // Main pages
 import Landing from "./pages/Landing";
@@ -11,6 +13,15 @@ import PersonalSolutions from "./pages/PersonalSolutions";
 // Company pages
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import CookiePolicy from "./pages/CookiePolicy";
+import Security from "./pages/Security";
+
+// About sub-pages
+import QRPayments from "./pages/about/qr-payments";
+import GiftCards from "./pages/about/gift-cards";
+import Loyalty from "./pages/about/loyalty";
 
 // Documentation pages
 import DocsIndex from "./pages/docs/index";
@@ -35,6 +46,8 @@ import { paths } from "./utils/routes";
 function App() {
   return (
     <Router>
+      <ScrollToTop />
+      <CookieConsent />
       <Routes>
         {/* Main landing page */}
         <Route path={paths.LANDING_PAGE} element={<Landing />} />
@@ -52,6 +65,15 @@ function App() {
         {/* Company pages */}
         <Route path={paths.ABOUT} element={<About />} />
         <Route path={paths.CONTACT} element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/security" element={<Security />} />
+        
+        {/* About sub-pages */}
+        <Route path="/about/qr-payments" element={<QRPayments />} />
+        <Route path="/about/gift-cards" element={<GiftCards />} />
+        <Route path="/about/loyalty" element={<Loyalty />} />
 
         {/* Documentation pages */}
         <Route path={paths.DOCS} element={<DocsIndex />} />

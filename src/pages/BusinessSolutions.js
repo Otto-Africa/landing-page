@@ -17,7 +17,7 @@ const BusinessSolutions = () => {
       <section ref={heroRef} className="pt-20 pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-light text-gray-900 mb-6 scroll-animate">
+            <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-6 scroll-animate">
               Payment Solutions for
               <span className="block text-otto-blue font-medium">Modern Businesses</span>
             </h1>
@@ -94,7 +94,7 @@ const BusinessSolutions = () => {
       <section ref={useCasesRef} className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 scroll-animate">Built for Every Business Type</h2>
+            <h2 className="text-4xl font-medium text-gray-900 mb-4 scroll-animate">Built for Every Business Type</h2>
             <p className="text-xl text-gray-600 scroll-animate delay-100">From startups to Fortune 500 companies</p>
           </div>
 
@@ -203,7 +203,7 @@ const BusinessSolutions = () => {
       <section ref={enterpriseRef} className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 scroll-animate">Enterprise-Grade Features</h2>
+            <h2 className="text-4xl font-medium text-gray-900 mb-4 scroll-animate">Enterprise-Grade Features</h2>
             <p className="text-xl text-gray-600 scroll-animate delay-100">Built for scale, security, and compliance</p>
           </div>
 
@@ -280,7 +280,7 @@ const BusinessSolutions = () => {
       {/* CTA */}
       <section className="py-20 bg-otto-blue">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl font-medium text-white mb-6">
             Ready to Scale Your Business?
           </h2>
           <p className="text-xl text-blue-100 mb-8">

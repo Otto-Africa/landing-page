@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Contact = () => {
@@ -14,6 +15,8 @@ const Contact = () => {
     message: '',
     interest: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -22,22 +25,61 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We\'ll get back to you soon.');
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const apiUrl = process.env.NODE_ENV === 'production' 
+        ? 'https://api.ottoafrica.com/api/contact/landing-page'
+        : 'http://localhost:8000/api/contact/landing-page';
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && !data.error) {
+        setSubmitStatus({ type: 'success', message: 'Thank you for your message! We\'ll get back to you soon.' });
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          message: '',
+          interest: ''
+        });
+      } else {
+        setSubmitStatus({ type: 'error', message: data.message || 'Something went wrong. Please try again.' });
+      }
+    } catch (error) {
+      setSubmitStatus({ type: 'error', message: 'Network error. Please check your connection and try again.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Contact Us - Otto Africa"
+        description="Get in touch with Otto Africa. Have questions about our payment infrastructure? Need help getting started? Want to explore partnership opportunities? We'd love to hear from you."
+        keywords="contact Otto, support, customer service, payment solutions support, fintech support"
+        url="https://ottoafrica.com/contact"
+      />
       <Header />
 
       {/* Hero Section */}
       <section ref={heroRef} className="pt-20 pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-light text-gray-900 mb-6 scroll-animate">
+            <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-6 scroll-animate">
               Let's Build Something
               <span className="block text-otto-blue font-medium">Together</span>
             </h1>
@@ -144,11 +186,21 @@ const Contact = () => {
                   />
                 </div>
 
+                {submitStatus && (
+                  <div className={`p-4 rounded-lg ${
+                    submitStatus.type === 'success' 
+                      ? 'bg-green-50 text-green-800 border border-green-200' 
+                      : 'bg-red-50 text-red-800 border border-red-200'
+                  }`}>
+                    {submitStatus.message}
+                  </div>
+                )}
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold text-lg"
+                  disabled={isSubmitting}
+                  className="w-full bg-otto-blue text-white px-8 py-4 rounded-full hover:bg-black transition-colors duration-200 font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>
@@ -163,63 +215,17 @@ const Contact = () => {
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Need immediate help?</h3>
                   <div className="space-y-4">
                     <div className="flex items-start">
-                      <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-4">
-                        <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <div className="font-medium text-gray-900">Live Chat Support</div>
-                        <div className="text-gray-600">Available 24/7 for urgent issues</div>
-                        <button className="text-blue-600 hover:text-blue-700 font-medium mt-1">
-                          Start Chat →
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start">
-                      <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                        <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-10 h-10 bg-otto-blue/10 rounded-lg flex items-center justify-center mr-4">
+                        <svg className="w-5 h-5 text-otto-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                       </div>
                       <div>
                         <div className="font-medium text-gray-900">Email Support</div>
                         <div className="text-gray-600">Response within 24 hours</div>
-                        <a href="mailto:support@otto.com" className="text-blue-600 hover:text-blue-700 font-medium mt-1">
-                          support@otto.com
+                        <a href="mailto:contact@ottoafrica.com" className="text-otto-blue hover:text-black font-medium mt-1">
+                          contact@ottoafrica.com
                         </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Contact Details */}
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Contact Information</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start">
-                      <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4">
-                        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <div className="font-medium text-gray-900">Headquarters</div>
-                        <div className="text-gray-600">Accra, Ghana</div>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start">
-                      <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4">
-                        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <div className="font-medium text-gray-900">Phone</div>
-                        <div className="text-gray-600">+233 24 123 4567</div>
                       </div>
                     </div>
                   </div>
@@ -253,7 +259,7 @@ const Contact = () => {
       <section ref={faqRef} className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 scroll-animate">Frequently Asked Questions</h2>
+            <h2 className="text-4xl font-medium text-gray-900 mb-4 scroll-animate">Frequently Asked Questions</h2>
             <p className="text-xl text-gray-600 scroll-animate delay-100">Quick answers to common questions</p>
           </div>
 
@@ -265,7 +271,7 @@ const Contact = () => {
 
             <div className="bg-white rounded-lg p-6 scroll-animate" style={{ animationDelay: '300ms' }}>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">What are the fees for using Otto?</h3>
-              <p className="text-gray-600">We offer competitive pricing with no setup fees. Transaction fees vary by product - QR payments are free, while gift cards and loyalty programs have monthly subscriptions starting from ₵50.</p>
+              <p className="text-gray-600">We offer competitive pricing with no setup fees. QR payments are free. Service charges for gift cards and loyalty programs are applied dynamically during purchases - you only pay when you use the service.</p>
             </div>
 
             <div className="bg-white rounded-lg p-6 scroll-animate" style={{ animationDelay: '400ms' }}>

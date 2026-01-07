@@ -26,14 +26,15 @@ export const useScrollAnimation = (options = {}) => {
       { threshold, rootMargin }
     );
 
-    if (ref.current) {
-      const elements = ref.current.querySelectorAll('.scroll-animate');
+    const currentRef = ref.current;
+    if (currentRef) {
+      const elements = currentRef.querySelectorAll('.scroll-animate');
       elements.forEach((el) => observer.observe(el));
     }
 
     return () => {
-      if (ref.current) {
-        const elements = ref.current.querySelectorAll('.scroll-animate');
+      if (currentRef) {
+        const elements = currentRef.querySelectorAll('.scroll-animate');
         elements.forEach((el) => observer.unobserve(el));
       }
     };

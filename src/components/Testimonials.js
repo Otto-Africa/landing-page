@@ -1,5 +1,6 @@
 import React from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import Avatar from './Avatar';
 
 const Testimonials = () => {
   const testimonialsRef = useScrollAnimation({ threshold: 0.1 });
@@ -38,7 +39,7 @@ const Testimonials = () => {
     <section ref={testimonialsRef} className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 scroll-animate">
+          <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4 scroll-animate">
             Loved by Businesses Across Ghana
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto scroll-animate delay-100">
@@ -51,10 +52,12 @@ const Testimonials = () => {
             <div key={index} className="bg-white rounded-xl p-8 border border-gray-100 scroll-animate hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${index * 100}ms` }}>
               <div className="flex items-start mb-6">
                 <div className="flex-shrink-0">
-                  <img
+                  <Avatar
                     src={testimonial.avatar}
-                    alt={testimonial.author}
-                    className="w-12 h-12 rounded-full object-cover"
+                    name={testimonial.author}
+                    alt={`${testimonial.author}, ${testimonial.role} at ${testimonial.company}`}
+                    size={48}
+                    loading="lazy"
                   />
                 </div>
                 <div className="ml-4">

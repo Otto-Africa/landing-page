@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const Hero = () => {
@@ -9,10 +9,21 @@ const Hero = () => {
 
   const heroRef = useScrollAnimation({ threshold: 0.1 });
 
+  const words = ["Scale", "Attract", "Retain"];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+    }, 3000); // Change word every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [words.length]);
+
   return (
     <section
       ref={heroRef}
-      className="relative bg-white pt-40 pb-40 md:pt-48 md:pb-48 lg:pt-56 lg:pb-64 overflow-hidden min-h-[75vh] md:min-h-[80vh]"
+      className="relative bg-white overflow-hidden h-[87.5vh] flex items-center"
     >
       {/* Vertical lines pattern behind background.png */}
       <div
@@ -27,33 +38,39 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url('/img/background.png')`,
-          opacity: 0.2,
+          opacity: 0.1,
         }}
       ></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Headline - Benefit-focused like Cowrywise */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight scroll-animate">
-            Watch your payments
-            <span className="block text-otto-blue font-medium">do more.</span>
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Headline - Large typography with animated word */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium text-gray-900 mb-8 leading-tight scroll-animate">
+            <span
+              key={currentWordIndex}
+              className="block text-otto-blue font-medium animate-fade-in"
+            >
+              {words[currentWordIndex]}
+            </span>
+            <span className="block">without limits.</span>
           </h1>
 
           {/* Sub-headline - Clear value prop */}
-          <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed scroll-animate delay-100">
-            One platform. All your payment needs. Trusted by businesses,
-            merchants, and enterprises across Africa.
+          <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 leading-8 mb-12 scroll-animate delay-100 max-w-3xl mx-auto">
+            The all-in-one payment infrastructure built for Africa's most
+            ambitious businesses. Accept payments, manage gift cards, and launch
+            loyalty programs with ease.
           </p>
 
           {/* Primary CTA - Action-oriented */}
           <div className="scroll-animate delay-200">
             <a
               href={merchantPortalUrl}
-              className="inline-flex items-center gap-2 bg-otto-blue text-white px-8 py-4 rounded-lg hover:bg-black transition-all duration-300 font-semibold text-lg"
+              className="inline-flex items-center gap-2 bg-otto-blue text-white px-10 py-5 rounded-full hover:bg-black transition-all duration-300 font-semibold text-lg md:text-xl"
             >
-              Start growing now
+              Get Started for Free
               <svg
-                className="w-5 h-5"
+                className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

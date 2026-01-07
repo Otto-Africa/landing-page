@@ -85,8 +85,8 @@ const Support = () => {
             <p className="text-gray-600 text-sm mb-4">
               Send us an email for technical questions and support.
             </p>
-            <a href="mailto:developers@ottoafrica.com" className="text-otto-blue hover:text-black font-medium text-sm">
-              developers@ottoafrica.com
+            <a href="mailto:contact@ottoafrica.com" className="text-otto-blue hover:text-black font-medium text-sm">
+              contact@ottoafrica.com
             </a>
           </div>
 
@@ -209,7 +209,7 @@ const Support = () => {
           <div>
             <h4 className="font-semibold text-gray-900 mb-3">Technical Support</h4>
             <div className="space-y-2 text-sm text-gray-600">
-              <p>📧 <a href="mailto:developers@ottoafrica.com" className="text-otto-blue hover:text-black">developers@ottoafrica.com</a></p>
+              <p>📧 <a href="mailto:contact@ottoafrica.com" className="text-otto-blue hover:text-black">contact@ottoafrica.com</a></p>
               <p>💬 <a href="https://discord.gg/ottoafrica" className="text-otto-blue hover:text-black">Discord Community</a></p>
               <p>📖 <a href="https://github.com/ottoafrica/api-issues" className="text-otto-blue hover:text-black">GitHub Issues</a></p>
             </div>
@@ -219,7 +219,6 @@ const Support = () => {
             <h4 className="font-semibold text-gray-900 mb-3">Business Hours</h4>
             <div className="space-y-2 text-sm text-gray-600">
               <p>🕒 Monday - Friday: 9:00 AM - 6:00 PM GMT</p>
-              <p>📞 Emergency: <a href="tel:+233501234567" className="text-otto-blue hover:text-black">+233 50 123 4567</a></p>
               <p>🌐 Time Zone: Greenwich Mean Time (GMT)</p>
             </div>
           </div>

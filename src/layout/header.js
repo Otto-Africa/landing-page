@@ -1,6 +1,6 @@
 import { Drawer } from "antd";
 import React, { useEffect, useRef, useState } from "react";
-import { FaBars, FaCaretDown, FaChevronDown, FaPhone } from "react-icons/fa";
+import { FaBars, FaCaretDown, FaPhone } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
