@@ -4,7 +4,7 @@ const SEO = ({
   title = "Otto Africa - Scale without limits. Payment Infrastructure for Africa",
   description = "The all-in-one payment infrastructure built for Africa's most ambitious businesses. Accept payments, manage gift cards, and launch loyalty programs with ease.",
   keywords = "payment infrastructure, QR payments, digital gift cards, loyalty programs, Africa payments, Ghana payments, fintech, payment solutions, business payments",
-  image = "https://ottoafrica.com/img/logos/Logo Black.png",
+  image = "https://ottoafrica.com/img/logos/Favicon%20-%20Black@4x-8.png",
   url = "https://ottoafrica.com",
   type = "website",
   author = "Otto Africa",
@@ -81,13 +81,25 @@ const SEO = ({
 
     // Add structured data
     if (structuredData) {
-      let scriptTag = document.querySelector('script[type="application/ld+json"]');
-      if (!scriptTag) {
-        scriptTag = document.createElement('script');
+      // Remove existing structured data scripts
+      const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
+      existingScripts.forEach(script => script.remove());
+      
+      // Add new structured data
+      if (Array.isArray(structuredData)) {
+        structuredData.forEach((data, index) => {
+          const scriptTag = document.createElement('script');
+          scriptTag.setAttribute('type', 'application/ld+json');
+          scriptTag.textContent = JSON.stringify(data);
+          scriptTag.id = `structured-data-${index}`;
+          document.head.appendChild(scriptTag);
+        });
+      } else {
+        const scriptTag = document.createElement('script');
         scriptTag.setAttribute('type', 'application/ld+json');
+        scriptTag.textContent = JSON.stringify(structuredData);
         document.head.appendChild(scriptTag);
       }
-      scriptTag.textContent = JSON.stringify(structuredData);
     }
   }, [fullTitle, description, keywords, author, noindex, fullUrl, fullImage, type, structuredData]);
 

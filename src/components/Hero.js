@@ -55,11 +55,13 @@ const Hero = () => {
             <span className="block">without limits.</span>
           </h1>
 
-          {/* Sub-headline - Clear value prop */}
+          {/* Sub-headline - Clear value prop with keywords */}
           <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 leading-8 mb-12 scroll-animate delay-100 max-w-3xl mx-auto">
-            The all-in-one payment infrastructure built for Africa's most
-            ambitious businesses. Accept payments, manage gift cards, and launch
-            loyalty programs with ease.
+            Otto Africa is a leading fintech platform in Ghana offering payment
+            API, digital gift cards, and loyalty programs. The all-in-one
+            payment infrastructure built for businesses across Ghana and Africa.
+            Accept payments, manage gift cards, and launch loyalty programs with
+            our powerful API.
           </p>
 
           {/* Primary CTA - Action-oriented */}

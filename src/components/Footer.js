@@ -19,8 +19,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-gray-600 mb-6 max-w-md leading-relaxed">
-              The complete payment suite for modern businesses in Africa.
-              Accept payments, manage gift cards, and build customer loyalty.
+              Otto Africa is a leading fintech platform in Ghana offering payment API, digital gift cards, and loyalty programs. The complete payment suite for modern businesses in Ghana and across Africa.
             </p>
             <div className="flex space-x-4">
               <a href="https://twitter.com/ottoafrica" className="text-gray-600 hover:text-gray-900 transition-colors duration-200" aria-label="Follow us on Twitter">

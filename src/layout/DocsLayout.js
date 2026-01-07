@@ -70,12 +70,12 @@ const DocsLayout = ({
               Docs
             </Link>
             <a
-              href="https://api.ottoafrica.com/docs"
+              href="https://api.ottoafrica.com/api/health"
               target="_blank"
               rel="noopener noreferrer"
               className="docs-nav-link"
             >
-              API
+              Health
             </a>
             <a href={merchantPortalUrl} className="docs-signup-btn">
               Sign In

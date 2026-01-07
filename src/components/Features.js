@@ -14,7 +14,7 @@ const Features = () => {
     {
       title: "QR Code Payments",
       description:
-        "Enable instant, contactless payments with QR codes. No physical cards needed—customers simply scan and pay. Ideal for retail stores, restaurants, and service businesses looking to streamline checkout.",
+        "Enable instant, contactless payments with QR codes in Ghana. No physical cards needed—customers simply scan and pay. Ideal for retail stores, restaurants, and service businesses in Ghana looking to streamline checkout with our payment API.",
       detailedDescription:
         "Transform your checkout experience with QR code payments. Our system supports both static and dynamic QR codes, allowing you to accept payments instantly. Perfect for retail stores, restaurants, cafes, and service businesses. Customers can pay using their mobile wallets or banking apps by simply scanning the QR code. No additional hardware required—just display the code and start accepting payments. Real-time transaction notifications keep you informed, and our analytics dashboard helps you track sales patterns and customer behavior.",
       image: "/img/qrcode.png",
@@ -23,7 +23,7 @@ const Features = () => {
     {
       title: "Digital Gift Cards",
       description:
-        "Create, sell, and manage digital gift cards with custom designs and instant delivery. Increase sales and attract new customers with flexible gift card options that work for any business.",
+        "Create, sell, and manage digital gift cards in Ghana with custom designs and instant delivery. Our gift card API helps businesses increase sales and attract new customers with flexible gift card options that work for any business in Ghana.",
       detailedDescription:
         "Launch your own digital gift card program with complete customization. Design gift cards that match your brand identity, set custom denominations, and create promotional campaigns. Gift cards are delivered instantly via email or SMS, making them perfect for last-minute gifts. Our platform handles everything from creation to redemption, with built-in fraud protection and analytics. Increase customer acquisition, boost cash flow, and reduce cart abandonment with flexible gift card options that work for any business size.",
       image: "/img/giftcard.png",
@@ -32,7 +32,7 @@ const Features = () => {
     {
       title: "Loyalty Programs",
       description:
-        "Build lasting customer relationships with points, rewards, and personalized experiences. Drive repeat business and increase customer lifetime value through engaging loyalty programs.",
+        "Build lasting customer relationships with loyalty programs in Ghana. Use our loyalty API to create points, rewards, and personalized experiences. Drive repeat business and increase customer lifetime value through engaging loyalty programs for businesses in Ghana.",
       detailedDescription:
         "Create powerful loyalty programs that keep customers coming back. Set up points-based rewards, tiered membership levels, and personalized offers that drive engagement. Our platform includes automated reward distribution, customer segmentation, and detailed analytics to help you understand what motivates your customers. Send targeted promotions, track redemption rates, and measure program ROI. Whether you're running a points system, cashback program, or VIP tiers, our flexible platform adapts to your business needs and helps you build lasting customer relationships.",
       image: "/img/loyalty.png",

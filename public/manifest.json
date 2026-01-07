@@ -3,9 +3,10 @@
   "name": "Pay and get paid with cash, gift cards and more",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "img/logos/Favicon - Black@4x-8.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "logo192.png",
