@@ -2,6 +2,7 @@ import React from 'react';
 import DocsLayout from '../../layout/DocsLayout';
 import SEO from '../../components/SEO';
 import MultiLanguageCodeBlock from '../../components/MultiLanguageCodeBlock';
+import { getMerchantPortalUrl } from '../../utils/getMerchantPortalUrl';
 import './docs.css';
 
 const GettingStarted = () => {
@@ -140,7 +141,7 @@ const GettingStarted = () => {
         </p>
 
         <ol className="list-decimal list-inside space-y-2 mb-6">
-          <li>Log in to your <a href={process.env.NODE_ENV === 'production' ? 'https://business.ottoafrica.com' : 'http://localhost:3001'} className="text-otto-blue hover:underline">Merchant Portal</a></li>
+          <li>Log in to your <a href={getMerchantPortalUrl()} className="text-otto-blue hover:underline">Merchant Portal</a></li>
           <li>Navigate to <strong>Settings → API</strong></li>
           <li>Click <strong>"Create API Key"</strong></li>
           <li>Give your key a descriptive name (e.g., "Production E-commerce Integration")</li>

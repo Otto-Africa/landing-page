@@ -31,9 +31,17 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      const apiUrl = process.env.NODE_ENV === 'production' 
-        ? 'https://api.ottoafrica.com/api/contact/landing-page'
-        : 'http://localhost:8000/api/contact/landing-page';
+      // Determine API URL based on environment
+      let apiUrl;
+      if (process.env.NODE_ENV === 'production') {
+        apiUrl = 'https://api.ottoafrica.com/api/contact/landing-page';
+      } else if (process.env.REACT_APP_API_URL) {
+        // Use test environment API URL if set
+        apiUrl = `${process.env.REACT_APP_API_URL}/contact/landing-page`;
+      } else {
+        // Fallback to localhost for local development
+        apiUrl = 'http://localhost:8000/api/contact/landing-page';
+      }
 
       const response = await fetch(apiUrl, {
         method: 'POST',

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./DocsLayout.css";
+import { getMerchantPortalUrl } from "../utils/getMerchantPortalUrl";
 
 const DocsLayout = ({
   children,
@@ -10,10 +11,7 @@ const DocsLayout = ({
 }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const merchantPortalUrl =
-    process.env.NODE_ENV === "production"
-      ? "https://business.ottoafrica.com"
-      : "http://localhost:3001";
+  const merchantPortalUrl = getMerchantPortalUrl();
 
   return (
     <div className="docs-layout">

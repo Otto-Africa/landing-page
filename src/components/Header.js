@@ -78,13 +78,13 @@ const Header = () => {
               Support
             </Link>
             <a
-              href={process.env.NODE_ENV === 'production' ? 'https://business.ottoafrica.com' : 'http://localhost:3001'}
+              href={getMerchantPortalUrl()}
               className="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium"
             >
               Sign In
             </a>
             <a
-              href={process.env.NODE_ENV === 'production' ? 'https://business.ottoafrica.com' : 'http://localhost:3001'}
+              href={getMerchantPortalUrl()}
               className="bg-otto-blue text-white px-6 py-2 rounded-full hover:bg-black transition-colors duration-200 font-medium"
             >
               Get Started
@@ -136,14 +136,14 @@ const Header = () => {
                 </Link>
                 <div className="pt-2 space-y-2">
                   <a
-                    href={process.env.NODE_ENV === 'production' ? 'https://business.ottoafrica.com' : 'http://localhost:3001'}
+                    href={getMerchantPortalUrl()}
                     className="block text-gray-600 hover:text-gray-900"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Sign In
                   </a>
                   <a
-                    href={process.env.NODE_ENV === 'production' ? 'https://business.ottoafrica.com' : 'http://localhost:3001'}
+                    href={getMerchantPortalUrl()}
                     className="block bg-otto-blue text-white px-4 py-2 rounded-full text-center hover:bg-black transition-colors duration-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import { getMerchantPortalUrl } from "../utils/getMerchantPortalUrl";
 
 const Hero = () => {
-  const merchantPortalUrl =
-    process.env.NODE_ENV === "production"
-      ? "https://business.ottoafrica.com"
-      : "http://localhost:3001";
+  const merchantPortalUrl = getMerchantPortalUrl();
 
   const heroRef = useScrollAnimation({ threshold: 0.1 });
 
