@@ -15,17 +15,25 @@ const Page404 = () => {
 							className="h-80"
 							animationData={animationData}
 						/>
-						<p className="text-[36px] font-semibold">
-							Page not found
-						</p>
+					<p className="text-[36px] font-semibold">
+						Page not found
+					</p>
+					<div className="flex gap-4 mt-8">
 						<div
-							className={`text-[18px] ${"bg-[#1b3359] hover:bg-[#1e2d46] text-white"} text-[16px] mt-8 text-center cursor-pointer  px-8 py-4 rounded-md w-fit`}
+							className={`text-[18px] ${"bg-[#1b3359] hover:bg-[#1e2d46] text-white"} text-[16px] text-center cursor-pointer  px-8 py-4 rounded-md w-fit`}
+							onClick={() => {
+								navigate("/docs");
+							}}>
+							Go to Documentation
+						</div>
+						<div
+							className={`text-[18px] ${"bg-gray-200 hover:bg-gray-300 text-gray-800"} text-[16px] text-center cursor-pointer  px-8 py-4 rounded-md w-fit`}
 							onClick={() => {
 								navigate("/");
 							}}>
-							{" "}
 							Back to home
 						</div>
+					</div>
 					</div>
 				</div>
 			}

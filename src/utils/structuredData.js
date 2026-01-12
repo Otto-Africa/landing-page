@@ -90,9 +90,9 @@ export const getWebsiteSchema = () => ({
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://ottoafrica.com/search?q={search_term_string}",
+        urlTemplate: "https://ottoafrica.com/docs",
       },
-      "query-input": "required name=search_term_string",
+      "query-input": "optional name=search_term_string",
     },
   ],
   mainEntity: {

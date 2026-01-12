@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import CookieConsent from "./components/CookieConsent";
 
@@ -106,8 +106,8 @@ function App() {
         {/* Checkout */}
         <Route path="/checkout" element={<Checkout />} />
 
-        {/* 404 Fallback - redirect to home */}
-        <Route path="*" element={<Landing />} />
+        {/* 404 Fallback - redirect to docs */}
+        <Route path="*" element={<Navigate to="/docs" replace />} />
       </Routes>
     </Router>
   );
