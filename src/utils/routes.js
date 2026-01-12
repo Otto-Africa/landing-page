@@ -31,4 +31,7 @@ export const paths = {
 	DOCS_SDKS: "/docs/sdks",
 	DOCS_TESTING: "/docs/testing",
 	DOCS_SUPPORT: "/docs/support",
+
+	// Gift Card Share
+	GIFT_CARD_SHARE: "/gift-cards/:id",
 };

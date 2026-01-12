@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getMerchantPortalUrl } from '../utils/getMerchantPortalUrl';
 
 const Header = () => {
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);

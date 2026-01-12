@@ -40,6 +40,11 @@ import SDKs from "./pages/docs/sdks";
 import Testing from "./pages/docs/testing";
 import Support from "./pages/docs/support";
 
+// Gift Card Share
+import GiftCardShare from "./pages/GiftCardShare";
+import Pricing from "./pages/Pricing";
+import Checkout from "./pages/Checkout";
+
 // Import routes
 import { paths } from "./utils/routes";
 
@@ -91,6 +96,15 @@ function App() {
         <Route path={paths.DOCS_SDKS} element={<SDKs />} />
         <Route path={paths.DOCS_TESTING} element={<Testing />} />
         <Route path={paths.DOCS_SUPPORT} element={<Support />} />
+
+        {/* Gift Card Share */}
+        <Route path="/gift-cards/:id" element={<GiftCardShare />} />
+
+        {/* Pricing */}
+        <Route path="/pricing" element={<Pricing />} />
+
+        {/* Checkout */}
+        <Route path="/checkout" element={<Checkout />} />
 
         {/* 404 Fallback - redirect to home */}
         <Route path="*" element={<Landing />} />
