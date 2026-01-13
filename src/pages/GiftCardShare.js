@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import SEO from "../components/SEO";
 import "./GiftCardShare.css";
 
 const GiftCardShare = () => {
@@ -54,7 +55,14 @@ const GiftCardShare = () => {
   }
 
   return (
-    <div className="gift-card-share-container">
+    <>
+      <SEO
+        title="Gift Card - Otto Africa"
+        description="View your Otto Africa gift card. Download the Otto app to access and use your digital gift card."
+        keywords="gift card, digital gift card, Otto gift card"
+        url={`https://ottoafrica.com/gift-cards/${id}`}
+      />
+      <div className="gift-card-share-container">
       <div className="gift-card-share-content">
         <div className="gift-card-icon">🎁</div>
         <h1>View Gift Card in App</h1>
@@ -93,6 +101,7 @@ const GiftCardShare = () => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 

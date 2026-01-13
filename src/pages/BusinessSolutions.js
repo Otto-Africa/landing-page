@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const BusinessSolutions = () => {
@@ -11,6 +12,12 @@ const BusinessSolutions = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Business Solutions - Otto Africa"
+        description="Enterprise-grade payment solutions for modern businesses. Scale your business with advanced analytics, team management, and comprehensive financial tools."
+        keywords="business payment solutions, enterprise payments, payment processing for businesses, payment infrastructure, business payment API"
+        url="https://ottoafrica.com/solutions/business"
+      />
       <Header />
 
       {/* Hero Section */}

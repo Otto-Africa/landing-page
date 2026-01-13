@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const CookiePolicy = () => {
@@ -8,6 +9,12 @@ const CookiePolicy = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Cookie Policy - Otto Africa"
+        description="Otto Africa's Cookie Policy. Learn how we use cookies and similar tracking technologies on our website and services."
+        keywords="cookie policy, cookies, tracking technologies, Otto Africa cookies"
+        url="https://ottoafrica.com/cookie-policy"
+      />
       <Header />
 
       <section ref={contentRef} className="pt-32 pb-20 bg-white">

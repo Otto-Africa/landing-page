@@ -12,7 +12,20 @@ const SEO = ({
   structuredData = null,
 }) => {
   const fullTitle = title.includes('Otto') ? title : `${title} | Otto Africa`;
-  const fullUrl = url.startsWith('http') ? url : `https://ottoafrica.com${url}`;
+  
+  // Normalize URL: ensure it's https://ottoafrica.com (no www, no trailing slash except root)
+  let fullUrl = url.startsWith('http') ? url : `https://ottoafrica.com${url}`;
+  // Remove www if present and ensure https
+  fullUrl = fullUrl.replace(/^https?:\/\/(www\.)?/, 'https://');
+  // Remove trailing slash except for root domain
+  if (fullUrl !== 'https://ottoafrica.com' && fullUrl.endsWith('/')) {
+    fullUrl = fullUrl.slice(0, -1);
+  }
+  // Ensure it starts with https://ottoafrica.com (canonical domain)
+  if (!fullUrl.startsWith('https://ottoafrica.com')) {
+    fullUrl = fullUrl.replace(/^https?:\/\/[^/]+/, 'https://ottoafrica.com');
+  }
+  
   const fullImage = image.startsWith('http') ? image : `https://ottoafrica.com${image}`;
 
   useEffect(() => {

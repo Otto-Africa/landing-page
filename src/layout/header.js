@@ -25,13 +25,13 @@ const Header = () => {
 			title: "QR Payments",
 			subtitle: "Text Here for QR ",
 			icon: "/img/logos/Favicon - White@4x-8.png",
-			route: "/qr-payments",
+			route: "/about/qr-payments",
 		},
 		{
 			title: "Gift Cards",
 			subtitle: "Text Here for Gift Cards ",
 			icon: "/img/logos/Favicon - White@4x-8.png",
-			route: "/gift-cards",
+			route: "/about/gift-cards",
 		},
 	];
 

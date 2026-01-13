@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const PersonalSolutions = () => {
@@ -9,6 +10,12 @@ const PersonalSolutions = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Personal Payment Solutions - Otto Africa"
+        description="Simple and secure payment solutions for individuals. Send money, receive payments, and manage your finances with ease."
+        keywords="personal payments, individual payment solutions, send money, receive payments, personal finance"
+        url="https://ottoafrica.com/solutions/personal"
+      />
       <Header />
         {/* Hero Section */}
         <section ref={heroRef} className="pt-20 pb-16 bg-white">

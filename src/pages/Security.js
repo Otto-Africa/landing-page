@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const Security = () => {
@@ -8,6 +9,12 @@ const Security = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Security - Otto Africa"
+        description="Learn about Otto Africa's security measures, PCI DSS compliance, encryption, and fraud protection to keep your data and transactions safe."
+        keywords="security, data protection, PCI DSS, encryption, fraud protection, Otto Africa security"
+        url="https://ottoafrica.com/security"
+      />
       <Header />
 
       <section ref={contentRef} className="pt-32 pb-20 bg-white">

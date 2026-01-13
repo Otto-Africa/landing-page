@@ -1,8 +1,16 @@
 import React from "react";
+import SEO from "../components/SEO";
 
 const DataDeletion = () => {
 	return (
-		<div className="max-w-2xl mx-auto px-4 py-8">
+		<>
+			<SEO
+				title="Account and Data Deletion - Otto Africa"
+				description="Learn how to delete your Otto Africa account and request data deletion. Follow our step-by-step guide to remove your account and personal data."
+				keywords="account deletion, data deletion, delete account, Otto Africa account deletion"
+				url="https://ottoafrica.com/otto-data-deletion"
+			/>
+			<div className="max-w-2xl mx-auto px-4 py-8">
 			<h1 className="text-3xl font-bold mb-4">
 				Otto Account and Data Deletion
 			</h1>
@@ -54,6 +62,7 @@ const DataDeletion = () => {
 				</p>
 			</div>
 		</div>
+		</>
 	);
 };
 

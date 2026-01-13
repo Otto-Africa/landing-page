@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const PrivacyPolicy = () => {
@@ -8,6 +9,12 @@ const PrivacyPolicy = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Privacy Policy - Otto Africa"
+        description="Otto Africa's Privacy Policy. Learn how we collect, use, disclose, and safeguard your information when you use our payment platform and services."
+        keywords="privacy policy, data protection, user privacy, Otto Africa privacy"
+        url="https://ottoafrica.com/privacy-policy"
+      />
       <Header />
 
       <section ref={contentRef} className="pt-32 pb-20 bg-white">

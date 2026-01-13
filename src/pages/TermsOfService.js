@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const TermsOfService = () => {
@@ -8,6 +9,12 @@ const TermsOfService = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Terms of Service - Otto Africa"
+        description="Otto Africa's Terms of Service. Read our terms and conditions for using our payment platform, mobile applications, and related services."
+        keywords="terms of service, terms and conditions, user agreement, Otto Africa terms"
+        url="https://ottoafrica.com/terms-of-service"
+      />
       <Header />
 
       <section ref={contentRef} className="pt-32 pb-20 bg-white">

@@ -3,13 +3,23 @@
   RewriteEngine On
   RewriteBase /
   
-  # Redirect www to non-www (or vice versa - adjust as needed)
+  # Redirect www to non-www AND force HTTPS in one step (prevents multiple redirects)
   RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
   RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
   
-  # Force HTTPS
+  # Force HTTPS for non-www (only if not already HTTPS)
   RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+  
+  # Remove trailing slashes (except for root and existing files/directories)
+  # Note: We allow trailing slashes for React Router compatibility
+  # This rule can be enabled if you want to remove trailing slashes
+  # RewriteCond %{REQUEST_FILENAME} !-f
+  # RewriteCond %{REQUEST_FILENAME} !-d
+  # RewriteCond %{REQUEST_URI} (.+)/$
+  # RewriteCond %{REQUEST_URI} !^/$
+  # RewriteRule ^(.+)/$ /$1 [R=301,L]
   
   # Handle React Router - serve index.html for all routes
   RewriteCond %{REQUEST_FILENAME} !-f
