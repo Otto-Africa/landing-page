@@ -59,7 +59,9 @@ const Pricing = () => {
           }
         }
       } catch (err) {
-        console.error("Error fetching tiers:", err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error("Error fetching tiers:", err);
+        }
       }
     };
 

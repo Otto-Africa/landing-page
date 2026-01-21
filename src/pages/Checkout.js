@@ -84,7 +84,9 @@ const Checkout = () => {
           setError(errorData.message || "Failed to load subscription details. Please try again.");
         }
       } catch (err) {
-        console.error("Error fetching tiers:", err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error("Error fetching tiers:", err);
+        }
         setError("Network error. Please check your connection and try again.");
       }
     };
