@@ -250,26 +250,38 @@ const ErrorHandling = () => {
       // Handle error
       if (response.status === 401) {
         // Invalid API key
-        console.error('Authentication failed:', data.message);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Authentication failed:', data.message);
+        }
       } else if (response.status === 422) {
         // Validation errors
-        console.error('Validation errors:', data.errors);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Validation errors:', data.errors);
+        }
       } else if (response.status === 429) {
         // Rate limit exceeded
         const retryAfter = response.headers.get('Retry-After');
-        console.error('Rate limit exceeded. Retry after:', retryAfter);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Rate limit exceeded. Retry after:', retryAfter);
+        }
       } else {
         // Other errors
-        console.error('Error:', data.message);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error:', data.message);
+        }
       }
       return;
     }
 
     // Success
-    console.log('Success:', data);
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Success:', data);
+    }
   } catch (error) {
     // Network or other errors
-    console.error('Request failed:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Request failed:', error);
+    }
   }
 }`}
         />
