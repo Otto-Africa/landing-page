@@ -114,6 +114,68 @@
   100% { transform: rotate(360deg); }
 }
 
+.gift-card-preview {
+  border-radius: 16px;
+  padding: 24px 20px;
+  margin: 0 0 24px;
+  color: #fff;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gift-card-preview-title {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.gift-card-preview-value {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.gift-card-preview-merchant {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.gift-card-code-box {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.gift-card-code-label {
+  font-size: 13px;
+  color: #718096;
+  margin: 0 0 8px;
+}
+
+.gift-card-code {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #1a202c;
+  margin: 0;
+}
+
+.gift-card-cta-text {
+  font-size: 15px;
+  color: #4a5568;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.gift-card-alt {
+  font-size: 14px;
+  color: #718096;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
 @media (max-width: 640px) {
   .gift-card-share-content {
     padding: 32px 24px;

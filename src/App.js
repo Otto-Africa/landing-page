@@ -42,6 +42,7 @@ import Support from "./pages/docs/support";
 
 // Gift Card Share
 import GiftCardShare from "./pages/GiftCardShare";
+import GiftCardReceive from "./pages/GiftCardReceive";
 import Pricing from "./pages/Pricing";
 import Checkout from "./pages/Checkout";
 
@@ -97,8 +98,10 @@ function App() {
         <Route path={paths.DOCS_TESTING} element={<Testing />} />
         <Route path={paths.DOCS_SUPPORT} element={<Support />} />
 
-        {/* Gift Card Share */}
+        {/* Gift Card Share (legacy /gift-cards/:id) */}
         <Route path="/gift-cards/:id" element={<GiftCardShare />} />
+        {/* Gift Card Receive – link from email/SMS: ?token= */}
+        <Route path="/gift-cards/receive" element={<GiftCardReceive />} />
 
         {/* Pricing */}
         <Route path="/pricing" element={<Pricing />} />

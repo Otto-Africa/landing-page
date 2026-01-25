@@ -43,7 +43,7 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Headline - Large typography with animated word */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium text-gray-900 mb-8 leading-tight scroll-animate">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-medium text-gray-900 mb-8 leading-tight scroll-animate">
             <span
               key={currentWordIndex}
               className="block text-otto-blue font-medium animate-fade-in"
@@ -54,7 +54,7 @@ const Hero = () => {
           </h1>
 
           {/* Sub-headline - Clear value prop with keywords */}
-          <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 leading-8 mb-12 scroll-animate delay-100 max-w-3xl mx-auto">
+          <p className="text-xl md:text-xl lg:text-2xl text-gray-600 leading-8 mb-12 scroll-animate delay-100 max-w-3xl mx-auto">
             The all-in-one payment infrastructure built for Africa's most
             ambitious businesses. Accept payments, manage gift cards, and launch
             loyalty programs with ease.
