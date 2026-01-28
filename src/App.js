@@ -17,6 +17,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import Security from "./pages/Security";
+import AccountDeletion from "./pages/AccountDeletion";
+import Page404 from "./pages/404";
 
 // About sub-pages
 import QRPayments from "./pages/about/qr-payments";
@@ -75,7 +77,8 @@ function App() {
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="/security" element={<Security />} />
-        
+        <Route path="/account-deletion" element={<AccountDeletion />} />
+
         {/* About sub-pages */}
         <Route path="/about/qr-payments" element={<QRPayments />} />
         <Route path="/about/gift-cards" element={<GiftCards />} />
@@ -109,8 +112,8 @@ function App() {
         {/* Checkout */}
         <Route path="/checkout" element={<Checkout />} />
 
-        {/* 404 Fallback - redirect to docs */}
-        <Route path="*" element={<Navigate to="/docs" replace />} />
+        {/* 404 Fallback */}
+        <Route path="*" element={<Page404 />} />
       </Routes>
     </Router>
   );
