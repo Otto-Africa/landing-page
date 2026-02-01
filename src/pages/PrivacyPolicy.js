@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
@@ -7,7 +8,10 @@ import UserTypeToggle from "../components/UserTypeToggle";
 
 const PrivacyPolicy = () => {
   const contentRef = useScrollAnimation({ threshold: 0.1 });
-  const [userType, setUserType] = useState("merchant");
+  const [searchParams] = useSearchParams();
+  const viewParam = useMemo(() => searchParams.get("view"), [searchParams]);
+  const initialView = viewParam === "customer" || viewParam === "merchant" ? viewParam : "merchant";
+  const [userType, setUserType] = useState(initialView);
 
   return (
     <div className="min-h-screen bg-white">
