@@ -34,4 +34,7 @@ export const paths = {
 
 	// Gift Card Share
 	GIFT_CARD_SHARE: "/gift-cards/:id",
+
+	// Pay (merchant QR scan)
+	PAY: "/pay/:qrId",
 };

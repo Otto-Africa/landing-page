@@ -45,6 +45,7 @@ import Support from "./pages/docs/support";
 // Gift Card Share
 import GiftCardShare from "./pages/GiftCardShare";
 import GiftCardReceive from "./pages/GiftCardReceive";
+import PayPage from "./pages/PayPage";
 import Pricing from "./pages/Pricing";
 import Checkout from "./pages/Checkout";
 
@@ -105,6 +106,9 @@ function App() {
         <Route path="/gift-cards/:id" element={<GiftCardShare />} />
         {/* Gift Card Receive – link from email/SMS: ?token= */}
         <Route path="/gift-cards/receive" element={<GiftCardReceive />} />
+
+        {/* Pay – scan merchant QR: /pay/:qrId?amount= (deeplink to app or download) */}
+        <Route path="/pay/:qrId" element={<PayPage />} />
 
         {/* Pricing */}
         <Route path="/pricing" element={<Pricing />} />
