@@ -22,6 +22,7 @@ const GiftCards = () => {
       icon: '📚',
       items: [
         { path: '/docs/gift-cards', label: 'Gift Cards' },
+        { path: '/docs/investment-certificates', label: 'Investment Certificates' },
         { path: '/docs/transactions', label: 'Transactions' },
         { path: '/docs/loyalty', label: 'Loyalty Programs' },
         { path: '/docs/qr-codes', label: 'QR Codes' },
@@ -50,6 +51,7 @@ const GiftCards = () => {
 
   const onThisPageItems = [
     { href: '#overview', label: 'Overview' },
+    { href: '#merchant-types', label: 'Merchant Types & Gift Card Types' },
     { href: '#templates', label: 'Gift Card Templates' },
     { href: '#instances', label: 'Gift Card Instances' },
     { href: '#redemption', label: 'Redemption Flow' },
@@ -95,6 +97,25 @@ const GiftCards = () => {
           <li><strong>Gift Card Templates:</strong> Reusable designs that define denominations, styling, and redemption rules</li>
           <li><strong>Gift Card Instances:</strong> Individual gift cards purchased by customers with unique codes</li>
         </ul>
+
+        <h2 id="merchant-types">Merchant Types & Gift Card Types</h2>
+
+        <p>
+          Otto distinguishes two <strong>merchant categories</strong> (set at signup): <strong>Merchant</strong> and <strong>Investment provider</strong>.
+        </p>
+        <ul className="list-disc list-inside space-y-2 mb-4">
+          <li><strong>Merchant:</strong> Can create and manage <strong>regular gift cards</strong> only (templates and instances).</li>
+          <li><strong>Investment provider:</strong> Can create both <strong>regular gift cards</strong> and <strong>investment certificates</strong> (investment gift products, e.g. held in trust, NAV-based).</li>
+        </ul>
+        <p>
+          Gift card templates have a <code>certificate_type</code>: <code>STANDARD</code> (regular gift card) or <code>INVESTMENT</code> (investment certificate). When creating a template via the API, you may send <code>certificate_type</code>; default is <code>STANDARD</code>. Only businesses registered as <strong>Investment providers</strong> may create templates with <code>certificate_type: "INVESTMENT"</code>; otherwise the API returns <strong>403</strong>.
+        </p>
+        <p>
+          Listing templates (e.g. <code>GET /merchant/giftcards/templates</code>) returns all templates for your business; each includes <code>certificate_type</code>. For the Investment Certificates API (list certificates, reconciliation, sync value), see <a href="/docs/investment-certificates" className="text-otto-blue hover:underline">Investment Certificates</a> — those endpoints are only available to businesses registered as Investment providers.
+        </p>
+        <p>
+          <strong>API keys:</strong> Keys are scoped by your business type. Keys created for a <strong>Merchant</strong> business can call gift card, transactions, and related endpoints but <em>cannot</em> call investment certificate endpoints. Keys created for an <strong>Investment provider</strong> business have full access, including investment certificate endpoints. In the merchant portal (Settings → API Keys), each key shows its type (Merchant or Investment provider).
+        </p>
 
         <h2 id="templates">Gift Card Templates</h2>
 
