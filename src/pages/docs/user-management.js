@@ -22,6 +22,7 @@ const UserManagement = () => {
       icon: "📚",
       items: [
         { path: "/docs/gift-cards", label: "Gift Cards" },
+        { path: "/docs/investment-certificates", label: "Investment Certificates" },
         { path: "/docs/transactions", label: "Transactions" },
         { path: "/docs/loyalty", label: "Loyalty Programs" },
         { path: "/docs/qr-codes", label: "QR Codes" },
@@ -86,7 +87,7 @@ const UserManagement = () => {
 
         <div className="api-endpoint">
           <span className="method post">POST</span>
-          <strong>/v1/merchant/users</strong>
+          <strong>/api/merchant/users</strong>
           <br />
           <span className="description">Create a new staff user</span>
         </div>
@@ -117,7 +118,7 @@ const UserManagement = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="bash"
-                  code={`curl -X POST "https://api.ottoafrica.com/v1/merchant/users" \\
+                  code={`curl -X POST "https://api.ottoafrica.com/api/merchant/users" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -133,7 +134,7 @@ const UserManagement = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="javascript"
-                  code={`const response = await fetch('https://api.ottoafrica.com/v1/merchant/users', {
+                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/users', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -158,7 +159,7 @@ const data = await response.json();`}
                   code={`import requests
 
 response = requests.post(
-    'https://api.ottoafrica.com/v1/merchant/users',
+    'https://api.ottoafrica.com/api/merchant/users',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -221,14 +222,14 @@ data = response.json()`}
 
         <div className="api-endpoint">
           <span className="method get">GET</span>
-          <strong>/v1/merchant/users</strong>
+          <strong>/api/merchant/users</strong>
           <br />
           <span className="description">List all staff users with pagination</span>
         </div>
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/v1/merchant/users?page=1&per_page=10&role=cashier" \\
+          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/users?page=1&per_page=10&role=cashier" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -275,14 +276,14 @@ data = response.json()`}
 
         <div className="api-endpoint">
           <span className="method put">PUT</span>
-          <strong>/v1/merchant/users/{`{id}`}</strong>
+          <strong>/api/merchant/users/{`{id}`}</strong>
           <br />
           <span className="description">Update staff user details</span>
         </div>
 
         <CodeBlock
           language="bash"
-          code={`curl -X PUT "https://api.ottoafrica.com/v1/merchant/users/456" \\
+          code={`curl -X PUT "https://api.ottoafrica.com/api/merchant/users/456" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -298,14 +299,14 @@ data = response.json()`}
 
         <div className="api-endpoint">
           <span className="method get">GET</span>
-          <strong>/v1/merchant/users/roles</strong>
+          <strong>/api/merchant/users/roles</strong>
           <br />
           <span className="description">List all available roles and their permissions</span>
         </div>
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/v1/merchant/users/roles" \\
+          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/users/roles" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -338,14 +339,14 @@ data = response.json()`}
 
         <div className="api-endpoint">
           <span className="method delete">DELETE</span>
-          <strong>/v1/merchant/users/{`{id}`}</strong>
+          <strong>/api/merchant/users/{`{id}`}</strong>
           <br />
           <span className="description">Deactivate a staff user</span>
         </div>
 
         <CodeBlock
           language="bash"
-          code={`curl -X DELETE "https://api.ottoafrica.com/v1/merchant/users/456" \\
+          code={`curl -X DELETE "https://api.ottoafrica.com/api/merchant/users/456" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -357,7 +358,7 @@ data = response.json()`}
         <div className="docs-alert success">
           <strong>Need Help?</strong> Check the{" "}
           <a
-            href="https://api.ottoafrica.com/v1/docs"
+            href="https://api.ottoafrica.com/api/docs"
             className="underline"
             target="_blank"
             rel="noopener noreferrer"

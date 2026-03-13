@@ -20,6 +20,7 @@ const Testing = () => {
       icon: '📚',
       items: [
         { path: '/docs/gift-cards', label: 'Gift Cards' },
+        { path: '/docs/investment-certificates', label: 'Investment Certificates' },
         { path: '/docs/transactions', label: 'Transactions' },
         { path: '/docs/loyalty', label: 'Loyalty Programs' },
         { path: '/docs/qr-codes', label: 'QR Codes' },
@@ -123,11 +124,11 @@ const Testing = () => {
         <CodeBlock
           language="bash"
           code={`# Test environment - uses test databases
-curl -X GET "https://api.ottoafrica.com/v1/merchant/giftcards" \\
+curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
   -H "Authorization: Bearer sk_test_your_test_key_here"
 
 # Production environment - uses live databases
-curl -X GET "https://api.ottoafrica.com/v1/merchant/giftcards" \\
+curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
   -H "Authorization: Bearer sk_live_your_live_key_here"`}
         />
 
@@ -249,7 +250,7 @@ curl -X GET "https://api.ottoafrica.com/v1/merchant/giftcards" \\
         </div>
 
         <div className="docs-alert success">
-          <strong>Need Help?</strong> Check the <a href="https://api.ottoafrica.com/v1/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for complete endpoint documentation,
+          <strong>Need Help?</strong> Check the <a href="https://api.ottoafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for complete endpoint documentation,
           or visit our <a href="/docs/support" className="underline">Support page</a>.
         </div>
       </div>

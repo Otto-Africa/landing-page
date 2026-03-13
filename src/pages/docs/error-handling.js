@@ -20,6 +20,7 @@ const ErrorHandling = () => {
       icon: "📚",
       items: [
         { path: "/docs/gift-cards", label: "Gift Cards" },
+        { path: "/docs/investment-certificates", label: "Investment Certificates" },
         { path: "/docs/transactions", label: "Transactions" },
         { path: "/docs/loyalty", label: "Loyalty Programs" },
         { path: "/docs/qr-codes", label: "QR Codes" },
@@ -235,7 +236,7 @@ const ErrorHandling = () => {
           language="javascript"
           code={`async function makeRequest() {
   try {
-    const response = await fetch('https://api.ottoafrica.com/v1/merchant/giftcards', {
+    const response = await fetch('https://api.ottoafrica.com/api/merchant/giftcards', {
       method: 'POST',
       headers: {
         'Authorization': 'Bearer your_api_key',
@@ -294,7 +295,7 @@ const ErrorHandling = () => {
 
 try:
     response = requests.post(
-        'https://api.ottoafrica.com/v1/merchant/giftcards',
+        'https://api.ottoafrica.com/api/merchant/giftcards',
         headers={
             'Authorization': 'Bearer your_api_key',
             'Content-Type': 'application/json'

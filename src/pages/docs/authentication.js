@@ -22,6 +22,7 @@ const Authentication = () => {
       icon: '📚',
       items: [
         { path: '/docs/gift-cards', label: 'Gift Cards' },
+        { path: '/docs/investment-certificates', label: 'Investment Certificates' },
         { path: '/docs/transactions', label: 'Transactions' },
         { path: '/docs/loyalty', label: 'Loyalty Programs' },
         { path: '/docs/qr-codes', label: 'QR Codes' },
@@ -80,9 +81,9 @@ const Authentication = () => {
         </p>
 
         <div className="docs-alert info">
-          <strong>In a nutshell:</strong> Include your API key in the <code>Authorization</code> header
-          using the Bearer scheme. Each API key can have specific permissions (scopes) that control what
-          actions it can perform.
+          <strong>In a nutshell:</strong> For the public/partner API, use only an <strong>API key</strong> in the <code>Authorization</code> header
+          as <code>Bearer sk_test_…</code> or <code>Bearer sk_live_…</code>. Do not use login tokens (JWT) or other headers here.
+          Each API key can have specific permissions (scopes) that control what actions it can perform.
         </div>
 
         <h2 id="api-keys">API Key Management</h2>
@@ -254,8 +255,8 @@ const Authentication = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="bash"
-                  code={`curl -X GET "https://api.ottoafrica.com/v1/merchant/transactions" \\
-  -H "Authorization: Bearer your_api_key_here" \\
+                  code={`curl -X GET "https://api.ottoafrica.com/api/merchant/transactions" \\
+  -H "Authorization: Bearer sk_test_your_api_key_here" \\
   -H "Content-Type: application/json"`}
                 />
               </div>
@@ -264,10 +265,10 @@ const Authentication = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="javascript"
-                  code={`const response = await fetch('https://api.ottoafrica.com/v1/merchant/transactions', {
+                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/transactions', {
   method: 'GET',
   headers: {
-    'Authorization': 'Bearer your_api_key_here',
+    'Authorization': 'Bearer sk_test_your_api_key_here',
     'Content-Type': 'application/json'
   }
 });`}
@@ -281,9 +282,9 @@ const Authentication = () => {
                   code={`import requests
 
 response = requests.get(
-    'https://api.ottoafrica.com/v1/merchant/transactions',
+    'https://api.ottoafrica.com/api/merchant/transactions',
     headers={
-        'Authorization': 'Bearer your_api_key_here',
+        'Authorization': 'Bearer sk_test_your_api_key_here',
         'Content-Type': 'application/json'
     }
 )`}
@@ -408,8 +409,8 @@ response = requests.get(
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/v1/merchant/health" \\
-  -H "Authorization: Bearer your_api_key_here"`}
+          code={`curl -X GET "https://api.ottoafrica.com/api/health" \\
+  -H "Authorization: Bearer sk_test_your_api_key_here"`}
         />
 
         <p>
@@ -419,7 +420,7 @@ response = requests.get(
 
         <div className="docs-alert info">
           <strong>Need Help?</strong> Visit our <a href="/docs/support" className="underline">Support page</a> or
-          check the <a href="https://api.ottoafrica.com/v1/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for detailed endpoint documentation.
+          check the <a href="https://api.ottoafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for detailed endpoint documentation.
         </div>
       </div>
     </DocsLayout>

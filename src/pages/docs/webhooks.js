@@ -20,6 +20,7 @@ const Webhooks = () => {
       icon: '📚',
       items: [
         { path: '/docs/gift-cards', label: 'Gift Cards' },
+        { path: '/docs/investment-certificates', label: 'Investment Certificates' },
         { path: '/docs/transactions', label: 'Transactions' },
         { path: '/docs/loyalty', label: 'Loyalty Programs' },
         { path: '/docs/qr-codes', label: 'QR Codes' },
@@ -102,13 +103,13 @@ const Webhooks = () => {
 
         <div className="api-endpoint">
           <span className="method post">POST</span>
-          <strong>/v1/merchant/webhooks</strong><br />
+          <strong>/api/merchant/webhooks</strong><br />
           <span className="description">Create a new webhook endpoint</span>
         </div>
 
         <CodeBlock
           language="bash"
-          code={`curl -X POST "https://api.ottoafrica.com/v1/merchant/webhooks" \\
+          code={`curl -X POST "https://api.ottoafrica.com/api/merchant/webhooks" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -258,7 +259,7 @@ function verifyWebhookSignature(payload, signature, secret) {
         </p>
 
         <div className="docs-alert success">
-          <strong>Need Help?</strong> Check the <a href="https://api.ottoafrica.com/v1/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for complete endpoint documentation,
+          <strong>Need Help?</strong> Check the <a href="https://api.ottoafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for complete endpoint documentation,
           or visit our <a href="/docs/support" className="underline">Support page</a>.
         </div>
       </div>

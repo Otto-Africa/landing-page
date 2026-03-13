@@ -22,6 +22,7 @@ const QRCodes = () => {
       icon: "📚",
       items: [
         { path: "/docs/gift-cards", label: "Gift Cards" },
+        { path: "/docs/investment-certificates", label: "Investment Certificates" },
         { path: "/docs/transactions", label: "Transactions" },
         { path: "/docs/loyalty", label: "Loyalty Programs" },
         { path: "/docs/qr-codes", label: "QR Codes" },
@@ -92,7 +93,7 @@ const QRCodes = () => {
 
         <div className="api-endpoint">
           <span className="method post">POST</span>
-          <strong>/v1/merchant/qr/generate</strong>
+          <strong>/api/merchant/qr/generate</strong>
           <br />
           <span className="description">Generate a dynamic QR code for payment</span>
         </div>
@@ -123,7 +124,7 @@ const QRCodes = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="bash"
-                  code={`curl -X POST "https://api.ottoafrica.com/v1/merchant/qr/generate" \\
+                  code={`curl -X POST "https://api.ottoafrica.com/api/merchant/qr/generate" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -139,7 +140,7 @@ const QRCodes = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="javascript"
-                  code={`const response = await fetch('https://api.ottoafrica.com/v1/merchant/qr/generate', {
+                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/qr/generate', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -166,7 +167,7 @@ const data = await response.json();
                   code={`import requests
 
 response = requests.post(
-    'https://api.ottoafrica.com/v1/merchant/qr/generate',
+    'https://api.ottoafrica.com/api/merchant/qr/generate',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -215,14 +216,14 @@ data = response.json()
 
         <div className="api-endpoint">
           <span className="method get">GET</span>
-          <strong>/v1/merchant/qr/static</strong>
+          <strong>/api/merchant/qr/static</strong>
           <br />
           <span className="description">Retrieve your business static QR code</span>
         </div>
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/v1/merchant/qr/static" \\
+          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/qr/static" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -230,14 +231,14 @@ data = response.json()
 
         <div className="api-endpoint">
           <span className="method post">POST</span>
-          <strong>/v1/merchant/qr/static</strong>
+          <strong>/api/merchant/qr/static</strong>
           <br />
           <span className="description">Create or regenerate your static QR code</span>
         </div>
 
         <CodeBlock
           language="bash"
-          code={`curl -X POST "https://api.ottoafrica.com/v1/merchant/qr/static" \\
+          code={`curl -X POST "https://api.ottoafrica.com/api/merchant/qr/static" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -253,7 +254,7 @@ data = response.json()
 
         <div className="api-endpoint">
           <span className="method post">POST</span>
-          <strong>/v1/merchant/qr/scan</strong>
+          <strong>/api/merchant/qr/scan</strong>
           <br />
           <span className="description">Process a QR code scan for payment</span>
         </div>
@@ -284,7 +285,7 @@ data = response.json()
               <div className="tab-pane">
                 <CodeBlock
                   language="bash"
-                  code={`curl -X POST "https://api.ottoafrica.com/v1/merchant/qr/scan" \\
+                  code={`curl -X POST "https://api.ottoafrica.com/api/merchant/qr/scan" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -299,7 +300,7 @@ data = response.json()
               <div className="tab-pane">
                 <CodeBlock
                   language="javascript"
-                  code={`const response = await fetch('https://api.ottoafrica.com/v1/merchant/qr/scan', {
+                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/qr/scan', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -323,7 +324,7 @@ const data = await response.json();`}
                   code={`import requests
 
 response = requests.post(
-    'https://api.ottoafrica.com/v1/merchant/qr/scan',
+    'https://api.ottoafrica.com/api/merchant/qr/scan',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -379,7 +380,7 @@ data = response.json()`}
         <div className="docs-alert success">
           <strong>Need Help?</strong> Check the{" "}
           <a
-            href="https://api.ottoafrica.com/v1/docs"
+            href="https://api.ottoafrica.com/api/docs"
             className="underline"
             target="_blank"
             rel="noopener noreferrer"

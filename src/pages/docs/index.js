@@ -20,6 +20,7 @@ const DocsIndex = () => {
       icon: "📚",
       items: [
         { path: "/docs/gift-cards", label: "Gift Cards" },
+        { path: "/docs/investment-certificates", label: "Investment Certificates" },
         { path: "/docs/transactions", label: "Transactions" },
         { path: "/docs/loyalty", label: "Loyalty Programs" },
         { path: "/docs/qr-codes", label: "QR Codes" },
@@ -158,6 +159,34 @@ const DocsIndex = () => {
               <p className="text-gray-600 text-sm mb-4">
                 Create gift card templates, manage instances, verify and redeem
                 gift cards.
+              </p>
+              <div className="flex items-center text-otto-blue text-sm font-medium">
+                View API Reference
+                <svg
+                  className="ml-2 w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </div>
+            </Link>
+
+            <Link
+              to="/docs/investment-certificates"
+              className="block bg-white border border-gray-200 rounded-lg p-6 hover:border-otto-blue transition-all duration-200"
+            >
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Investment Certificates
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                For investment providers: list certificates, reconciliation, sync value. Requires Investment provider business type.
               </p>
               <div className="flex items-center text-otto-blue text-sm font-medium">
                 View API Reference

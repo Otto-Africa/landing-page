@@ -164,10 +164,10 @@ const GettingStarted = () => {
 
         <MultiLanguageCodeBlock
           examples={{
-            curl: `curl -X GET "https://api.ottoafrica.com/merchant/transactions" \\
+            curl: `curl -X GET "https://api.ottoafrica.com/api/merchant/transactions" \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json"`,
-            javascript: `const response = await fetch('https://api.ottoafrica.com/merchant/transactions', {
+            javascript: `const response = await fetch('https://api.ottoafrica.com/api/merchant/transactions', {
   method: 'GET',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -180,7 +180,7 @@ console.log(data);`,
             python: `import requests
 
 response = requests.get(
-    'https://api.ottoafrica.com/merchant/transactions',
+    'https://api.ottoafrica.com/api/merchant/transactions',
     headers={
         'Authorization': 'Bearer YOUR_API_KEY',
         'Content-Type': 'application/json'
@@ -210,7 +210,7 @@ print(data)`
 
         <MultiLanguageCodeBlock
           examples={{
-            curl: `curl -X POST "https://api.ottoafrica.com/merchant/giftcard-templates" \\
+            curl: `curl -X POST "https://api.ottoafrica.com/api/merchant/giftcard-templates" \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -220,7 +220,7 @@ print(data)`
     "currency": "GHS",
     "expires_in_days": 365
   }'`,
-            javascript: `const response = await fetch('https://api.ottoafrica.com/merchant/giftcard-templates', {
+            javascript: `const response = await fetch('https://api.ottoafrica.com/api/merchant/giftcard-templates', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -240,7 +240,7 @@ console.log(data);`,
             python: `import requests
 
 response = requests.post(
-    'https://api.ottoafrica.com/merchant/giftcard-templates',
+    'https://api.ottoafrica.com/api/merchant/giftcard-templates',
     headers={
         'Authorization': 'Bearer YOUR_API_KEY',
         'Content-Type': 'application/json'

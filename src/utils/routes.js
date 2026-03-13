@@ -20,6 +20,7 @@ export const paths = {
 	DOCS_GETTING_STARTED: "/docs/getting-started",
 	DOCS_AUTHENTICATION: "/docs/authentication",
 	DOCS_GIFT_CARDS: "/docs/gift-cards",
+	DOCS_INVESTMENT_CERTIFICATES: "/docs/investment-certificates",
 	DOCS_TRANSACTIONS: "/docs/transactions",
 	DOCS_LOYALTY: "/docs/loyalty",
 	DOCS_QR_CODES: "/docs/qr-codes",

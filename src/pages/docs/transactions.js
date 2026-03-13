@@ -22,6 +22,7 @@ const Transactions = () => {
       icon: '📚',
       items: [
         { path: '/docs/gift-cards', label: 'Gift Cards' },
+        { path: '/docs/investment-certificates', label: 'Investment Certificates' },
         { path: '/docs/transactions', label: 'Transactions' },
         { path: '/docs/loyalty', label: 'Loyalty Programs' },
         { path: '/docs/qr-codes', label: 'QR Codes' },

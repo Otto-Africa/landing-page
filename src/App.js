@@ -15,6 +15,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import InvestmentTermsAndConditions from "./pages/InvestmentTermsAndConditions";
 import CookiePolicy from "./pages/CookiePolicy";
 import Security from "./pages/Security";
 import AccountDeletion from "./pages/AccountDeletion";
@@ -30,6 +31,7 @@ import DocsIndex from "./pages/docs/index";
 import GettingStarted from "./pages/docs/getting-started";
 import Authentication from "./pages/docs/authentication";
 import DocsGiftCards from "./pages/docs/gift-cards";
+import InvestmentCertificates from "./pages/docs/investment-certificates";
 import Transactions from "./pages/docs/transactions";
 import DocsLoyalty from "./pages/docs/loyalty";
 import QRCodes from "./pages/docs/qr-codes";
@@ -45,6 +47,7 @@ import Support from "./pages/docs/support";
 // Gift Card Share
 import GiftCardShare from "./pages/GiftCardShare";
 import GiftCardReceive from "./pages/GiftCardReceive";
+import InvestmentGiftReceive from "./pages/InvestmentGiftReceive";
 import PayPage from "./pages/PayPage";
 import Pricing from "./pages/Pricing";
 import Checkout from "./pages/Checkout";
@@ -76,6 +79,7 @@ function App() {
         <Route path={paths.CONTACT} element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/investment-terms-and-conditions" element={<InvestmentTermsAndConditions />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="/security" element={<Security />} />
         <Route path="/account-deletion" element={<AccountDeletion />} />
@@ -90,6 +94,7 @@ function App() {
         <Route path={paths.DOCS_GETTING_STARTED} element={<GettingStarted />} />
         <Route path={paths.DOCS_AUTHENTICATION} element={<Authentication />} />
         <Route path={paths.DOCS_GIFT_CARDS} element={<DocsGiftCards />} />
+        <Route path={paths.DOCS_INVESTMENT_CERTIFICATES} element={<InvestmentCertificates />} />
         <Route path={paths.DOCS_TRANSACTIONS} element={<Transactions />} />
         <Route path={paths.DOCS_LOYALTY} element={<DocsLoyalty />} />
         <Route path={paths.DOCS_QR_CODES} element={<QRCodes />} />
@@ -106,6 +111,8 @@ function App() {
         <Route path="/gift-cards/:id" element={<GiftCardShare />} />
         {/* Gift Card Receive – link from email/SMS: ?token= */}
         <Route path="/gift-cards/receive" element={<GiftCardReceive />} />
+        {/* Investment Gift Receive – link from email/SMS: ?token= */}
+        <Route path="/investment-gift/receive" element={<InvestmentGiftReceive />} />
 
         {/* Pay – scan merchant QR: /pay/:qrId?amount= (deeplink to app or download) */}
         <Route path="/pay/:qrId" element={<PayPage />} />
