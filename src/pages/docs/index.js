@@ -34,13 +34,13 @@ const DocsIndex = () => {
                  <div className="text-gray-400 text-xs">javascript</div>
                  <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                </div>
-               <div className="text-pink-600">import <span className="text-gray-800">Otto</span> from <span className="text-green-600">"@otto/otto-js"</span>;</div>
-               <div className="text-blue-600 mt-2">const <span className="text-gray-800">otto = new Otto(</span><span className="text-green-600">"your_api_key"</span><span className="text-gray-800">);</span></div>
-               <div className="text-blue-600 mt-2">const <span className="text-gray-800">card = await otto.giftCards.create(&#123;</span></div>
-               <div className="text-gray-800 ml-4">name: <span className="text-green-600">"Premium Card"</span>,</div>
-               <div className="text-gray-800 ml-4">price: <span className="text-orange-500">100.00</span></div>
+               <div className="text-pink-600">import <span className="text-gray-800">&#123; OttoCustomerSdk &#125;</span> from <span className="text-green-600">"@ottoafrica/customer-sdk-js"</span>;</div>
+               <div className="text-blue-600 mt-2">const <span className="text-gray-800">sdk = new OttoCustomerSdk(&#123;</span></div>
+               <div className="text-gray-800 ml-4">baseUrl: <span className="text-green-600">"https://api.ottoafrica.com"</span>,</div>
+               <div className="text-gray-800 ml-4">clientToken: <span className="text-green-600">"&lt;from your server&gt;"</span>,</div>
                <div className="text-gray-800">&#125;);</div>
-               <div className="text-gray-500 mt-2">console.log(card.id);</div>
+               <div className="text-blue-600 mt-2">const <span className="text-gray-800">res = await sdk.lookupMember(</span><span className="text-green-600">"MEMBER-CODE"</span><span className="text-gray-800">);</span></div>
+               <div className="text-gray-500 mt-2">// npm: @ottoafrica/* — see /docs/sdks</div>
              </div>
           </div>
 

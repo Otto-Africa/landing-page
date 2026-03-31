@@ -68,7 +68,13 @@ curl -i -X POST "https://api-test.ottoafrica.com/api/merchant/loyalty/record-act
         <ul>
           <li><code>POST /api/auth/client-token</code> client token minting contract for customer SDK/popup sessions.</li>
           <li><code>POST /api/merchant/loyalty/programs/{`{id}`}/members/enroll</code> to generate a valid <code>member_code</code> without waiting for purchase auto-enrollment.</li>
-          <li>SDK workspace scaffold under <code>backend/sdks</code> with <code>@otto/events-sdk-node</code>, <code>@otto/customer-sdk-js</code>, and <code>@otto/loyalty-popup-widget</code>.</li>
+          <li>
+            npm packages (published, scope <code>@ottoafrica/*</code>, v0.1.1):{" "}
+            <a href="https://www.npmjs.com/package/@ottoafrica/events-sdk-node" target="_blank" rel="noopener noreferrer" className="text-[#00B4D8] hover:underline">events-sdk-node</a>,{" "}
+            <a href="https://www.npmjs.com/package/@ottoafrica/customer-sdk-js" target="_blank" rel="noopener noreferrer" className="text-[#00B4D8] hover:underline">customer-sdk-js</a>,{" "}
+            <a href="https://www.npmjs.com/package/@ottoafrica/loyalty-popup-widget" target="_blank" rel="noopener noreferrer" className="text-[#00B4D8] hover:underline">loyalty-popup-widget</a>
+            . Source in <code>backend/sdks</code>.
+          </li>
           <li>Phase test runner: <code>./scripts/run-loyalty-sdk-phase-tests.sh</code>.</li>
         </ul>
         <CodeBlock
