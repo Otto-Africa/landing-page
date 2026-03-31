@@ -40,7 +40,10 @@ const DocsIndex = () => {
                <div className="text-gray-800 ml-4">clientToken: <span className="text-green-600">"&lt;from your server&gt;"</span>,</div>
                <div className="text-gray-800">&#125;);</div>
                <div className="text-blue-600 mt-2">const <span className="text-gray-800">res = await sdk.lookupMember(</span><span className="text-green-600">"MEMBER-CODE"</span><span className="text-gray-800">);</span></div>
-               <div className="text-gray-500 mt-2">// npm: @ottoafrica/* — see /docs/sdks</div>
+               <div className="text-gray-500 mt-2 text-xs">
+                 <Link to="/docs/sdks" className="text-gray-500 hover:text-black underline-offset-2 hover:underline">npm @ottoafrica/*</Link>
+                 <span className="text-gray-400"> — loyalty SDKs</span>
+               </div>
              </div>
           </div>
 
