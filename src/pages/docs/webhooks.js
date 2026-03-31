@@ -5,47 +5,6 @@ import CodeBlock from '../../components/CodeBlock';
 import './docs.css';
 
 const Webhooks = () => {
-  const sidebarItems = [
-    {
-      title: 'Getting Started',
-      icon: '🚀',
-      items: [
-        { path: '/docs/getting-started', label: 'Introduction' },
-        { path: '/docs/authentication', label: 'Authentication' },
-        { path: '/docs/testing', label: 'Testing' },
-      ]
-    },
-    {
-      title: 'API Reference',
-      icon: '📚',
-      items: [
-        { path: '/docs/gift-cards', label: 'Gift Cards' },
-        { path: '/docs/investment-certificates', label: 'Investment Certificates' },
-        { path: '/docs/transactions', label: 'Transactions' },
-        { path: '/docs/loyalty', label: 'Loyalty Programs' },
-        { path: '/docs/qr-codes', label: 'QR Codes' },
-        { path: '/docs/settlements', label: 'Settlements' },
-        { path: '/docs/user-management', label: 'User Management' },
-      ]
-    },
-    {
-      title: 'Guides',
-      icon: '📖',
-      items: [
-        { path: '/docs/webhooks', label: 'Webhooks' },
-        { path: '/docs/error-handling', label: 'Error Handling' },
-        { path: '/docs/rate-limits', label: 'Rate Limits' },
-      ]
-    },
-    {
-      title: 'Resources',
-      icon: '🔧',
-      items: [
-        { path: '/docs/sdks', label: 'SDKs & Libraries' },
-        { path: '/docs/support', label: 'Support' },
-      ]
-    }
-  ];
 
   const onThisPageItems = [
     { href: '#overview', label: 'Overview' },
@@ -66,17 +25,12 @@ const Webhooks = () => {
       />
       <DocsLayout
         currentPage="/docs/webhooks"
-      sidebarItems={sidebarItems}
+      
       onThisPageItems={onThisPageItems}
+      nutshell="Webhooks let you receive real-time HTTP POST notifications when important events occur in your Otto account."
     >
       <div className="docs-content">
         <h1 id="overview">Webhooks</h1>
-
-        <div className="docs-alert info">
-          <strong>In a nutshell:</strong> Webhooks allow you to receive real-time notifications when important
-          events occur in your Otto account. Instead of polling our API for updates, we'll send HTTP POST requests
-          to your configured endpoint.
-        </div>
 
         <p>
           Webhooks allow you to receive real-time notifications when important events occur in your Otto account.

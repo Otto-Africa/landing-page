@@ -5,47 +5,6 @@ import CodeBlock from '../../components/CodeBlock';
 import './docs.css';
 
 const InvestmentCertificates = () => {
-  const sidebarItems = [
-    {
-      title: 'Getting Started',
-      icon: '🚀',
-      items: [
-        { path: '/docs/getting-started', label: 'Introduction' },
-        { path: '/docs/authentication', label: 'Authentication' },
-        { path: '/docs/testing', label: 'Testing' },
-      ]
-    },
-    {
-      title: 'API Reference',
-      icon: '📚',
-      items: [
-        { path: '/docs/gift-cards', label: 'Gift Cards' },
-        { path: '/docs/investment-certificates', label: 'Investment Certificates' },
-        { path: '/docs/transactions', label: 'Transactions' },
-        { path: '/docs/loyalty', label: 'Loyalty Programs' },
-        { path: '/docs/qr-codes', label: 'QR Codes' },
-        { path: '/docs/settlements', label: 'Settlements' },
-        { path: '/docs/user-management', label: 'User Management' },
-      ]
-    },
-    {
-      title: 'Guides',
-      icon: '📖',
-      items: [
-        { path: '/docs/webhooks', label: 'Webhooks' },
-        { path: '/docs/error-handling', label: 'Error Handling' },
-        { path: '/docs/rate-limits', label: 'Rate Limits' },
-      ]
-    },
-    {
-      title: 'Resources',
-      icon: '🔧',
-      items: [
-        { path: '/docs/sdks', label: 'SDKs & Libraries' },
-        { path: '/docs/support', label: 'Support' },
-      ]
-    }
-  ];
 
   const onThisPageItems = [
     { href: '#overview', label: 'Overview' },
@@ -65,15 +24,12 @@ const InvestmentCertificates = () => {
       />
       <DocsLayout
         currentPage="/docs/investment-certificates"
-        sidebarItems={sidebarItems}
+        
         onThisPageItems={onThisPageItems}
+        nutshell="Investment certificates are gift products for recipients and are available to Investment provider businesses only."
       >
         <div className="docs-content">
           <h1 id="overview">Investment Certificates API</h1>
-
-          <div className="docs-alert info">
-            <strong>In a nutshell:</strong> Investment certificates are gift products (e.g. held in trust, NAV-based) that customers can purchase for a recipient. These endpoints are for <strong>Investment providers</strong> only. Regular merchants use the <a href="/docs/gift-cards" className="text-otto-blue hover:underline">Gift Cards API</a> for standard gift cards.
-          </div>
 
           <div className="docs-alert warning">
             <strong>Access:</strong> All endpoints under <code>/merchant/investment-certificates</code> require your business to be registered as an <strong>Investment provider</strong>. Otherwise the API returns <strong>403 Forbidden</strong>.

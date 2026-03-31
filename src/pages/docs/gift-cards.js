@@ -7,47 +7,6 @@ import './docs.css';
 
 const GiftCards = () => {
 
-  const sidebarItems = [
-    {
-      title: 'Getting Started',
-      icon: '🚀',
-      items: [
-        { path: '/docs/getting-started', label: 'Introduction' },
-        { path: '/docs/authentication', label: 'Authentication' },
-        { path: '/docs/testing', label: 'Testing' },
-      ]
-    },
-    {
-      title: 'API Reference',
-      icon: '📚',
-      items: [
-        { path: '/docs/gift-cards', label: 'Gift Cards' },
-        { path: '/docs/investment-certificates', label: 'Investment Certificates' },
-        { path: '/docs/transactions', label: 'Transactions' },
-        { path: '/docs/loyalty', label: 'Loyalty Programs' },
-        { path: '/docs/qr-codes', label: 'QR Codes' },
-        { path: '/docs/settlements', label: 'Settlements' },
-        { path: '/docs/user-management', label: 'User Management' },
-      ]
-    },
-    {
-      title: 'Guides',
-      icon: '📖',
-      items: [
-        { path: '/docs/webhooks', label: 'Webhooks' },
-        { path: '/docs/error-handling', label: 'Error Handling' },
-        { path: '/docs/rate-limits', label: 'Rate Limits' },
-      ]
-    },
-    {
-      title: 'Resources',
-      icon: '🔧',
-      items: [
-        { path: '/docs/sdks', label: 'SDKs & Libraries' },
-        { path: '/docs/support', label: 'Support' },
-      ]
-    }
-  ];
 
   const onThisPageItems = [
     { href: '#overview', label: 'Overview' },
@@ -69,17 +28,12 @@ const GiftCards = () => {
       />
       <DocsLayout
         currentPage="/docs/gift-cards"
-      sidebarItems={sidebarItems}
+      
       onThisPageItems={onThisPageItems}
+      nutshell="Otto supports two gift card types: templates (reusable designs) and instances (individual purchased cards). Use the API to create templates, manage instances, verify balances, and process redemptions."
     >
       <div className="docs-content">
         <h1 id="overview">Gift Cards API</h1>
-
-        <div className="docs-alert info">
-          <strong>In a nutshell:</strong> Otto supports two types of gift cards - templates (reusable designs)
-          and instances (individual purchased cards). Use the API to create templates, manage instances, verify
-          balances, and process redemptions.
-        </div>
 
         <p>
           The Gift Cards API allows you to programmatically create, manage, and redeem gift cards
@@ -133,6 +87,8 @@ const GiftCards = () => {
         </div>
 
         <MultiLanguageCodeBlock
+          requestMethod="POST"
+          requestUrl="/merchant/giftcard-templates"
           examples={{
             curl: `curl -X POST "https://api.ottoafrica.com/merchant/giftcard-templates" \\
   -H "Authorization: Bearer your_api_key" \\
@@ -323,6 +279,8 @@ data = response.json()`
         </div>
 
         <MultiLanguageCodeBlock
+          requestMethod="POST"
+          requestUrl="/merchant/giftcards/{code}/redeem"
           examples={{
             curl: `curl -X POST "https://api.ottoafrica.com/merchant/giftcards/ABC123456/redeem" \\
   -H "Authorization: Bearer your_api_key" \\

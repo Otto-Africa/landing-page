@@ -7,50 +7,11 @@ import './docs.css';
 const Loyalty = () => {
   const [activeTab, setActiveTab] = useState('curl');
 
-  const sidebarItems = [
-    {
-      title: "Getting Started",
-      icon: "🚀",
-      items: [
-        { path: "/docs/getting-started", label: "Introduction" },
-        { path: "/docs/authentication", label: "Authentication" },
-        { path: "/docs/testing", label: "Testing" },
-      ],
-    },
-    {
-      title: "API Reference",
-      icon: "📚",
-      items: [
-        { path: "/docs/gift-cards", label: "Gift Cards" },
-        { path: "/docs/investment-certificates", label: "Investment Certificates" },
-        { path: "/docs/transactions", label: "Transactions" },
-        { path: "/docs/loyalty", label: "Loyalty Programs" },
-        { path: "/docs/qr-codes", label: "QR Codes" },
-        { path: "/docs/settlements", label: "Settlements" },
-        { path: "/docs/user-management", label: "User Management" },
-      ],
-    },
-    {
-      title: "Guides",
-      icon: "📖",
-      items: [
-        { path: "/docs/webhooks", label: "Webhooks" },
-        { path: "/docs/error-handling", label: "Error Handling" },
-        { path: "/docs/rate-limits", label: "Rate Limits" },
-      ],
-    },
-    {
-      title: "Resources",
-      icon: "🔧",
-      items: [
-        { path: "/docs/sdks", label: "SDKs & Libraries" },
-        { path: "/docs/support", label: "Support" },
-      ],
-    },
-  ];
 
   const onThisPageItems = [
     { href: "#overview", label: "Overview" },
+    { href: "#execution-status", label: "Execution Status" },
+    { href: "#implementation-status", label: "Implementation Status" },
     { href: "#programs", label: "Loyalty Programs" },
     { href: "#checkout-codes", label: "Program & Member Codes at Checkout" },
     { href: "#points", label: "Points Management" },
@@ -68,22 +29,64 @@ const Loyalty = () => {
       />
       <DocsLayout
         currentPage="/docs/loyalty"
-      sidebarItems={sidebarItems}
+      
       onThisPageItems={onThisPageItems}
+      nutshell="Create and manage customer loyalty programs with points, rewards, and analytics."
     >
       <div className="docs-content">
         <h1 id="overview">Loyalty Programs API</h1>
-
-        <div className="docs-alert info">
-          <strong>In a nutshell:</strong> Create and manage customer loyalty programs with points,
-          rewards, and comprehensive analytics. Award points for purchases, redeem points for rewards,
-          and track program performance.
-        </div>
 
         <p>
           The Loyalty Programs API allows you to build and manage customer loyalty programs programmatically.
           Create programs, award points, manage rewards, and track customer engagement.
         </p>
+        
+        <h2 id="execution-status">Execution Status (Tested)</h2>
+        <div className="docs-alert success">
+          <strong>Smoke-tested on test environment:</strong> <code>GET /api/health</code> returned 200, and merchant loyalty routes returned 401 without auth (expected). This confirms route availability and auth protection for integration.
+        </div>
+        <CodeBlock
+          language="bash"
+          code={`curl -i "https://api-test.ottoafrica.com/api/health"
+curl -i "https://api-test.ottoafrica.com/api/merchant/loyalty/programs"
+curl -i "https://api-test.ottoafrica.com/api/merchant/loyalty/lookup?member_code=ABCD-EFGH-IJKL"
+curl -i -X POST "https://api-test.ottoafrica.com/api/merchant/loyalty/record-activity" \\
+  -H "Content-Type: application/json" \\
+  -d '{"member_code":"ABCD-EFGH-IJKL","amount":50,"activity_type":"GIFT_CARD_PURCHASE"}'`}
+        />
+        <p>
+          For authenticated validation, use a valid merchant bearer token and a member code that belongs to your business.
+        </p>
+
+        <h2 id="implementation-status">Implementation Status (Current)</h2>
+        <div className="docs-alert success">
+          <strong>Executed locally end-to-end:</strong> Phase checks for loyalty SDK + popup implementation currently pass in backend.
+        </div>
+        <p>
+          The following implementation items are now available for local integration and test:
+        </p>
+        <ul>
+          <li><code>POST /api/auth/client-token</code> client token minting contract for customer SDK/popup sessions.</li>
+          <li><code>POST /api/merchant/loyalty/programs/{`{id}`}/members/enroll</code> to generate a valid <code>member_code</code> without waiting for purchase auto-enrollment.</li>
+          <li>SDK workspace scaffold under <code>backend/sdks</code> with <code>@otto/events-sdk-node</code>, <code>@otto/customer-sdk-js</code>, and <code>@otto/loyalty-popup-widget</code>.</li>
+          <li>Phase test runner: <code>./scripts/run-loyalty-sdk-phase-tests.sh</code>.</li>
+        </ul>
+        <CodeBlock
+          language="bash"
+          code={`# Run implementation phase checks (backend)
+cd backend
+./scripts/run-loyalty-sdk-phase-tests.sh
+
+# Mint a client token (merchant auth required)
+curl -X POST "https://api-test.ottoafrica.com/api/auth/client-token" \\
+  -H "Authorization: Bearer YOUR_MERCHANT_TOKEN" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "memberId": "ABCD-EFGH-IJKL",
+    "sessionId": "checkout-session-123",
+    "ttlSeconds": 900
+  }'`}
+        />
 
         <h2 id="programs">Loyalty Programs</h2>
 
@@ -475,7 +478,7 @@ data = response.json()`}
 
         <div className="api-endpoint">
           <span className="method post">POST</span>
-          <strong>/api/merchant/loyalty/programs/{`{programId}`}/rewards</strong>
+          <strong>/api/merchant/loyalty/rewards/program/{`{programId}`}</strong>
           <br />
           <span className="description">Create a new reward for a loyalty program</span>
         </div>
@@ -506,7 +509,7 @@ data = response.json()`}
               <div className="tab-pane">
                 <CodeBlock
                   language="bash"
-                  code={`curl -X POST "https://api.ottoafrica.com/api/merchant/loyalty/programs/123/rewards" \\
+                  code={`curl -X POST "https://api.ottoafrica.com/api/merchant/loyalty/rewards/program/123" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -525,7 +528,7 @@ data = response.json()`}
               <div className="tab-pane">
                 <CodeBlock
                   language="javascript"
-                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/loyalty/programs/123/rewards', {
+                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/loyalty/rewards/program/123', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -553,7 +556,7 @@ const data = await response.json();`}
                   code={`import requests
 
 response = requests.post(
-    'https://api.ottoafrica.com/api/merchant/loyalty/programs/123/rewards',
+    'https://api.ottoafrica.com/api/merchant/loyalty/rewards/program/123',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -593,7 +596,7 @@ data = response.json()`}
               <td>0-100 (percentage)</td>
             </tr>
             <tr>
-              <td><code>DISCOUNT_FIXED</code></td>
+              <td><code>DISCOUNT_AMOUNT</code></td>
               <td>Fixed amount discount</td>
               <td>Amount in currency</td>
             </tr>
@@ -603,9 +606,9 @@ data = response.json()`}
               <td>Item identifier</td>
             </tr>
             <tr>
-              <td><code>POINTS_BONUS</code></td>
-              <td>Bonus points award</td>
-              <td>Points amount</td>
+              <td><code>UPGRADE</code></td>
+              <td>Program or tier upgrade reward</td>
+              <td>Configuration-driven</td>
             </tr>
           </tbody>
         </table>
@@ -614,14 +617,14 @@ data = response.json()`}
 
         <div className="api-endpoint">
           <span className="method get">GET</span>
-          <strong>/api/merchant/loyalty/programs/{`{programId}`}/rewards</strong>
+          <strong>/api/merchant/loyalty/rewards/program/{`{programId}`}</strong>
           <br />
           <span className="description">List all rewards for a loyalty program</span>
         </div>
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/loyalty/programs/123/rewards" \\
+          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/loyalty/rewards/program/123" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 

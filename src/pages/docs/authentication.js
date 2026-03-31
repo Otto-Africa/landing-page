@@ -7,48 +7,6 @@ import './docs.css';
 const Authentication = () => {
   const [activeTab, setActiveTab] = useState('curl');
 
-  const sidebarItems = [
-    {
-      title: 'Getting Started',
-      icon: '🚀',
-      items: [
-        { path: '/docs/getting-started', label: 'Introduction' },
-        { path: '/docs/authentication', label: 'Authentication' },
-        { path: '/docs/testing', label: 'Testing' },
-      ]
-    },
-    {
-      title: 'API Reference',
-      icon: '📚',
-      items: [
-        { path: '/docs/gift-cards', label: 'Gift Cards' },
-        { path: '/docs/investment-certificates', label: 'Investment Certificates' },
-        { path: '/docs/transactions', label: 'Transactions' },
-        { path: '/docs/loyalty', label: 'Loyalty Programs' },
-        { path: '/docs/qr-codes', label: 'QR Codes' },
-        { path: '/docs/settlements', label: 'Settlements' },
-        { path: '/docs/user-management', label: 'User Management' },
-      ]
-    },
-    {
-      title: 'Guides',
-      icon: '📖',
-      items: [
-        { path: '/docs/webhooks', label: 'Webhooks' },
-        { path: '/docs/error-handling', label: 'Error Handling' },
-        { path: '/docs/rate-limits', label: 'Rate Limits' },
-      ]
-    },
-    {
-      title: 'Resources',
-      icon: '🔧',
-      items: [
-        { path: '/docs/sdks', label: 'SDKs & Libraries' },
-        { path: '/docs/support', label: 'Support' },
-      ]
-    }
-  ];
-
   const onThisPageItems = [
     { href: '#overview', label: 'Overview' },
     { href: '#api-keys', label: 'API Key Management' },
@@ -69,8 +27,8 @@ const Authentication = () => {
       />
       <DocsLayout
         currentPage="/docs/authentication"
-      sidebarItems={sidebarItems}
-      onThisPageItems={onThisPageItems}
+        onThisPageItems={onThisPageItems}
+        nutshell="For the public and partner API, use only an API key in the Authorization header as Bearer sk_test_... or Bearer sk_live_.... Do not use login tokens (JWT) or other headers."
     >
       <div className="docs-content">
         <h1 id="overview">API Authentication</h1>
@@ -79,12 +37,6 @@ const Authentication = () => {
           All requests to Otto's API must be authenticated using API keys. Otto uses Bearer token
           authentication with granular scope-based permissions to ensure secure access to your data.
         </p>
-
-        <div className="docs-alert info">
-          <strong>In a nutshell:</strong> For the public/partner API, use only an <strong>API key</strong> in the <code>Authorization</code> header
-          as <code>Bearer sk_test_…</code> or <code>Bearer sk_live_…</code>. Do not use login tokens (JWT) or other headers here.
-          Each API key can have specific permissions (scopes) that control what actions it can perform.
-        </div>
 
         <h2 id="api-keys">API Key Management</h2>
 
@@ -112,28 +64,30 @@ const Authentication = () => {
           test or production databases:
         </p>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h4 className="font-semibold text-green-900 mb-2">Test Keys</h4>
-            <p className="text-green-800 text-sm mb-3">
-              Keys starting with <code className="bg-green-100 px-2 py-1 rounded">sk_test_</code> automatically
-              route to test databases and ledgers.
-            </p>
-            <p className="text-green-700 text-xs">
-              Use for development and testing. No real transactions or money involved.
-            </p>
-          </div>
-          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h4 className="font-semibold text-blue-900 mb-2">Live Keys</h4>
-            <p className="text-blue-800 text-sm mb-3">
-              Keys starting with <code className="bg-blue-100 px-2 py-1 rounded">sk_live_</code> route to
-              production databases and ledgers.
-            </p>
-            <p className="text-blue-700 text-xs">
-              Use for production. All transactions are real and affect live data.
-            </p>
-          </div>
-        </div>
+        <table className="docs-table mb-6">
+          <thead>
+            <tr>
+              <th>Key Type</th>
+              <th>Prefix</th>
+              <th>Environment</th>
+              <th>Usage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Test Keys</td>
+              <td><code>sk_test_</code></td>
+              <td>Test databases and ledgers</td>
+              <td>Development and testing only (no real money)</td>
+            </tr>
+            <tr>
+              <td>Live Keys</td>
+              <td><code>sk_live_</code></td>
+              <td>Production databases and ledgers</td>
+              <td>Production transactions affecting live data</td>
+            </tr>
+          </tbody>
+        </table>
 
         <div className="docs-alert info">
           <strong>Same Endpoint:</strong> Both test and live keys use the same API endpoint

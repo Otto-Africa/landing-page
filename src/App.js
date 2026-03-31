@@ -41,6 +41,10 @@ import Webhooks from "./pages/docs/webhooks";
 import ErrorHandling from "./pages/docs/error-handling";
 import RateLimits from "./pages/docs/rate-limits";
 import SDKs from "./pages/docs/sdks";
+import AndroidSdkDocs from "./pages/docs/android-sdk";
+import IosSdkDocs from "./pages/docs/ios-sdk";
+import FlutterSdkDocs from "./pages/docs/flutter-sdk";
+import JavascriptSdkDocs from "./pages/docs/javascript-sdk";
 import Testing from "./pages/docs/testing";
 import Support from "./pages/docs/support";
 
@@ -104,6 +108,10 @@ function App() {
         <Route path={paths.DOCS_ERROR_HANDLING} element={<ErrorHandling />} />
         <Route path={paths.DOCS_RATE_LIMITS} element={<RateLimits />} />
         <Route path={paths.DOCS_SDKS} element={<SDKs />} />
+        <Route path={paths.DOCS_ANDROID_SDK} element={<AndroidSdkDocs />} />
+        <Route path={paths.DOCS_IOS_SDK} element={<IosSdkDocs />} />
+        <Route path={paths.DOCS_FLUTTER_SDK} element={<FlutterSdkDocs />} />
+        <Route path={paths.DOCS_JAVASCRIPT_SDK} element={<JavascriptSdkDocs />} />
         <Route path={paths.DOCS_TESTING} element={<Testing />} />
         <Route path={paths.DOCS_SUPPORT} element={<Support />} />
 

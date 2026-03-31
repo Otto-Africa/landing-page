@@ -7,47 +7,6 @@ import './docs.css';
 const Settlements = () => {
   const [activeTab, setActiveTab] = useState('curl');
 
-  const sidebarItems = [
-    {
-      title: "Getting Started",
-      icon: "🚀",
-      items: [
-        { path: "/docs/getting-started", label: "Introduction" },
-        { path: "/docs/authentication", label: "Authentication" },
-        { path: "/docs/testing", label: "Testing" },
-      ],
-    },
-    {
-      title: "API Reference",
-      icon: "📚",
-      items: [
-        { path: "/docs/gift-cards", label: "Gift Cards" },
-        { path: "/docs/investment-certificates", label: "Investment Certificates" },
-        { path: "/docs/transactions", label: "Transactions" },
-        { path: "/docs/loyalty", label: "Loyalty Programs" },
-        { path: "/docs/qr-codes", label: "QR Codes" },
-        { path: "/docs/settlements", label: "Settlements" },
-        { path: "/docs/user-management", label: "User Management" },
-      ],
-    },
-    {
-      title: "Guides",
-      icon: "📖",
-      items: [
-        { path: "/docs/webhooks", label: "Webhooks" },
-        { path: "/docs/error-handling", label: "Error Handling" },
-        { path: "/docs/rate-limits", label: "Rate Limits" },
-      ],
-    },
-    {
-      title: "Resources",
-      icon: "🔧",
-      items: [
-        { path: "/docs/sdks", label: "SDKs & Libraries" },
-        { path: "/docs/support", label: "Support" },
-      ],
-    },
-  ];
 
   const onThisPageItems = [
     { href: "#overview", label: "Overview" },
@@ -67,16 +26,12 @@ const Settlements = () => {
       />
       <DocsLayout
         currentPage="/docs/settlements"
-      sidebarItems={sidebarItems}
+      
       onThisPageItems={onThisPageItems}
+      nutshell="Access settlement history, current balances, and upcoming settlements to reconcile your finances."
     >
       <div className="docs-content">
         <h1 id="overview">Settlements API</h1>
-
-        <div className="docs-alert info">
-          <strong>In a nutshell:</strong> Access settlement history, current balances, and upcoming
-          settlements. Track when funds are transferred to your account and reconcile your finances.
-        </div>
 
         <p>
           The Settlements API provides access to your financial settlement data, including settlement

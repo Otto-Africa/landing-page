@@ -5,47 +5,6 @@ import CodeBlock from '../../components/CodeBlock';
 import './docs.css';
 
 const Testing = () => {
-  const sidebarItems = [
-    {
-      title: 'Getting Started',
-      icon: '🚀',
-      items: [
-        { path: '/docs/getting-started', label: 'Introduction' },
-        { path: '/docs/authentication', label: 'Authentication' },
-        { path: '/docs/testing', label: 'Testing' },
-      ]
-    },
-    {
-      title: 'API Reference',
-      icon: '📚',
-      items: [
-        { path: '/docs/gift-cards', label: 'Gift Cards' },
-        { path: '/docs/investment-certificates', label: 'Investment Certificates' },
-        { path: '/docs/transactions', label: 'Transactions' },
-        { path: '/docs/loyalty', label: 'Loyalty Programs' },
-        { path: '/docs/qr-codes', label: 'QR Codes' },
-        { path: '/docs/settlements', label: 'Settlements' },
-        { path: '/docs/user-management', label: 'User Management' },
-      ]
-    },
-    {
-      title: 'Guides',
-      icon: '📖',
-      items: [
-        { path: '/docs/webhooks', label: 'Webhooks' },
-        { path: '/docs/error-handling', label: 'Error Handling' },
-        { path: '/docs/rate-limits', label: 'Rate Limits' },
-      ]
-    },
-    {
-      title: 'Resources',
-      icon: '🔧',
-      items: [
-        { path: '/docs/sdks', label: 'SDKs & Libraries' },
-        { path: '/docs/support', label: 'Support' },
-      ]
-    }
-  ];
 
   const onThisPageItems = [
     { href: '#overview', label: 'Overview' },
@@ -66,16 +25,12 @@ const Testing = () => {
       />
       <DocsLayout
         currentPage="/docs/testing"
-      sidebarItems={sidebarItems}
+      
       onThisPageItems={onThisPageItems}
+      nutshell="Use test API keys to test your integration without processing real payments or affecting live data."
     >
       <div className="docs-content">
         <h1 id="overview">Testing</h1>
-
-        <div className="docs-alert info">
-          <strong>In a nutshell:</strong> Use test API keys to test your integration without processing
-          real payments or affecting live data. Test keys automatically route to test databases and ledgers.
-        </div>
 
         <p>
           Otto uses the same API endpoint for both test and live environments. The environment is determined

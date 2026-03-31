@@ -7,47 +7,6 @@ import './docs.css';
 
 const Transactions = () => {
 
-  const sidebarItems = [
-    {
-      title: 'Getting Started',
-      icon: '🚀',
-      items: [
-        { path: '/docs/getting-started', label: 'Introduction' },
-        { path: '/docs/authentication', label: 'Authentication' },
-        { path: '/docs/testing', label: 'Testing' },
-      ]
-    },
-    {
-      title: 'API Reference',
-      icon: '📚',
-      items: [
-        { path: '/docs/gift-cards', label: 'Gift Cards' },
-        { path: '/docs/investment-certificates', label: 'Investment Certificates' },
-        { path: '/docs/transactions', label: 'Transactions' },
-        { path: '/docs/loyalty', label: 'Loyalty Programs' },
-        { path: '/docs/qr-codes', label: 'QR Codes' },
-        { path: '/docs/settlements', label: 'Settlements' },
-        { path: '/docs/user-management', label: 'User Management' },
-      ]
-    },
-    {
-      title: 'Guides',
-      icon: '📖',
-      items: [
-        { path: '/docs/webhooks', label: 'Webhooks' },
-        { path: '/docs/error-handling', label: 'Error Handling' },
-        { path: '/docs/rate-limits', label: 'Rate Limits' },
-      ]
-    },
-    {
-      title: 'Resources',
-      icon: '🔧',
-      items: [
-        { path: '/docs/sdks', label: 'SDKs & Libraries' },
-        { path: '/docs/support', label: 'Support' },
-      ]
-    }
-  ];
 
   const onThisPageItems = [
     { href: '#overview', label: 'Overview' },
@@ -67,16 +26,12 @@ const Transactions = () => {
       />
       <DocsLayout
         currentPage="/docs/transactions"
-      sidebarItems={sidebarItems}
+      
       onThisPageItems={onThisPageItems}
+      nutshell="Access transaction history, payment status, and settlement information. Filter by date, status, or type, and paginate through results."
     >
       <div className="docs-content">
         <h1 id="overview">Transactions API</h1>
-
-        <div className="docs-alert info">
-          <strong>In a nutshell:</strong> Access transaction history, payment status, and settlement
-          information. Filter by date, status, or type, and paginate through results.
-        </div>
 
         <div className="docs-alert warning">
           <strong>Currency Note:</strong> All currency values are stored in Pesewas (1 GHS = 100 Pesewas).
@@ -100,6 +55,8 @@ const Transactions = () => {
         </p>
 
         <MultiLanguageCodeBlock
+          requestMethod="GET"
+          requestUrl="/api/merchant/transactions"
           examples={{
             curl: `curl -X GET "https://api.ottoafrica.com/merchant/transactions?page=1&per_page=20" \\
   -H "Authorization: Bearer your_api_key"`,
