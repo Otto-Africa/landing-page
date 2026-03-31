@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import { getMerchantPortalUrl } from "../utils/getMerchantPortalUrl";
+import { getApiUrl } from "../config/env";
 
 const Pricing = () => {
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
   const heroRef = useScrollAnimation({ threshold: 0.1 });
   const plansRef = useScrollAnimation({ threshold: 0.1 });
 
@@ -22,16 +22,6 @@ const Pricing = () => {
   const [error, setError] = useState(null);
   const [selectedTier, setSelectedTier] = useState(null);
 
-  // Determine API URL based on environment
-  const getApiUrl = (endpoint) => {
-    if (process.env.NODE_ENV === "production") {
-      return `https://api.ottoafrica.com/api/${endpoint}`;
-    } else if (process.env.REACT_APP_API_URL) {
-      return `${process.env.REACT_APP_API_URL}/${endpoint}`;
-    } else {
-      return `http://localhost:8000/api/${endpoint}`;
-    }
-  };
 
   // Fetch subscription tiers from backend
   useEffect(() => {
