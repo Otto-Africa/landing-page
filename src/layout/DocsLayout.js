@@ -3,11 +3,50 @@ import { Link } from "react-router-dom";
 import "./DocsLayout.css";
 import { getMerchantPortalUrl } from "../utils/getMerchantPortalUrl";
 
+const DEFAULT_SIDEBAR_ITEMS = [
+  {
+    title: "Get started",
+    items: [
+      { path: "/docs", label: "Overview" },
+      { path: "/docs/getting-started", label: "Quickstart" },
+      { path: "/docs/authentication", label: "Authentication" },
+      { path: "/docs/testing", label: "Testing" },
+    ],
+  },
+  {
+    title: "Core concepts",
+    items: [
+      { path: "/docs/gift-cards", label: "Gift Cards" },
+      { path: "/docs/investment-certificates", label: "Investment Certificates" },
+      { path: "/docs/transactions", label: "Transactions" },
+      { path: "/docs/loyalty", label: "Loyalty Programs" },
+      { path: "/docs/qr-codes", label: "QR Codes" },
+      { path: "/docs/settlements", label: "Settlements" },
+      { path: "/docs/user-management", label: "User Management" },
+    ],
+  },
+  {
+    title: "Guides",
+    items: [
+      { path: "/docs/webhooks", label: "Webhooks" },
+      { path: "/docs/error-handling", label: "Error Handling" },
+      { path: "/docs/rate-limits", label: "Rate Limits" },
+    ],
+  },
+  {
+    title: "Tools",
+    items: [
+      { path: "/docs/sdks", label: "SDKs & Libraries" },
+      { path: "/docs/support", label: "Support" },
+    ],
+  },
+];
+
 const DocsLayout = ({
   children,
   currentPage,
-  sidebarItems,
   onThisPageItems = [],
+  nutshell = "",
 }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -86,30 +125,9 @@ const DocsLayout = ({
         {/* Left Sidebar */}
         <aside className={`docs-sidebar ${isSidebarOpen ? "open" : ""}`}>
           <nav className="docs-sidebar-nav">
-            <Link to="/docs" className="docs-nav-item">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                />
-              </svg>
-              <span>Home</span>
-            </Link>
-
-            {sidebarItems &&
-              sidebarItems.map((section, index) => (
+            {DEFAULT_SIDEBAR_ITEMS.map((section, index) => (
                 <div key={index} className="docs-nav-section">
                   <div className="docs-nav-section-header">
-                    {section.icon && (
-                      <span className="docs-nav-icon">{section.icon}</span>
-                    )}
                     <span className="docs-nav-section-title">
                       {section.title}
                     </span>
@@ -158,6 +176,11 @@ const DocsLayout = ({
                 ))}
               </nav>
             </div>
+            {nutshell && (
+              <div className="docs-right-summary">
+                <strong>In a nutshell:</strong> {nutshell}
+              </div>
+            )}
           </aside>
         )}
       </div>

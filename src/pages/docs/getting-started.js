@@ -7,46 +7,6 @@ import './docs.css';
 
 const GettingStarted = () => {
 
-  const sidebarItems = [
-    {
-      title: 'Getting Started',
-      icon: '🚀',
-      items: [
-        { path: '/docs/getting-started', label: 'Introduction' },
-        { path: '/docs/authentication', label: 'Authentication' },
-        { path: '/docs/testing', label: 'Testing' },
-      ]
-    },
-    {
-      title: 'API Reference',
-      icon: '📚',
-      items: [
-        { path: '/docs/gift-cards', label: 'Gift Cards' },
-        { path: '/docs/transactions', label: 'Transactions' },
-        { path: '/docs/loyalty', label: 'Loyalty Programs' },
-        { path: '/docs/qr-codes', label: 'QR Codes' },
-        { path: '/docs/settlements', label: 'Settlements' },
-        { path: '/docs/user-management', label: 'User Management' },
-      ]
-    },
-    {
-      title: 'Guides',
-      icon: '📖',
-      items: [
-        { path: '/docs/webhooks', label: 'Webhooks' },
-        { path: '/docs/error-handling', label: 'Error Handling' },
-        { path: '/docs/rate-limits', label: 'Rate Limits' },
-      ]
-    },
-    {
-      title: 'Resources',
-      icon: '🔧',
-      items: [
-        { path: '/docs/sdks', label: 'SDKs & Libraries' },
-        { path: '/docs/support', label: 'Support' },
-      ]
-    }
-  ];
 
   const onThisPageItems = [
     { href: '#overview', label: 'Overview' },
@@ -67,17 +27,12 @@ const GettingStarted = () => {
       />
       <DocsLayout
         currentPage="/docs/getting-started"
-      sidebarItems={sidebarItems}
+      
       onThisPageItems={onThisPageItems}
+      nutshell="Create an API key in your Merchant Portal, authenticate requests with Bearer tokens, and start making API calls."
     >
       <div className="docs-content">
         <h1 id="overview">Getting Started with Otto API</h1>
-
-        <div className="docs-alert info">
-          <strong>In a nutshell:</strong> To integrate with Otto's API, create an API key in your Merchant Portal,
-          authenticate requests using Bearer tokens, and start making API calls. Every API request includes a link
-          that can be used to complete operations.
-        </div>
 
         <p>
           Welcome to Otto's Developer Documentation! This guide will help you get up and running
@@ -163,11 +118,13 @@ const GettingStarted = () => {
         </p>
 
         <MultiLanguageCodeBlock
+          requestMethod="GET"
+          requestUrl="/api/merchant/transactions"
           examples={{
-            curl: `curl -X GET "https://api.ottoafrica.com/merchant/transactions" \\
+            curl: `curl -X GET "https://api.ottoafrica.com/api/merchant/transactions" \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json"`,
-            javascript: `const response = await fetch('https://api.ottoafrica.com/merchant/transactions', {
+            javascript: `const response = await fetch('https://api.ottoafrica.com/api/merchant/transactions', {
   method: 'GET',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -180,7 +137,7 @@ console.log(data);`,
             python: `import requests
 
 response = requests.get(
-    'https://api.ottoafrica.com/merchant/transactions',
+    'https://api.ottoafrica.com/api/merchant/transactions',
     headers={
         'Authorization': 'Bearer YOUR_API_KEY',
         'Content-Type': 'application/json'
@@ -209,8 +166,10 @@ print(data)`
         </p>
 
         <MultiLanguageCodeBlock
+          requestMethod="POST"
+          requestUrl="/api/merchant/giftcard-templates"
           examples={{
-            curl: `curl -X POST "https://api.ottoafrica.com/merchant/giftcard-templates" \\
+            curl: `curl -X POST "https://api.ottoafrica.com/api/merchant/giftcard-templates" \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -220,7 +179,7 @@ print(data)`
     "currency": "GHS",
     "expires_in_days": 365
   }'`,
-            javascript: `const response = await fetch('https://api.ottoafrica.com/merchant/giftcard-templates', {
+            javascript: `const response = await fetch('https://api.ottoafrica.com/api/merchant/giftcard-templates', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -240,7 +199,7 @@ console.log(data);`,
             python: `import requests
 
 response = requests.post(
-    'https://api.ottoafrica.com/merchant/giftcard-templates',
+    'https://api.ottoafrica.com/api/merchant/giftcard-templates',
     headers={
         'Authorization': 'Bearer YOUR_API_KEY',
         'Content-Type': 'application/json'

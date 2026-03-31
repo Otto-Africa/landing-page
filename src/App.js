@@ -15,6 +15,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import InvestmentTermsAndConditions from "./pages/InvestmentTermsAndConditions";
 import CookiePolicy from "./pages/CookiePolicy";
 import Security from "./pages/Security";
 import AccountDeletion from "./pages/AccountDeletion";
@@ -30,6 +31,7 @@ import DocsIndex from "./pages/docs/index";
 import GettingStarted from "./pages/docs/getting-started";
 import Authentication from "./pages/docs/authentication";
 import DocsGiftCards from "./pages/docs/gift-cards";
+import InvestmentCertificates from "./pages/docs/investment-certificates";
 import Transactions from "./pages/docs/transactions";
 import DocsLoyalty from "./pages/docs/loyalty";
 import QRCodes from "./pages/docs/qr-codes";
@@ -39,12 +41,17 @@ import Webhooks from "./pages/docs/webhooks";
 import ErrorHandling from "./pages/docs/error-handling";
 import RateLimits from "./pages/docs/rate-limits";
 import SDKs from "./pages/docs/sdks";
+import AndroidSdkDocs from "./pages/docs/android-sdk";
+import IosSdkDocs from "./pages/docs/ios-sdk";
+import FlutterSdkDocs from "./pages/docs/flutter-sdk";
+import JavascriptSdkDocs from "./pages/docs/javascript-sdk";
 import Testing from "./pages/docs/testing";
 import Support from "./pages/docs/support";
 
 // Gift Card Share
 import GiftCardShare from "./pages/GiftCardShare";
 import GiftCardReceive from "./pages/GiftCardReceive";
+import InvestmentGiftReceive from "./pages/InvestmentGiftReceive";
 import PayPage from "./pages/PayPage";
 import Pricing from "./pages/Pricing";
 import Checkout from "./pages/Checkout";
@@ -76,6 +83,7 @@ function App() {
         <Route path={paths.CONTACT} element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/investment-terms-and-conditions" element={<InvestmentTermsAndConditions />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="/security" element={<Security />} />
         <Route path="/account-deletion" element={<AccountDeletion />} />
@@ -90,6 +98,7 @@ function App() {
         <Route path={paths.DOCS_GETTING_STARTED} element={<GettingStarted />} />
         <Route path={paths.DOCS_AUTHENTICATION} element={<Authentication />} />
         <Route path={paths.DOCS_GIFT_CARDS} element={<DocsGiftCards />} />
+        <Route path={paths.DOCS_INVESTMENT_CERTIFICATES} element={<InvestmentCertificates />} />
         <Route path={paths.DOCS_TRANSACTIONS} element={<Transactions />} />
         <Route path={paths.DOCS_LOYALTY} element={<DocsLoyalty />} />
         <Route path={paths.DOCS_QR_CODES} element={<QRCodes />} />
@@ -99,6 +108,10 @@ function App() {
         <Route path={paths.DOCS_ERROR_HANDLING} element={<ErrorHandling />} />
         <Route path={paths.DOCS_RATE_LIMITS} element={<RateLimits />} />
         <Route path={paths.DOCS_SDKS} element={<SDKs />} />
+        <Route path={paths.DOCS_ANDROID_SDK} element={<AndroidSdkDocs />} />
+        <Route path={paths.DOCS_IOS_SDK} element={<IosSdkDocs />} />
+        <Route path={paths.DOCS_FLUTTER_SDK} element={<FlutterSdkDocs />} />
+        <Route path={paths.DOCS_JAVASCRIPT_SDK} element={<JavascriptSdkDocs />} />
         <Route path={paths.DOCS_TESTING} element={<Testing />} />
         <Route path={paths.DOCS_SUPPORT} element={<Support />} />
 
@@ -106,6 +119,8 @@ function App() {
         <Route path="/gift-cards/:id" element={<GiftCardShare />} />
         {/* Gift Card Receive – link from email/SMS: ?token= */}
         <Route path="/gift-cards/receive" element={<GiftCardReceive />} />
+        {/* Investment Gift Receive – link from email/SMS: ?token= */}
+        <Route path="/investment-gift/receive" element={<InvestmentGiftReceive />} />
 
         {/* Pay – scan merchant QR: /pay/:qrId?amount= (deeplink to app or download) */}
         <Route path="/pay/:qrId" element={<PayPage />} />

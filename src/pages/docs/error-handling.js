@@ -5,46 +5,6 @@ import CodeBlock from '../../components/CodeBlock';
 import './docs.css';
 
 const ErrorHandling = () => {
-  const sidebarItems = [
-    {
-      title: "Getting Started",
-      icon: "🚀",
-      items: [
-        { path: "/docs/getting-started", label: "Introduction" },
-        { path: "/docs/authentication", label: "Authentication" },
-        { path: "/docs/testing", label: "Testing" },
-      ],
-    },
-    {
-      title: "API Reference",
-      icon: "📚",
-      items: [
-        { path: "/docs/gift-cards", label: "Gift Cards" },
-        { path: "/docs/transactions", label: "Transactions" },
-        { path: "/docs/loyalty", label: "Loyalty Programs" },
-        { path: "/docs/qr-codes", label: "QR Codes" },
-        { path: "/docs/settlements", label: "Settlements" },
-        { path: "/docs/user-management", label: "User Management" },
-      ],
-    },
-    {
-      title: "Guides",
-      icon: "📖",
-      items: [
-        { path: "/docs/webhooks", label: "Webhooks" },
-        { path: "/docs/error-handling", label: "Error Handling" },
-        { path: "/docs/rate-limits", label: "Rate Limits" },
-      ],
-    },
-    {
-      title: "Resources",
-      icon: "🔧",
-      items: [
-        { path: "/docs/sdks", label: "SDKs & Libraries" },
-        { path: "/docs/support", label: "Support" },
-      ],
-    },
-  ];
 
   const onThisPageItems = [
     { href: "#overview", label: "Overview" },
@@ -64,16 +24,12 @@ const ErrorHandling = () => {
       />
       <DocsLayout
         currentPage="/docs/error-handling"
-      sidebarItems={sidebarItems}
+      
       onThisPageItems={onThisPageItems}
+      nutshell="Understand Otto API error formats and how to handle them consistently in your integration."
     >
       <div className="docs-content">
         <h1 id="overview">Error Handling</h1>
-
-        <div className="docs-alert info">
-          <strong>In a nutshell:</strong> Understand how Otto's API returns errors and how to handle
-          them gracefully in your application. All errors follow a consistent format for easy handling.
-        </div>
 
         <p>
           The Otto API uses conventional HTTP response codes and returns errors in a consistent JSON format.
@@ -235,7 +191,7 @@ const ErrorHandling = () => {
           language="javascript"
           code={`async function makeRequest() {
   try {
-    const response = await fetch('https://api.ottoafrica.com/v1/merchant/giftcards', {
+    const response = await fetch('https://api.ottoafrica.com/api/merchant/giftcards', {
       method: 'POST',
       headers: {
         'Authorization': 'Bearer your_api_key',
@@ -294,7 +250,7 @@ const ErrorHandling = () => {
 
 try:
     response = requests.post(
-        'https://api.ottoafrica.com/v1/merchant/giftcards',
+        'https://api.ottoafrica.com/api/merchant/giftcards',
         headers={
             'Authorization': 'Bearer your_api_key',
             'Content-Type': 'application/json'
