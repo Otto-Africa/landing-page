@@ -288,12 +288,421 @@
   100% { transform: rotate(360deg); }
 }
 
+/* Receive page: card preview (value + merchant) */
+.gift-card-preview {
+  aspect-ratio: 1.586;
+  max-width: 280px;
+  margin: 0 auto 24px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(27, 51, 89, 0.2);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.gift-card-preview-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 4px 0;
+}
+
+.gift-card-preview-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.02em;
+}
+
+.gift-card-preview-merchant {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+/* Cashier code block */
+.gift-card-code-box {
+  width: 100%;
+  margin: 24px 0;
+  padding: 20px 24px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.gift-card-code-label {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0 0 12px 0;
+  font-weight: 500;
+}
+
+.gift-card-code {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #1e293b;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.gift-card-cta-text {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gift-card-alt {
+  font-size: 14px;
+  color: #94a3b8;
+  margin: 24px 0 0 0;
+  line-height: 1.5;
+}
+
+.gift-card-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+/* Receive page download buttons (match Share primary style) */
+.gift-card-receive .download-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.gift-card-receive .download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 24px;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.gift-card-receive .download-btn.app-store {
+  background: #1B3359;
+  color: #fff;
+}
+
+.gift-card-receive .download-btn.app-store:hover {
+  background: #0f2240;
+  color: #fff;
+}
+
+.gift-card-receive .download-btn.play-store {
+  background: #000;
+  color: #fff;
+}
+
+.gift-card-receive .download-btn.play-store:hover {
+  background: #1f2937;
+  color: #fff;
+}
+
+.gift-card-receive .retry-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 600;
+  background: transparent;
+  color: #1B3359;
+  border: 2px solid #1B3359;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: all 0.2s ease;
+}
+
+.gift-card-receive .retry-btn:hover {
+  background: #1B3359;
+  color: #fff;
+}
+
+/* ---------- Gift Receive page refinements (premium, minimal) ---------- */
+
+/* 1. Card: Otto top-right, merchant top-left, centered value + GIFT BALANCE */
+.gift-card-receive .gift-receive-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  padding: 24px;
+}
+
+.gift-receive-card-otto-logo {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  opacity: 0.85;
+  filter: brightness(0) invert(1);
+}
+
+.gift-receive-card-merchant-logo {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 6px;
+}
+
+.gift-receive-card-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.gift-receive-card-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.gift-receive-card-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.gift-receive-card-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+}
+
+/* 2. Sender card – white, circular initials avatar, muted teal */
+.gift-receive-sender-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  text-align: left;
+}
+
+.gift-receive-sender-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #2dd4bf;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.gift-receive-sender-text {
+  min-width: 0;
+}
+
+.gift-receive-sender-from {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 2px 0;
+}
+
+.gift-receive-sender-details {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* 3. Header – compact, deep charcoal, encouraging subtext */
+.gift-receive-heading {
+  font-size: 24px !important;
+  font-weight: 700;
+  color: #334155 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
+}
+
+.gift-receive-subhead {
+  font-size: 16px;
+  color: #64748b;
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+}
+
+/* 4. Utility icons – blue accent, stronger visibility */
+.gift-card-receive .gift-receive-benefits .benefit-icon {
+  background: rgba(29, 78, 216, 0.08);
+  color: #1d4ed8;
+}
+
+.gift-card-receive .gift-receive-benefits {
+  color: #334155;
+  margin-bottom: 28px;
+}
+
+.gift-card-receive .gift-receive-benefits .benefit-item span:not(.benefit-icon) {
+  color: #334155;
+}
+
+/* 5. Redemption – white box, substantial border, monospace code, Copy button */
+.gift-receive-code-box {
+  width: 100%;
+  margin: 24px 0;
+  padding: 20px 24px;
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  text-align: left;
+}
+
+.gift-receive-code-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  margin: 0 0 12px 0;
+}
+
+.gift-receive-code-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.gift-receive-code {
+  font-family: ui-monospace, "SF Mono", "Monaco", "Inconsolata", "Fira Mono", monospace;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1e293b;
+  letter-spacing: 0.08em;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.gift-receive-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gift-receive-copy-btn:hover {
+  background: #f1f5f9;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+
+.gift-receive-copy-label {
+  font-family: inherit;
+}
+
+/* 6. Download section – softer, light gray palette */
+.gift-card-receive .gift-receive-download .download-btn-secondary {
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.gift-card-receive .gift-receive-download .download-btn-secondary:hover {
+  background: #f1f5f9;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+
+.gift-card-receive .gift-receive-download .download-btn-primary {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.gift-card-receive .gift-receive-download .download-btn-ios {
+  background: #94a3b8;
+  color: #fff;
+}
+
+.gift-card-receive .gift-receive-download .download-btn-ios:hover {
+  background: #64748b;
+  color: #fff;
+}
+
+.gift-card-receive .gift-receive-download .download-btn-android {
+  background: #94a3b8;
+  color: #fff;
+}
+
+.gift-card-receive .gift-receive-download .download-btn-android:hover {
+  background: #64748b;
+  color: #fff;
+}
+
 @media (max-width: 640px) {
   .gift-card-share-content h1 {
     font-size: 24px;
   }
 
+  .gift-card-receive .gift-receive-heading {
+    font-size: 20px !important;
+  }
+
+  .gift-card-receive .gift-receive-code {
+    font-size: 18px;
+    letter-spacing: 0.06em;
+  }
+
   .gift-card-visual {
     max-width: 100%;
+  }
+
+  .gift-card-code {
+    font-size: 22px;
+    letter-spacing: 0.08em;
   }
 }

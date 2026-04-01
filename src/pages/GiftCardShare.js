@@ -4,18 +4,10 @@ import { HiOutlineEye, HiOutlineShoppingBag, HiOutlineShieldCheck } from "react-
 import SEO from "../components/SEO";
 import "./GiftCardShare.css";
 
+import { getApiUrl } from "../config/env";
+
 const IOS_APP_URL = "https://apps.apple.com/app/otto/id123456789";
 const ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=com.otto.customer";
-
-function getApiUrl(endpoint) {
-  if (process.env.NODE_ENV === "production") {
-    return `https://api.ottoafrica.com/api/${endpoint}`;
-  }
-  if (process.env.REACT_APP_API_URL) {
-    return `${process.env.REACT_APP_API_URL}/${endpoint}`;
-  }
-  return `https://api.ottoafrica.com/api/${endpoint}`;
-}
 
 const getDeviceOS = () => {
   const ua = navigator.userAgent;

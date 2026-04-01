@@ -1,17 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import SEO from "../components/SEO";
+import { getApiUrl } from "../config/env";
 import "./GiftCardShare.css";
-
-function getApiUrl(endpoint) {
-  if (process.env.NODE_ENV === "production") {
-    return `https://api.ottoafrica.com/api/${endpoint}`;
-  }
-  if (process.env.REACT_APP_API_URL) {
-    return `${process.env.REACT_APP_API_URL}/${endpoint}`;
-  }
-  return `https://api.ottoafrica.com/api/${endpoint}`;
-}
 
 const InvestmentGiftReceive = () => {
   const [searchParams] = useSearchParams();
