@@ -75,14 +75,6 @@ const GiftCardReceive = () => {
     fetchGift();
   }, [token, isChecking]);
 
-  const handlePlayStore = () => {
-    window.open(gift?.playstore_link || ANDROID_APP_URL, "_blank");
-  };
-
-  const handleAppStore = () => {
-    window.open(gift?.iosstore_link || IOS_APP_URL, "_blank");
-  };
-
   const tryOpenApp = () => {
     if (!token) return;
     const deepLink = `ottoafrica://gift/receive?token=${encodeURIComponent(token)}`;
