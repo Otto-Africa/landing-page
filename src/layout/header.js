@@ -1,7 +1,7 @@
 import { Drawer } from "antd";
 import React, { useEffect, useRef, useState } from "react";
-import { FaBars, FaCaretDown, FaPhone } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import OttoIcon from "../components/OttoIcon";
 
 const Header = () => {
 	const navigate = useNavigate();
@@ -99,7 +99,7 @@ const Header = () => {
 					onClick={() => {
 						setOpenNavBar(true);
 					}}>
-					<FaBars />
+					<OttoIcon name="menu-outline" size={22} />
 				</div>
 				{openNavBar && (
 					<Drawer
@@ -192,7 +192,7 @@ const Header = () => {
 									<div className="flex flex-col space-y-6">
 										<div className="flex gap-3 items-center">
 											<div className="bg-[#1b3359] text-white h-[28px] w-[28px] flex items-center justify-center rounded-full">
-												<FaPhone size={12} />{" "}
+												<OttoIcon name="phone-outline" size={12} />{" "}
 											</div>
 											<p className="text-slate-500 font-semibold">
 												Support
@@ -227,7 +227,7 @@ const Header = () => {
 							onClick={setOpenWhy}>
 							<div className="cursor-pointer flex items-center space-x-2">
 								<p className="text-slate-500">Why Otto</p>{" "}
-								<FaCaretDown className="-mt-1 text-slate-500" />
+								<OttoIcon name="chevron-down-outline" size={14} className="-mt-1 text-slate-500" />
 							</div>
 							{whyIsOpen && (
 								<div className="bg-white border rounded-2xl overflow-hidden top-8 absolute z-50 w-[40vh]">
@@ -273,7 +273,7 @@ const Header = () => {
 							onClick={setOpenAbout}>
 							<div className="cursor-pointer flex items-center space-x-2">
 								<p className="text-slate-500">About</p>{" "}
-								<FaCaretDown className="-mt-1 text-slate-500" />
+								<OttoIcon name="chevron-down-outline" size={14} className="-mt-1 text-slate-500" />
 							</div>
 							{aboutIsOpen && (
 								<div className="bg-gray-50 border rounded-2xl overflow-hidden top-8 absolute z-50 w-[60vh]">

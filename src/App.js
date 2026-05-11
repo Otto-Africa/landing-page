@@ -49,6 +49,7 @@ import Testing from "./pages/docs/testing";
 import Support from "./pages/docs/support";
 
 // Gift Card Share
+import InviteReferralPage from "./pages/InviteReferralPage";
 import GiftCardShare from "./pages/GiftCardShare";
 import GiftCardReceive from "./pages/GiftCardReceive";
 import InvestmentGiftReceive from "./pages/InvestmentGiftReceive";
@@ -58,11 +59,13 @@ import Checkout from "./pages/Checkout";
 
 // Import routes
 import { paths } from "./utils/routes";
+import ReferralQueryHandler from "./components/ReferralQueryHandler";
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
+      <ReferralQueryHandler />
       <CookieConsent />
       <Routes>
         {/* Main landing page */}
@@ -114,6 +117,9 @@ function App() {
         <Route path={paths.DOCS_JAVASCRIPT_SDK} element={<JavascriptSdkDocs />} />
         <Route path={paths.DOCS_TESTING} element={<Testing />} />
         <Route path={paths.DOCS_SUPPORT} element={<Support />} />
+
+        {/* Referral invite — deep link try + OS-specific store CTAs */}
+        <Route path={paths.INVITE_REFERRAL} element={<InviteReferralPage />} />
 
         {/* Gift Card Share (legacy /gift-cards/:id) */}
         <Route path="/gift-cards/:id" element={<GiftCardShare />} />

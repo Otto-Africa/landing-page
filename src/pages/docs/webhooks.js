@@ -82,7 +82,7 @@ const Webhooks = () => {
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white p-6 rounded-lg border border-gray-200">
             <h4 className="font-semibold text-gray-900 mb-2">payment.completed</h4>
-            <p className="text-gray-600 text-sm">Triggered when a payment is successfully processed</p>
+            <p className="text-gray-600 text-sm">Triggered when a payment is processed</p>
           </div>
           <div className="bg-white p-6 rounded-lg border border-gray-200">
             <h4 className="font-semibold text-gray-900 mb-2">payment.failed</h4>

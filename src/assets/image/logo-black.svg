@@ -15,7 +15,7 @@
       }
 
       .cls-2 {
-        font-family: AeonikTRIAL-Bold, 'Aeonik TRIAL';
+        font-family: 'Google Sans', sans-serif;
         font-size: 69.98px;
       }
     </style>

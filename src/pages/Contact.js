@@ -43,7 +43,10 @@ const Contact = () => {
 
       const data = await response.json();
 
-      if (response.ok && !data.error) {
+      // Backend now returns { status, message, data, errors?, code? }; rely on
+      // HTTP status (response.ok) for success. Tolerate the legacy `error` flag
+      // if a proxy/CDN ever rewraps it.
+      if (response.ok && data?.error !== true) {
         setSubmitStatus({ type: 'success', message: 'Thank you for your message! We\'ll get back to you soon.' });
         setFormData({
           name: '',

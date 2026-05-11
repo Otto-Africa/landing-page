@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
-import { HiOutlineCreditCard, HiOutlineDeviceMobile, HiOutlineShieldCheck } from "react-icons/hi";
 import SEO from "../components/SEO";
+import OttoIcon from "../components/OttoIcon";
 import "./GiftCardShare.css";
 
 const IOS_APP_URL = "https://apps.apple.com/app/otto-customer/id123456789";
@@ -92,19 +92,19 @@ const PayPage = () => {
           <div className="benefits benefits-with-icons">
             <div className="benefit-item">
               <span className="benefit-icon" aria-hidden>
-                <HiOutlineCreditCard size={20} />
+                <OttoIcon name="credit-card-outline" size={20} />
               </span>
               <span><strong>Gift cards, mobile money & more</strong> – Choose how you pay</span>
             </div>
             <div className="benefit-item">
               <span className="benefit-icon" aria-hidden>
-                <HiOutlineDeviceMobile size={20} />
+                <OttoIcon name="smartphone-outline" size={20} />
               </span>
               <span><strong>Quick & secure</strong> – Pay in a few taps</span>
             </div>
             <div className="benefit-item">
               <span className="benefit-icon" aria-hidden>
-                <HiOutlineShieldCheck size={20} />
+                <OttoIcon name="shield-outline" size={20} />
               </span>
               <span><strong>Safe</strong> – Your details stay protected</span>
             </div>

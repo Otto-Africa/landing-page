@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getMerchantPortalUrl } from '../utils/getMerchantPortalUrl';
+import OttoIcon from './OttoIcon';
 
 const Header = () => {
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
@@ -45,9 +46,11 @@ const Header = () => {
                 className="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium flex items-center"
               >
                 Solutions
-                <svg className={`ml-1 h-4 w-4 transition-transform ${isSolutionsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+                <OttoIcon
+                  name="chevron-down-outline"
+                  size={16}
+                  className={`ml-1 transition-transform ${isSolutionsOpen ? 'rotate-180' : ''}`}
+                />
               </button>
               {isSolutionsOpen && (
                 <div
@@ -98,13 +101,11 @@ const Header = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-600 hover:text-gray-900 p-2"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isMobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+              <OttoIcon
+                name={isMobileMenuOpen ? 'close-outline' : 'menu-outline'}
+                size={24}
+                className="h-6 w-6"
+              />
             </button>
           </div>
         </div>

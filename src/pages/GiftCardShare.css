@@ -609,7 +609,7 @@
 }
 
 .gift-receive-code {
-  font-family: ui-monospace, "SF Mono", "Monaco", "Inconsolata", "Fira Mono", monospace;
+  font-family: 'Google Sans Mono', monospace;
   font-size: 22px;
   font-weight: 600;
   color: #1e293b;

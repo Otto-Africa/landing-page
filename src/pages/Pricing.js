@@ -89,12 +89,15 @@ const Pricing = () => {
 
       const data = await response.json();
 
-      if (response.ok && !data.error && data.data?.authorization_url) {
+      // Backend now returns { status, message, data, errors?, code? }; rely on
+      // HTTP status (response.ok) for success and look up the payload under
+      // `data.data` regardless of whether a legacy `error` flag is present.
+      if (response.ok && data?.error !== true && data?.data?.authorization_url) {
         // Redirect to Paystack payment page
         window.location.href = data.data.authorization_url;
       } else {
         setError(
-          data.message || "Failed to initiate subscription. Please try again."
+          data?.message || "Failed to initiate subscription. Please try again."
         );
       }
     } catch (err) {

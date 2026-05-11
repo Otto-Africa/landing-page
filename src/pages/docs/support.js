@@ -33,7 +33,7 @@ const Support = () => {
 
           <p>
             Get help from our support team. We're here to help you integrate
-            Otto's API successfully.
+            Otto's API.
           </p>
 
           <h2 id="channels">Support Channels</h2>

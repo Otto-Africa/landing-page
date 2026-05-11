@@ -195,7 +195,7 @@ data = response.json()`
           </div>
           <div className="bg-white p-6 rounded-lg border border-gray-200">
             <h4 className="font-semibold text-gray-900 mb-2">completed</h4>
-            <p className="text-gray-600 text-sm">Transaction successfully processed</p>
+            <p className="text-gray-600 text-sm">Transaction processed</p>
           </div>
           <div className="bg-white p-6 rounded-lg border border-gray-200">
             <h4 className="font-semibold text-gray-900 mb-2">failed</h4>

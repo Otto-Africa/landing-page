@@ -1,7 +1,7 @@
 /* Otto Developer Documentation Styles */
 
 .docs-container {
-  font-family: 'BRCobane', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Google Sans', system-ui, sans-serif;
 }
 
 /* Hero Section */
@@ -76,7 +76,7 @@
 }
 
 .code-example-card pre {
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-family: 'Google Sans Mono', monospace;
   font-size: 0.875rem;
   line-height: 1.25;
   margin: 0;
@@ -133,7 +133,7 @@
   background: #f3f4f6;
   padding: 0.125rem 0.25rem;
   border-radius: 0.25rem;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-family: 'Google Sans Mono', monospace;
   font-size: 0.875em;
   color: #dc2626;
 }
@@ -145,7 +145,7 @@
   border-radius: 0.5rem;
   overflow-x: auto;
   margin: 1rem 0;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-family: 'Google Sans Mono', monospace;
   font-size: 0.875rem;
   line-height: 1.25;
 }
@@ -175,7 +175,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: 'Google Sans', system-ui, sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
   color: #6b7280;
@@ -237,7 +237,7 @@
 .api-endpoint .method.delete { background: #ef4444; color: white; }
 
 .api-endpoint .endpoint {
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-family: 'Google Sans Mono', monospace;
   font-weight: 600;
   color: #1f2937;
   margin-bottom: 0.5rem;

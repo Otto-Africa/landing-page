@@ -37,6 +37,9 @@ export const paths = {
 	DOCS_TESTING: "/docs/testing",
 	DOCS_SUPPORT: "/docs/support",
 
+	// Customer referral invite (web landing → app / stores)
+	INVITE_REFERRAL: "/invite/:ref",
+
 	// Gift Card Share
 	GIFT_CARD_SHARE: "/gift-cards/:id",
 

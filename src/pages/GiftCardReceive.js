@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
-import { HiOutlineEye, HiOutlineShoppingBag, HiOutlineShieldCheck, HiOutlineClipboardCopy } from "react-icons/hi";
 import SEO from "../components/SEO";
+import OttoIcon from "../components/OttoIcon";
 import { getApiUrl } from "../config/env";
 import "./GiftCardShare.css";
 
@@ -62,10 +62,13 @@ const GiftCardReceive = () => {
       try {
         const res = await fetch(getApiUrl(`gift/verification/${encodeURIComponent(token)}`));
         const json = await res.json();
-        if (json.success && json.data) {
+        // Backend now returns { status, message, data, errors?, code? }.
+        // A 2xx response with a payload is success; legacy code also handled
+        // a `success` boolean, so accept either.
+        if (res.ok && json?.error !== true && json?.data) {
           setGift(json.data);
         } else {
-          setError(json.message || "Could not load this gift. The link may have expired.");
+          setError(json?.message || "Could not load this gift. The link may have expired.");
         }
       } catch (e) {
         setError("Could not load this gift. Please check your connection and try again.");
@@ -144,19 +147,19 @@ const GiftCardReceive = () => {
               <div className="benefits-with-icons gift-receive-benefits">
                 <div className="benefit-item">
                   <span className="benefit-icon" aria-hidden>
-                    <HiOutlineEye size={22} strokeWidth={1.5} />
+                    <OttoIcon name="eye-outline" size={22} />
                   </span>
                   <span><strong>View your balance</strong> – See how much you have to spend</span>
                 </div>
                 <div className="benefit-item">
                   <span className="benefit-icon" aria-hidden>
-                    <HiOutlineShoppingBag size={22} strokeWidth={1.5} />
+                    <OttoIcon name="shopping-bag-outline" size={22} />
                   </span>
                   <span><strong>Use at checkout</strong> – Present the code below to the cashier</span>
                 </div>
                 <div className="benefit-item">
                   <span className="benefit-icon" aria-hidden>
-                    <HiOutlineShieldCheck size={22} strokeWidth={1.5} />
+                    <OttoIcon name="shield-outline" size={22} />
                   </span>
                   <span><strong>Safe & instant</strong> – Or use the Otto app to pay</span>
                 </div>
@@ -179,7 +182,7 @@ const GiftCardReceive = () => {
                       aria-label="Copy code"
                       title="Copy code"
                     >
-                      <HiOutlineClipboardCopy size={18} />
+                      <OttoIcon name="copy-outline" size={18} />
                       <span className="gift-receive-copy-label">{copied ? "Copied!" : "Copy"}</span>
                     </button>
                   </div>

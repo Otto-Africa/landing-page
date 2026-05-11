@@ -73,7 +73,7 @@ const ErrorHandling = () => {
             <tr>
               <td><code>201</code></td>
               <td>Created</td>
-              <td>Resource created successfully</td>
+              <td>Resource created</td>
             </tr>
             <tr>
               <td><code>400</code></td>

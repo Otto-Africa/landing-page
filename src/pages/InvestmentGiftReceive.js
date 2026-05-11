@@ -42,10 +42,13 @@ const InvestmentGiftReceive = () => {
       try {
         const res = await fetch(getApiUrl(`investment-certificates/receive?token=${encodeURIComponent(token)}`));
         const json = await res.json();
-        if (json.success === false && json.data) {
+        // Backend now returns { status, message, data, errors?, code? }.
+        // Use HTTP status as the success signal and tolerate the legacy
+        // `success` flag if a proxy/CDN ever rewraps the body.
+        if (res.ok && json?.error !== true && json?.data) {
           setGift(json.data);
         } else {
-          setError(json.message || "Could not load this gift. The link may have expired.");
+          setError(json?.message || "Could not load this gift. The link may have expired.");
         }
       } catch (e) {
         setError("Could not load this gift. Please check your connection and try again.");
