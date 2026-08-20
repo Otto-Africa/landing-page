@@ -299,10 +299,10 @@ curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
 
           <p>
             For Collect &amp; Pay invoices, Otto provisions a wallet (virtual
-            account) customers pay into. On your{" "}
-            <strong>local machine only</strong> (with{" "}
-            <code>DEMO_BANK_ENABLED=true</code> and <code>APP_ENV=local</code>
-            ), use{" "}
+            account) customers pay into. On{" "}
+            <strong>local and test</strong> (with{" "}
+            <code>APP_ENV=local</code> or <code>test</code>; demo bank is on by
+            default there), use{" "}
             <a href="/demo-bank" className="text-[#00B4D8] hover:underline">
               Otto Demo Bank
             </a>{" "}
