@@ -1,49 +1,108 @@
 /**
- * Environment detection from the current URL/domain.
- * No .env required: local, test, staging, or production is inferred from where the app is served.
+ * API and merchant-portal hosts from APP_ENV, matching admin/src/lib/constants.ts.
  *
- * - local:     localhost / 127.0.0.1  → API at http://localhost:3000/api
- * - test:      hostname contains "test"  → API at https://api-test.ottoafrica.com/api
- * - staging:   hostname contains "staging" → API at https://api-staging.ottoafrica.com/api
- * - production: else (e.g. ottoafrica.com) → API at https://api.ottoafrica.com/api
+ * Switch APP_ENV in .env (local | test | staging | prod) and restart npm start.
+ * Production `npm run build` defaults to prod if APP_ENV / REACT_APP_ENV is unset.
  */
 
 const ENV = {
   LOCAL: "local",
   TEST: "test",
   STAGING: "staging",
-  PRODUCTION: "production",
+  PRODUCTION: "prod",
 };
 
-const API_BASE_URLS = {
-  [ENV.LOCAL]: "http://localhost:3000/api",
-  [ENV.TEST]: "https://api-test.ottoafrica.com/api",
-  [ENV.STAGING]: "https://api-staging.ottoafrica.com/api",
-  [ENV.PRODUCTION]: "https://api.ottoafrica.com/api",
+const ENV_ALIASES = {
+  local: ENV.LOCAL,
+  development: ENV.LOCAL,
+  dev: ENV.LOCAL,
+  test: ENV.TEST,
+  staging: ENV.STAGING,
+  prod: ENV.PRODUCTION,
+  production: ENV.PRODUCTION,
 };
 
-/**
- * Get current environment from window.location.hostname.
- * Safe to call in browser; returns production when hostname is not available (e.g. SSR).
- */
-export function getEnvironment() {
-  if (typeof window === "undefined" || !window.location?.hostname) {
-    return ENV.PRODUCTION;
-  }
-  const host = window.location.hostname.toLowerCase();
-  if (host === "localhost" || host === "127.0.0.1") return ENV.LOCAL;
-  if (host.includes("test")) return ENV.TEST;
-  if (host.includes("staging")) return ENV.STAGING;
-  return ENV.PRODUCTION;
+const DEFAULT_API_HOSTS = {
+  [ENV.LOCAL]: "http://localhost:3000",
+  [ENV.TEST]: "https://api-test.ottoafrica.com",
+  [ENV.STAGING]: "https://staging-api.ottoafrica.com",
+  [ENV.PRODUCTION]: "https://api.ottoafrica.com",
+};
+
+const DEFAULT_MERCHANT_PORTAL_HOSTS = {
+  [ENV.LOCAL]: "http://localhost:3001",
+  [ENV.TEST]: "https://business-test.ottoafrica.com",
+  [ENV.STAGING]: "https://business-staging.ottoafrica.com",
+  [ENV.PRODUCTION]: "https://business.ottoafrica.com",
+};
+
+function envUrl(name) {
+  const value = process.env[name];
+  return value && value.trim() ? value.trim() : undefined;
 }
 
-/**
- * Get the API base URL for the current environment (no trailing slash).
- * UI helpers stay in lib/ and hooks/ so pages remain declarative and API shapes stay centralized in lib/api.ts.
- */
+function normalizeAppEnv(raw) {
+  const key = (raw || "").trim().toLowerCase();
+  if (key && ENV_ALIASES[key]) return ENV_ALIASES[key];
+  return process.env.NODE_ENV === "production" ? ENV.PRODUCTION : ENV.LOCAL;
+}
+
+function withApiPrefix(url) {
+  const trimmed = url.trim().replace(/\/+$/, "");
+  if (!trimmed) return trimmed;
+  return /\/api$/i.test(trimmed) ? trimmed : `${trimmed}/api`;
+}
+
+function stripTrailingSlash(url) {
+  return (url || "").trim().replace(/\/+$/, "");
+}
+
+function resolveApiBaseUrl(appEnv) {
+  const byEnv = {
+    [ENV.LOCAL]: envUrl("REACT_APP_LOCAL_BASE_URL"),
+    [ENV.TEST]: envUrl("REACT_APP_TEST_BASE_URL"),
+    [ENV.STAGING]: envUrl("REACT_APP_STAGING_BASE_URL"),
+    [ENV.PRODUCTION]: envUrl("REACT_APP_PROD_BASE_URL"),
+  };
+
+  const selected =
+    byEnv[appEnv] ||
+    envUrl("REACT_APP_API_URL") ||
+    envUrl("REACT_APP_API_BASE_URL") ||
+    DEFAULT_API_HOSTS[appEnv];
+
+  return withApiPrefix(selected);
+}
+
+function resolveMerchantPortalUrl(appEnv) {
+  const byEnv = {
+    [ENV.LOCAL]: envUrl("REACT_APP_LOCAL_MERCHANT_PORTAL_URL"),
+    [ENV.TEST]: envUrl("REACT_APP_TEST_MERCHANT_PORTAL_URL"),
+    [ENV.STAGING]: envUrl("REACT_APP_STAGING_MERCHANT_PORTAL_URL"),
+    [ENV.PRODUCTION]: envUrl("REACT_APP_PROD_MERCHANT_PORTAL_URL"),
+  };
+
+  const selected =
+    byEnv[appEnv] ||
+    envUrl("REACT_APP_MERCHANT_PORTAL_URL") ||
+    DEFAULT_MERCHANT_PORTAL_HOSTS[appEnv];
+
+  return stripTrailingSlash(selected);
+}
+
+/** `local` | `test` | `staging` | `prod` — from APP_ENV / REACT_APP_ENV. */
+export const APP_ENV = normalizeAppEnv(process.env.REACT_APP_ENV);
+
+export function getEnvironment() {
+  return APP_ENV;
+}
+
 export function getApiBaseUrl() {
-  const env = getEnvironment();
-  return API_BASE_URLS[env] ?? API_BASE_URLS[ENV.PRODUCTION];
+  return resolveApiBaseUrl(APP_ENV);
+}
+
+export function getMerchantPortalBaseUrl() {
+  return resolveMerchantPortalUrl(APP_ENV);
 }
 
 /**

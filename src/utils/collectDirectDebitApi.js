@@ -8,8 +8,6 @@ import { getApiBaseUrl } from "../config/env";
  * UI helpers stay in lib/ and hooks/ so pages remain declarative and API shapes stay centralized in lib/api.ts.
  */
 export function getApiRoot() {
-  const configured = process.env.REACT_APP_API_URL || "";
-  if (configured) return configured.replace(/\/api\/?$/, "");
   return getApiBaseUrl().replace(/\/api\/?$/, "");
 }
 

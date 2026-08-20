@@ -27,9 +27,9 @@
 	<meta name="theme-color" content="#1B3359" />
 	<meta name="msapplication-TileColor" content="#1B3359" />
 
-	<!-- Security Headers: connect-src includes local Node API (:3000) for dev -->
+	<!-- Security Headers: blob/unsafe-eval for CRA HMR; connect-src covers local API + webpack ws -->
 	<meta http-equiv="Content-Security-Policy"
-		content="default-src 'self' https: data:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https: http://localhost:3000 http://127.0.0.1:3000;">
+		content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: blob: https:; font-src 'self' data: https:; connect-src 'self' https: http://localhost:3000 http://127.0.0.1:3000 ws://localhost:3003 ws://127.0.0.1:3003; worker-src 'self' blob:;">
 	<meta name="referrer" content="strict-origin-when-cross-origin">
 
 	<!-- Icons -->
