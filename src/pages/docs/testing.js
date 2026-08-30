@@ -295,25 +295,27 @@ curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
             </div>
           </div>
 
-          <h2 id="demo-bank">Demo Bank (NUBAN / MoMo)</h2>
+          <h2 id="demo-bank">Demo Bank (Otto Cash NUBAN / MoMo)</h2>
 
           <p>
-            For Collect &amp; Pay invoices, Otto provisions a wallet (virtual
-            account) customers pay into. On{" "}
+            Otto Cash wallets use Otto-issued identifiers (
+            <code>888…</code> merchant, <code>999…</code> customer). Collect-in
+            virtual accounts are <strong>removed</strong>. On{" "}
             <strong>local and test</strong> (with{" "}
             <code>APP_ENV=local</code> or <code>test</code>; demo bank is on by
             default there), use{" "}
             <a href="/demo-bank" className="text-[#00B4D8] hover:underline">
               Otto Demo Bank
             </a>{" "}
-            to simulate bank transfer or mobile money payments without a real
-            payment processor.
+            to simulate a credit into an Otto Cash wallet without a real
+            payment processor. Invoices are paid with QR, mobile money, or Otto
+            Cash — not a dedicated NUBAN.
           </p>
 
           <div className="docs-alert info">
-            Demo Bank is disabled on staging and production. It calls the same
-            Otto Wallet inbound settlement path used by real bank/MoMo
-            integrations (<code>otto.wallet.inbound</code>).
+            Demo Bank is disabled on staging and production. Wallet credits use
+            the Otto Cash ledger path (<code>otto.wallet.inbound</code> /
+            demo-bank transfer).
           </div>
 
           <div className="bg-blue-50 p-6 rounded-lg mb-6">
@@ -322,38 +324,21 @@ curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
             </h4>
             <ol className="text-blue-800 text-sm space-y-2 list-decimal list-inside">
               <li>
-                Create a Collect invoice in the merchant app (Collect &amp;
-                Pay). The merchant must be approved so wallet rails are
-                provisioned.
-              </li>
-              <li>
-                Copy the Otto Wallet NUBAN (<code>777…</code>) or Ghana MoMo
-                number from the invoice detail screen.
+                Copy an Otto Cash NUBAN (<code>888…</code> / <code>999…</code>)
+                or matching MoMo number from a merchant or customer wallet
+                screen.
               </li>
               <li>
                 Open{" "}
                 <a href="/demo-bank" className="underline">
                   /demo-bank
                 </a>
-                , paste the account number, and confirm the lookup shows the
-                correct amount and <strong>Awaiting payment</strong> status.
+                , paste the account number, and confirm lookup shows an Otto
+                Cash wallet.
               </li>
               <li>
-                Send payment with the <strong>exact invoice amount</strong>.
-                Wrong amounts return <code>422 Amount must be GHS …</code>.
-              </li>
-              <li>
-                On success the form clears and the invoice moves to{" "}
-                <strong>Paid</strong>. Payment rails (QR, bank details) are
-                hidden on the merchant app once paid — tap{" "}
-                <strong>Check payment</strong> to refresh.
-              </li>
-              <li>
-                Otto fires <code>collect.paid</code> for your business (see{" "}
-                <a href="/docs/webhooks" className="underline">
-                  Webhooks
-                </a>
-                ).
+                Send a test credit. Retired collect numbers (<code>777…</code>)
+                return <code>410 VIRTUAL_ACCOUNT_REMOVED</code>.
               </li>
             </ol>
           </div>
@@ -365,7 +350,7 @@ curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
             <strong>/api/public/demo-bank/lookup</strong>
             <br />
             <span className="description">
-              Resolve an invoice wallet — query params: <code>account</code>,{" "}
+              Resolve an Otto Cash wallet — query params: <code>account</code>,{" "}
               <code>rail</code> (<code>nuban</code> | <code>momo</code>),
               optional <code>network</code> for MoMo
             </span>
@@ -376,31 +361,25 @@ curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
             <strong>/api/public/demo-bank/transfer</strong>
             <br />
             <span className="description">
-              Simulate an inbound transfer and settle the collect intent
-              atomically
+              Simulate an inbound credit onto an Otto Cash wallet
             </span>
           </div>
 
           <CodeBlock
             language="bash"
-            code={`# Lookup an invoice wallet (Otto-issued NUBAN)
-curl "http://localhost:3000/api/public/demo-bank/lookup?account=7770000027&rail=nuban"
+            code={`# Lookup an Otto Cash wallet (customer NUBAN)
+curl "http://localhost:3000/api/public/demo-bank/lookup?account=9990000002&rail=nuban"
 
-# Simulate bank transfer — amount_minor must match the invoice exactly (1200 = GHS 12.00)
+# Simulate bank transfer into Otto Cash
 curl -X POST "http://localhost:3000/api/public/demo-bank/transfer" \\
   -H "Content-Type: application/json" \\
-  -d '{"account_number":"7770000027","amount_minor":1200,"rail":"nuban","narration":"Test payment"}'
+  -d '{"account_number":"9990000002","amount_minor":1200,"rail":"nuban","narration":"Test top-up"}'
 
-# Simulate MoMo transfer (MTN prefix 23324 + entity digit 7 for an invoice)
-curl -X POST "http://localhost:3000/api/public/demo-bank/transfer" \\
-  -H "Content-Type: application/json" \\
-  -d '{"account_number":"2332470000027","amount_minor":1200,"rail":"momo","momo_network":"mtn"}'
-
-# Direct inbound webhook (production integrations / GHIPSS simulator)
+# Direct inbound webhook (Otto Cash only)
 curl -X POST "http://localhost:3000/api/webhooks/otto-wallet/inbound" \\
   -H "Content-Type: application/json" \\
   -H "X-Otto-Signature: <hmac-of-body>" \\
-  -d '{"event":"otto.wallet.inbound","data":{"account_number":"7770000027","amount_minor":1200,"collect_intent_public_id":"col_..."}}'`}
+  -d '{"event":"otto.wallet.inbound","data":{"account_number":"9990000002","amount_minor":1200}}'`}
           />
 
           <h2 id="webhooks">Testing Webhooks</h2>
@@ -422,7 +401,7 @@ curl -X POST "http://localhost:3000/api/webhooks/otto-wallet/inbound" \\
               Use a tunnel (ngrok, Cloudflare Tunnel) or a request inspector
               like webhook.site in development
             </li>
-            <li>Pay an invoice through Demo Bank</li>
+            <li>Pay an invoice with QR or mobile money (not Demo Bank VA)</li>
             <li>
               Confirm your endpoint receives a signed POST with{" "}
               <code>X-Otto-Event: collect.paid</code>

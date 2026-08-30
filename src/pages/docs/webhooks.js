@@ -320,22 +320,22 @@ function verifyWebhookSignature(rawBody, signatureHeader, secret) {
           <h2 id="testing">Testing with Demo Bank</h2>
 
           <p>
-            The fastest way to trigger a real <code>collect.paid</code> webhook
-            in sandbox is Otto Demo Bank:
+            The fastest way to trigger an Otto Cash credit in sandbox is Otto
+            Demo Bank. Invoice <code>collect.paid</code> is no longer driven by
+            a dedicated NUBAN — pay invoices with QR, mobile money, or Otto
+            Cash.
           </p>
 
           <ol className="list-decimal list-inside space-y-2 mb-6">
-            <li>Create a Collect invoice in the merchant app</li>
+            <li>Copy a merchant or customer Otto Cash NUBAN (888… / 999…)</li>
             <li>
               Open{" "}
               <a href="/demo-bank" className="text-[#00B4D8] hover:underline">
                 Demo Bank
               </a>{" "}
-              and enter the invoice NUBAN (<code>777…</code>) or MoMo number
+              and enter that wallet number
             </li>
-            <li>
-              Send the exact invoice amount — mismatches return <code>422</code>
-            </li>
+            <li>Send a test credit — retired 777 numbers return 410</li>
             <li>
               Check your endpoint (or Otto&apos;s delivery audit) for{" "}
               <code>collect.paid</code>

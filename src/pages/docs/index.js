@@ -122,7 +122,7 @@ const DocsIndex = () => {
                 >
                   Demo Bank
                 </Link>{" "}
-                — simulate NUBAN and MoMo payments into invoice wallets (local /
+                — simulate NUBAN and MoMo credits into Otto Cash wallets (local /
                 test / staging)
               </li>
               <li>
@@ -136,7 +136,7 @@ const DocsIndex = () => {
                 retries with HTTP status logging
               </li>
               <li>
-                Paid invoices hide QR and bank rails; wallet balance reflects{" "}
+                Paid invoices hide QR rails; wallet balance reflects{" "}
                 <code>MB_CASH</code> settlements
               </li>
               <li>

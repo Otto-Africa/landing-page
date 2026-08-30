@@ -226,7 +226,7 @@ const DemoBank = () => {
     <div className="demo-bank-page">
       <SEO
         title="Demo bank – Test payments (Ghana)"
-        description="Test GHS bank transfer and mobile money payments into Otto invoice wallets in local, test, and staging."
+        description="Test GHS credits into Otto Cash wallets in local, test, and staging."
         url="https://ottoafrica.com/demo-bank"
       />
 
@@ -244,8 +244,8 @@ const DemoBank = () => {
             </div>
           </div>
           <p className="demo-bank-subtitle">
-            Send test bank and mobile money payments into Otto invoice wallets.
-            Settlements run through Otto Wallet in real time.
+            Send test credits into Otto Cash wallets (888… merchant, 999…
+            customer). Settlements post to the Otto Cash ledger in real time.
           </p>
         </header>
 
@@ -422,7 +422,7 @@ const DemoBank = () => {
                     placeholder={
                       rail === "momo"
                         ? momoMeta.placeholder
-                        : "777XXXXXXX (invoice) or 888/999XXXXXXX (wallet)"
+                        : "888XXXXXXX (merchant) or 999XXXXXXX (customer)"
                     }
                     value={accountNumber}
                     onChange={(event) => setAccountNumber(event.target.value)}
@@ -478,14 +478,13 @@ const DemoBank = () => {
           <p className="demo-bank-footnote">
             Available in local, test, and staging.{" "}
             <a href="/docs/testing#demo-bank">Read the testing guide</a> or{" "}
-            <a href="/docs/webhooks">webhook docs</a>. Invoice virtual
-            accounts start with <code>777</code> and only ever receive payment
-            for their own invoice; merchant wallet top-ups use{" "}
-            <code>888</code>; customer wallet top-ups use <code>999</code>.
+            <a href="/docs/webhooks">webhook docs</a>. Collect-in virtual
+            accounts (<code>777</code>) are removed. Merchant Otto Cash uses{" "}
+            <code>888</code>; customer Otto Cash uses <code>999</code>.
             MoMo test numbers use Ghana prefixes: MTN <code>23324…</code>,
             Vodafone <code>23320…</code>, AirtelTigo <code>23327…</code>,
-            followed by the entity digit (<code>7</code> invoice,{" "}
-            <code>8</code> merchant wallet, <code>9</code> customer wallet).
+            followed by the entity digit (<code>8</code> merchant wallet,{" "}
+            <code>9</code> customer wallet).
           </p>
         </main>
       </div>

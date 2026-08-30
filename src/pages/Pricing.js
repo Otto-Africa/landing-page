@@ -97,7 +97,7 @@ const Pricing = () => {
       // HTTP status (response.ok) for success and look up the payload under
       // `data.data` regardless of whether a legacy `error` flag is present.
       if (response.ok && data?.error !== true && data?.data?.authorization_url) {
-        // Redirect to Paystack payment page
+        // Redirect to FCL payment page
         window.location.href = data.data.authorization_url;
       } else {
         setError(
