@@ -1,6 +1,7 @@
 import React from "react";
 import DocsLayout from "../../layout/DocsLayout";
 import SEO from "../../components/SEO";
+import DocsOpener from "../../components/DocsOpener";
 import "./docs.css";
 
 /**
@@ -10,6 +11,7 @@ import "./docs.css";
 const Support = () => {
   const onThisPageItems = [
     { href: "#overview", label: "Overview" },
+    { href: "#when-why-how", label: "When, why, and how" },
     { href: "#channels", label: "Support Channels" },
     { href: "#common-issues", label: "Common Issues" },
     { href: "#response-times", label: "Response Times" },
@@ -33,10 +35,12 @@ const Support = () => {
         <div className="docs-content">
           <h1 id="overview">Support</h1>
 
-          <p>
-            Get help from our support team. We're here to help you integrate
-            Otto's API.
-          </p>
+          <DocsOpener
+            lead="Support is how you reach Otto when an integration fails or a live collect needs investigation."
+            when="Use email or GitHub when docs and error codes do not explain the failure. Include request time, path, and the Otto error code."
+            why="Money APIs need a named channel. Support can match your request to Otto logs only if you send identifiers."
+            how="Read error-handling first. Then email or open a GitHub issue with the path, HTTP status, code, and request id. Do not send live API keys."
+          />
 
           <h2 id="channels">Support Channels</h2>
 

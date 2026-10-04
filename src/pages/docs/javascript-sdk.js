@@ -3,6 +3,7 @@ import DocsLayout from "../../layout/DocsLayout";
 import SEO from "../../components/SEO";
 import CodeBlock from "../../components/CodeBlock";
 import { Link } from "react-router-dom";
+import DocsOpener from "../../components/DocsOpener";
 import "./docs.css";
 
 /**
@@ -12,6 +13,7 @@ import "./docs.css";
 const JavascriptSdkDocs = () => {
   const onThisPageItems = [
     { href: "#introduction", label: "Introduction" },
+    { href: "#when-why-how", label: "When, why, and how" },
     { href: "#published-npm", label: "Published npm packages" },
     { href: "#installation", label: "Installation" },
     { href: "#initialize", label: "Initialize transaction" },
@@ -36,11 +38,13 @@ const JavascriptSdkDocs = () => {
       >
         <div className="docs-content">
           <h1 id="introduction">JavaScript & Node SDKs</h1>
-          <p>
-            Published packages focus on <strong>loyalty</strong> (merchant triggers, customer-facing browser
-            calls, optional popup). For <strong>card payments</strong>, initialize transactions on your server
-            via the REST API (see below) and complete checkout with your chosen UI.
-          </p>
+
+          <DocsOpener
+            lead="Published npm packages cover loyalty: merchant event triggers, customer-facing browser calls, and an optional popup."
+            when="Use these packages when you fire loyalty events from Node or when a customer site must show loyalty UI. Initialize card payments on your server with REST, not in the browser SDK."
+            why="Loyalty tokens and event shapes are easy to get wrong. The packages keep that contract in one place."
+            how="Install @ottoafrica/customer-sdk-js, @ottoafrica/events-sdk-node, or @ottoafrica/loyalty-popup-widget. Keep secret keys on the server. See install and initialize below."
+          />
 
           <h2 id="published-npm">Published on npm</h2>
           <p className="text-gray-600 mb-4">

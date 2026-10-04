@@ -106,6 +106,14 @@ export function getMerchantPortalBaseUrl() {
 }
 
 /**
+ * Provider (FCL) docs stay on local, test, and staging only.
+ * Production docs show the Otto API that partners call.
+ */
+export function showInternalDocs() {
+  return APP_ENV !== ENV.PRODUCTION;
+}
+
+/**
  * Build full API URL for an endpoint.
  * @param {string} endpoint - e.g. "gift/verification/TOKEN" or "contact/landing-page"
  */

@@ -4,6 +4,44 @@
   font-family: 'Google Sans', system-ui, sans-serif;
 }
 
+.docs-opener {
+  margin: 0 0 2rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.docs-opener-lead {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #111827;
+}
+
+.docs-opener-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0;
+}
+
+.docs-opener-grid dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 0.35rem;
+}
+
+.docs-opener-grid dd {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #374151;
+}
+
 /* Hero Section */
 .docs-hero {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

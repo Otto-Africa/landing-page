@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DocsLayout from '../../layout/DocsLayout';
 import SEO from '../../components/SEO';
 import CodeBlock from '../../components/CodeBlock';
+import DocsOpener from '../../components/DocsOpener';
 import './docs.css';
 
 /**
@@ -13,6 +14,7 @@ const Authentication = () => {
 
   const onThisPageItems = [
     { href: '#overview', label: 'Overview' },
+    { href: '#when-why-how', label: 'When, why, and how' },
     { href: '#api-keys', label: 'API Key Management' },
     { href: '#scopes', label: 'API Key Scopes' },
     { href: '#making-requests', label: 'Making Authenticated Requests' },
@@ -37,10 +39,12 @@ const Authentication = () => {
       <div className="docs-content">
         <h1 id="overview">API Authentication</h1>
 
-        <p>
-          All requests to Otto's API must be authenticated using API keys. Otto uses Bearer token
-          authentication with granular scope-based permissions to ensure secure access to your data.
-        </p>
+        <DocsOpener
+          lead="Partner apps prove identity to Otto with a Bearer API key. Otto uses that key to choose test or live data and to apply scopes."
+          when="Use this page when you create a key, send your first request, or debug 401 Unauthorized. User login tokens are for apps, not for server-to-server Otto API calls."
+          why="A key prefix (sk_test_ or sk_live_) selects the environment on the same host. Scopes limit what the key can do. That keeps production data off test code."
+          how="Create a key in the Merchant Portal or via Identity API keys. Send Authorization: Bearer sk_test_... or sk_live_... on every request to https://api.ottoafrica.com. Do not send provider keys from your app."
+        />
 
         <h2 id="api-keys">API Key Management</h2>
 

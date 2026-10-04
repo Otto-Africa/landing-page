@@ -2,6 +2,7 @@ import React from "react";
 import DocsLayout from "../../layout/DocsLayout";
 import SEO from "../../components/SEO";
 import CodeBlock from "../../components/CodeBlock";
+import DocsOpener from "../../components/DocsOpener";
 import "./docs.css";
 
 /**
@@ -11,6 +12,7 @@ import "./docs.css";
 const AndroidSdkDocs = () => {
   const onThisPageItems = [
     { href: "#introduction", label: "Introduction" },
+    { href: "#when-why-how", label: "When, why, and how" },
     { href: "#requirements", label: "Project requirements" },
     { href: "#installation", label: "Installation" },
     { href: "#builder", label: "Otto builder" },
@@ -30,14 +32,13 @@ const AndroidSdkDocs = () => {
       <DocsLayout currentPage="/docs/sdks" onThisPageItems={onThisPageItems}>
         <div className="docs-content">
           <h1 id="introduction">Android SDK</h1>
-          <p>
-            The Android SDK provides UI components and methods for secure in-app
-            payments. Integration is a two-step process:
-          </p>
-          <ol>
-            <li>Initialize the transaction from your server</li>
-            <li>Complete payment in the Android SDK</li>
-          </ol>
+
+          <DocsOpener
+            lead="The Android SDK shows a payment sheet after your server initializes a transaction."
+            when="Use the Android SDK for native checkout. Do not put a live API key in the APK."
+            why="PAN entry belongs in Otto UI. The collect still starts on your server so you control amount and metadata."
+            how="POST initialize with a Bearer key. Pass the access code to OttoBuilder. Present the sheet. Confirm with GET or a webhook."
+          />
 
           <h2 id="requirements">Project requirements</h2>
           <p>Ensure your app meets these minimum requirements:</p>

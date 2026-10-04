@@ -1,696 +1,294 @@
-import React, { useState } from 'react';
-import DocsLayout from '../../layout/DocsLayout';
-import SEO from '../../components/SEO';
-import CodeBlock from '../../components/CodeBlock';
-import './docs.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import DocsLayout from "../../layout/DocsLayout";
+import SEO from "../../components/SEO";
+import CodeBlock from "../../components/CodeBlock";
+import DocsOpener from "../../components/DocsOpener";
+import "./docs.css";
 
 /**
- * Loyalty.
- * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ * Loyalty Management module.
  */
 const Loyalty = () => {
-  const [activeTab, setActiveTab] = useState('curl');
-
-
   const onThisPageItems = [
-    { href: "#overview", label: "Overview" },
-    { href: "#execution-status", label: "Execution Status" },
-    { href: "#implementation-status", label: "Implementation Status" },
-    { href: "#programs", label: "Loyalty Programs" },
-    { href: "#checkout-codes", label: "Program & Member Codes at Checkout" },
-    { href: "#points", label: "Points Management" },
+    { href: "#purpose", label: "Overview" },
+    { href: "#when-why-how", label: "When, why, and how" },
+    { href: "#programs", label: "Programs" },
+    { href: "#members", label: "Members" },
     { href: "#rewards", label: "Rewards" },
-    { href: "#analytics", label: "Analytics" },
+    { href: "#customer", label: "Customer paths" },
   ];
+
+  const createProgram = `{
+  "name": "Store Rewards",
+  "description": "Earn points on every purchase"
+}`;
 
   return (
     <>
       <SEO
-        title="Loyalty Programs API - Otto Africa API Documentation"
-        description="Learn how to create and manage loyalty programs, award points, and handle rewards using Otto Africa API."
-        keywords="loyalty program API, points system, customer rewards, loyalty points, Otto loyalty programs"
+        title="Loyalty Management API - Otto Africa Documentation"
+        description="Create loyalty programs, enroll members, manage rewards, and redeem points on the Otto API."
+        keywords="Otto loyalty, loyalty programs, rewards, member code, points"
         url="https://ottoafrica.com/docs/loyalty"
       />
       <DocsLayout
         currentPage="/docs/loyalty"
-      
-      onThisPageItems={onThisPageItems}
-      nutshell="Create and manage customer loyalty programs with points, rewards, and analytics."
-    >
-      <div className="docs-content">
-        <h1 id="overview">Loyalty Programs API</h1>
+        onThisPageItems={onThisPageItems}
+        nutshell="Loyalty Management creates programs, enrolls members, issues rewards, and redeems points."
+      >
+        <div className="docs-content">
+          <h1 id="purpose">Loyalty Management</h1>
 
-        <p>
-          The Loyalty Programs API allows you to build and manage customer loyalty programs programmatically.
-          Create programs, award points, manage rewards, and track customer engagement.
-        </p>
-        
-        <h2 id="execution-status">Execution Status (Tested)</h2>
-        <div className="docs-alert success">
-          <strong>Smoke-tested on test environment:</strong> <code>GET /api/health</code> returned 200, and merchant loyalty routes returned 401 without auth (expected). This confirms route availability and auth protection for integration.
+          <DocsOpener
+            lead="Loyalty Management lets a merchant run a points program. Members earn rewards. Customers redeem those rewards."
+            when="Use this module when you create a program, list members, define rewards, or let a customer redeem. Use Gift Cards when the product is a stored-value card, not points."
+            why="A program is the rule set for one business. Otto keeps members and rewards on that program so checkout and the app share the same balance."
+            how="Authenticate as a merchant. POST /api/merchant/loyalty/programs, then create rewards under the program ID. Customers GET memberships and POST /api/customer/loyalty/rewards/redeem."
+          />
+
+          <p>
+            See <Link to="/docs/identity">Identity</Link>. Gift card products
+            are on <Link to="/docs/gift-cards">gift cards</Link>.
+          </p>
+
+          <h2 id="programs">Programs</h2>
+          <p>
+            A program is the loyalty rule set for one business. You can archive,
+            restore, and set a default program.
+          </p>
+          <table className="docs-table mb-6">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Path</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>GET</code>
+                </td>
+                <td>
+                  <code>/api/merchant/loyalty/programs</code>
+                </td>
+                <td>List active programs</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>POST</code>
+                </td>
+                <td>
+                  <code>/api/merchant/loyalty/programs</code>
+                </td>
+                <td>Create a program</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>GET</code>
+                </td>
+                <td>
+                  <code>/api/merchant/loyalty/programs/:id</code>
+                </td>
+                <td>Read one program</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>PUT</code>
+                </td>
+                <td>
+                  <code>/api/merchant/loyalty/programs/:id</code>
+                </td>
+                <td>Update a program</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>POST</code>
+                </td>
+                <td>
+                  <code>/api/merchant/loyalty/programs/:id/archive</code>
+                </td>
+                <td>Archive a program</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>POST</code>
+                </td>
+                <td>
+                  <code>/api/merchant/loyalty/programs/:id/restore</code>
+                </td>
+                <td>Restore an archived program</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>POST</code>
+                </td>
+                <td>
+                  <code>/api/merchant/loyalty/programs/:id/set-default</code>
+                </td>
+                <td>Set the default program</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>GET</code>
+                </td>
+                <td>
+                  <code>/api/merchant/loyalty/programs/:id/analytics</code>
+                </td>
+                <td>Read program analytics</td>
+              </tr>
+            </tbody>
+          </table>
+          <CodeBlock language="json" code={createProgram} />
+
+          <h2 id="members">Members</h2>
+          <p>
+            Members belong to a program. List members for one program ID.
+          </p>
+          <table className="docs-table mb-6">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Path</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>GET</code>
+                </td>
+                <td>
+                  <code>/api/merchant/loyalty/programs/:id/members</code>
+                </td>
+                <td>List members</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 id="rewards">Rewards</h2>
+          <p>
+            Rewards are items a member can claim with points. Create rewards
+            under a program.
+          </p>
+          <table className="docs-table mb-6">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Path</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>GET</code>
+                </td>
+                <td>
+                  <code>/api/merchant/loyalty/rewards/program/:programId</code>
+                </td>
+                <td>List rewards for a program</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>POST</code>
+                </td>
+                <td>
+                  <code>/api/merchant/loyalty/rewards/program/:programId</code>
+                </td>
+                <td>Create a reward</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>GET</code>
+                </td>
+                <td>
+                  <code>/api/merchant/loyalty/rewards/:id</code>
+                </td>
+                <td>Read one reward</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>PUT</code>
+                </td>
+                <td>
+                  <code>/api/merchant/loyalty/rewards/:id</code>
+                </td>
+                <td>Update a reward</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>DELETE</code>
+                </td>
+                <td>
+                  <code>/api/merchant/loyalty/rewards/:id</code>
+                </td>
+                <td>Delete a reward</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 id="customer">Customer paths</h2>
+          <p>
+            Customers read memberships and redeem rewards with a customer
+            session.
+          </p>
+          <table className="docs-table mb-6">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Path</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>GET</code>
+                </td>
+                <td>
+                  <code>/api/customer/loyalty/memberships</code>
+                </td>
+                <td>List memberships</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>GET</code>
+                </td>
+                <td>
+                  <code>/api/customer/loyalty/memberships/:id/rewards</code>
+                </td>
+                <td>List rewards for a membership</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>POST</code>
+                </td>
+                <td>
+                  <code>/api/customer/loyalty/rewards/redeem</code>
+                </td>
+                <td>Redeem a reward</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>GET</code>
+                </td>
+                <td>
+                  <code>/api/customer/profile/loyalty/points</code>
+                </td>
+                <td>Read loyalty points on the profile</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            Client SDKs for checkout widgets are on{" "}
+            <Link to="/docs/sdks">SDKs</Link>.
+          </p>
         </div>
-        <CodeBlock
-          language="bash"
-          code={`curl -i "https://api-test.ottoafrica.com/api/health"
-curl -i "https://api-test.ottoafrica.com/api/merchant/loyalty/programs"
-curl -i "https://api-test.ottoafrica.com/api/merchant/loyalty/lookup?member_code=ABCD-EFGH-IJKL"
-curl -i -X POST "https://api-test.ottoafrica.com/api/merchant/loyalty/record-activity" \\
-  -H "Content-Type: application/json" \\
-  -d '{"member_code":"ABCD-EFGH-IJKL","amount":50,"activity_type":"GIFT_CARD_PURCHASE"}'`}
-        />
-        <p>
-          For authenticated validation, use a valid merchant bearer token and a member code that belongs to your business.
-        </p>
-
-        <h2 id="implementation-status">Implementation Status (Current)</h2>
-        <div className="docs-alert success">
-          <strong>Executed locally end-to-end:</strong> Phase checks for loyalty SDK + popup implementation currently pass in backend.
-        </div>
-        <p>
-          The following implementation items are now available for local integration and test:
-        </p>
-        <ul>
-          <li><code>POST /api/auth/client-token</code> client token minting contract for customer SDK/popup sessions.</li>
-          <li><code>POST /api/merchant/loyalty/programs/{`{id}`}/members/enroll</code> to generate a valid <code>member_code</code> without waiting for purchase auto-enrollment.</li>
-          <li>
-            npm packages (published, scope <code>@ottoafrica/*</code>, v0.1.1):{" "}
-            <a href="https://www.npmjs.com/package/@ottoafrica/events-sdk-node" target="_blank" rel="noopener noreferrer" className="text-[#00B4D8] hover:underline">events-sdk-node</a>,{" "}
-            <a href="https://www.npmjs.com/package/@ottoafrica/customer-sdk-js" target="_blank" rel="noopener noreferrer" className="text-[#00B4D8] hover:underline">customer-sdk-js</a>,{" "}
-            <a href="https://www.npmjs.com/package/@ottoafrica/loyalty-popup-widget" target="_blank" rel="noopener noreferrer" className="text-[#00B4D8] hover:underline">loyalty-popup-widget</a>
-            . Source in <code>backend/sdks</code>.
-          </li>
-          <li>Phase test runner: <code>./scripts/run-loyalty-sdk-phase-tests.sh</code>.</li>
-        </ul>
-        <CodeBlock
-          language="bash"
-          code={`# Run implementation phase checks (backend)
-cd backend
-./scripts/run-loyalty-sdk-phase-tests.sh
-
-# Mint a client token (merchant auth required)
-curl -X POST "https://api-test.ottoafrica.com/api/auth/client-token" \\
-  -H "Authorization: Bearer YOUR_MERCHANT_TOKEN" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "memberId": "ABCD-EFGH-IJKL",
-    "sessionId": "checkout-session-123",
-    "ttlSeconds": 900
-  }'`}
-        />
-
-        <h2 id="programs">Loyalty Programs</h2>
-
-        <h3>Create a Loyalty Program</h3>
-
-        <div className="api-endpoint">
-          <span className="method post">POST</span>
-          <strong>/api/merchant/loyalty/programs</strong>
-          <br />
-          <span className="description">Create a new loyalty program</span>
-        </div>
-
-        <div className="code-tabs">
-          <div className="tab-buttons">
-            <button
-              className={`tab-button ${activeTab === "curl" ? "active" : ""}`}
-              onClick={() => setActiveTab("curl")}
-            >
-              cURL
-            </button>
-            <button
-              className={`tab-button ${activeTab === "javascript" ? "active" : ""}`}
-              onClick={() => setActiveTab("javascript")}
-            >
-              JavaScript
-            </button>
-            <button
-              className={`tab-button ${activeTab === "python" ? "active" : ""}`}
-              onClick={() => setActiveTab("python")}
-            >
-              Python
-            </button>
-          </div>
-          <div className="tab-content">
-            {activeTab === "curl" && (
-              <div className="tab-pane">
-                <CodeBlock
-                  language="bash"
-                  code={`curl -X POST "https://api.ottoafrica.com/api/merchant/loyalty/programs" \\
-  -H "Authorization: Bearer your_api_key" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "name": "Gold Tier Rewards",
-    "description": "Premium loyalty program",
-    "points_per_cedi": 1,
-    "redemption_rules": {
-      "minimum_points": 100,
-      "categories": ["food", "beverages"]
-    }
-  }'`}
-                />
-              </div>
-            )}
-            {activeTab === "javascript" && (
-              <div className="tab-pane">
-                <CodeBlock
-                  language="javascript"
-                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/loyalty/programs', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Bearer your_api_key',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    name: 'Gold Tier Rewards',
-    description: 'Premium loyalty program',
-    points_per_cedi: 1,
-    redemption_rules: {
-      minimum_points: 100,
-      categories: ['food', 'beverages']
-    }
-  })
-});
-
-const data = await response.json();`}
-                />
-              </div>
-            )}
-            {activeTab === "python" && (
-              <div className="tab-pane">
-                <CodeBlock
-                  language="python"
-                  code={`import requests
-
-response = requests.post(
-    'https://api.ottoafrica.com/api/merchant/loyalty/programs',
-    headers={
-        'Authorization': 'Bearer your_api_key',
-        'Content-Type': 'application/json'
-    },
-    json={
-        'name': 'Gold Tier Rewards',
-        'description': 'Premium loyalty program',
-        'points_per_cedi': 1,
-        'redemption_rules': {
-            'minimum_points': 100,
-            'categories': ['food', 'beverages']
-        }
-    }
-)
-
-data = response.json()`}
-                />
-              </div>
-            )}
-          </div>
-        </div>
-
-        <h3>List Loyalty Programs</h3>
-
-        <div className="api-endpoint">
-          <span className="method get">GET</span>
-          <strong>/api/merchant/loyalty/programs</strong>
-          <br />
-          <span className="description">List all loyalty programs for your merchant account</span>
-        </div>
-
-        <CodeBlock
-          language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/loyalty/programs" \\
-  -H "Authorization: Bearer your_api_key"`}
-        />
-
-        <h3>Update Loyalty Program</h3>
-
-        <div className="api-endpoint">
-          <span className="method put">PUT</span>
-          <strong>/api/merchant/loyalty/programs/{`{id}`}</strong>
-          <br />
-          <span className="description">Update an existing loyalty program</span>
-        </div>
-
-        <CodeBlock
-          language="bash"
-          code={`curl -X PUT "https://api.ottoafrica.com/api/merchant/loyalty/programs/123" \\
-  -H "Authorization: Bearer your_api_key" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "points_per_cedi": 2,
-    "is_active": true
-  }'`}
-        />
-
-        <h2 id="checkout-codes">Program & Member Codes at Checkout</h2>
-
-        <p>
-          Loyalty programs and members have unique identifiers you can use to attribute purchases at checkout—online or in-person—without requiring the customer to be logged in.
-        </p>
-
-        <h3>Identifiers</h3>
-        <ul>
-          <li><strong>Program code</strong> — Optional. Set when creating or updating a program (<code>program_code</code>). Use for display or to identify the program (e.g. <code>ACME-REWARDS</code>). Must be unique across programs.</li>
-          <li><strong>Member code</strong> — Auto-generated per membership (e.g. <code>ABCD-EFGH-IJKL</code>). Each customer gets one per program. Customers can find it in the Otto app; merchants can see it in the program members list. Use this at checkout to attribute the purchase to that member.</li>
-        </ul>
-
-        <h3>Look up a member by code</h3>
-        <p>
-          Before or during checkout, verify a member and show their name and points balance by looking up their <strong>member code</strong>.
-        </p>
-
-        <div className="api-endpoint">
-          <span className="method get">GET</span>
-          <strong>/api/merchant/loyalty/lookup</strong>
-          <br />
-          <span className="description">Look up a loyalty member by member_code (query param)</span>
-        </div>
-
-        <p>
-          <strong>Query:</strong> <code>member_code</code> (required) — The member's code (e.g. <code>ABCD-EFGH-IJKL</code>). Spaces are ignored; case-insensitive.
-        </p>
-
-        <CodeBlock
-          language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/loyalty/lookup?member_code=ABCD-EFGH-IJKL" \\
-  -H "Authorization: Bearer your_api_key"`}
-        />
-
-        <p>
-          <strong>Success response (200):</strong> Returns the member's program, display name, current points balance, and tier (if applicable). Only members of your business's programs are returned; otherwise 404.
-        </p>
-
-        <h3>Record a purchase by member code</h3>
-        <p>
-          When a customer is not logged into the Otto app but provides their <strong>member code</strong> (e.g. at your POS or website), use this endpoint to record the purchase and award points to that member.
-        </p>
-
-        <div className="api-endpoint">
-          <span className="method post">POST</span>
-          <strong>/api/merchant/loyalty/record-activity</strong>
-          <br />
-          <span className="description">Record a purchase/activity for a member identified by member_code</span>
-        </div>
-
-        <p>
-          <strong>Body (JSON):</strong>
-        </p>
-        <table className="docs-table">
-          <thead>
-            <tr>
-              <th>Field</th>
-              <th>Type</th>
-              <th>Required</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>member_code</code></td>
-              <td>string</td>
-              <td>Yes</td>
-              <td>Member's code (e.g. ABCD-EFGH-IJKL)</td>
-            </tr>
-            <tr>
-              <td><code>amount</code></td>
-              <td>number</td>
-              <td>Yes</td>
-              <td>Purchase/transaction amount</td>
-            </tr>
-            <tr>
-              <td><code>activity_type</code></td>
-              <td>string</td>
-              <td>Yes</td>
-              <td><code>GIFT_CARD_PURCHASE</code> or <code>GIFT_CARD_REDEMPTION</code></td>
-            </tr>
-            <tr>
-              <td><code>order_detail_id</code></td>
-              <td>integer</td>
-              <td>No</td>
-              <td>Your order detail ID for reference</td>
-            </tr>
-            <tr>
-              <td><code>gift_card_id</code></td>
-              <td>integer</td>
-              <td>No</td>
-              <td>Gift card ID if applicable</td>
-            </tr>
-            <tr>
-              <td><code>location_id</code></td>
-              <td>integer</td>
-              <td>No</td>
-              <td>Location ID if scoped</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <CodeBlock
-          language="bash"
-          code={`curl -X POST "https://api.ottoafrica.com/api/merchant/loyalty/record-activity" \\
-  -H "Authorization: Bearer your_api_key" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "member_code": "ABCD-EFGH-IJKL",
-    "amount": 50.00,
-    "activity_type": "GIFT_CARD_PURCHASE"
-  }'`}
-        />
-
-        <h3>Customer checkout with member code</h3>
-        <p>
-          When a customer places an order via the Otto app or your integration, you can pass an optional <code>member_code</code> in the order/checkout request. If valid for your program, points are attributed to that member instead of the logged-in user (e.g. when buying a gift for someone who should receive the points).
-        </p>
-        <p>
-          Include <code>member_code</code> in the same payload as your existing order parameters (e.g. <code>price</code>, <code>giftcard_id</code>, <code>payment_method</code>). The code is validated against your business's loyalty programs; if invalid or for another business, points are awarded to the logged-in customer as usual.
-        </p>
-
-        <h2 id="points">Points Management</h2>
-
-        <h3>Award Points</h3>
-
-        <div className="api-endpoint">
-          <span className="method post">POST</span>
-          <strong>/api/merchant/loyalty/points/add</strong>
-          <br />
-          <span className="description">Award points to a customer</span>
-        </div>
-
-        <div className="code-tabs">
-          <div className="tab-buttons">
-            <button
-              className={`tab-button ${activeTab === "curl" ? "active" : ""}`}
-              onClick={() => setActiveTab("curl")}
-            >
-              cURL
-            </button>
-            <button
-              className={`tab-button ${activeTab === "javascript" ? "active" : ""}`}
-              onClick={() => setActiveTab("javascript")}
-            >
-              JavaScript
-            </button>
-            <button
-              className={`tab-button ${activeTab === "python" ? "active" : ""}`}
-              onClick={() => setActiveTab("python")}
-            >
-              Python
-            </button>
-          </div>
-          <div className="tab-content">
-            {activeTab === "curl" && (
-              <div className="tab-pane">
-                <CodeBlock
-                  language="bash"
-                  code={`curl -X POST "https://api.ottoafrica.com/api/merchant/loyalty/points/add" \\
-  -H "Authorization: Bearer your_api_key" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "customer_id": "CUST-123",
-    "points": 50,
-    "reason": "Purchase reward",
-    "transaction_reference": "TXN-789"
-  }'`}
-                />
-              </div>
-            )}
-            {activeTab === "javascript" && (
-              <div className="tab-pane">
-                <CodeBlock
-                  language="javascript"
-                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/loyalty/points/add', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Bearer your_api_key',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    customer_id: 'CUST-123',
-    points: 50,
-    reason: 'Purchase reward',
-    transaction_reference: 'TXN-789'
-  })
-});
-
-const data = await response.json();`}
-                />
-              </div>
-            )}
-            {activeTab === "python" && (
-              <div className="tab-pane">
-                <CodeBlock
-                  language="python"
-                  code={`import requests
-
-response = requests.post(
-    'https://api.ottoafrica.com/api/merchant/loyalty/points/add',
-    headers={
-        'Authorization': 'Bearer your_api_key',
-        'Content-Type': 'application/json'
-    },
-    json={
-        'customer_id': 'CUST-123',
-        'points': 50,
-        'reason': 'Purchase reward',
-        'transaction_reference': 'TXN-789'
-    }
-)
-
-data = response.json()`}
-                />
-              </div>
-            )}
-          </div>
-        </div>
-
-        <h3>Redeem Points</h3>
-
-        <div className="api-endpoint">
-          <span className="method post">POST</span>
-          <strong>/api/merchant/loyalty/points/redeem</strong>
-          <br />
-          <span className="description">Redeem customer points for a reward</span>
-        </div>
-
-        <CodeBlock
-          language="bash"
-          code={`curl -X POST "https://api.ottoafrica.com/api/merchant/loyalty/points/redeem" \\
-  -H "Authorization: Bearer your_api_key" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "customer_id": "CUST-123",
-    "points": 100,
-    "reward_type": "discount",
-    "reward_value": 10.00
-  }'`}
-        />
-
-        <h2 id="rewards">Rewards</h2>
-
-        <h3>Create a Reward</h3>
-
-        <div className="api-endpoint">
-          <span className="method post">POST</span>
-          <strong>/api/merchant/loyalty/rewards/program/{`{programId}`}</strong>
-          <br />
-          <span className="description">Create a new reward for a loyalty program</span>
-        </div>
-
-        <div className="code-tabs">
-          <div className="tab-buttons">
-            <button
-              className={`tab-button ${activeTab === "curl" ? "active" : ""}`}
-              onClick={() => setActiveTab("curl")}
-            >
-              cURL
-            </button>
-            <button
-              className={`tab-button ${activeTab === "javascript" ? "active" : ""}`}
-              onClick={() => setActiveTab("javascript")}
-            >
-              JavaScript
-            </button>
-            <button
-              className={`tab-button ${activeTab === "python" ? "active" : ""}`}
-              onClick={() => setActiveTab("python")}
-            >
-              Python
-            </button>
-          </div>
-          <div className="tab-content">
-            {activeTab === "curl" && (
-              <div className="tab-pane">
-                <CodeBlock
-                  language="bash"
-                  code={`curl -X POST "https://api.ottoafrica.com/api/merchant/loyalty/rewards/program/123" \\
-  -H "Authorization: Bearer your_api_key" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "name": "10% Discount",
-    "description": "Get 10% off your next purchase",
-    "points_required": 100,
-    "reward_type": "DISCOUNT_PERCENTAGE",
-    "reward_value": 10.00,
-    "stock_quantity": 1000,
-    "is_active": true
-  }'`}
-                />
-              </div>
-            )}
-            {activeTab === "javascript" && (
-              <div className="tab-pane">
-                <CodeBlock
-                  language="javascript"
-                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/loyalty/rewards/program/123', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Bearer your_api_key',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    name: '10% Discount',
-    description: 'Get 10% off your next purchase',
-    points_required: 100,
-    reward_type: 'DISCOUNT_PERCENTAGE',
-    reward_value: 10.00,
-    stock_quantity: 1000,
-    is_active: true
-  })
-});
-
-const data = await response.json();`}
-                />
-              </div>
-            )}
-            {activeTab === "python" && (
-              <div className="tab-pane">
-                <CodeBlock
-                  language="python"
-                  code={`import requests
-
-response = requests.post(
-    'https://api.ottoafrica.com/api/merchant/loyalty/rewards/program/123',
-    headers={
-        'Authorization': 'Bearer your_api_key',
-        'Content-Type': 'application/json'
-    },
-    json={
-        'name': '10% Discount',
-        'description': 'Get 10% off your next purchase',
-        'points_required': 100,
-        'reward_type': 'DISCOUNT_PERCENTAGE',
-        'reward_value': 10.00,
-        'stock_quantity': 1000,
-        'is_active': True
-    }
-)
-
-data = response.json()`}
-                />
-              </div>
-            )}
-          </div>
-        </div>
-
-        <h3>Reward Types</h3>
-
-        <table className="docs-table">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Description</th>
-              <th>Value Format</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>DISCOUNT_PERCENTAGE</code></td>
-              <td>Percentage discount on purchase</td>
-              <td>0-100 (percentage)</td>
-            </tr>
-            <tr>
-              <td><code>DISCOUNT_AMOUNT</code></td>
-              <td>Fixed amount discount</td>
-              <td>Amount in currency</td>
-            </tr>
-            <tr>
-              <td><code>FREE_ITEM</code></td>
-              <td>Free item reward</td>
-              <td>Item identifier</td>
-            </tr>
-            <tr>
-              <td><code>UPGRADE</code></td>
-              <td>Program or tier upgrade reward</td>
-              <td>Configuration-driven</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3>List Rewards</h3>
-
-        <div className="api-endpoint">
-          <span className="method get">GET</span>
-          <strong>/api/merchant/loyalty/rewards/program/{`{programId}`}</strong>
-          <br />
-          <span className="description">List all rewards for a loyalty program</span>
-        </div>
-
-        <CodeBlock
-          language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/loyalty/rewards/program/123" \\
-  -H "Authorization: Bearer your_api_key"`}
-        />
-
-        <h2 id="analytics">Analytics</h2>
-
-        <h3>Get Reward Analytics</h3>
-
-        <div className="api-endpoint">
-          <span className="method get">GET</span>
-          <strong>/api/merchant/loyalty/rewards/{`{id}`}/analytics</strong>
-          <br />
-          <span className="description">Get analytics for a specific reward</span>
-        </div>
-
-        <CodeBlock
-          language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/loyalty/rewards/456/analytics" \\
-  -H "Authorization: Bearer your_api_key"`}
-        />
-
-        <h3>Get Program Analytics</h3>
-
-        <div className="api-endpoint">
-          <span className="method get">GET</span>
-          <strong>/api/merchant/loyalty/programs/{`{id}`}/analytics</strong>
-          <br />
-          <span className="description">Get comprehensive analytics for a loyalty program</span>
-        </div>
-
-        <p>
-          Returns metrics including total points awarded, total points redeemed, active members,
-          top rewards, and engagement statistics.
-        </p>
-
-        <div className="docs-alert success">
-          <strong>Need Help?</strong> Check the{" "}
-          <a
-            href="https://api.ottoafrica.com/api/docs"
-            className="underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            API Reference
-          </a>{" "}
-          for complete endpoint documentation, or visit our{" "}
-          <a href="/docs/support" className="underline">
-            Support page
-          </a>
-          .
-        </div>
-      </div>
-    </DocsLayout>
+      </DocsLayout>
     </>
   );
 };
 
 export default Loyalty;
-
-

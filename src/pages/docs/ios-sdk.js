@@ -2,6 +2,7 @@ import React from "react";
 import DocsLayout from "../../layout/DocsLayout";
 import SEO from "../../components/SEO";
 import CodeBlock from "../../components/CodeBlock";
+import DocsOpener from "../../components/DocsOpener";
 import "./docs.css";
 
 /**
@@ -11,6 +12,7 @@ import "./docs.css";
 const IosSdkDocs = () => {
   const onThisPageItems = [
     { href: "#introduction", label: "Introduction" },
+    { href: "#when-why-how", label: "When, why, and how" },
     { href: "#requirements", label: "Project requirements" },
     { href: "#installation", label: "Installation" },
     { href: "#initialize", label: "Initialize transaction" },
@@ -33,14 +35,13 @@ const IosSdkDocs = () => {
       >
         <div className="docs-content">
           <h1 id="introduction">iOS SDK</h1>
-          <p>
-            The iOS SDK provides native payment UI components for secure in-app
-            checkout. Integration has two steps:
-          </p>
-          <ol>
-            <li>Initialize transaction on your server</li>
-            <li>Launch the payment sheet in your iOS app</li>
-          </ol>
+
+          <DocsOpener
+            lead="The iOS SDK shows a native payment sheet. Your server still starts the transaction. The app only presents UI."
+            when="Use the iOS SDK when a native app must take card or wallet checkout. Do not put a live API key in the app."
+            why="The sheet keeps PAN entry off your screens. Otto still owns the collect record because initialize happens on the server."
+            how="Initialize on the server with a Bearer key. Pass the access code to the app. Present the payment sheet. Handle the result, then confirm with GET or a webhook."
+          />
 
           <h2 id="requirements">Project requirements</h2>
           <ul>

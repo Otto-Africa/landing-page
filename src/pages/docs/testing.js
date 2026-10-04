@@ -2,6 +2,7 @@ import React from "react";
 import DocsLayout from "../../layout/DocsLayout";
 import SEO from "../../components/SEO";
 import CodeBlock from "../../components/CodeBlock";
+import DocsOpener from "../../components/DocsOpener";
 import "./docs.css";
 
 /**
@@ -11,6 +12,7 @@ import "./docs.css";
 const Testing = () => {
   const onThisPageItems = [
     { href: "#overview", label: "Overview" },
+    { href: "#when-why-how", label: "When, why, and how" },
     { href: "#sandbox", label: "Test Environment" },
     { href: "#test-keys", label: "Test API Keys" },
     { href: "#test-data", label: "Test Data" },
@@ -37,13 +39,12 @@ const Testing = () => {
         <div className="docs-content">
           <h1 id="overview">Testing</h1>
 
-          <p>
-            Otto uses the same API endpoint for both test and live environments.
-            The environment is determined by your API key prefix. Test keys
-            (starting with <code>sk_test_</code>) automatically route to test
-            databases, while live keys (starting with <code>sk_live_</code>)
-            route to production databases.
-          </p>
+          <DocsOpener
+            lead="Test keys and live keys hit the same host. The key prefix selects the environment. sk_test_ uses test ledgers. sk_live_ uses production."
+            when="Use this page before you go live: first collect, webhooks, Demo Bank, and MoMo simulation. Never use sk_live_ until the checklist on this page is complete."
+            why="The same URLs reduce config errors. Isolation by key prefix keeps test money off live customers."
+            how="Create a test key in the Merchant Portal. Send Authorization: Bearer sk_test_.... Run the checklist. Switch to sk_live_ only after collect, webhooks, and error paths succeed in test."
+          />
 
           <h2 id="sandbox">Test Environment</h2>
 

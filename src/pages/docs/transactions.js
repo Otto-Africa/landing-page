@@ -2,6 +2,7 @@ import React from 'react';
 import DocsLayout from '../../layout/DocsLayout';
 import SEO from '../../components/SEO';
 import CodeBlock from '../../components/CodeBlock';
+import DocsOpener from '../../components/DocsOpener';
 import MultiLanguageCodeBlock from '../../components/MultiLanguageCodeBlock';
 import './docs.css';
 
@@ -14,6 +15,7 @@ const Transactions = () => {
 
   const onThisPageItems = [
     { href: '#overview', label: 'Overview' },
+    { href: '#when-why-how', label: 'When, why, and how' },
     { href: '#list-transactions', label: 'List Transactions' },
     { href: '#get-transaction', label: 'Get Transaction Details' },
     { href: '#transaction-statuses', label: 'Transaction Statuses' },
@@ -37,14 +39,16 @@ const Transactions = () => {
       <div className="docs-content">
         <h1 id="overview">Transactions API</h1>
 
+        <DocsOpener
+          lead="Transactions is the list of money movements on your merchant account. Each record has a status, amount in pesewas, and a type."
+          when="Use this page when you need history, a single record, or a filtered export. Use webhooks for live collect.paid. Use settlements when you need payout batches, not one-by-one events."
+          why="Your books need Otto's record of what happened. Listing by date, status, or type is how you reconcile without guessing."
+          how="Authenticate. GET /api/merchant/transactions with page and filters. GET a transaction ID for detail. Amounts are pesewas (1 GHS = 100 pesewas)."
+        />
+
         <div className="docs-alert warning">
           <strong>Currency Note:</strong> All currency values are stored in Pesewas (1 GHS = 100 Pesewas).
         </div>
-
-        <p>
-          The Transactions API allows you to retrieve transaction history, view transaction details,
-          and access settlement information for your merchant account.
-        </p>
 
         <h2 id="list-transactions">List Transactions</h2>
 

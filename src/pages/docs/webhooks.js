@@ -2,6 +2,7 @@ import React from "react";
 import DocsLayout from "../../layout/DocsLayout";
 import SEO from "../../components/SEO";
 import CodeBlock from "../../components/CodeBlock";
+import DocsOpener from "../../components/DocsOpener";
 import "./docs.css";
 
 /**
@@ -11,6 +12,7 @@ import "./docs.css";
 const Webhooks = () => {
   const onThisPageItems = [
     { href: "#overview", label: "Overview" },
+    { href: "#when-why-how", label: "When, why, and how" },
     { href: "#configure", label: "Configure Webhooks" },
     { href: "#events", label: "Available Events" },
     { href: "#payload", label: "Webhook Payload" },
@@ -35,11 +37,16 @@ const Webhooks = () => {
         <div className="docs-content">
           <h1 id="overview">Webhooks</h1>
 
+          <DocsOpener
+            lead="A webhook is a signed HTTP POST from Otto to your HTTPS URL when an event occurs. The primary payment event is collect.paid."
+            when="Use webhooks when your server must react as soon as a collect settles, without polling every few seconds. Still poll as a backup if you cannot miss a delivery."
+            why="Otto records every settlement. If you register an endpoint, Otto posts collect.paid up to three times and logs HTTP status. That is how your ledger stays in sync with Otto."
+            how="Register a URL in the merchant app or POST /api/merchant/webhooks. Store the signing secret. Verify the signature on each POST. Return HTTP 2xx quickly. Read the payload for the collect ID and status."
+          />
+
           <p>
-            Webhooks notify your server when important events happen in Otto —
-            especially when a Collect &amp; Pay invoice is paid. Instead of
-            polling the API, Otto sends signed HTTP POST requests to your
-            endpoint.
+            Otto sends a signed HTTP POST to your endpoint. Configure the URL
+            below.
           </p>
 
           <div className="docs-alert info">

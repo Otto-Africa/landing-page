@@ -2,6 +2,7 @@ import React from "react";
 import DocsLayout from "../../layout/DocsLayout";
 import SEO from "../../components/SEO";
 import CodeBlock from "../../components/CodeBlock";
+import DocsOpener from "../../components/DocsOpener";
 import "./docs.css";
 
 /**
@@ -11,6 +12,7 @@ import "./docs.css";
 const FlutterSdkDocs = () => {
   const onThisPageItems = [
     { href: "#introduction", label: "Introduction" },
+    { href: "#when-why-how", label: "When, why, and how" },
     { href: "#requirements", label: "Project requirements" },
     { href: "#installation", label: "Installation" },
     { href: "#initialize", label: "Initialize transaction" },
@@ -33,10 +35,13 @@ const FlutterSdkDocs = () => {
       >
         <div className="docs-content">
           <h1 id="introduction">Flutter SDK</h1>
-          <p>
-            The Flutter SDK lets you integrate Otto payment flows across Android
-            and iOS from one codebase.
-          </p>
+
+          <DocsOpener
+            lead="The Flutter SDK presents Otto payment UI on Android and iOS from one codebase. Your server still initializes the transaction."
+            when="Use Flutter when one Dart app must checkout on both platforms. Do not put a live API key in the client."
+            why="Initialize on the server so secrets stay off the device. The sheet is only the customer step."
+            how="Initialize with REST and a Bearer key. Pass the access code into the Flutter SDK. Present the sheet. Confirm with GET or a webhook."
+          />
 
           <h2 id="requirements">Project requirements</h2>
           <ul>

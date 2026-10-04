@@ -2,6 +2,7 @@ import React from 'react';
 import DocsLayout from '../../layout/DocsLayout';
 import SEO from '../../components/SEO';
 import MultiLanguageCodeBlock from '../../components/MultiLanguageCodeBlock';
+import DocsOpener from '../../components/DocsOpener';
 import { getMerchantPortalUrl } from '../../utils/getMerchantPortalUrl';
 import './docs.css';
 
@@ -14,6 +15,7 @@ const GettingStarted = () => {
 
   const onThisPageItems = [
     { href: '#overview', label: 'Overview' },
+    { href: '#when-why-how', label: 'When, why, and how' },
     { href: '#what-you-can-do', label: 'What You Can Do' },
     { href: '#create-api-key', label: 'Create API Key' },
     { href: '#first-api-call', label: 'Make Your First API Call' },
@@ -38,12 +40,12 @@ const GettingStarted = () => {
       <div className="docs-content">
         <h1 id="overview">Getting Started with Otto API</h1>
 
-        <p>
-          Welcome to Otto's Developer Documentation! This guide will help you get up and running
-          with the Otto API in just a few minutes. Whether you're building an e-commerce platform,
-          a mobile app, or any other integration, Otto's API makes it easy to manage gift cards,
-          transactions, loyalty programs, and more.
-        </p>
+        <DocsOpener
+          lead="This guide shows a partner how to call the Otto API for the first time. Otto is the public gateway at https://api.ottoafrica.com."
+          when="Use this page when you start a new integration. You need a Merchant Portal account and an API key before collect, loyalty, or gift card calls."
+          why="One host and one Bearer key is enough to reach Payments, Identity, Loyalty, LLM, and Accounting. You do not call provider hosts from your app."
+          how="Create an API key in the Merchant Portal. Send Authorization: Bearer YOUR_API_KEY. Start with GET /api/merchant/transactions, then create a resource such as a gift card template or a collect."
+        />
 
         <h2 id="what-you-can-do">What You Can Do with Otto API</h2>
 
@@ -57,9 +59,9 @@ const GettingStarted = () => {
           </div>
 
           <div className="docs-card">
-            <h3 className="text-lg font-semibold mb-2">💰 Transactions</h3>
+            <h3 className="text-lg font-semibold mb-2">💰 Payments</h3>
             <p className="text-gray-600">
-              Access real-time transaction data, payment history, and detailed analytics for your business.
+              Collect invoices and pay out to wallets or bank accounts through Otto.
             </p>
           </div>
 
@@ -272,24 +274,29 @@ print(data)`
         </p>
 
         <div className="grid md:grid-cols-2 gap-4 mb-8">
-          <a href="/docs/gift-cards" className="docs-card p-4 transition-all duration-200 hover:border-otto-blue">
-            <h3 className="font-semibold mb-2">🎁 Gift Cards Guide</h3>
-            <p className="text-sm text-gray-600">Complete guide to creating and managing gift cards</p>
+          <a href="/docs/payments" className="docs-card p-4 transition-all duration-200 hover:border-otto-blue">
+            <h3 className="font-semibold mb-2">Payments</h3>
+            <p className="text-sm text-gray-600">Collect invoices and send payouts through Otto</p>
           </a>
 
-          <a href="/docs/transactions" className="docs-card p-4 transition-all duration-200 hover:border-otto-blue">
-            <h3 className="font-semibold mb-2">💰 Transactions Guide</h3>
-            <p className="text-sm text-gray-600">Access transaction data and analytics</p>
+          <a href="/docs/identity" className="docs-card p-4 transition-all duration-200 hover:border-otto-blue">
+            <h3 className="font-semibold mb-2">Identity</h3>
+            <p className="text-sm text-gray-600">Login, API keys, PIN, and sessions</p>
           </a>
 
-          <a href="/docs/webhooks" className="docs-card p-4 transition-all duration-200 hover:border-otto-blue">
-            <h3 className="font-semibold mb-2">🔄 Webhooks Guide</h3>
-            <p className="text-sm text-gray-600">Set up real-time event notifications</p>
+          <a href="/docs/loyalty" className="docs-card p-4 transition-all duration-200 hover:border-otto-blue">
+            <h3 className="font-semibold mb-2">Loyalty Management</h3>
+            <p className="text-sm text-gray-600">Programs, members, and rewards</p>
           </a>
 
-          <a href="/docs/authentication" className="docs-card p-4 transition-all duration-200 hover:border-otto-blue">
-            <h3 className="font-semibold mb-2">🔐 Authentication Guide</h3>
-            <p className="text-sm text-gray-600">Advanced authentication and security</p>
+          <a href="/docs/llm" className="docs-card p-4 transition-all duration-200 hover:border-otto-blue">
+            <h3 className="font-semibold mb-2">LLM Conversations</h3>
+            <p className="text-sm text-gray-600">CosmoLLM chat, cases, and actions</p>
+          </a>
+
+          <a href="/docs/accounting" className="docs-card p-4 transition-all duration-200 hover:border-otto-blue">
+            <h3 className="font-semibold mb-2">Accounting</h3>
+            <p className="text-sm text-gray-600">Sales, bills, tax, and reconcile</p>
           </a>
         </div>
 

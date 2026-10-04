@@ -2,6 +2,7 @@ import React from 'react';
 import DocsLayout from '../../layout/DocsLayout';
 import SEO from '../../components/SEO';
 import CodeBlock from '../../components/CodeBlock';
+import DocsOpener from '../../components/DocsOpener';
 import './docs.css';
 
 /**
@@ -12,6 +13,7 @@ const RateLimits = () => {
 
   const onThisPageItems = [
     { href: "#overview", label: "Overview" },
+    { href: "#when-why-how", label: "When, why, and how" },
     { href: "#limits", label: "Rate Limit Tiers" },
     { href: "#headers", label: "Rate Limit Headers" },
     { href: "#handling", label: "Handling Rate Limits" },
@@ -35,10 +37,12 @@ const RateLimits = () => {
       <div className="docs-content">
         <h1 id="overview">Rate Limits</h1>
 
-        <p>
-          Rate limiting helps ensure the API remains stable and available for all merchants. Each
-          API key has rate limits that control how many requests can be made within a specific time period.
-        </p>
+        <DocsOpener
+          lead="Rate limits cap how many requests one API key can send in a time window. Otto returns HTTP 429 when you exceed the cap."
+          when="Use this page when you see 429, when you poll status, or when you batch jobs. Prefer webhooks over tight polling."
+          why="Limits keep the API available for all merchants. Your integration must back off instead of hammering."
+          how="Read rate-limit headers on each response. If you receive 429, wait Retry-After or the remaining window, then retry. Spread list calls. Cache readiness."
+        />
 
         <h2 id="limits">Rate Limit Tiers</h2>
 

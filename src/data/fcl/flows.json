@@ -1,0 +1,317 @@
+[
+  {
+    "id": "overview",
+    "title": "Architecture and API ownership",
+    "status": "Three FCL APIs with separate authentication",
+    "steps": [
+      "Use Payment Gateway for external collections, checkout and bank or mobile money payouts. Obtain a merchant key and renew it before its 30-minute expiry.",
+      "Use Unified for customer onboarding, product catalogs, loan applications, investments and recurring mandates. Authenticate with its separate partner key and channel identity.",
+      "Use Core Banking for account, investment and facility enquiries, additional accounts and Field ledger postings. Authenticate with its own API key.",
+      "For wallet deposits, complete Gateway collection first. Credit the customer through CBS Field Deposit using the actual vendor GL. A confirmed failed CBS credit requires a Gateway disbursement refund to the original source. Track collection, posting and refund outcomes separately."
+    ],
+    "limits": "The supplied contracts do not define a single transaction spanning all three APIs. Confirm accounting and recovery rules with FCL for each flow."
+  },
+  {
+    "id": "collection",
+    "title": "Wallet top-up and external collection",
+    "status": "Payment Gateway collections and checkout",
+    "steps": [
+      "Authenticate with the current Gateway API key.",
+      "Create a mobile money collection or card checkout using a unique payment reference.",
+      "Save providerRef. For cards, redirect the customer to checkoutUrl.",
+      "Check the corresponding status endpoint until SUCCESS or FAILED. Keep checking PENDING transactions using the original reference."
+    ],
+    "limits": "Confirm Gateway status before reporting payment success. Wallet topups additionally require a successful CBS Field Deposit, as described in the transfer guide."
+  },
+  {
+    "id": "external-transfer",
+    "title": "External transfer and withdrawal",
+    "status": "FCL-confirmed wallet deposit flow; withdrawal sequence requires confirmation",
+    "steps": [
+      "Complete Gateway collection and save the successful amount, currency, processing partner and original source.",
+      "Call CBS Field Deposit with the customer account and the actual partner GL in agentAccountNumber. Use a unique transactionId of at most 20 characters, feeAmount 0 and an empty feeContraAccount.",
+      "If CBS confirms success, complete the topup. If CBS definitively rejects the credit, automatically refund the collected amount to the same source through Gateway disbursement.",
+      "Track the refund by its own stable reference linked to the original collection. Mark reversed only when the refund succeeds; retain pending or failed refunds for recovery.",
+      "For withdrawals, the proposed sequence protects or debits wallet funds before external payout. FCL must confirm the protection, contra account, posting order and correction contract."
+    ],
+    "limits": "A CBS timeout is not proof of rejection. Reconcile unknown postings before refunding. The supplied instructions do not define card refunds or the withdrawal posting sequence."
+  },
+  {
+    "id": "internal-transfer",
+    "title": "Internal account transfer",
+    "status": "Two CBS postings: sender withdrawal followed by receiver deposit",
+    "steps": [
+      "Validate the sender and receiver accounts and the transfer amount. No Payment Gateway call is needed.",
+      "Call POST /agents/field-withdrawal with the sender in customerAccountNumber and the FCL-approved internal-transfer contra account. Wait for confirmed debit success.",
+      "Call POST /agents/field-deposit with the receiver in customerAccountNumber and the FCL-approved internal-transfer agent account. Use the same amount and a separate linked transactionId of at most 20 characters.",
+      "Complete the transfer only after both postings succeed. Retain the debit and credit references under one transfer reference."
+    ],
+    "limits": "If the debit succeeds but the credit fails, recover the incomplete transfer or reverse the debit through the approved FCL procedure. Do not debit again. Reconcile unknown outcomes before retrying or reversing. Confirm the internal contra/agent account mapping; separate HTTP calls are not atomic."
+  },
+  {
+    "id": "loans",
+    "title": "Loan application, facility servicing and payout",
+    "status": "Unified applications and Core Banking facility enquiries",
+    "steps": [
+      "List loan products with Unified GET /loans/products and select a product.",
+      "Submit POST /loans/applications using the product’s required application fields. Retain the application reference.",
+      "Read the application list or individual application to track its status. Confirm the meaning of decision statuses with FCL.",
+      "Use Core Banking /facilities/by-* and /facilities/detail to retrieve the customer’s facility information.",
+      "If external disbursement is required, obtain FCL’s loan-specific payout and accounting instructions before using Payment Gateway. Obtain separate repayment and allocation instructions for collections."
+    ],
+    "limits": "Application acceptance, loan approval and disbursement are separate outcomes. The supplied facility enquiries do not initiate approval, payout or repayment."
+  },
+  {
+    "id": "savings",
+    "title": "Savings funding and withdrawal",
+    "status": "Wallet, Mobile Money and card funding",
+    "steps": [
+      "Resolve the selected FQUIP savings account before collecting or debiting funds. Product creation is separate from funding.",
+      "Wallet funding uses Field Withdrawal followed by Field Deposit. MoMo and card funding use Gateway payment, status confirmation and a direct Field Deposit into the destination account."
+    ],
+    "limits": "Matured withdrawals return to Quicksave. Direct FQUIP-to-FD movement is not permitted. Savings rollover relocks the same FQUIP account. Rollover and maturity-release execution endpoints are not supplied. Card refunds require a separate FCL contract.",
+    "fundingSections": [
+      {
+        "title": "Save from Wallet",
+        "steps": [
+          {
+            "text": "Debit the customer Quicksave account with Field Withdrawal. Confirm debit success.",
+            "method": "POST",
+            "url": "https://fclapi.formscapital.net:7050/api/v1/agents/field-withdrawal"
+          },
+          {
+            "text": "Credit the selected FQUIP savings account with Field Deposit.",
+            "method": "POST",
+            "url": "https://fclapi.formscapital.net:7050/api/v1/agents/field-deposit"
+          }
+        ],
+        "note": "Complete only when both postings succeed. Use the same principal and distinct linked posting IDs, each at most 20 characters. Use the approved internal contra/agent accounts. No Payment Gateway call is needed. If the credit fails, recover without debiting again."
+      },
+      {
+        "title": "Save from Mobile Money",
+        "steps": [
+          {
+            "text": "Collect from the customer's MoMo wallet.",
+            "method": "POST",
+            "url": "https://fclvas.formscapital.net:3847/api/v1/collections"
+          },
+          {
+            "text": "Confirm collection SUCCESS using the returned providerRef.",
+            "method": "GET",
+            "url": "https://fclvas.formscapital.net:3847/api/v1/collections/{providerRef}/status"
+          },
+          {
+            "text": "Credit the selected FQUIP savings account with Field Deposit. Set customerAccountNumber to this destination and agentAccountNumber to the actual processing vendor GL.",
+            "method": "POST",
+            "url": "https://fclapi.formscapital.net:7050/api/v1/agents/field-deposit"
+          }
+        ],
+        "note": "Complete only after both payment and CBS credit succeed. Use the collected amount and a linked posting reference of at most 20 characters. If CBS definitively rejects the credit, refund the original MoMo source through Gateway disbursement and confirm refund success. Reconcile a CBS timeout before refunding."
+      },
+      {
+        "title": "Save from Card",
+        "steps": [
+          {
+            "text": "Create a card checkout session and redirect the customer to checkoutUrl.",
+            "method": "POST",
+            "url": "https://fclvas.formscapital.net:3847/api/v1/checkout/sessions"
+          },
+          {
+            "text": "Confirm payment SUCCESS using the returned providerRef. A browser redirect alone does not confirm payment.",
+            "method": "GET",
+            "url": "https://fclvas.formscapital.net:3847/api/v1/checkout/sessions/{providerRef}/status"
+          },
+          {
+            "text": "Credit the selected FQUIP savings account with Field Deposit. Set customerAccountNumber to this destination and agentAccountNumber to the actual processing vendor GL.",
+            "method": "POST",
+            "url": "https://fclapi.formscapital.net:7050/api/v1/agents/field-deposit"
+          }
+        ],
+        "note": "Complete only after both payment and CBS credit succeed. Use the collected amount and a linked posting reference of at most 20 characters. The supplied collections do not define a card-refund endpoint. Agree the original-card refund procedure with FCL before enabling this channel. Do not substitute a MoMo or bank payout for a card refund."
+      }
+    ]
+  },
+  {
+    "id": "investments",
+    "title": "Investment purchase, detail and redemption",
+    "status": "Wallet, Mobile Money and card funding",
+    "steps": [
+      "Resolve the selected eligible FD account before collecting or debiting funds. Product creation is separate from funding.",
+      "Wallet funding uses Field Withdrawal followed by Field Deposit. MoMo and card funding use Gateway payment, status confirmation and a direct Field Deposit into the destination account."
+    ],
+    "limits": "Matured withdrawals return to Quicksave. Direct FQUIP-to-FD movement is not permitted. Investment rollover creates a new FD account. Confirm the FD accepts the intended contribution; do not fund twice if application processing already posted funds. Rollover and maturity-release execution endpoints are not supplied. Card refunds require a separate FCL contract.",
+    "fundingSections": [
+      {
+        "title": "Invest from Wallet",
+        "steps": [
+          {
+            "text": "Debit the customer Quicksave account with Field Withdrawal. Confirm debit success.",
+            "method": "POST",
+            "url": "https://fclapi.formscapital.net:7050/api/v1/agents/field-withdrawal"
+          },
+          {
+            "text": "Credit the selected eligible FD account with Field Deposit.",
+            "method": "POST",
+            "url": "https://fclapi.formscapital.net:7050/api/v1/agents/field-deposit"
+          }
+        ],
+        "note": "Complete only when both postings succeed. Use the same principal and distinct linked posting IDs, each at most 20 characters. Use the approved internal contra/agent accounts. No Payment Gateway call is needed. If the credit fails, recover without debiting again."
+      },
+      {
+        "title": "Invest from Mobile Money",
+        "steps": [
+          {
+            "text": "Collect from the customer's MoMo wallet.",
+            "method": "POST",
+            "url": "https://fclvas.formscapital.net:3847/api/v1/collections"
+          },
+          {
+            "text": "Confirm collection SUCCESS using the returned providerRef.",
+            "method": "GET",
+            "url": "https://fclvas.formscapital.net:3847/api/v1/collections/{providerRef}/status"
+          },
+          {
+            "text": "Credit the selected eligible FD account with Field Deposit. Set customerAccountNumber to this destination and agentAccountNumber to the actual processing vendor GL.",
+            "method": "POST",
+            "url": "https://fclapi.formscapital.net:7050/api/v1/agents/field-deposit"
+          }
+        ],
+        "note": "Complete only after both payment and CBS credit succeed. Use the collected amount and a linked posting reference of at most 20 characters. If CBS definitively rejects the credit, refund the original MoMo source through Gateway disbursement and confirm refund success. Reconcile a CBS timeout before refunding."
+      },
+      {
+        "title": "Invest from Card",
+        "steps": [
+          {
+            "text": "Create a card checkout session and redirect the customer to checkoutUrl.",
+            "method": "POST",
+            "url": "https://fclvas.formscapital.net:3847/api/v1/checkout/sessions"
+          },
+          {
+            "text": "Confirm payment SUCCESS using the returned providerRef. A browser redirect alone does not confirm payment.",
+            "method": "GET",
+            "url": "https://fclvas.formscapital.net:3847/api/v1/checkout/sessions/{providerRef}/status"
+          },
+          {
+            "text": "Credit the selected eligible FD account with Field Deposit. Set customerAccountNumber to this destination and agentAccountNumber to the actual processing vendor GL.",
+            "method": "POST",
+            "url": "https://fclapi.formscapital.net:7050/api/v1/agents/field-deposit"
+          }
+        ],
+        "note": "Complete only after both payment and CBS credit succeed. Use the collected amount and a linked posting reference of at most 20 characters. The supplied collections do not define a card-refund endpoint. Agree the original-card refund procedure with FCL before enabling this channel. Do not substitute a MoMo or bank payout for a card refund."
+      }
+    ]
+  },
+  {
+    "id": "bills",
+    "title": "Bill payment and fulfillment",
+    "status": "Funding APIs available; biller fulfillment contract required",
+    "steps": [
+      "Identify the biller, customer reference, amount and quote validity.",
+      "If funded from MoMo through the wallet, complete Gateway collection and the direct vendor-GL Field Deposit first. Refund through Gateway disbursement only if that CBS credit definitively fails. Bill fulfillment remains a separate step.",
+      "Use a separately agreed biller operation to fulfill the purchase and retain its reference.",
+      "Confirm biller fulfillment before reporting the bill paid. Resolve failed fulfillment through the agreed retry or refund process."
+    ],
+    "limits": "The supplied Core Banking contract contains no biller fulfillment endpoint. Payment success does not prove service delivery."
+  },
+  {
+    "id": "onboarding",
+    "title": "Customer onboarding and adding an account",
+    "status": "Unified onboarding and Core Banking additional accounts",
+    "steps": [
+      "Complete identity verification and required KYC through the applicable Unified operations.",
+      "Submit the Unified account-opening application and query its status using the application reference.",
+      "For an existing customer who needs an additional account, call Core Banking POST /customers/add-account with the customerId and approved productCode.",
+      "Validate the returned account identity and activation status before presenting the account as ready."
+    ],
+    "limits": "Adding an account is distinct from creating a customer. Confirm duplicate-request and recovery behavior before retrying an unresolved application or account creation."
+  },
+  {
+    "id": "statements",
+    "title": "Account enquiry and statements",
+    "status": "Core Banking account enquiries",
+    "steps": [
+      "Confirm the caller is authorized to access the requested customer and account.",
+      "Choose /accounts/by-mobile, /accounts/by-customer-id or /accounts/by-account to locate accounts. Use /accounts/enquiry for account information.",
+      "Use /accounts/mini-statement for recent activity or /accounts/statement with startDate and endDate for a period. All these requests use POST.",
+      "Keep identifiers as strings and use the documented DD-MMM-YYYY date format. Validate the response before displaying balances or activity."
+    ],
+    "limits": "Confirm response fields, currency, pagination and transaction status meanings with FCL. An unavailable response must not be displayed as a zero balance."
+  },
+  {
+    "id": "recurring",
+    "title": "Recurring contributions and mandates",
+    "status": "Unified mandate lifecycle",
+    "steps": [
+      "Capture customer consent and initiate the applicable Unified mandate or preapproval.",
+      "Complete OTP verification where required and query mandate or preapproval status.",
+      "Track each scheduled contribution using the provider’s execution evidence and retain its reference.",
+      "Apply the approved product and accounting updates once per confirmed contribution. Use the documented mandate management operations for lifecycle changes."
+    ],
+    "limits": "Confirm how execution results are obtained from FCL. Do not submit a parallel Gateway collection for a contribution that the mandate has already collected."
+  },
+  {
+    "id": "recovery",
+    "title": "Recovery, activity logging and mobile status",
+    "status": "Reconcile each API operation independently",
+    "steps": [
+      "Retain the request reference and submission state before each operation that changes money or records.",
+      "For Gateway payments, query the collection, checkout or disbursement status using the original reference.",
+      "For confirmed collection success followed by definitive CBS deposit rejection, initiate one logical refund through Gateway disbursement to the original source. Reuse the refund reference for safe retries and track its final status. Never mark an unconfirmed refund as reversed.",
+      "For Unified operations, use the applicable application, investment or mandate status endpoint.",
+      "For an unresolved Field posting, use an FCL-approved lookup or support process. The supplied Core Banking endpoint list contains no posting-by-transactionId lookup.",
+      "Keep payment, accounting and product outcomes separate. Escalate unresolved operations instead of blindly resubmitting them."
+    ],
+    "limits": "Resolve ambiguous CBS results before triggering a refund. Keep the original transaction, Gateway and CBS evidence, partner mapping and refund references for audit. The supplied collections contain no posting-by-transactionId lookup; use FCL’s reconciliation process."
+  },
+  {
+    "id": "wallet-funding",
+    "title": "Fund a wallet",
+    "status": "Mobile Money and card funding",
+    "steps": [],
+    "fundingSections": [
+      {
+        "title": "Topup from Mobile Money",
+        "steps": [
+          {
+            "text": "Collect from the customer's MoMo wallet.",
+            "method": "POST",
+            "url": "https://fclvas.formscapital.net:3847/api/v1/collections"
+          },
+          {
+            "text": "Confirm collection SUCCESS using the returned providerRef.",
+            "method": "GET",
+            "url": "https://fclvas.formscapital.net:3847/api/v1/collections/{providerRef}/status"
+          },
+          {
+            "text": "Credit the customer Quicksave account with Field Deposit. Set customerAccountNumber to this destination and agentAccountNumber to the actual processing vendor GL.",
+            "method": "POST",
+            "url": "https://fclapi.formscapital.net:7050/api/v1/agents/field-deposit"
+          }
+        ],
+        "note": "Complete only after both payment and CBS credit succeed. Use the collected amount and a linked posting reference of at most 20 characters. If CBS definitively rejects the credit, refund the original MoMo source through Gateway disbursement and confirm refund success. Reconcile a CBS timeout before refunding."
+      },
+      {
+        "title": "Topup from Card",
+        "steps": [
+          {
+            "text": "Create a card checkout session and redirect the customer to checkoutUrl.",
+            "method": "POST",
+            "url": "https://fclvas.formscapital.net:3847/api/v1/checkout/sessions"
+          },
+          {
+            "text": "Confirm payment SUCCESS using the returned providerRef. A browser redirect alone does not confirm payment.",
+            "method": "GET",
+            "url": "https://fclvas.formscapital.net:3847/api/v1/checkout/sessions/{providerRef}/status"
+          },
+          {
+            "text": "Credit the customer Quicksave account with Field Deposit. Set customerAccountNumber to this destination and agentAccountNumber to the actual processing vendor GL.",
+            "method": "POST",
+            "url": "https://fclapi.formscapital.net:7050/api/v1/agents/field-deposit"
+          }
+        ],
+        "note": "Complete only after both payment and CBS credit succeed. Use the collected amount and a linked posting reference of at most 20 characters. The supplied collections do not define a card-refund endpoint. Agree the original-card refund procedure with FCL before enabling this channel. Do not substitute a MoMo or bank payout for a card refund."
+      }
+    ],
+    "limits": "A topup is complete only after payment and the Quicksave credit succeed. Reconcile unknown CBS outcomes before refunding. Card-refund execution is not defined in the collection."
+  }
+]

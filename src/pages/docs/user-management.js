@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DocsLayout from '../../layout/DocsLayout';
 import SEO from '../../components/SEO';
 import CodeBlock from '../../components/CodeBlock';
+import DocsOpener from '../../components/DocsOpener';
 import './docs.css';
 
 /**
@@ -14,6 +15,7 @@ const UserManagement = () => {
 
   const onThisPageItems = [
     { href: "#overview", label: "Overview" },
+    { href: "#when-why-how", label: "When, why, and how" },
     { href: "#create-user", label: "Create Staff User" },
     { href: "#list-users", label: "List Staff Users" },
     { href: "#update-user", label: "Update User" },
@@ -37,10 +39,12 @@ const UserManagement = () => {
       <div className="docs-content">
         <h1 id="overview">User Management API</h1>
 
-        <p>
-          The User Management API allows you to manage staff users for your merchant account. Create
-          new staff members, assign roles and permissions, and manage access to your business operations.
-        </p>
+        <DocsOpener
+          lead="User Management creates staff accounts for one merchant business. Roles limit what each person can do in the portal and on the API."
+          when="Use this page when you add staff, change a role, or deactivate access. Use Identity API keys for partner servers. Use customer register for end users, not staff."
+          why="Money operations need named people with the least privilege. Otto stores staff on the merchant so audit trails stay inside the business."
+          how="Authenticate as a merchant. POST /api/merchant/users with email and role. List, update, or deactivate users. Assign permissions from the roles table on this page."
+        />
 
         <h2 id="create-user">Create Staff User</h2>
 

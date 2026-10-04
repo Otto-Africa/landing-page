@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DocsLayout from '../../layout/DocsLayout';
 import SEO from '../../components/SEO';
 import CodeBlock from '../../components/CodeBlock';
+import DocsOpener from '../../components/DocsOpener';
 import './docs.css';
 
 /**
@@ -14,6 +15,7 @@ const QRCodes = () => {
 
   const onThisPageItems = [
     { href: "#overview", label: "Overview" },
+    { href: "#when-why-how", label: "When, why, and how" },
     { href: "#generate", label: "Generate QR Code" },
     { href: "#static", label: "Static QR Codes" },
     { href: "#scan", label: "Process QR Scan" },
@@ -37,10 +39,12 @@ const QRCodes = () => {
       <div className="docs-content">
         <h1 id="overview">QR Codes API</h1>
 
-        <p>
-          The QR Codes API allows you to generate dynamic QR codes for specific transactions or create
-          static QR codes for your business. Process QR code scans to accept payments from customers.
-        </p>
+        <DocsOpener
+          lead="A QR code is a scan target that starts a collect. Dynamic codes carry one amount. Static codes stay at a till and accept an amount at scan."
+          when="Use QR when a customer pays in the Otto app at a counter or on a printed code. Use Payments collect when you invoice by API without a scan."
+          why="The code is the customer-facing handle. Otto still records the collect. You get status from GET and from webhooks, not from the image alone."
+          how="Authenticate. POST /api/merchant/qr/generate for a dynamic code, or create a static QR. Show the image. When the customer scans, listen for collect.paid or poll status."
+        />
 
         <h2 id="generate">Generate QR Code</h2>
 

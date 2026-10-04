@@ -47,6 +47,28 @@ import FlutterSdkDocs from "./pages/docs/flutter-sdk";
 import JavascriptSdkDocs from "./pages/docs/javascript-sdk";
 import Testing from "./pages/docs/testing";
 import Support from "./pages/docs/support";
+import Payments from "./pages/docs/payments";
+import TransfersDocs from "./pages/docs/transfers";
+import FundingFlows from "./pages/docs/funding-flows";
+import PinDocs from "./pages/docs/pin";
+import IdentityDocs from "./pages/docs/identity";
+import LlmConversations from "./pages/docs/llm";
+import AccountingDocs from "./pages/docs/accounting";
+import InternalDocsGate from "./components/InternalDocsGate";
+import DocsFclRedirect from "./components/DocsFclRedirect";
+import FclOverview from "./pages/docs/fcl/index";
+import FclArchitecture from "./pages/docs/fcl/architecture";
+import FclGateway from "./pages/docs/fcl/gateway";
+import GatewayQuickstart from "./pages/docs/fcl/gateway-quickstart";
+import GatewayAuthentication from "./pages/docs/fcl/gateway-authentication";
+import GatewayWebhooks from "./pages/docs/fcl/gateway-webhooks";
+import GatewayErrors from "./pages/docs/fcl/gateway-errors";
+import GatewayReference from "./pages/docs/fcl/gateway-reference";
+import GatewayEndpoint from "./pages/docs/fcl/gateway-endpoint";
+import UnifiedOverview from "./pages/docs/fcl/unified";
+import UnifiedReference from "./pages/docs/fcl/unified-reference";
+import PinManagement from "./pages/docs/fcl/pin-management";
+import CoreBanking from "./pages/docs/fcl/core-banking";
 
 // Gift Card Share
 import InviteReferralPage from "./pages/InviteReferralPage";
@@ -131,6 +153,59 @@ function App() {
         />
         <Route path={paths.DOCS_TESTING} element={<Testing />} />
         <Route path={paths.DOCS_SUPPORT} element={<Support />} />
+        <Route path={paths.DOCS_PAYMENTS} element={<Payments />} />
+        <Route path={paths.DOCS_TRANSFERS} element={<TransfersDocs />} />
+        <Route path={paths.DOCS_FUNDING_FLOWS} element={<FundingFlows />} />
+        <Route path={paths.DOCS_PIN} element={<PinDocs />} />
+        <Route path={paths.DOCS_IDENTITY} element={<IdentityDocs />} />
+        <Route path={paths.DOCS_LLM} element={<LlmConversations />} />
+        <Route path={paths.DOCS_ACCOUNTING} element={<AccountingDocs />} />
+
+        {/* Internal provider docs at /fcl — not published on production */}
+        <Route element={<InternalDocsGate />}>
+          <Route path={paths.FCL} element={<FclOverview />} />
+          <Route
+            path={paths.FCL_ARCHITECTURE}
+            element={<FclArchitecture />}
+          />
+          <Route path={paths.FCL_GATEWAY} element={<FclGateway />} />
+          <Route
+            path={paths.FCL_GATEWAY_QUICKSTART}
+            element={<GatewayQuickstart />}
+          />
+          <Route
+            path={paths.FCL_GATEWAY_AUTHENTICATION}
+            element={<GatewayAuthentication />}
+          />
+          <Route
+            path={paths.FCL_GATEWAY_WEBHOOKS}
+            element={<GatewayWebhooks />}
+          />
+          <Route path={paths.FCL_GATEWAY_ERRORS} element={<GatewayErrors />} />
+          <Route
+            path={paths.FCL_GATEWAY_REFERENCE}
+            element={<GatewayReference />}
+          />
+          <Route
+            path={paths.FCL_GATEWAY_ENDPOINT}
+            element={<GatewayEndpoint />}
+          />
+          <Route path={paths.FCL_UNIFIED} element={<UnifiedOverview />} />
+          <Route
+            path={paths.FCL_UNIFIED_REFERENCE}
+            element={<UnifiedReference />}
+          />
+          <Route path={paths.FCL_PIN} element={<PinManagement />} />
+          <Route
+            path={paths.FCL_CORE_BANKING_ENDPOINT}
+            element={<CoreBanking />}
+          />
+          <Route path={paths.FCL_CORE_BANKING} element={<CoreBanking />} />
+        </Route>
+
+        {/* Legacy /docs/fcl → /fcl */}
+        <Route path="/docs/fcl/*" element={<DocsFclRedirect />} />
+        <Route path="/docs/fcl" element={<DocsFclRedirect />} />
 
         {/* Referral invite — deep link try + OS-specific store CTAs */}
         <Route path={paths.INVITE_REFERRAL} element={<InviteReferralPage />} />

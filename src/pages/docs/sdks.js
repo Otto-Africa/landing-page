@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DocsLayout from "../../layout/DocsLayout";
 import SEO from "../../components/SEO";
+import DocsOpener from "../../components/DocsOpener";
 import CodeBlock from "../../components/CodeBlock";
 import "./docs.css";
 
@@ -65,18 +66,13 @@ const SDKs = () => {
       >
         <div className="docs-content">
           <h1 className="text-4xl font-bold text-[#0D1B2A] mb-4">SDKs & Libraries</h1>
-          <p className="text-gray-600 mb-6 text-base">
-            Official JavaScript/Node packages for loyalty triggers, customer-facing browser usage, and an
-            optional popup helper. Payment checkout flows can still use the REST API directly; see{" "}
-            <Link to="/docs/getting-started" className="text-[#00B4D8] hover:underline">
-              Quickstart
-            </Link>{" "}
-            and{" "}
-            <Link to="/docs/sdks/javascript" className="text-[#00B4D8] hover:underline">
-              JavaScript SDK
-            </Link>
-            .
-          </p>
+
+          <DocsOpener
+            lead="Otto publishes npm packages for loyalty: server events, a browser customer SDK, and an optional popup."
+            when="Use an SDK when you trigger loyalty from Node or a browser. Use the REST Payments API for collect and payout. Do not wait for unpublished Flutter or Python scaffolds."
+            why="Packages wrap tokens and events so you do not copy loyalty HTTP by hand. Payments stay on REST because checkout must start on your server."
+            how="Install @ottoafrica/events-sdk-node, @ottoafrica/customer-sdk-js, or @ottoafrica/loyalty-popup-widget from npm. Follow the JavaScript SDK page. Keep a Bearer key on the server only."
+          />
 
           <h2 className="text-2xl font-bold text-[#0D1B2A] mb-3">Published on npm (ready to use)</h2>
           <p className="text-gray-600 mb-4 text-sm">

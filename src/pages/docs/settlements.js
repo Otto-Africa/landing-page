@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DocsLayout from '../../layout/DocsLayout';
 import SEO from '../../components/SEO';
 import CodeBlock from '../../components/CodeBlock';
+import DocsOpener from '../../components/DocsOpener';
 import './docs.css';
 
 /**
@@ -14,6 +15,7 @@ const Settlements = () => {
 
   const onThisPageItems = [
     { href: "#overview", label: "Overview" },
+    { href: "#when-why-how", label: "When, why, and how" },
     { href: "#list-settlements", label: "List Settlements" },
     { href: "#get-settlement", label: "Get Settlement Details" },
     { href: "#balance", label: "Current Balance" },
@@ -37,10 +39,12 @@ const Settlements = () => {
       <div className="docs-content">
         <h1 id="overview">Settlements API</h1>
 
-        <p>
-          The Settlements API provides access to your financial settlement data, including settlement
-          history, current available balance, and information about upcoming settlements.
-        </p>
+        <DocsOpener
+          lead="A settlement is the batch of funds Otto pays to your business after collects complete. This page is history, balance, and upcoming payouts."
+          when="Use settlements when you reconcile bank receipts or check available balance. Use transactions for line-level events. Use payouts when you send money out now."
+          why="Collect success is not the same as money in your bank. Settlement records close that gap so finance can match Otto to the statement."
+          how="Authenticate. GET /api/merchant/settlements for history. GET a settlement ID for detail. Read current balance and upcoming settlement endpoints when you plan cash."
+        />
 
         <h2 id="list-settlements">List Settlements</h2>
 

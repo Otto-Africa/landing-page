@@ -2,6 +2,7 @@ import React from 'react';
 import DocsLayout from '../../layout/DocsLayout';
 import SEO from '../../components/SEO';
 import CodeBlock from '../../components/CodeBlock';
+import DocsOpener from '../../components/DocsOpener';
 import MultiLanguageCodeBlock from '../../components/MultiLanguageCodeBlock';
 import './docs.css';
 
@@ -14,6 +15,7 @@ const GiftCards = () => {
 
   const onThisPageItems = [
     { href: '#overview', label: 'Overview' },
+    { href: '#when-why-how', label: 'When, why, and how' },
     { href: '#merchant-types', label: 'Merchant Types & Gift Card Types' },
     { href: '#templates', label: 'Gift Card Templates' },
     { href: '#instances', label: 'Gift Card Instances' },
@@ -39,11 +41,12 @@ const GiftCards = () => {
       <div className="docs-content">
         <h1 id="overview">Gift Cards API</h1>
 
-        <p>
-          The Gift Cards API allows you to programmatically create, manage, and redeem gift cards
-          through Otto's platform. This is perfect for e-commerce integrations, loyalty programs,
-          and custom gift card solutions.
-        </p>
+        <DocsOpener
+          lead="A gift card is stored value on Otto. A template is the reusable design. An instance is one purchased card with a balance."
+          when="Use gift cards when you sell stored-value cards, issue a card after purchase, check a balance, or redeem at checkout. Use Loyalty when you track points, not cash value."
+          why="Templates keep denominations and rules in one place. Instances carry the live balance. Otto records issue and redeem so your store and Otto stay aligned."
+          how="Authenticate with a Bearer API key. POST a template, then create instances. Verify a card before you redeem. POST redeem with the amount in pesewas. Read the instance ID for the new balance."
+        />
 
         <h2>Overview</h2>
 

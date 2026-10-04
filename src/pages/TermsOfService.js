@@ -104,7 +104,7 @@ const TermsOfService = () => {
               <div className="animate-fade-in">
                 <h2 className="text-3xl font-semibold text-gray-900 mb-6">User Terms of Service</h2>
                 <p className="text-gray-700 mb-6">
-                  These User Terms of Service ("Terms") govern your access to and use of the Otto Africa mobile application and services as a consumer ("Customer", "you", or "User"). By creating an account, you agree to these Terms.
+                  These User Terms of Service ("Terms") govern your access to and use of the Otto Africa mobile application and services as a consumer ("Customer", "you", or "User"). By creating an account, you agree to these Terms, including identity checks and opening an Otto wallet. That agreement is collected at signup and is not asked for again during account setup.
                 </p>
 
                 <h3 className="text-2xl font-medium text-gray-900 mt-8 mb-4">1. Account Use</h3>
@@ -121,6 +121,9 @@ const TermsOfService = () => {
                 </p>
                 <p className="text-gray-700 mb-4">
                   2.2 <strong>Transactions:</strong> Transactions are final once authorized. We are not responsible for goods or services purchased from third-party merchants using Otto. Disputes regarding quality or delivery must be resolved directly with the merchant.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  2.3 <strong>Wallet account:</strong> Opening an Otto wallet may require your legal name, Ghana Card, a photo of that card, a selfie, and your contact details. You agree to those checks when you accept these Terms at signup.
                 </p>
 
                 <h3 className="text-2xl font-medium text-gray-900 mt-8 mb-4">3. Gift Cards and Rewards</h3>

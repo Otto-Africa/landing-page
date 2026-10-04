@@ -173,14 +173,40 @@
 }
 
 .docs-nav-section-header {
-  padding: 0 0.75rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
   margin-bottom: 0.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+}
+
+.docs-nav-section-header:hover .docs-nav-section-title {
+  color: #111827;
 }
 
 .docs-nav-section-title {
   color: #111827;
   font-size: 0.8rem;
   font-weight: 600;
+}
+
+.docs-nav-section-chevron {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: #9ca3af;
+  transform: rotate(-90deg);
+  transition: transform 0.15s ease;
+}
+
+.docs-nav-section-chevron.open {
+  transform: rotate(0deg);
 }
 
 .docs-nav-section-items {

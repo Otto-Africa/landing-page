@@ -1,0 +1,4043 @@
+{
+  "source": "FCL External Channels Unified API.json",
+  "sha256": "b5da5a3954449b861fa0705d01fc5e92ad0c1f8034b9f063acfaeea909814ac7",
+  "reviewDate": "2026-09-11",
+  "requestCount": 46,
+  "uniqueEndpointCount": 41,
+  "endpoints": [
+    {
+      "id": "EXT-01",
+      "group": "Product Codes",
+      "name": "List All External Products",
+      "method": "GET",
+      "path": "/products",
+      "scope": "ext:products:read.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "productType",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403
+      ],
+      "purpose": "Returns CBS-backed products exposed to external channels. Recommended scope: `ext:products:read`. Use the returned `productCode`, `productName`, `productType`, and product metadata before creating account, loan, or investment requests.",
+      "liveStatus": "Read smoke check passed (channel header omitted); full contract/negative checks pending",
+      "verificationPlan": {
+        "positive": "Submit a valid List All External Products request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Scoped API access only; no customer fixture.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-02",
+      "group": "Product Codes",
+      "name": "List Account Products",
+      "method": "GET",
+      "path": "/products",
+      "scope": "ext:products:read.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "productType",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403
+      ],
+      "purpose": "Returns only account-opening products (`productType=ACCOUNT`). Recommended scope: `ext:products:read`. Pass the selected `productCode` to the CBS-only account opening request.",
+      "liveStatus": "Read smoke check passed (channel header omitted); full contract/negative checks pending",
+      "verificationPlan": {
+        "positive": "Submit a valid List Account Products request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Scoped API access only; no customer fixture.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-03",
+      "group": "Product Codes",
+      "name": "List Investment Products",
+      "method": "GET",
+      "path": "/products",
+      "scope": "ext:products:read.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "productType",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403
+      ],
+      "purpose": "Returns only investment products (`productType=INVESTMENT`). Recommended scope: `ext:products:read`. Use the selected `productCode` for fixed deposit or GOAL SAVINGS creation. GOAL SAVINGS products require a frequency such as `Daily`, `Weekly`, or `Monthly`.",
+      "liveStatus": "Read smoke check passed (channel header omitted); full contract/negative checks pending",
+      "verificationPlan": {
+        "positive": "Submit a valid List Investment Products request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Scoped API access only; no customer fixture.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-04",
+      "group": "Product Codes",
+      "name": "List Loan Products",
+      "method": "GET",
+      "path": "/products",
+      "scope": "ext:products:read.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "productType",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403
+      ],
+      "purpose": "Returns only loan products (`productType=LOAN`). Recommended scope: `ext:products:read`. Use the selected `productCode` when submitting loan applications.",
+      "liveStatus": "Read smoke check passed (channel header omitted); full contract/negative checks pending",
+      "verificationPlan": {
+        "positive": "Submit a valid List Loan Products request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Scoped API access only; no customer fixture.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-05",
+      "group": "Account Opening - CBS Only",
+      "name": "Submit Account Opening Application",
+      "method": "POST",
+      "path": "/accounts/opening-applications",
+      "scope": "ext:accounts:write.",
+      "expectedStatus": 201,
+      "parameters": [
+        {
+          "field": "Idempotency-Key",
+          "location": "header",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "externalReference",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        },
+        {
+          "field": "customer",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "customer.firstName",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 80"
+        },
+        {
+          "field": "customer.middleName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 80"
+        },
+        {
+          "field": "customer.lastName",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 80"
+        },
+        {
+          "field": "customer.dateOfBirth",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "date"
+        },
+        {
+          "field": "customer.gender",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 20"
+        },
+        {
+          "field": "customer.email",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 160"
+        },
+        {
+          "field": "customer.phoneCountryCode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 10"
+        },
+        {
+          "field": "customer.phoneNumber",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[0-9]{7,15}$"
+        },
+        {
+          "field": "customer.network",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 30"
+        },
+        {
+          "field": "customer.nationality",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 100"
+        },
+        {
+          "field": "customer.countryOfResidence",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 100"
+        },
+        {
+          "field": "customer.physicalAddressLine1",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 200"
+        },
+        {
+          "field": "customer.physicalAddressLine2",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 200"
+        },
+        {
+          "field": "customer.ghanaPostGpsAddress",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 50"
+        },
+        {
+          "field": "customer.occupation",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        },
+        {
+          "field": "customer.employmentType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 80"
+        },
+        {
+          "field": "customer.profilePhotoUrl",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 500"
+        },
+        {
+          "field": "kyc",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "kyc.identificationType",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 80"
+        },
+        {
+          "field": "kyc.identificationNumber",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 100"
+        },
+        {
+          "field": "kyc.niaRequestReference",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        },
+        {
+          "field": "account",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "account.productCode",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 40"
+        },
+        {
+          "field": "account.productName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 160"
+        },
+        {
+          "field": "account.branchCode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 20"
+        },
+        {
+          "field": "account.sectorCode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 20"
+        },
+        {
+          "field": "formData",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "supportingDocuments",
+          "location": "body",
+          "required": "No",
+          "type": "array",
+          "constraints": ":"
+        },
+        {
+          "field": "supportingDocuments[].documentType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 80"
+        },
+        {
+          "field": "supportingDocuments[].documentName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 200"
+        },
+        {
+          "field": "supportingDocuments[].fileUrl",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 500"
+        },
+        {
+          "field": "supportingDocuments[].fileSize",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int64"
+        },
+        {
+          "field": "supportingDocuments[].mimeType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        }
+      ],
+      "savedExampleStatuses": [
+        201,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Submits a new-customer account-opening application for admin review. The external portal should first complete NIA verification, then pass verified customer/KYC data here. This endpoint only creates a pending admin-side application; CBS customer/account creation happens later when an admin approves it. `externalReference` should be unique per partner request. `customer.profilePhotoUrl` is optional. `supportingDocuments` is optional; channels such as USSD may omit it or send an empty array.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Submit Account Opening Application request using an approved fixture; assert HTTP 201, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-06",
+      "group": "Account Opening - CBS Only",
+      "name": "Check Account Opening Status",
+      "method": "GET",
+      "path": "/accounts/opening-applications/{{accountOpeningReference}}/status",
+      "scope": "ext:accounts:read or ext:accounts:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "reference",
+          "location": "path",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403,
+        404
+      ],
+      "purpose": "Checks the admin-gated account opening application status by `accountOpeningReference`. Requires `ext:accounts:read` or `ext:accounts:write`. External channels should poll this after submitting a CBS-only account opening request; core banking customer/account creation happens only after admin approval.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Check Account Opening Status request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-07",
+      "group": "Loans",
+      "name": "Submit Loan Application",
+      "method": "POST",
+      "path": "/loans/applications",
+      "scope": "ext:loans:write.",
+      "expectedStatus": 201,
+      "parameters": [
+        {
+          "field": "identity",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientCustomerId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientPhoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[1-9]\\d{6,14}$"
+        },
+        {
+          "field": "application",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "application.productCode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "application.productName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "application.loanType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "one of: PERSONAL, SALARY_ADVANCE, BUSINESS, MORTGAGE, AUTO, EDUCATION"
+        },
+        {
+          "field": "application.amount",
+          "location": "body",
+          "required": "Yes",
+          "type": "number",
+          "constraints": ":"
+        },
+        {
+          "field": "application.tenureMonths",
+          "location": "body",
+          "required": "Yes",
+          "type": "integer",
+          "constraints": "int32"
+        },
+        {
+          "field": "application.purpose",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 500"
+        },
+        {
+          "field": "application.formData",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "application.supportingDocuments",
+          "location": "body",
+          "required": "No",
+          "type": "array",
+          "constraints": ":"
+        },
+        {
+          "field": "application.supportingDocuments[].documentType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "application.supportingDocuments[].documentName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "application.supportingDocuments[].fileUrl",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "application.supportingDocuments[].fileSize",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int64"
+        },
+        {
+          "field": "application.supportingDocuments[].mimeType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "application.operationLatitude",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": ":"
+        },
+        {
+          "field": "application.operationLongitude",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        201,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Submits a loan application for an existing customer. Requires `ext:loans:write`. `identity` can contain `clientAccountNumber`, `clientCustomerId`, or `clientPhoneNumber`; account number takes precedence, then customer ID, then phone. `application.productCode` should come from the loan product catalog. `application.supportingDocuments` is optional; omit it or send `[]` when the channel cannot upload files. Blank document entries are ignored.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Submit Loan Application request using an approved fixture; assert HTTP 201, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-08",
+      "group": "Loans",
+      "name": "List Loan Products - App Catalog",
+      "method": "GET",
+      "path": "/loans/products",
+      "scope": "ext:loans:read or ext:loans:write.",
+      "expectedStatus": 200,
+      "parameters": [],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403
+      ],
+      "purpose": "Returns loan product cards configured for the app/catalog experience. Requires `ext:loans:read` or `ext:loans:write`. Use this when the channel needs display-oriented product names, ranges, or metadata before application submission.",
+      "liveStatus": "Read smoke check passed (channel header omitted); full contract/negative checks pending",
+      "verificationPlan": {
+        "positive": "Submit a valid List Loan Products - App Catalog request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Scoped API access only; no customer fixture.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-09",
+      "group": "Loans",
+      "name": "List Loan Applications",
+      "method": "GET",
+      "path": "/loans/applications",
+      "scope": "ext:loans:read or ext:loans:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "identityParam",
+          "location": "query",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "pageable",
+          "location": "query",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "clientAccountNumber",
+          "location": "query",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientPhoneNumber",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientCustomerId",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403
+      ],
+      "purpose": "Lists loan applications for one customer. Requires `ext:loans:read` or `ext:loans:write`. Query with one of `clientAccountNumber`, `clientCustomerId`, or `clientPhoneNumber`; account number takes precedence.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid List Loan Applications request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-10",
+      "group": "Loans",
+      "name": "Get Specific Loan Application",
+      "method": "GET",
+      "path": "/loans/applications/{{loanApplicationId}}",
+      "scope": "ext:loans:read or ext:loans:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "applicationId",
+          "location": "path",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "uuid"
+        },
+        {
+          "field": "identityParam",
+          "location": "query",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "clientAccountNumber",
+          "location": "query",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientCustomerId",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientPhoneNumber",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403,
+        404
+      ],
+      "purpose": "Gets a single loan application by UUID or external reference. Requires `ext:loans:read` or `ext:loans:write`. Also pass customer identity as `clientAccountNumber`, `clientCustomerId`, or `clientPhoneNumber` for ownership validation.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Get Specific Loan Application request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-11",
+      "group": "Investments - Existing Customer",
+      "name": "List Investment Products - App Catalog",
+      "method": "GET",
+      "path": "/investments/products",
+      "scope": "ext:investments:read or ext:investments:write.",
+      "expectedStatus": 200,
+      "parameters": [],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403
+      ],
+      "purpose": "Returns investment products configured for external/app channels. Requires `ext:investments:read` or `ext:investments:write`. `productCode` is the actual CBS product code to submit in fixed deposit or GOAL SAVINGS creation requests; `productKey` is the internal product family, such as `fixed-deposit` or `fquip`, for display/routing hints only. GOAL SAVINGS products require `frequency`.",
+      "liveStatus": "Read smoke check passed (channel header omitted); full contract/negative checks pending",
+      "verificationPlan": {
+        "positive": "Submit a valid List Investment Products - App Catalog request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Scoped API access only; no customer fixture.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-12",
+      "group": "Investments - Existing Customer",
+      "name": "Create Fixed Deposit",
+      "method": "POST",
+      "path": "/investments/fixed-deposits",
+      "scope": "ext:investments:write.",
+      "expectedStatus": 201,
+      "parameters": [
+        {
+          "field": "identity",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientCustomerId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientPhoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[1-9]\\d{6,14}$"
+        },
+        {
+          "field": "deposit",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.sourceAccountId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "uuid"
+        },
+        {
+          "field": "deposit.fundingAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.productCode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.productName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.amount",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.tenureDays",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int32"
+        },
+        {
+          "field": "deposit.tenureMonths",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int32"
+        },
+        {
+          "field": "deposit.autoRollover",
+          "location": "body",
+          "required": "No",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.capitalize",
+          "location": "body",
+          "required": "No",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.frequency",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.paymentMode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.autoDebitAmount",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.autoDebitEnabled",
+          "location": "body",
+          "required": "No",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.formData",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.supportingDocuments",
+          "location": "body",
+          "required": "No",
+          "type": "array",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.supportingDocuments[].documentType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.supportingDocuments[].documentName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.supportingDocuments[].fileUrl",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.supportingDocuments[].fileSize",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int64"
+        },
+        {
+          "field": "deposit.supportingDocuments[].mimeType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.operationLatitude",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.operationLongitude",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        201,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Creates an investment application for an existing Internet Banking customer. `identity.clientAccountNumber`, `identity.clientCustomerId`, or `identity.clientPhoneNumber` identifies the local customer. `deposit.fundingAccountNumber` is the source/funding account. For GOAL SAVINGS products, pass `deposit.frequency` (`Daily`, `Weekly`, or `Monthly` based on configured product options). Do not attach auto-debit setup to USSD GOAL SAVINGS creation; use the Auto Debits folder as a separate menu/enrollment flow. `deposit.supportingDocuments` is optional; omit it or send `[]` when the channel cannot upload documents. Blank document entries are ignored.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Create Fixed Deposit request using an approved fixture; assert HTTP 201, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-13",
+      "group": "Investments - Existing Customer",
+      "name": "Create GOAL SAVINGS",
+      "method": "POST",
+      "path": "/investments/fixed-deposits",
+      "scope": "ext:investments:write.",
+      "expectedStatus": 201,
+      "parameters": [
+        {
+          "field": "identity",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientCustomerId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientPhoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[1-9]\\d{6,14}$"
+        },
+        {
+          "field": "deposit",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.sourceAccountId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "uuid"
+        },
+        {
+          "field": "deposit.fundingAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.productCode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.productName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.amount",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.tenureDays",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int32"
+        },
+        {
+          "field": "deposit.tenureMonths",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int32"
+        },
+        {
+          "field": "deposit.autoRollover",
+          "location": "body",
+          "required": "No",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.capitalize",
+          "location": "body",
+          "required": "No",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.frequency",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.paymentMode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.autoDebitAmount",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.autoDebitEnabled",
+          "location": "body",
+          "required": "No",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.formData",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.supportingDocuments",
+          "location": "body",
+          "required": "No",
+          "type": "array",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.supportingDocuments[].documentType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.supportingDocuments[].documentName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.supportingDocuments[].fileUrl",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.supportingDocuments[].fileSize",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int64"
+        },
+        {
+          "field": "deposit.supportingDocuments[].mimeType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.operationLatitude",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.operationLongitude",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        201,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Creates an GOAL SAVINGS investment application for an existing Internet Banking customer. This uses the same investment creation endpoint as fixed deposits, but the `deposit.productCode` should be the GOAL SAVINGS product code and `deposit.frequency` is required by the product flow. Accepted frequency aliases are `frequency`, `paymentFrequency`, and `paymentPlan`. For USSD, do not include auto-debit setup here; use the Auto Debits folder as a separate enrollment flow. `deposit.supportingDocuments` is optional; omit it or send `[]` when the channel cannot upload documents. Blank document entries are ignored.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Create GOAL SAVINGS request using an approved fixture; assert HTTP 201, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-14",
+      "group": "Investments - Existing Customer",
+      "name": "List Fixed Deposits",
+      "method": "GET",
+      "path": "/investments/fixed-deposits",
+      "scope": "ext:investments:read or ext:investments:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "identityParam",
+          "location": "query",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "pageable",
+          "location": "query",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "clientAccountNumber",
+          "location": "query",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientCustomerId",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientPhoneNumber",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403
+      ],
+      "purpose": "Lists fixed deposit and GOAL SAVINGS records for one customer. Requires `ext:investments:read` or `ext:investments:write`. Query with one of `clientAccountNumber`, `clientCustomerId`, or `clientPhoneNumber`; account number takes precedence.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid List Fixed Deposits request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-15",
+      "group": "Investments - Existing Customer",
+      "name": "Get Specific Fixed Deposit",
+      "method": "GET",
+      "path": "/investments/fixed-deposits/{{fixedDepositReferenceOrId}}",
+      "scope": "ext:investments:read or ext:investments:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "referenceOrId",
+          "location": "path",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identityParam",
+          "location": "query",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "clientAccountNumber",
+          "location": "query",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientCustomerId",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientPhoneNumber",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403,
+        404
+      ],
+      "purpose": "Gets a fixed deposit or GOAL SAVINGS by UUID/reference. Requires `ext:investments:read` or `ext:investments:write`. Also pass customer identity as `clientAccountNumber`, `clientCustomerId`, or `clientPhoneNumber`.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Get Specific Fixed Deposit request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-16",
+      "group": "Investments - CBS Only",
+      "name": "Submit Fixed Deposit Application",
+      "method": "POST",
+      "path": "/investments/fixed-deposit-applications",
+      "scope": "ext:investments:write.",
+      "expectedStatus": 201,
+      "parameters": [
+        {
+          "field": "Idempotency-Key",
+          "location": "header",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "externalReference",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        },
+        {
+          "field": "customer",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "customer.customerId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        },
+        {
+          "field": "customer.accountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 40"
+        },
+        {
+          "field": "customer.accountName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 160"
+        },
+        {
+          "field": "customer.applicantName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 160"
+        },
+        {
+          "field": "customer.phoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[0-9]{7,15}$"
+        },
+        {
+          "field": "deposit",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.productCode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 80"
+        },
+        {
+          "field": "deposit.productName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 160"
+        },
+        {
+          "field": "deposit.principalAmount",
+          "location": "body",
+          "required": "Yes",
+          "type": "number",
+          "constraints": "minimum 1"
+        },
+        {
+          "field": "deposit.tenorDays",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int32"
+        },
+        {
+          "field": "deposit.tenorMonths",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int32"
+        },
+        {
+          "field": "deposit.frequency",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 40"
+        },
+        {
+          "field": "deposit.paymentMode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 80"
+        },
+        {
+          "field": "deposit.autoDebitAmount",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": "minimum 0.01"
+        },
+        {
+          "field": "deposit.autoDebitEnabled",
+          "location": "body",
+          "required": "No",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.autoRollover",
+          "location": "body",
+          "required": "No",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.capitalize",
+          "location": "body",
+          "required": "No",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.maturityInstruction",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 160"
+        },
+        {
+          "field": "deposit.purpose",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 500"
+        },
+        {
+          "field": "autoDebit",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "autoDebit.enabled",
+          "location": "body",
+          "required": "No",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "autoDebit.amount",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": "minimum 0.01"
+        },
+        {
+          "field": "autoDebit.frequency",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 40"
+        },
+        {
+          "field": "autoDebit.customerMsisdn",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[0-9]{7,15}$"
+        },
+        {
+          "field": "autoDebit.channel",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 50"
+        },
+        {
+          "field": "autoDebit.hubtelPreApprovalId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        },
+        {
+          "field": "autoDebit.clientReferenceId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        },
+        {
+          "field": "autoDebit.startDate",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "date"
+        },
+        {
+          "field": "autoDebit.endDate",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "date"
+        },
+        {
+          "field": "autoDebit.targetAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 40"
+        },
+        {
+          "field": "autoDebit.targetAccountName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 160"
+        },
+        {
+          "field": "autoDebit.targetProductCode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 50"
+        },
+        {
+          "field": "autoDebit.targetReference",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        },
+        {
+          "field": "formData",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "supportingDocuments",
+          "location": "body",
+          "required": "No",
+          "type": "array",
+          "constraints": ":"
+        },
+        {
+          "field": "supportingDocuments[].documentType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 80"
+        },
+        {
+          "field": "supportingDocuments[].documentName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 200"
+        },
+        {
+          "field": "supportingDocuments[].fileUrl",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 500"
+        },
+        {
+          "field": "supportingDocuments[].fileSize",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int64"
+        },
+        {
+          "field": "supportingDocuments[].mimeType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        }
+      ],
+      "savedExampleStatuses": [
+        201,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Submits a CBS-only fixed deposit/GOAL SAVINGS application for admin review. Use this when the customer exists in CBS but should not get an Internet Banking account. `customer.customerId` or `customer.accountNumber` is required. For GOAL SAVINGS, pass `deposit.frequency`; the API also accepts aliases `paymentFrequency` and `paymentPlan`. Approval in the admin portal is what triggers CBS processing. `supportingDocuments` is optional; omit it or send `[]` for USSD or other low-bandwidth channels. Blank document entries are ignored.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Submit Fixed Deposit Application request using an approved fixture; assert HTTP 201, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-17",
+      "group": "Investments - CBS Only",
+      "name": "Check Fixed Deposit Application Status",
+      "method": "GET",
+      "path": "/investments/fixed-deposit-applications/{{investmentApplicationReference}}/status",
+      "scope": "ext:investments:read or ext:investments:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "reference",
+          "location": "path",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403,
+        404
+      ],
+      "purpose": "Checks the admin-gated CBS fixed deposit/GOAL SAVINGS application status by `investmentApplicationReference`. Requires `ext:investments:read` or `ext:investments:write`. Use this for v1 CBS-only applications awaiting admin review and approval.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Check Fixed Deposit Application Status request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-18",
+      "group": "Investments - CBS Only",
+      "name": "Submit GOAL SAVINGS Application",
+      "method": "POST",
+      "path": "/investments/fixed-deposit-applications",
+      "scope": "ext:investments:write.",
+      "expectedStatus": 201,
+      "parameters": [
+        {
+          "field": "Idempotency-Key",
+          "location": "header",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "externalReference",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        },
+        {
+          "field": "customer",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "customer.customerId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        },
+        {
+          "field": "customer.accountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 40"
+        },
+        {
+          "field": "customer.accountName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 160"
+        },
+        {
+          "field": "customer.applicantName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 160"
+        },
+        {
+          "field": "customer.phoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[0-9]{7,15}$"
+        },
+        {
+          "field": "deposit",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.productCode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 80"
+        },
+        {
+          "field": "deposit.productName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 160"
+        },
+        {
+          "field": "deposit.principalAmount",
+          "location": "body",
+          "required": "Yes",
+          "type": "number",
+          "constraints": "minimum 1"
+        },
+        {
+          "field": "deposit.tenorDays",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int32"
+        },
+        {
+          "field": "deposit.tenorMonths",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int32"
+        },
+        {
+          "field": "deposit.frequency",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 40"
+        },
+        {
+          "field": "deposit.paymentMode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 80"
+        },
+        {
+          "field": "deposit.autoDebitAmount",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": "minimum 0.01"
+        },
+        {
+          "field": "deposit.autoDebitEnabled",
+          "location": "body",
+          "required": "No",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.autoRollover",
+          "location": "body",
+          "required": "No",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.capitalize",
+          "location": "body",
+          "required": "No",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "deposit.maturityInstruction",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 160"
+        },
+        {
+          "field": "deposit.purpose",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 500"
+        },
+        {
+          "field": "autoDebit",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "autoDebit.enabled",
+          "location": "body",
+          "required": "No",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "autoDebit.amount",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": "minimum 0.01"
+        },
+        {
+          "field": "autoDebit.frequency",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 40"
+        },
+        {
+          "field": "autoDebit.customerMsisdn",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[0-9]{7,15}$"
+        },
+        {
+          "field": "autoDebit.channel",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 50"
+        },
+        {
+          "field": "autoDebit.hubtelPreApprovalId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        },
+        {
+          "field": "autoDebit.clientReferenceId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        },
+        {
+          "field": "autoDebit.startDate",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "date"
+        },
+        {
+          "field": "autoDebit.endDate",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "date"
+        },
+        {
+          "field": "autoDebit.targetAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 40"
+        },
+        {
+          "field": "autoDebit.targetAccountName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 160"
+        },
+        {
+          "field": "autoDebit.targetProductCode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 50"
+        },
+        {
+          "field": "autoDebit.targetReference",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        },
+        {
+          "field": "formData",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "supportingDocuments",
+          "location": "body",
+          "required": "No",
+          "type": "array",
+          "constraints": ":"
+        },
+        {
+          "field": "supportingDocuments[].documentType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 80"
+        },
+        {
+          "field": "supportingDocuments[].documentName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 200"
+        },
+        {
+          "field": "supportingDocuments[].fileUrl",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 500"
+        },
+        {
+          "field": "supportingDocuments[].fileSize",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int64"
+        },
+        {
+          "field": "supportingDocuments[].mimeType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 120"
+        }
+      ],
+      "savedExampleStatuses": [
+        201,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Submits a CBS-only GOAL SAVINGS application for admin review. This endpoint does not create an Internet Banking user. `customer.customerId` or `customer.accountNumber` is required. `deposit.frequency` is required for GOAL SAVINGS and is mirrored internally as `paymentPlan` for the admin/product flow. For channel auto-debit, complete Hubtel preapproval first, then include the `autoDebit` block with the approved `hubtelPreApprovalId` and `clientReferenceId`. The API validates that the preapproval is approved and belongs to this customer before accepting the application. When admin approves the GOAL SAVINGS application, the backend creates the auto-debit mandate automatically. `autoDebit.targetAccountNumber` is optional; omit it for normal FQIP submissions so the backend can use the CBS reference returned during admin approval. `supportingDocuments` is optional; omit it or send `[]` for USSD or other low-bandwidth channels. Blank document entries are ignored.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Submit GOAL SAVINGS Application request using an approved fixture; assert HTTP 201, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-19",
+      "group": "Refunds",
+      "name": "Submit Refund Request",
+      "method": "POST",
+      "path": "/refunds",
+      "scope": "ext:refunds:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "identity",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientCustomerId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientPhoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[1-9]\\d{6,14}$"
+        },
+        {
+          "field": "refund",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "refund.productType",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "refund.productReference",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "refund.staffId",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "refund.estimatedNetAmount",
+          "location": "body",
+          "required": "Yes",
+          "type": "number",
+          "constraints": "minimum 0.01"
+        },
+        {
+          "field": "refund.description",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 5000"
+        },
+        {
+          "field": "refund.paymentMethod",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "refund.paymentPhoneCountryCode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "refund.paymentPhoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "refund.paymentInstructions",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 500"
+        },
+        {
+          "field": "refund.declarationAccepted",
+          "location": "body",
+          "required": "Yes",
+          "type": "boolean",
+          "constraints": ":"
+        },
+        {
+          "field": "refund.redemptionType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^[AaBb]$"
+        },
+        {
+          "field": "refund.operationLatitude",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": ":"
+        },
+        {
+          "field": "refund.operationLongitude",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": ":"
+        },
+        {
+          "field": "refund.documents",
+          "location": "body",
+          "required": "No",
+          "type": "array",
+          "constraints": ":"
+        },
+        {
+          "field": "refund.documents[].documentName",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "refund.documents[].documentType",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "refund.documents[].fileUrl",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "refund.documents[].fileSize",
+          "location": "body",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int64"
+        },
+        {
+          "field": "refund.documents[].mimeType",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Submits a refund request for an existing customer. Requires `ext:refunds:write`. `identity` can contain `clientAccountNumber`, `clientCustomerId`, or `clientPhoneNumber`; account number takes precedence. `refund.transactionId` is the original transaction UUID or reference being disputed.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Submit Refund Request request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-20",
+      "group": "Refunds",
+      "name": "Get Refund Details",
+      "method": "GET",
+      "path": "/refunds/{{refundReferenceOrId}}",
+      "scope": "ext:refunds:read or ext:refunds:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "referenceOrId",
+          "location": "path",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identityParam",
+          "location": "query",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "clientAccountNumber",
+          "location": "query",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientCustomerId",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientPhoneNumber",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403,
+        404
+      ],
+      "purpose": "Gets refund details by UUID or refund reference. Requires `ext:refunds:read` or `ext:refunds:write`. Pass customer identity as `clientAccountNumber`, `clientCustomerId`, or `clientPhoneNumber` for ownership validation.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Get Refund Details request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-21",
+      "group": "Utilities",
+      "name": "Name Enquiry",
+      "method": "GET",
+      "path": "/utilities/name-enquiry",
+      "scope": "ext:utilities:read or ext:utilities:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "accountNumber",
+          "location": "query",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "accountType",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403
+      ],
+      "purpose": "Performs a name enquiry for a bank or mobile-money account before payment. Requires `ext:utilities:read` or `ext:utilities:write`. `accountNumber` is the beneficiary account/wallet and `accountType` identifies the rail, for example `MOBILE_MONEY`.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Name Enquiry request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-22",
+      "group": "Auto Debits",
+      "name": "Initiate Mandate Setup",
+      "method": "POST",
+      "path": "/auto-debits/mandates/initiate",
+      "scope": "ext:auto-debits:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "identity",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientCustomerId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientPhoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[1-9]\\d{6,14}$"
+        },
+        {
+          "field": "preapproval",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "preapproval.customerMsisdn",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "preapproval.channel",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "preapproval.amount",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": "minimum 0.01"
+        },
+        {
+          "field": "preapproval.frequency",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "mandate",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "mandate.targetType",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "one of: LOAN, INVESTMENT, ACCOUNT"
+        },
+        {
+          "field": "mandate.targetId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "uuid"
+        },
+        {
+          "field": "mandate.targetAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "mandate.targetAccountName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "mandate.targetProductCode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "mandate.targetReference",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "mandate.amount",
+          "location": "body",
+          "required": "Yes",
+          "type": "number",
+          "constraints": "minimum 0.01"
+        },
+        {
+          "field": "mandate.frequency",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "mandate.startDate",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "date"
+        },
+        {
+          "field": "mandate.endDate",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "date"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Standalone USSD/WhatsApp/API-partner registration endpoint for auto-debit requests that are not submitted as CBS-only FQIP applications for admin approval. The API validates the customer identity and target account, initiates Hubtel wallet preapproval, creates the FCL mandate, and returns both FCL mandate and Hubtel preapproval references. For CBS-only customers, use `mandate.targetType=ACCOUNT` with `mandate.targetAccountNumber`; if omitted, the resolved identity account is used as the target. `mandate.amount` is the recurring debit amount. `mandate.frequency` is optional and defaults to monthly when omitted. Response includes `mandateReference`, `mandateStatus`, `preapproval.clientReferenceId`, `preapproval.hubtelPreApprovalId`, and `nextAction` (`VERIFY_OTP` or `NONE`). For FQIP/GOAL SAVINGS, use `Initiate Preapproval` + `Verify Preapproval OTP`, then submit the GOAL SAVINGS application with `autoDebit` instead.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Initiate Mandate Setup request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-23",
+      "group": "Auto Debits",
+      "name": "Initiate Preapproval",
+      "method": "POST",
+      "path": "/auto-debits/preapprovals/initiate",
+      "scope": "ext:auto-debits:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "identity",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientCustomerId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientPhoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[1-9]\\d{6,14}$"
+        },
+        {
+          "field": "preapproval",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "preapproval.customerMsisdn",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "preapproval.channel",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "preapproval.amount",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": "minimum 0.01"
+        },
+        {
+          "field": "preapproval.frequency",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Starts only the Hubtel direct-debit consent flow and sends OTP to the customer's MoMo wallet. This endpoint does not create an FCL mandate by itself. For FQIP/GOAL SAVINGS, call this first, then call `Verify Preapproval OTP`; after verification returns `preapprovalStatus=APPROVED`, submit the CBS-only `Submit GOAL SAVINGS Application` request with the returned `clientReferenceId` and `hubtelPreApprovalId` in its `autoDebit` block. Body fields: `identity.clientAccountNumber`, `identity.clientCustomerId`, or `identity.clientPhoneNumber` identifies the bank customer. Account number takes precedence, then customer ID, then phone number. `preapproval.customerMsisdn` is the MoMo wallet to debit; `preapproval.channel` is the mobile-money channel, for example `mtn-gh`. Store `clientReferenceId` and `hubtelPreApprovalId` from the response. Fresh responses usually have `preapprovalStatus=PENDING`; response objects can also include `amount` when supplied.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Initiate Preapproval request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-24",
+      "group": "Auto Debits",
+      "name": "Reactivate Preapproval",
+      "method": "POST",
+      "path": "/auto-debits/preapprovals/reactivate",
+      "scope": "ext:auto-debits:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "identity",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientCustomerId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientPhoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[1-9]\\d{6,14}$"
+        },
+        {
+          "field": "reactivate",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "reactivate.customerMsisdn",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "reactivate.callbackUrl",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Starts Hubtel's reactivation flow for a wallet whose previous preapproval/mandate was cancelled. Use this when a customer wants to enroll again after cancellation. The customer identity block resolves the FCL customer; `reactivate.customerMsisdn` is the MoMo wallet to reactivate. Store the returned `clientReferenceId` and continue with status checks or OTP verification as instructed by the response/provider state.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Reactivate Preapproval request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-25",
+      "group": "Auto Debits",
+      "name": "Verify Preapproval OTP",
+      "method": "POST",
+      "path": "/auto-debits/preapprovals/verify-otp",
+      "scope": "ext:auto-debits:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "customerMsisdn",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "hubtelPreApprovalId",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientReferenceId",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "otpCode",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Completes the Hubtel consent flow after the customer receives OTP. Pass `customerMsisdn`, `hubtelPreApprovalId`, `clientReferenceId`, and `otpCode`. A successful verification should return `preapprovalStatus=APPROVED`.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Verify Preapproval OTP request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-26",
+      "group": "Auto Debits",
+      "name": "Check Preapproval Status",
+      "method": "GET",
+      "path": "/auto-debits/preapprovals/{{clientReferenceId}}/status",
+      "scope": "ext:auto-debits:read or ext:auto-debits:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "clientReferenceId",
+          "location": "path",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403,
+        404
+      ],
+      "purpose": "Checks the consent status for a preapproval reference. Use this before creating any direct-debit mandate. Response includes `providerReachable`; when false, the API returned the latest locally stored status because Hubtel was temporarily unavailable.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Check Preapproval Status request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-27",
+      "group": "Auto Debits",
+      "name": "List Mandates",
+      "method": "GET",
+      "path": "/auto-debits",
+      "scope": "ext:auto-debits:read or ext:auto-debits:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "identityParam",
+          "location": "query",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "search",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "bucket",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "page",
+          "location": "query",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int32"
+        },
+        {
+          "field": "size",
+          "location": "query",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int32"
+        },
+        {
+          "field": "clientAccountNumber",
+          "location": "query",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientCustomerId",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientPhoneNumber",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403
+      ],
+      "purpose": "Lists direct-debit mandates for the identified customer. Query fields: use one of `clientAccountNumber`, `clientCustomerId`, or `clientPhoneNumber`; account number takes precedence, then customer ID, then phone number. `bucket` can filter status buckets such as `PENDING`, `PENDING_APPROVAL`, `COMPLETED`, `DECLINED`, or `CANCELLED`; `page` and `size` control pagination. This is the right endpoint to check whether a customer already has an auto-debit mandate after enrollment.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid List Mandates request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-28",
+      "group": "Auto Debits",
+      "name": "Get Specific Mandate",
+      "method": "GET",
+      "path": "/auto-debits/{{mandateReferenceOrId}}",
+      "scope": "ext:auto-debits:read or ext:auto-debits:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "referenceOrId",
+          "location": "path",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identityParam",
+          "location": "query",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "clientAccountNumber",
+          "location": "query",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientCustomerId",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientPhoneNumber",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403,
+        404
+      ],
+      "purpose": "Gets a single mandate by mandate UUID or mandate client reference. Requires the same customer identity query parameter used for list calls: `clientAccountNumber`, `clientCustomerId`, or `clientPhoneNumber`.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Get Specific Mandate request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-29",
+      "group": "Auto Debits",
+      "name": "Request Suspension",
+      "method": "POST",
+      "path": "/auto-debits/{{mandateReferenceOrId}}/request-suspension",
+      "scope": "ext:auto-debits:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "referenceOrId",
+          "location": "path",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientCustomerId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientPhoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[1-9]\\d{6,14}$"
+        },
+        {
+          "field": "reason",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        404,
+        409
+      ],
+      "purpose": "Preferred explicit endpoint for channels to request local suspension of a specific mandate. The request goes to the admin portal for approval. Hubtel wallet authorization is retained; this does not revoke the customer's Hubtel consent. While awaiting approval, list/detail responses show `PENDING_APPROVAL`; after approval they show `SUSPENDED`.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Request Suspension request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-30",
+      "group": "Auto Debits",
+      "name": "Request Cancellation (Legacy Alias)",
+      "method": "POST",
+      "path": "/auto-debits/{{mandateReferenceOrId}}/request-cancellation",
+      "scope": "ext:auto-debits:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "referenceOrId",
+          "location": "path",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientCustomerId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientPhoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[1-9]\\d{6,14}$"
+        },
+        {
+          "field": "reason",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        404,
+        409
+      ],
+      "purpose": "Backward-compatible legacy name for `Request Suspension`. This submits the same local suspension request for admin approval and does not revoke Hubtel authorization. New channel integrations should use `request-suspension` so the behavior is explicit.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Request Cancellation (Legacy Alias) request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-31",
+      "group": "Auto Debits",
+      "name": "Reactivate Suspended Mandate",
+      "method": "POST",
+      "path": "/auto-debits/{{mandateReferenceOrId}}/reactivate",
+      "scope": "ext:auto-debits:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "referenceOrId",
+          "location": "path",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientCustomerId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientPhoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[1-9]\\d{6,14}$"
+        },
+        {
+          "field": "note",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        404,
+        409
+      ],
+      "purpose": "Reactivates a locally suspended mandate. It does not create a new mandate and does not reactivate a cancelled Hubtel preapproval.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Reactivate Suspended Mandate request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-32",
+      "group": "Auto Debits",
+      "name": "Request Amount Amendment",
+      "method": "POST",
+      "path": "/auto-debits/{{mandateReferenceOrId}}/request-amount-amendment",
+      "scope": "ext:auto-debits:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "referenceOrId",
+          "location": "path",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientCustomerId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientPhoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[1-9]\\d{6,14}$"
+        },
+        {
+          "field": "amendment",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "amendment.requestedAmount",
+          "location": "body",
+          "required": "Yes",
+          "type": "number",
+          "constraints": "minimum 0.01"
+        },
+        {
+          "field": "amendment.reason",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 500"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        404,
+        409
+      ],
+      "purpose": "Requests an upward-only mandate amount increase for admin approval. The requested amount must be greater than the current mandate amount. The mandate remains unchanged until the admin approves the amendment. Decrease requests are not accepted on this endpoint.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Request Amount Amendment request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-33",
+      "group": "FX Transfers",
+      "name": "Submit FX Transfer Request",
+      "method": "POST",
+      "path": "/transfers/fx",
+      "scope": "ext:transfers:fx:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "identity",
+          "location": "body",
+          "required": "No",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientCustomerId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "identity.clientPhoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "pattern: ^\\+?[1-9]\\d{6,14}$"
+        },
+        {
+          "field": "transfer",
+          "location": "body",
+          "required": "Yes",
+          "type": "object",
+          "constraints": ":"
+        },
+        {
+          "field": "transfer.sourceAccountId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "uuid"
+        },
+        {
+          "field": "transfer.sourceAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "transfer.beneficiaryName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "transfer.beneficiaryBankName",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "transfer.beneficiaryBankSwiftCode",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "transfer.beneficiaryAccountNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "transfer.destinationCurrency",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "transfer.destinationAmount",
+          "location": "body",
+          "required": "No",
+          "type": "number",
+          "constraints": ":"
+        },
+        {
+          "field": "transfer.purpose",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "transfer.notes",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Submits an FX transfer request. Requires `ext:transfers:fx:write`. `identity` can contain `clientAccountNumber`, `clientCustomerId`, or `clientPhoneNumber`; `transfer.sourceAccountNumber` is the debit account, while beneficiary fields describe the receiving bank/account.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Submit FX Transfer Request request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-34",
+      "group": "PIN Management",
+      "name": "List Active Security Questions",
+      "method": "GET",
+      "path": "/pin/security-questions",
+      "scope": "ext:pin:read.",
+      "expectedStatus": 200,
+      "parameters": [],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403
+      ],
+      "purpose": "Returns active recovery questions. Present the returned question text to the customer and submit its questionId during PIN creation.",
+      "liveStatus": "Read smoke check failed; see evidence",
+      "verificationPlan": {
+        "positive": "Submit a valid List Active Security Questions request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Scoped API access only; no customer fixture.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-35",
+      "group": "PIN Management",
+      "name": "Get Customer Security Questions",
+      "method": "GET",
+      "path": "/pin/security-questions/{{customerId}}",
+      "scope": "ext:pin:read.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "customerId",
+          "location": "path",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403,
+        404
+      ],
+      "purpose": "Returns the question configured for the specified customer. Use it before starting PIN recovery.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Get Customer Security Questions request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-36",
+      "group": "PIN Management",
+      "name": "Create Customer PIN",
+      "method": "POST",
+      "path": "/pin/create",
+      "scope": "ext:pin:write.",
+      "expectedStatus": 201,
+      "parameters": [
+        {
+          "field": "customerId",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 64"
+        },
+        {
+          "field": "pin",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "pattern: ^[0-9]{6}$"
+        },
+        {
+          "field": "confirmPin",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "pattern: ^[0-9]{6}$"
+        },
+        {
+          "field": "securityQuestionId",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 32"
+        },
+        {
+          "field": "securityAnswer",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 128"
+        }
+      ],
+      "savedExampleStatuses": [
+        201,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Creates the customer\u2019s first PIN and recovery answer. PINs must contain exactly six digits, must not be ascending/descending sequences, and cannot contain all identical digits or more than three identical consecutive digits.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Create Customer PIN request using an approved fixture; assert HTTP 201, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-37",
+      "group": "PIN Management",
+      "name": "Verify Customer PIN",
+      "method": "POST",
+      "path": "/pin/verify",
+      "scope": "ext:pin:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "customerId",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 64"
+        },
+        {
+          "field": "pin",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "pattern: ^[0-9]{6}$"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        409,
+        423
+      ],
+      "purpose": "Verifies a customer PIN. Three consecutive failures lock verification for 30 minutes. Do not automatically retry a failed PIN.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Verify Customer PIN request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-38",
+      "group": "PIN Management",
+      "name": "Update Customer PIN",
+      "method": "PUT",
+      "path": "/pin/update",
+      "scope": "ext:pin:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "customerId",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 64"
+        },
+        {
+          "field": "securityQuestionId",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 32"
+        },
+        {
+          "field": "securityAnswer",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 128"
+        },
+        {
+          "field": "newPin",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "pattern: ^[0-9]{6}$"
+        },
+        {
+          "field": "confirmPin",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "pattern: ^[0-9]{6}$"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Changes a PIN after validating the configured security answer. The new PIN must satisfy policy and cannot match any of the last five PINs.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Update Customer PIN request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-39",
+      "group": "PIN Management",
+      "name": "Start PIN Recovery",
+      "method": "POST",
+      "path": "/pin/forgot",
+      "scope": "ext:pin:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "customerId",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 64"
+        },
+        {
+          "field": "securityQuestionId",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 32"
+        },
+        {
+          "field": "securityAnswer",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 128"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Validates the configured security answer and sends a one-time reset code to the registered customer contact. Store the returned referenceId and expiry.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Start PIN Recovery request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-40",
+      "group": "PIN Management",
+      "name": "Reset Customer PIN",
+      "method": "POST",
+      "path": "/pin/reset",
+      "scope": "ext:pin:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "customerId",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "min length 0; max length 64"
+        },
+        {
+          "field": "referenceId",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "uuid"
+        },
+        {
+          "field": "otpCode",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "pattern: ^[0-9]{6}$"
+        },
+        {
+          "field": "newPin",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "pattern: ^[0-9]{6}$"
+        },
+        {
+          "field": "confirmPin",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": "pattern: ^[0-9]{6}$"
+        },
+        {
+          "field": "newSecurityQuestionId",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 32"
+        },
+        {
+          "field": "newSecurityAnswer",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 128"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Consumes the recovery referenceId and six-digit reset code. newSecurityQuestionId and newSecurityAnswer are optional, but must be supplied together when changing the recovery question.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Reset Customer PIN request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-41",
+      "group": "OTP",
+      "name": "Send OTP",
+      "method": "POST",
+      "path": "/otp/send",
+      "scope": "ext:otp:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "email",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "phoneNumber",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "type",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Sends an OTP to email, phone, or both. Requires `ext:otp:write`. `type` is `EMAIL`, `PHONE`, or `BOTH`; provide the matching `email` and/or `phoneNumber`.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Send OTP request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-42",
+      "group": "OTP",
+      "name": "Verify OTP",
+      "method": "POST",
+      "path": "/otp/verify",
+      "scope": "ext:otp:write.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "target",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "code",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "type",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Verifies an OTP previously sent through the external OTP endpoint. Requires `ext:otp:write`. `type` must match the channel used for sending, `target` is the email or phone, and `code` is the OTP supplied by the customer.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Verify OTP request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-43",
+      "group": "NIA Verification",
+      "name": "Verify Ghana Card",
+      "method": "POST",
+      "path": "/nia/verify",
+      "scope": "ext:nia:read.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "pinNumber",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "image",
+          "location": "body",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "clientReference",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 100"
+        },
+        {
+          "field": "profilePhotoUrl",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 500"
+        },
+        {
+          "field": "ghanaCardFrontUrl",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 500"
+        },
+        {
+          "field": "ghanaCardBackUrl",
+          "location": "body",
+          "required": "No",
+          "type": "string",
+          "constraints": "min length 0; max length 500"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        400,
+        401,
+        403,
+        409
+      ],
+      "purpose": "Runs Ghana Card/NIA verification. Requires `ext:nia:read`. `pinNumber` is the Ghana Card number, `image` is the base64 selfie/face image supplied by the channel, and `clientReference` is the partner reference used for traceability. This verification call itself still needs an image because the provider performs biometric matching; channels that cannot capture a selfie should rely on a verification reference produced by another channel and pass that reference to account opening.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Verify Ghana Card request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-44",
+      "group": "NIA Verification",
+      "name": "List Verification Requests",
+      "method": "GET",
+      "path": "/nia/requests",
+      "scope": "ext:nia:read.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "status",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "apiKeyName",
+          "location": "query",
+          "required": "No",
+          "type": "string",
+          "constraints": ":"
+        },
+        {
+          "field": "page",
+          "location": "query",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int32"
+        },
+        {
+          "field": "size",
+          "location": "query",
+          "required": "No",
+          "type": "integer",
+          "constraints": "int32"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403
+      ],
+      "purpose": "Lists persisted NIA verification requests. Requires `ext:nia:read`. Use this endpoint to reconcile partner requests, filter by verification `status`, and page through historical verification records.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid List Verification Requests request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-45",
+      "group": "NIA Verification",
+      "name": "Get Verification Request",
+      "method": "GET",
+      "path": "/nia/requests/{{niaRequestReference}}",
+      "scope": "ext:nia:read.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "requestReference",
+          "location": "path",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403,
+        404
+      ],
+      "purpose": "Fetches one persisted NIA verification request by FCL request reference. Requires `ext:nia:read`. Use this for audit/reconciliation when a partner needs the final status and stored verification details for a previous request.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Get Verification Request request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    },
+    {
+      "id": "EXT-46",
+      "group": "NIA Verification",
+      "name": "Get Verified User by Ghana Card",
+      "method": "GET",
+      "path": "/nia/verified-users/{{ghanaCardId}}",
+      "scope": "ext:nia:read.",
+      "expectedStatus": 200,
+      "parameters": [
+        {
+          "field": "cardId",
+          "location": "path",
+          "required": "Yes",
+          "type": "string",
+          "constraints": ":"
+        }
+      ],
+      "savedExampleStatuses": [
+        200,
+        401,
+        403,
+        404
+      ],
+      "purpose": "Returns the locally persisted verified-user record for a Ghana Card ID. Requires `ext:nia:read`. This is useful after a successful verification when a later channel flow needs to reuse verified customer details.",
+      "liveStatus": "Not tested: approved customer fixtures or mutation workflow prerequisites pending",
+      "verificationPlan": {
+        "positive": "Submit a valid Get Verified User by Ghana Card request using an approved fixture; assert HTTP 200, documented envelope and persisted business reference where applicable.",
+        "negative": "Check required fields, scoped access and customer ownership where applicable. Assert errors do not change state.",
+        "prerequisites": "Approved environment and customer/account or business reference fixture. Mutation requests additionally need disposable workflow data, consent and cleanup instructions.",
+        "evidence": "Record timestamp, request ID, status, schema assertions and redacted outcome. Saved collection examples do not count as execution."
+      }
+    }
+  ],
+  "verification": {
+    "host": "https://fclwebapp.formscapital.net:7035",
+    "date": "2026-09-11",
+    "authenticatedRequests": 18,
+    "probe": {
+      "method": "GET",
+      "path": "/api/ext/v1/products",
+      "httpStatus": 404,
+      "contentType": "text/html; charset=utf-8",
+      "tlsVerified": true,
+      "result": "Unauthenticated route probe returned Next.js HTML, not the documented API envelope. API host/prefix and exact channel awaiting confirmation."
+    },
+    "baseUrl": "https://fclwebapp.formscapital.net:7235/api/ext/v1",
+    "channel": "SCAN",
+    "results": [
+      {
+        "id": "EXT-01",
+        "path": "/products",
+        "testedAt": "2026-09-11T07:48:37.261334+00:00",
+        "channel": "SCAN",
+        "httpStatus": 400,
+        "contentType": "application/json"
+      },
+      {
+        "id": "EXT-02",
+        "path": "/products?productType=ACCOUNT",
+        "testedAt": "2026-09-11T07:48:40.335348+00:00",
+        "channel": "SCAN",
+        "httpStatus": 400,
+        "contentType": "application/json"
+      },
+      {
+        "id": "EXT-03",
+        "path": "/products?productType=INVESTMENT",
+        "testedAt": "2026-09-11T07:48:42.903643+00:00",
+        "channel": "SCAN",
+        "httpStatus": 400,
+        "contentType": "application/json"
+      },
+      {
+        "id": "EXT-04",
+        "path": "/products?productType=LOAN",
+        "testedAt": "2026-09-11T07:48:45.532481+00:00",
+        "channel": "SCAN",
+        "httpStatus": 400,
+        "contentType": "application/json"
+      },
+      {
+        "id": "EXT-08",
+        "path": "/loans/products",
+        "testedAt": "2026-09-11T07:48:48.155237+00:00",
+        "channel": "SCAN",
+        "httpStatus": 400,
+        "contentType": "application/json"
+      },
+      {
+        "id": "EXT-11",
+        "path": "/investments/products",
+        "testedAt": "2026-09-11T07:48:50.769548+00:00",
+        "channel": "SCAN",
+        "httpStatus": 400,
+        "contentType": "application/json"
+      },
+      {
+        "id": "EXT-34",
+        "path": "/pin/security-questions",
+        "testedAt": "2026-09-11T07:48:53.415913+00:00",
+        "channel": "SCAN",
+        "httpStatus": 400,
+        "contentType": "application/json"
+      },
+      {
+        "id": "EXT-01",
+        "path": "/products",
+        "channelHeader": "omitted",
+        "testedAt": "2026-09-11T07:50:17.384613+00:00",
+        "httpStatus": 200,
+        "success": true,
+        "code": "SUCCESS",
+        "dataType": "list",
+        "count": 15
+      },
+      {
+        "id": "EXT-02",
+        "path": "/products?productType=ACCOUNT",
+        "channelHeader": "omitted",
+        "testedAt": "2026-09-11T07:50:17.967385+00:00",
+        "httpStatus": 200,
+        "success": true,
+        "code": "SUCCESS",
+        "dataType": "list",
+        "count": 10
+      },
+      {
+        "id": "EXT-03",
+        "path": "/products?productType=INVESTMENT",
+        "channelHeader": "omitted",
+        "testedAt": "2026-09-11T07:50:18.571473+00:00",
+        "httpStatus": 200,
+        "success": true,
+        "code": "SUCCESS",
+        "dataType": "list",
+        "count": 4
+      },
+      {
+        "id": "EXT-04",
+        "path": "/products?productType=LOAN",
+        "channelHeader": "omitted",
+        "testedAt": "2026-09-11T07:50:19.193210+00:00",
+        "httpStatus": 200,
+        "success": true,
+        "code": "SUCCESS",
+        "dataType": "list",
+        "count": 1
+      },
+      {
+        "id": "EXT-08",
+        "path": "/loans/products",
+        "channelHeader": "omitted",
+        "testedAt": "2026-09-11T07:50:19.849395+00:00",
+        "httpStatus": 200,
+        "success": true,
+        "code": "SUCCESS",
+        "dataType": "list",
+        "count": 1
+      },
+      {
+        "id": "EXT-11",
+        "path": "/investments/products",
+        "channelHeader": "omitted",
+        "testedAt": "2026-09-11T07:50:20.572438+00:00",
+        "httpStatus": 200,
+        "success": true,
+        "code": "SUCCESS",
+        "dataType": "list",
+        "count": 4
+      },
+      {
+        "id": "EXT-34",
+        "path": "/pin/security-questions",
+        "channelHeader": "omitted",
+        "testedAt": "2026-09-11T07:50:21.290002+00:00",
+        "httpStatus": 403
+      }
+    ],
+    "channelFinding": "Products: SCAN and SCAN - PRODUCTION return 400; omitting X-Channel-Id returns 200. Provider must clarify channel binding."
+  }
+}

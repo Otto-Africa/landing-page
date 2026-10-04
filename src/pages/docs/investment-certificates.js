@@ -2,6 +2,7 @@ import React from 'react';
 import DocsLayout from '../../layout/DocsLayout';
 import SEO from '../../components/SEO';
 import CodeBlock from '../../components/CodeBlock';
+import DocsOpener from '../../components/DocsOpener';
 import './docs.css';
 
 /**
@@ -12,6 +13,7 @@ const InvestmentCertificates = () => {
 
   const onThisPageItems = [
     { href: '#overview', label: 'Overview' },
+    { href: '#when-why-how', label: 'When, why, and how' },
     { href: '#provider-only', label: 'Investment Provider Only' },
     { href: '#list-certificates', label: 'List Certificates' },
     { href: '#reconciliation', label: 'Reconciliation' },
@@ -34,6 +36,13 @@ const InvestmentCertificates = () => {
       >
         <div className="docs-content">
           <h1 id="overview">Investment Certificates API</h1>
+
+          <DocsOpener
+            lead="Investment certificates are gift products for recipients. Only a business with type INVESTMENT_PROVIDER can call these paths."
+            when="Use this page if you are an investment provider listing certificates, reconciling value, or creating an INVESTMENT gift template. Ordinary merchants get HTTP 403."
+            why="Investment products need extra controls. Otto gates the API on business type so a retail merchant cannot issue certificates."
+            how="Use a Bearer key created for an Investment provider business. Call /api/merchant/investment-certificates. Create templates with certificate_type INVESTMENT. See Gift Cards for merchant types."
+          />
 
           <div className="docs-alert warning">
             <strong>Access:</strong> All endpoints under <code>/merchant/investment-certificates</code> require your business to be registered as an <strong>Investment provider</strong>. Otherwise the API returns <strong>403 Forbidden</strong>.

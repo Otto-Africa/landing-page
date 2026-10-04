@@ -2,6 +2,7 @@ import React from 'react';
 import DocsLayout from '../../layout/DocsLayout';
 import SEO from '../../components/SEO';
 import CodeBlock from '../../components/CodeBlock';
+import DocsOpener from '../../components/DocsOpener';
 import './docs.css';
 
 /**
@@ -12,6 +13,7 @@ const ErrorHandling = () => {
 
   const onThisPageItems = [
     { href: "#overview", label: "Overview" },
+    { href: "#when-why-how", label: "When, why, and how" },
     { href: "#error-codes", label: "Error Codes" },
     { href: "#error-format", label: "Error Response Format" },
     { href: "#handling-errors", label: "Handling Errors" },
@@ -35,10 +37,12 @@ const ErrorHandling = () => {
       <div className="docs-content">
         <h1 id="overview">Error Handling</h1>
 
-        <p>
-          The Otto API uses conventional HTTP response codes and returns errors in a consistent JSON format.
-          This guide will help you understand and handle errors effectively in your integration.
-        </p>
+        <DocsOpener
+          lead="Otto returns conventional HTTP status codes and a JSON body with status, message, and code. Treat that body as the source of truth for retries."
+          when="Use this page when you map HTTP 4xx/5xx, show a user message, or decide whether to retry. Do not retry 401 or PIN lock without a new credential."
+          why="One error shape lets every client log the same code. That is how support traces a failed collect."
+          how="Read the HTTP status. Parse JSON. Branch on code. Retry only idempotent 5xx with backoff. Surface message to operators. Keep the request id if Otto returns one."
+        />
 
         <h2 id="error-format">Error Response Format</h2>
 
