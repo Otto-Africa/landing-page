@@ -5,9 +5,26 @@ import { getApiUrl } from "../config/env";
 import "./GiftCardShare.css";
 
 /**
- * Investment Gift Receive.
- * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ * Investment certificate link: a fixed deposit someone booked at FCL in the
+ * recipient's name. The preview shows who sent it and its term only; claiming
+ * happens in the Otto app, with the account opened on the phone it was sent to.
  */
+const STATE_COPY = {
+  PAID: "Being booked with FCL",
+  BOOKING: "Being booked with FCL",
+  NEEDS_INFO: "Being booked with FCL",
+  ACTIVE: "Active",
+  MATURED: "Matured",
+};
+
+function friendlyDate(value) {
+  if (!value) return null;
+  const date = new Date(`${value}T00:00:00Z`);
+  return Number.isNaN(date.getTime())
+    ? null
+    : date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+}
+
 const InvestmentGiftReceive = () => {
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
@@ -52,7 +69,7 @@ const InvestmentGiftReceive = () => {
         if (res.ok && json?.error !== true && json?.data) {
           setGift(json.data);
         } else {
-          setError(json?.message || "Could not load this gift. The link may have expired.");
+          setError(json?.message || "Could not load this gift. Check the link from your SMS or email.");
         }
       } catch (e) {
         setError("Could not load this gift. Please check your connection and try again.");
@@ -108,29 +125,28 @@ const InvestmentGiftReceive = () => {
     <>
       <SEO
         title="You received an investment gift – Otto Africa"
-        description={gift ? `Investment gift from ${gift.sender_name}. ${gift.available_at ? `Available ${gift.available_at}.` : "Available now."}` : "View your Otto Africa investment gift."}
+        description={gift ? `${gift.senderName} sent you a fixed deposit (${gift.productName}).` : "View your Otto Africa investment gift."}
         url={`https://ottoafrica.com/investment-gift/receive?token=${token || ""}`}
       />
       <div className="gift-card-share-container">
         <div className="gift-card-share-content">
           <div className="gift-card-icon">📈</div>
-          <h1>You've received an investment gift from {gift?.sender_name || "a friend"}</h1>
-          <p>Here are your gift details.</p>
+          <h1>{gift?.senderName || "Someone"} sent you an investment certificate</h1>
+          <p>It's a fixed deposit with FCL in your name. It stays yours until it matures.</p>
 
           {gift && (
             <>
               <div className="gift-card-preview" style={{ background: "#1b3359" }}>
                 <span className="gift-card-preview-title">Investment Certificate</span>
-                <span className="gift-card-preview-merchant">{gift.provider_name}</span>
-                {gift.available_now ? (
-                  <span className="gift-card-preview-value">Available now</span>
-                ) : (
-                  <span className="gift-card-preview-value">Available {gift.available_at || "after unlock date"}</span>
-                )}
+                <span className="gift-card-preview-merchant">{gift.productName}</span>
+                <span className="gift-card-preview-value">
+                  {friendlyDate(gift.maturesOn) ? `Matures ${friendlyDate(gift.maturesOn)}` : STATE_COPY[gift.depositState] || "Being booked with FCL"}
+                </span>
               </div>
 
-              {gift.claimed && <p className="gift-card-cta-text">You have already claimed this gift. Open the app to view it.</p>}
-              {!gift.claimed && <p className="gift-card-cta-text">Download the Otto app and sign in with the phone or email this gift was sent to, then open this link in the app to claim your investment certificate.</p>}
+              {gift.message && <p className="gift-card-cta-text">“{gift.message}”</p>}
+              {gift.claimed && <p className="gift-card-cta-text">This certificate has been claimed. Open the Otto app to view it.</p>}
+              {!gift.claimed && <p className="gift-card-cta-text">Download the Otto app and sign up or sign in with the phone number this gift was sent to. Once your account is open, open this link in the app to claim it. There's no deadline.</p>}
 
               {(showDownload || !/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) && (
                 <div className="download-buttons">
