@@ -3,7 +3,12 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { getApiUrl } from '../config/env';
 
+/**
+ * Contact.
+ * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ */
 const Contact = () => {
   const heroRef = useScrollAnimation({ threshold: 0.1 });
   const formRef = useScrollAnimation({ threshold: 0.1 });
@@ -31,19 +36,7 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      // Determine API URL based on environment
-      let apiUrl;
-      if (process.env.NODE_ENV === 'production') {
-        apiUrl = 'https://api.ottoafrica.com/api/contact/landing-page';
-      } else if (process.env.REACT_APP_API_URL) {
-        // Use test environment API URL if set
-        apiUrl = `${process.env.REACT_APP_API_URL}/contact/landing-page`;
-      } else {
-        // Fallback to localhost for local development
-        apiUrl = 'http://localhost:8000/api/contact/landing-page';
-      }
-
-      const response = await fetch(apiUrl, {
+      const response = await fetch(getApiUrl('contact/landing-page'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +47,10 @@ const Contact = () => {
 
       const data = await response.json();
 
-      if (response.ok && !data.error) {
+      // Backend now returns { status, message, data, errors?, code? }; rely on
+      // HTTP status (response.ok) for success. Tolerate the legacy `error` flag
+      // if a proxy/CDN ever rewraps it.
+      if (response.ok && data?.error !== true) {
         setSubmitStatus({ type: 'success', message: 'Thank you for your message! We\'ll get back to you soon.' });
         setFormData({
           name: '',

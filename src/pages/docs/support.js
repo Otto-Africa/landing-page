@@ -1,12 +1,17 @@
 import React from "react";
 import DocsLayout from "../../layout/DocsLayout";
 import SEO from "../../components/SEO";
+import DocsOpener from "../../components/DocsOpener";
 import "./docs.css";
 
+/**
+ * Support.
+ * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ */
 const Support = () => {
-
   const onThisPageItems = [
     { href: "#overview", label: "Overview" },
+    { href: "#when-why-how", label: "When, why, and how" },
     { href: "#channels", label: "Support Channels" },
     { href: "#common-issues", label: "Common Issues" },
     { href: "#response-times", label: "Response Times" },
@@ -24,17 +29,18 @@ const Support = () => {
       />
       <DocsLayout
         currentPage="/docs/support"
-        
         onThisPageItems={onThisPageItems}
         nutshell="Get help from our support team through email and GitHub issues."
       >
         <div className="docs-content">
           <h1 id="overview">Support</h1>
 
-          <p>
-            Get help from our support team. We're here to help you integrate
-            Otto's API successfully.
-          </p>
+          <DocsOpener
+            lead="Support is how you reach Otto when an integration fails or a live collect needs investigation."
+            when="Use email or GitHub when docs and error codes do not explain the failure. Include request time, path, and the Otto error code."
+            why="Money APIs need a named channel. Support can match your request to Otto logs only if you send identifiers."
+            how="Read error-handling first. Then email or open a GitHub issue with the path, HTTP status, code, and request id. Do not send live API keys."
+          />
 
           <h2 id="channels">Support Channels</h2>
 
@@ -127,8 +133,10 @@ const Support = () => {
                 Webhook Signature Verification
               </h4>
               <p className="text-gray-600 text-sm mb-4">
-                Webhook payloads include a signature for verification. Make sure
-                you're verifying signatures to ensure request authenticity.
+                Webhook payloads include an <code>X-Otto-Signature</code>{" "}
+                header. Verify against the raw body. <code>collect.paid</code>{" "}
+                is recorded for every settlement — configure a URL in the
+                merchant app to receive POSTs.
               </p>
               <div className="bg-gray-50 p-4 rounded text-sm">
                 <strong>Help:</strong> Check our{" "}

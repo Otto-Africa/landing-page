@@ -5,6 +5,10 @@ import SEO from "../components/SEO";
 import Avatar from "../components/Avatar";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
+/**
+ * About.
+ * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ */
 const About = () => {
   const heroRef = useScrollAnimation({ threshold: 0.1 });
   const missionRef = useScrollAnimation({ threshold: 0.1 });

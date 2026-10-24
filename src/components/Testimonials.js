@@ -2,6 +2,10 @@ import React from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Avatar from './Avatar';
 
+/**
+ * Testimonials.
+ * Reusable components isolate presentation from data fetching so design updates do not touch API code.
+ */
 const Testimonials = () => {
   const testimonialsRef = useScrollAnimation({ threshold: 0.1 });
   const testimonials = [

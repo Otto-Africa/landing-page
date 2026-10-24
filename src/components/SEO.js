@@ -1,5 +1,9 @@
 import { useEffect } from 'react';
 
+/**
+ * S E O.
+ * Reusable components isolate presentation from data fetching so design updates do not touch API code.
+ */
 const SEO = ({
   title = "Otto Africa - Scale without limits. Payment Infrastructure for Africa",
   description = "The all-in-one payment infrastructure built for Africa's most ambitious businesses. Accept payments, manage gift cards, and launch loyalty programs with ease.",

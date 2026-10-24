@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import { getMerchantPortalUrl } from "../utils/getMerchantPortalUrl";
 
+/**
+ * Hero.
+ * Reusable components isolate presentation from data fetching so design updates do not touch API code.
+ */
 const Hero = () => {
   const merchantPortalUrl = getMerchantPortalUrl();
 

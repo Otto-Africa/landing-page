@@ -4,6 +4,10 @@ import animationData from "../assets/404.json";
 import { useNavigate } from "react-router-dom";
 import Layout from "../layout/layout";
 
+/**
+ * Page404.
+ * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ */
 const Page404 = () => {
 	const navigate = useNavigate();
 	return (

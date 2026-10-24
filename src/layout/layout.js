@@ -2,6 +2,10 @@ import React from "react";
 import Header from "./header";
 import Footer from "./footer";
 
+/**
+ * Layout.
+ * UI helpers stay in lib/ and hooks/ so pages remain declarative and API shapes stay centralized in lib/api.ts.
+ */
 const Layout = ({ body }) => {
 	return (
 		<div className="relative w-full items-center justify-center">

@@ -2,6 +2,10 @@ import React from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import { getMerchantPortalUrl } from "../utils/getMerchantPortalUrl";
 
+/**
+ * C T A.
+ * Reusable components isolate presentation from data fetching so design updates do not touch API code.
+ */
 const CTA = () => {
   const merchantPortalUrl = getMerchantPortalUrl();
   const ctaRef = useScrollAnimation({ threshold: 0.1 });

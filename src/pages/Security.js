@@ -4,6 +4,10 @@ import Footer from "../components/Footer";
 import SEO from "../components/SEO";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
+/**
+ * Security.
+ * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ */
 const Security = () => {
   const contentRef = useScrollAnimation({ threshold: 0.1 });
 

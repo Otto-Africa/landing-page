@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 
+/**
+ * User Type Toggle.
+ * Reusable components isolate presentation from data fetching so design updates do not touch API code.
+ */
 const UserTypeToggle = ({ activeType, onToggle }) => {
     const [isSticky, setIsSticky] = useState(false);
 

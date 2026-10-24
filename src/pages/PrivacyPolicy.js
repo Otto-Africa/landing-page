@@ -6,6 +6,10 @@ import SEO from "../components/SEO";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import UserTypeToggle from "../components/UserTypeToggle";
 
+/**
+ * Privacy Policy.
+ * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ */
 const PrivacyPolicy = () => {
   const contentRef = useScrollAnimation({ threshold: 0.1 });
   const [searchParams] = useSearchParams();

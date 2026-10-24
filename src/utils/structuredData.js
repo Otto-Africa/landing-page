@@ -1,5 +1,9 @@
 // Structured Data (JSON-LD) for SEO
 
+/**
+ * Get Organization Schema.
+ * UI helpers stay in lib/ and hooks/ so pages remain declarative and API shapes stay centralized in lib/api.ts.
+ */
 export const getOrganizationSchema = () => ({
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -75,6 +79,10 @@ export const getOrganizationSchema = () => ({
   },
 });
 
+/**
+ * Get Website Schema.
+ * UI helpers stay in lib/ and hooks/ so pages remain declarative and API shapes stay centralized in lib/api.ts.
+ */
 export const getWebsiteSchema = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -132,6 +140,10 @@ export const getWebsiteSchema = () => ({
   },
 });
 
+/**
+ * Get Software Application Schema.
+ * UI helpers stay in lib/ and hooks/ so pages remain declarative and API shapes stay centralized in lib/api.ts.
+ */
 export const getSoftwareApplicationSchema = () => ({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -152,6 +164,10 @@ export const getSoftwareApplicationSchema = () => ({
     "Accept payments, manage gift cards, and launch loyalty programs with ease.",
 });
 
+/**
+ * Get Breadcrumb Schema.
+ * UI helpers stay in lib/ and hooks/ so pages remain declarative and API shapes stay centralized in lib/api.ts.
+ */
 export const getBreadcrumbSchema = (items) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -163,6 +179,10 @@ export const getBreadcrumbSchema = (items) => ({
   })),
 });
 
+/**
+ * Get F A Q Schema.
+ * UI helpers stay in lib/ and hooks/ so pages remain declarative and API shapes stay centralized in lib/api.ts.
+ */
 export const getFAQSchema = (faqs) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -176,6 +196,10 @@ export const getFAQSchema = (faqs) => ({
   })),
 });
 
+/**
+ * Get Product Schema.
+ * UI helpers stay in lib/ and hooks/ so pages remain declarative and API shapes stay centralized in lib/api.ts.
+ */
 export const getProductSchema = (product) => ({
   "@context": "https://schema.org",
   "@type": "Product",
@@ -190,6 +214,10 @@ export const getProductSchema = (product) => ({
   },
 });
 
+/**
+ * Get Local Business Schema.
+ * UI helpers stay in lib/ and hooks/ so pages remain declarative and API shapes stay centralized in lib/api.ts.
+ */
 export const getLocalBusinessSchema = () => ({
   "@context": "https://schema.org",
   "@type": "FinancialService",
@@ -217,6 +245,10 @@ export const getLocalBusinessSchema = () => ({
     "Otto, Ghana fintech, payment API Ghana, gift cards Ghana, loyalty programs Ghana",
 });
 
+/**
+ * Get F A Q Schema For Landing.
+ * UI helpers stay in lib/ and hooks/ so pages remain declarative and API shapes stay centralized in lib/api.ts.
+ */
 export const getFAQSchemaForLanding = () => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",

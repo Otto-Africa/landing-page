@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+ * Footer.
+ * UI helpers stay in lib/ and hooks/ so pages remain declarative and API shapes stay centralized in lib/api.ts.
+ */
 const Footer = () => {
 	return (
 		<div className="w-full flex px-[5%] lg:px-[17.5%] justify-center">

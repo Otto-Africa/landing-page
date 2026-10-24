@@ -1,5 +1,9 @@
 import { useEffect, useRef } from 'react';
 
+/**
+ * Use Scroll Animation.
+ * Hooks encapsulate side effects and store wiring so multiple pages can share initialization logic.
+ */
 export const useScrollAnimation = (options = {}) => {
   const ref = useRef(null);
   const {

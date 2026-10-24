@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import { getMerchantPortalUrl } from "../utils/getMerchantPortalUrl";
 
+/**
+ * Features.
+ * Reusable components isolate presentation from data fetching so design updates do not touch API code.
+ */
 const Features = () => {
   const featuresRef = useScrollAnimation({ threshold: 0.1 });
   const [selectedFeature, setSelectedFeature] = useState(null);

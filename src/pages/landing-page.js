@@ -1,8 +1,12 @@
 import React from "react";
 import Layout from "../layout/layout";
 import QRCodeChanger from "../qrcode-changer";
-import { FaCheck } from "react-icons/fa";
+import OttoIcon from "../components/OttoIcon";
 
+/**
+ * Landing Page.
+ * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ */
 const LandingPage = () => {
   const valuelist = [
     {
@@ -216,7 +220,7 @@ const LandingPage = () => {
                     <div className="flex gap-4 lg:bg-gray-50 lg:pb-6 pt-8 lg:px-6 rounded-2xl w-[90%]">
                       <div className="lg:hidden">
                         <div className="mt-1 bg-[#1b3359] h-8 w-8 flex items-center justify-center rounded-full">
-                          <FaCheck color="white" />
+                          <OttoIcon name="checkmark-outline" fill="white" size={16} />
                         </div>
                       </div>
                       <div className="justify-center flex flex-col lg:mt-6">

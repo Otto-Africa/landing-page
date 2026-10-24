@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import SEO from "../components/SEO";
+import { getApiUrl } from "../config/env";
 import "./GiftCardShare.css";
 
-function getApiUrl(endpoint) {
-  if (process.env.NODE_ENV === "production") {
-    return `https://api.ottoafrica.com/api/${endpoint}`;
-  }
-  if (process.env.REACT_APP_API_URL) {
-    return `${process.env.REACT_APP_API_URL}/${endpoint}`;
-  }
-  return `https://api.ottoafrica.com/api/${endpoint}`;
-}
-
+/**
+ * Investment Gift Receive.
+ * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ */
 const InvestmentGiftReceive = () => {
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
@@ -51,10 +46,13 @@ const InvestmentGiftReceive = () => {
       try {
         const res = await fetch(getApiUrl(`investment-certificates/receive?token=${encodeURIComponent(token)}`));
         const json = await res.json();
-        if (json.success === false && json.data) {
+        // Backend now returns { status, message, data, errors?, code? }.
+        // Use HTTP status as the success signal and tolerate the legacy
+        // `success` flag if a proxy/CDN ever rewraps the body.
+        if (res.ok && json?.error !== true && json?.data) {
           setGift(json.data);
         } else {
-          setError(json.message || "Could not load this gift. The link may have expired.");
+          setError(json?.message || "Could not load this gift. The link may have expired.");
         }
       } catch (e) {
         setError("Could not load this gift. Please check your connection and try again.");

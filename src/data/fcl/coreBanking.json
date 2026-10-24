@@ -1,0 +1,593 @@
+{
+  "testedAt": "2026-09-26T00:30:00.000Z",
+  "baseUrl": "https://fclapi.formscapital.net:7050/api/v1",
+  "results": [
+    {
+      "name": "Get Accounts by Mobile",
+      "path": "/accounts/by-mobile",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1772,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "d43f1c049abd4461b5d5b39d8ad297ee",
+      "number": 1,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "d43f1c049abd4461b5d5b39d8ad297ee"
+      }
+    },
+    {
+      "name": "Get Accounts by Customer ID",
+      "path": "/accounts/by-customer-id",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1479,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "390454595e4a464abd02df84f656fe6d",
+      "number": 2,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "390454595e4a464abd02df84f656fe6d"
+      }
+    },
+    {
+      "name": "Get Accounts by Account",
+      "path": "/accounts/by-account",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1605,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "c95b22745630497f86a4841fbf355ee5",
+      "number": 3,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "c95b22745630497f86a4841fbf355ee5"
+      }
+    },
+    {
+      "name": "Get Mini Statement",
+      "path": "/accounts/mini-statement",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1451,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "4e27c43f6d7a499eb8abb153600980bd",
+      "number": 4,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "4e27c43f6d7a499eb8abb153600980bd"
+      }
+    },
+    {
+      "name": "Account Enquiry",
+      "path": "/accounts/enquiry",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1822,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "26b9800666dd46ccb9de565f6b936047",
+      "number": 5,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "26b9800666dd46ccb9de565f6b936047"
+      }
+    },
+    {
+      "name": "Get Account Statement",
+      "path": "/accounts/statement",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1621,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "ff7df8cded044769af6bd53e8f975045",
+      "number": 6,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "ff7df8cded044769af6bd53e8f975045"
+      }
+    },
+    {
+      "name": "Field Deposit",
+      "path": "/agents/field-deposit",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1403,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "828a9d3833c64d5ca98cfc48e5c81673",
+      "number": 7,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "828a9d3833c64d5ca98cfc48e5c81673"
+      }
+    },
+    {
+      "name": "Field Withdrawal",
+      "path": "/agents/field-withdrawal",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1960,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "94dcfcebbc38424daeabd99eb7b88017",
+      "number": 8,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "94dcfcebbc38424daeabd99eb7b88017"
+      }
+    },
+    {
+      "name": "Get Investments by Mobile",
+      "path": "/investments/by-mobile",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1671,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "d9a780b226974fc8a69113f7f0c693b1",
+      "number": 9,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "d9a780b226974fc8a69113f7f0c693b1"
+      }
+    },
+    {
+      "name": "Get Investments by Customer ID",
+      "path": "/investments/by-customer-id",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1333,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "c0c820fed02a4616b44486fe89f5cfd5",
+      "number": 10,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "c0c820fed02a4616b44486fe89f5cfd5"
+      }
+    },
+    {
+      "name": "Get Investments by Account",
+      "path": "/investments/by-account",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1849,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "80b7584adf6142439635afce29e0626e",
+      "number": 11,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "80b7584adf6142439635afce29e0626e"
+      }
+    },
+    {
+      "name": "Get Investment Detail",
+      "path": "/investments/detail",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1563,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "9ca8283d18ff4ca0997eee9b3f2e6ab6",
+      "number": 12,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "9ca8283d18ff4ca0997eee9b3f2e6ab6"
+      }
+    },
+    {
+      "name": "Get Facilities by Mobile",
+      "path": "/facilities/by-mobile",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1640,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "95514ecbe08e4a46b1f30a51ffd15bac",
+      "number": 13,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "95514ecbe08e4a46b1f30a51ffd15bac"
+      }
+    },
+    {
+      "name": "Get Facilities by Customer ID",
+      "path": "/facilities/by-customer-id",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 2411,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "4080c7fce6cd440f87f52996187cf943",
+      "number": 14,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "4080c7fce6cd440f87f52996187cf943"
+      }
+    },
+    {
+      "name": "Get Facilities by Account",
+      "path": "/facilities/by-account",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1943,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "9630630e43f145549065c484ab81296e",
+      "number": 15,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "9630630e43f145549065c484ab81296e"
+      }
+    },
+    {
+      "name": "Get Facility Detail",
+      "path": "/facilities/detail",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1702,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "8",
+      "responseMessage": "Failed",
+      "correlationId": "e6ef8e77e28d44dfb50e42f0164228a4",
+      "number": 16,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "8",
+        "message": "Failed",
+        "correlationId": "e6ef8e77e28d44dfb50e42f0164228a4"
+      }
+    },
+    {
+      "name": "Add Customer Account",
+      "path": "/customers/add-account",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "durationMs": 1380,
+      "responseFormat": "JSON",
+      "businessSuccess": false,
+      "responseCode": "16",
+      "responseMessage": "Failed",
+      "correlationId": "dde3c237d52c4fb7ad86a50ce66d735f",
+      "number": 17,
+      "method": "POST",
+      "outcome": "HTTP_RESPONSE",
+      "body": {
+        "success": false,
+        "code": "16",
+        "message": "Failed",
+        "correlationId": "dde3c237d52c4fb7ad86a50ce66d735f"
+      }
+    }
+  ],
+  "responseObservation": "2026-09-26 proxy check of all 17 activated endpoints, using the FCL sample bodies. Each returned HTTP 200 JSON and success=false with message Failed and a correlationId. Sixteen returned code 8. POST /customers/add-account returned code 16. No data object was present. Field Deposit and Field Withdrawal were not confirmed, so those sample postings did not land. A successful business response is still unverified.",
+  "endpoints": [
+    {
+      "id": "accounts-by-mobile",
+      "number": 1,
+      "group": "Accounts",
+      "name": "Accounts by mobile",
+      "method": "POST",
+      "path": "/accounts/by-mobile",
+      "body": {
+        "mobileNumber": "<approved mobile number>"
+      },
+      "mutates": false
+    },
+    {
+      "id": "accounts-by-customer-id",
+      "number": 2,
+      "group": "Accounts",
+      "name": "Accounts by customer ID",
+      "method": "POST",
+      "path": "/accounts/by-customer-id",
+      "body": {
+        "customerId": "<approved customer ID>"
+      },
+      "mutates": false
+    },
+    {
+      "id": "accounts-by-account",
+      "number": 3,
+      "group": "Accounts",
+      "name": "Account lookup",
+      "method": "POST",
+      "path": "/accounts/by-account",
+      "body": {
+        "accountNumber": "<approved account number>"
+      },
+      "mutates": false
+    },
+    {
+      "id": "mini-statement",
+      "number": 4,
+      "group": "Accounts",
+      "name": "Mini statement",
+      "method": "POST",
+      "path": "/accounts/mini-statement",
+      "body": {
+        "accountNumber": "<approved account number>"
+      },
+      "mutates": false
+    },
+    {
+      "id": "enquiry",
+      "number": 5,
+      "group": "Accounts",
+      "name": "Account enquiry",
+      "method": "POST",
+      "path": "/accounts/enquiry",
+      "body": {
+        "accountNumber": "<approved account number>"
+      },
+      "mutates": false
+    },
+    {
+      "id": "statement",
+      "number": 6,
+      "group": "Accounts",
+      "name": "Date-range statement",
+      "method": "POST",
+      "path": "/accounts/statement",
+      "body": {
+        "accountNumber": "<approved account number>",
+        "startDate": "01-JAN-2021",
+        "endDate": "01-DEC-2026"
+      },
+      "mutates": false
+    },
+    {
+      "id": "field-deposit",
+      "number": 7,
+      "group": "Field postings",
+      "name": "Field deposit",
+      "method": "POST",
+      "path": "/agents/field-deposit",
+      "body": {
+        "customerAccountNumber": "<approved customer account>",
+        "agentAccountNumber": "<approved agent/channel account>",
+        "transactionRemarks": "<approved purpose>",
+        "transactionId": "<stable ID, at most 20 characters>",
+        "transactionAmount": 1,
+        "feeAmount": 0,
+        "feeContraAccount": ""
+      },
+      "mutates": true
+    },
+    {
+      "id": "field-withdrawal",
+      "number": 8,
+      "group": "Field postings",
+      "name": "Field withdrawal",
+      "method": "POST",
+      "path": "/agents/field-withdrawal",
+      "body": {
+        "customerAccountNumber": "<approved customer account>",
+        "contraAccountNumber": "<approved contra/channel account>",
+        "transactionRemarks": "<approved purpose>",
+        "transactionId": "<stable ID, at most 20 characters>",
+        "transactionAmount": 1,
+        "feeAmount": 0,
+        "feeContraAccount": ""
+      },
+      "mutates": true
+    },
+    {
+      "id": "investments-by-mobile",
+      "number": 9,
+      "group": "Investments",
+      "name": "Investments by mobile",
+      "method": "POST",
+      "path": "/investments/by-mobile",
+      "body": {
+        "mobileNumber": "<approved mobile number>"
+      },
+      "mutates": false
+    },
+    {
+      "id": "investments-by-customer-id",
+      "number": 10,
+      "group": "Investments",
+      "name": "Investments by customer ID",
+      "method": "POST",
+      "path": "/investments/by-customer-id",
+      "body": {
+        "Customerid": "<approved customer ID>"
+      },
+      "mutates": false
+    },
+    {
+      "id": "investments-by-account",
+      "number": 11,
+      "group": "Investments",
+      "name": "Investments by account",
+      "method": "POST",
+      "path": "/investments/by-account",
+      "body": {
+        "accountNumber": "<approved account number>"
+      },
+      "mutates": false
+    },
+    {
+      "id": "investment-detail",
+      "number": 12,
+      "group": "Investments",
+      "name": "Investment detail",
+      "method": "POST",
+      "path": "/investments/detail",
+      "body": {
+        "accountNumber": "<approved account number>"
+      },
+      "mutates": false
+    },
+    {
+      "id": "facilities-by-mobile",
+      "number": 13,
+      "group": "Facilities",
+      "name": "Facilities by mobile",
+      "method": "POST",
+      "path": "/facilities/by-mobile",
+      "body": {
+        "mobileNumber": "<approved mobile number>"
+      },
+      "mutates": false
+    },
+    {
+      "id": "facilities-by-customer-id",
+      "number": 14,
+      "group": "Facilities",
+      "name": "Facilities by customer ID",
+      "method": "POST",
+      "path": "/facilities/by-customer-id",
+      "body": {
+        "Customerid": "<approved customer ID>"
+      },
+      "mutates": false
+    },
+    {
+      "id": "facilities-by-account",
+      "number": 15,
+      "group": "Facilities",
+      "name": "Facilities by account",
+      "method": "POST",
+      "path": "/facilities/by-account",
+      "body": {
+        "accountnumber": "<approved account number>"
+      },
+      "mutates": false
+    },
+    {
+      "id": "facility-detail",
+      "number": 16,
+      "group": "Facilities",
+      "name": "Facility detail",
+      "method": "POST",
+      "path": "/facilities/detail",
+      "body": {
+        "accountNumber": "<approved account number>"
+      },
+      "mutates": false
+    },
+    {
+      "id": "add-account",
+      "number": 17,
+      "group": "Customers",
+      "name": "Add account for existing customer",
+      "method": "POST",
+      "path": "/customers/add-account",
+      "body": {
+        "customerId": "<approved existing customer ID>",
+        "productCode": "<approved product code>"
+      },
+      "mutates": true
+    }
+  ],
+  "scope": "All 17 activated production endpoints through the local SOCKS proxy, using the supplied sample bodies. Response bodies are the full JSON returned.",
+  "proxy": "socks5h://127.0.0.1:1080",
+  "failureEnvelope": {
+    "success": false,
+    "code": "8",
+    "message": "Failed",
+    "correlationId": "<32 hex characters>"
+  }
+}

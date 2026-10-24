@@ -1,22 +1,18 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useParams } from "react-router-dom";
-import { HiOutlineEye, HiOutlineShoppingBag, HiOutlineShieldCheck } from "react-icons/hi";
 import SEO from "../components/SEO";
+import OttoIcon from "../components/OttoIcon";
 import "./GiftCardShare.css";
+
+import { getApiUrl } from "../config/env";
 
 const IOS_APP_URL = "https://apps.apple.com/app/otto/id123456789";
 const ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=com.otto.customer";
 
-function getApiUrl(endpoint) {
-  if (process.env.NODE_ENV === "production") {
-    return `https://api.ottoafrica.com/api/${endpoint}`;
-  }
-  if (process.env.REACT_APP_API_URL) {
-    return `${process.env.REACT_APP_API_URL}/${endpoint}`;
-  }
-  return `https://api.ottoafrica.com/api/${endpoint}`;
-}
-
+/**
+ * Get Device O S.
+ * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ */
 const getDeviceOS = () => {
   const ua = navigator.userAgent;
   if (/iPhone|iPad|iPod/i.test(ua)) return "ios";
@@ -24,6 +20,10 @@ const getDeviceOS = () => {
   return "desktop";
 };
 
+/**
+ * Gift Card Share.
+ * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ */
 const GiftCardShare = () => {
   const { id } = useParams();
   const [isChecking, setIsChecking] = useState(true);
@@ -39,7 +39,9 @@ const GiftCardShare = () => {
       try {
         const res = await fetch(getApiUrl(`gift-cards/share/${id}`));
         const json = await res.json();
-        if (json.success && json.data) {
+        // Backend now returns { status, message, data, errors?, code? }.
+        // 2xx with a payload means success; tolerate the legacy `success` flag.
+        if (res.ok && json?.error !== true && json?.data) {
           setGiftData(json.data);
         }
       } catch (e) {
@@ -144,19 +146,19 @@ const GiftCardShare = () => {
           <div className="benefits benefits-with-icons">
             <div className="benefit-item">
               <span className="benefit-icon" aria-hidden>
-                <HiOutlineEye size={20} />
+                <OttoIcon name="eye-outline" size={20} />
               </span>
               <span><strong>View your balance</strong> – See how much you have to spend</span>
             </div>
             <div className="benefit-item">
               <span className="benefit-icon" aria-hidden>
-                <HiOutlineShoppingBag size={20} />
+                <OttoIcon name="shopping-bag-outline" size={20} />
               </span>
               <span><strong>Use at checkout</strong> – Pay at thousands of merchants</span>
             </div>
             <div className="benefit-item">
               <span className="benefit-icon" aria-hidden>
-                <HiOutlineShieldCheck size={20} />
+                <OttoIcon name="shield-outline" size={20} />
               </span>
               <span><strong>Safe & instant</strong> – No plastic, no expiry hassle</span>
             </div>

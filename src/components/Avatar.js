@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Avatar.
+ * Reusable components isolate presentation from data fetching so design updates do not touch API code.
+ */
 const Avatar = ({ 
   src, 
   alt, 

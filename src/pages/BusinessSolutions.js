@@ -4,6 +4,10 @@ import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
+/**
+ * Business Solutions.
+ * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ */
 const BusinessSolutions = () => {
   const heroRef = useScrollAnimation({ threshold: 0.1 });
   const featuresRef = useScrollAnimation({ threshold: 0.1 });

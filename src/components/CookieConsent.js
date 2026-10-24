@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 
+/**
+ * Cookie Consent.
+ * Reusable components isolate presentation from data fetching so design updates do not touch API code.
+ */
 const CookieConsent = () => {
   const [showBanner, setShowBanner] = useState(false);
   const [showSettings, setShowSettings] = useState(false);

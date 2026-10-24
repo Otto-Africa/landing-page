@@ -34,6 +34,10 @@ const highContrastOneLight = {
   keyword: { ...(oneLight.keyword || {}), color: '#c2410c' },
 };
 
+/**
+ * Multi Language Code Block.
+ * Reusable components isolate presentation from data fetching so design updates do not touch API code.
+ */
 const MultiLanguageCodeBlock = ({
   examples,
   defaultLanguage = 'curl',

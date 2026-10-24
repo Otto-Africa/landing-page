@@ -5,6 +5,10 @@ import SEO from "../components/SEO";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import UserTypeToggle from "../components/UserTypeToggle";
 
+/**
+ * Cookie Policy.
+ * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ */
 const CookiePolicy = () => {
   const contentRef = useScrollAnimation({ threshold: 0.1 });
   const [userType, setUserType] = useState("merchant");

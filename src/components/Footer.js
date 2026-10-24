@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+/**
+ * Footer.
+ * Reusable components isolate presentation from data fetching so design updates do not touch API code.
+ */
 const Footer = () => {
   return (
     <footer className="bg-white text-gray-900 border-t border-gray-200">

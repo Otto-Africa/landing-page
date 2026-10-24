@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import { getMerchantPortalUrl } from "../utils/getMerchantPortalUrl";
+import { getApiUrl } from "../config/env";
 
+/**
+ * Pricing.
+ * Route-level components compose shared UI primitives so merchant workflows stay consistent across the portal.
+ */
 const Pricing = () => {
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
   const heroRef = useScrollAnimation({ threshold: 0.1 });
   const plansRef = useScrollAnimation({ threshold: 0.1 });
 
@@ -22,16 +26,6 @@ const Pricing = () => {
   const [error, setError] = useState(null);
   const [selectedTier, setSelectedTier] = useState(null);
 
-  // Determine API URL based on environment
-  const getApiUrl = (endpoint) => {
-    if (process.env.NODE_ENV === "production") {
-      return `https://api.ottoafrica.com/api/${endpoint}`;
-    } else if (process.env.REACT_APP_API_URL) {
-      return `${process.env.REACT_APP_API_URL}/${endpoint}`;
-    } else {
-      return `http://localhost:8000/api/${endpoint}`;
-    }
-  };
 
   // Fetch subscription tiers from backend
   useEffect(() => {
@@ -99,12 +93,15 @@ const Pricing = () => {
 
       const data = await response.json();
 
-      if (response.ok && !data.error && data.data?.authorization_url) {
-        // Redirect to Paystack payment page
+      // Backend now returns { status, message, data, errors?, code? }; rely on
+      // HTTP status (response.ok) for success and look up the payload under
+      // `data.data` regardless of whether a legacy `error` flag is present.
+      if (response.ok && data?.error !== true && data?.data?.authorization_url) {
+        // Redirect to FCL payment page
         window.location.href = data.data.authorization_url;
       } else {
         setError(
-          data.message || "Failed to initiate subscription. Please try again."
+          data?.message || "Failed to initiate subscription. Please try again."
         );
       }
     } catch (err) {

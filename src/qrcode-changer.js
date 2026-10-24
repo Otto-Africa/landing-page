@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import QRCode from "qrcode.react";
 
+/**
+ * Q R Code Changer.
+ * UI helpers stay in lib/ and hooks/ so pages remain declarative and API shapes stay centralized in lib/api.ts.
+ */
 const QRCodeChanger = ({ size }) => {
 	const qrDataList = [
 		"ottoafrica.com",

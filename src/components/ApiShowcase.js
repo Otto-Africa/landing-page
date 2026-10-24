@@ -2,6 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
+/**
+ * Api Showcase.
+ * Reusable components isolate presentation from data fetching so design updates do not touch API code.
+ */
 const ApiShowcase = () => {
   const [activeTab, setActiveTab] = useState('create-gift-card');
   const [selectedLanguage, setSelectedLanguage] = useState('curl');
