@@ -25,10 +25,10 @@ const GatewayErrors = () => {
     <>
       <SEO
         noindex
-        title="Payment Gateway Errors - Otto Africa Documentation"
+        title="Payment Gateway Errors - Scan Africa Documentation"
         description="Observed HTTP statuses and error envelopes for the FCL Payment Gateway."
         keywords="FCL Payment Gateway errors, UNAUTHORIZED, ALL_PROVIDERS_FAILED"
-        url="https://ottoafrica.com/fcl/gateway-errors"
+        url="https://scanafrica.com/fcl/gateway-errors"
       />
       <DocsLayout
         currentPage="/fcl/gateway-errors"
@@ -40,7 +40,7 @@ const GatewayErrors = () => {
 
           <DocsOpener
             lead="Gateway HTTP 200 on create means accepted, not paid. HTTP 401 means a missing or invalid X-Api-Key."
-            when="Use this page when you map Gateway failures in Otto adapters. Do not treat empty 404 or 502 ALL_PROVIDERS_FAILED as a successful collect."
+            when="Use this page when you map Gateway failures in Scan adapters. Do not treat empty 404 or 502 ALL_PROVIDERS_FAILED as a successful collect."
             why="Recorded public-host patterns repeat. Adapters must branch on status and body, not only HTTP 200."
             how="If 401, fix the key. If 200, wait for webhook SUCCESS. If 404, the ref is unknown. If 502 ALL_PROVIDERS_FAILED, the create is bad."
           />

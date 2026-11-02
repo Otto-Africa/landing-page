@@ -10,10 +10,10 @@ const Loyalty = () => {
 	return (
 		<>
 			<SEO
-				title="Loyalty Programs - Otto Africa"
-				description="Build customer loyalty with Otto Africa's loyalty program solutions. Create points-based rewards, tiered memberships, and personalized offers."
-				keywords="loyalty programs, customer loyalty, rewards programs, points system, Otto Africa loyalty"
-				url="https://ottoafrica.com/about/loyalty"
+				title="Loyalty Programs - Scan Africa"
+				description="Build customer loyalty with Scan Africa's loyalty program solutions. Create points-based rewards, tiered memberships, and personalized offers."
+				keywords="loyalty programs, customer loyalty, rewards programs, points system, Scan Africa loyalty"
+				url="https://scanafrica.com/about/loyalty"
 			/>
 			<Layout />
 		</>

@@ -38,10 +38,10 @@ const GatewayEndpoint = () => {
     <>
       <SEO
         noindex
-        title={`${endpoint.title} - Payment Gateway - Otto Africa Documentation`}
+        title={`${endpoint.title} - Payment Gateway - Scan Africa Documentation`}
         description={endpoint.summary}
         keywords={`FCL ${endpoint.method} ${endpoint.path}`}
-        url={`https://ottoafrica.com/fcl/gateway/api/${endpoint.id}`}
+        url={`https://scanafrica.com/fcl/gateway/api/${endpoint.id}`}
       />
       <DocsLayout
         currentPage={`/fcl/gateway/api/${endpoint.id}`}

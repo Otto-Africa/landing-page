@@ -20,7 +20,7 @@ const Features = () => {
       detailedDescription:
         "Transform your checkout experience with QR code payments. Our system supports both static and dynamic QR codes, allowing you to accept payments instantly. Perfect for retail stores, restaurants, cafes, and service businesses. Customers can pay using their mobile wallets or banking apps by simply scanning the QR code. No additional hardware required—just display the code and start accepting payments. Real-time transaction notifications keep you informed, and our analytics dashboard helps you track sales patterns and customer behavior.",
       image: "/img/qrcode.png",
-      color: "otto-blue",
+      color: "scan-blue",
     },
     {
       title: "Digital Gift Cards",
@@ -60,7 +60,7 @@ const Features = () => {
             </p>
             <a
               href={merchantPortalUrl}
-              className="inline-flex items-center gap-2 bg-otto-blue text-white px-6 py-3 rounded-full hover:bg-black transition-all duration-300 font-medium text-base scroll-animate delay-200"
+              className="inline-flex items-center gap-2 bg-scan-blue text-white px-6 py-3 rounded-full hover:bg-black transition-all duration-300 font-medium text-base scroll-animate delay-200"
             >
               Start now
             </a>
@@ -78,7 +78,7 @@ const Features = () => {
             >
               {/* Title Container - Top */}
               <div className="relative z-20 px-6 pt-6 pb-4">
-                <h3 className="text-base md:text-lg font-medium text-gray-900 group-hover:text-otto-blue transition-colors">
+                <h3 className="text-base md:text-lg font-medium text-gray-900 group-hover:text-scan-blue transition-colors">
                   {feature.title}
                 </h3>
               </div>
@@ -178,7 +178,7 @@ const Features = () => {
             </p>
             <a
               href={merchantPortalUrl}
-              className="inline-flex items-center gap-2 bg-otto-blue text-white px-8 py-4 rounded-full hover:bg-black transition-all duration-300 font-semibold text-lg"
+              className="inline-flex items-center gap-2 bg-scan-blue text-white px-8 py-4 rounded-full hover:bg-black transition-all duration-300 font-semibold text-lg"
             >
               Get Started
               <svg

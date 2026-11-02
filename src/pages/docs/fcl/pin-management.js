@@ -32,17 +32,17 @@ const PinManagement = () => {
     { href: "#rules", label: "PIN rules" },
     { href: "#flow", label: "Setup flow" },
     { href: "#endpoints", label: "Endpoints" },
-    { href: "#otto", label: "Otto usage" },
+    { href: "#scan", label: "Scan usage" },
   ];
 
   return (
     <>
       <SEO
         noindex
-        title="PIN Management - Otto Africa Documentation"
+        title="PIN Management - Scan Africa Documentation"
         description="FCL Unified External Channels PIN Management: create, verify, update, and recover a six-digit customer PIN."
         keywords="FCL PIN Management, security questions, transaction PIN"
-        url="https://ottoafrica.com/fcl/pin-management"
+        url="https://scanafrica.com/fcl/pin-management"
       />
       <DocsLayout
         currentPage="/fcl/pin-management"
@@ -54,9 +54,9 @@ const PinManagement = () => {
 
           <DocsOpener
             lead="PIN Management belongs to Unified External Channels. The PIN has six digits. Setup stores one security question and one answer."
-            when="Use /pin when Otto must create, change, recover, or verify a customer PIN at FCL. Partners call Otto PIN paths, not this host."
-            why="FCL is the PIN store Otto uses. Failed verify must not auto-retry. Three failures lock verify for 30 minutes."
-            how="GET questions. POST create with pin, confirm, question, and answer. Verify with the check path. Otto maps these calls behind /profile/pin."
+            when="Use /pin when Scan must create, change, recover, or verify a customer PIN at FCL. Partners call Scan PIN paths, not this host."
+            why="FCL is the PIN store Scan uses. Failed verify must not auto-retry. Three failures lock verify for 30 minutes."
+            how="GET questions. POST create with pin, confirm, question, and answer. Verify with the check path. Scan maps these calls behind /profile/pin."
           />
 
           <h2 id="rules">PIN rules</h2>
@@ -132,13 +132,13 @@ const PinManagement = () => {
             is valid. The new PIN must not match any of the last five PINs.
           </p>
 
-          <h2 id="otto">Otto usage</h2>
+          <h2 id="scan">Scan usage</h2>
           <p>
-            External developers call the public Otto PIN API. See{" "}
+            External developers call the public Scan PIN API. See{" "}
             <Link to="/docs/pin">transaction PIN</Link>.
           </p>
           <p>
-            Otto maps those public paths onto these Unified PIN endpoints. Otto
+            Scan maps those public paths onto these Unified PIN endpoints. Scan
             does not keep a local PIN table.
           </p>
           <p>

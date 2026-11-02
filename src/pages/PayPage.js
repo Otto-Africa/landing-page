@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import SEO from "../components/SEO";
-import OttoIcon from "../components/OttoIcon";
+import ScanIcon from "../components/ScanIcon";
 import {
   attemptOpenCustomerApp,
   buildPayDeepLink,
@@ -258,16 +258,16 @@ const PayPage = () => {
     return (
       <>
         <SEO
-          title={`Pay ${merchantName} – Otto Africa`}
-          description="Pay with mobile money on Otto."
-          keywords="pay, Otto, mobile money, Ghana"
-          url={`https://ottoafrica.com/pay/${qrId || ""}?c=${collectId}`}
+          title={`Pay ${merchantName} – Scan Africa`}
+          description="Pay with mobile money on Scan."
+          keywords="pay, Scan, mobile money, Ghana"
+          url={`https://scanafrica.com/pay/${qrId || ""}?c=${collectId}`}
         />
         <div className="gift-card-share-container">
           <div className="gift-card-share-content pay-web-form">
             <img
               src="/img/logos/Favicon - Black@4x-8.png"
-              alt="Otto"
+              alt="Scan"
               className="gift-card-share-logo"
             />
             <h1>Pay {merchantName}</h1>
@@ -442,7 +442,7 @@ const PayPage = () => {
                   className="gift-card-try-app-btn"
                   onClick={retryOpenApp}
                 >
-                  Open in Otto app
+                  Open in Scan app
                 </button>
               </div>
             )}
@@ -458,7 +458,7 @@ const PayPage = () => {
         <div className="gift-card-share-content">
           <div className="gift-card-celebrate">💳</div>
           <div className="loading-spinner" />
-          <h2>Opening Otto…</h2>
+          <h2>Opening Scan…</h2>
           <p>
             {amountDisplay
               ? `Taking you to pay ${amountDisplay}`
@@ -473,24 +473,24 @@ const PayPage = () => {
     return (
       <>
         <SEO
-          title="Pay with Otto – Otto Africa"
-          description="Download Otto to complete your payment."
-          keywords="pay, Otto, payment, Ghana"
-          url={`https://ottoafrica.com/pay/${qrId || ""}${amount ? `?amount=${amount}` : ""}`}
+          title="Pay with Scan – Scan Africa"
+          description="Download Scan to complete your payment."
+          keywords="pay, Scan, payment, Ghana"
+          url={`https://scanafrica.com/pay/${qrId || ""}${amount ? `?amount=${amount}` : ""}`}
         />
         <div className="gift-card-share-container">
           <div className="gift-card-share-content">
             <img
               src="/img/logos/Favicon - Black@4x-8.png"
-              alt="Otto"
+              alt="Scan"
               className="gift-card-share-logo"
             />
-            <h1>Get Otto to pay</h1>
+            <h1>Get Scan to pay</h1>
             {amountDisplay && (
               <p className="gift-card-sender">Amount: {amountDisplay}</p>
             )}
             <p className="subhead">
-              Otto isn&apos;t installed on this device. We&apos;re sending you
+              Scan isn&apos;t installed on this device. We&apos;re sending you
               to the {deviceOS === "ios" ? "App Store" : "Google Play"} to
               download it — then open this link again to pay.
             </p>
@@ -510,7 +510,7 @@ const PayPage = () => {
                 className="gift-card-try-app-btn"
                 onClick={retryOpenApp}
               >
-                Already installed? Open Otto
+                Already installed? Open Scan
               </button>
             </div>
           </div>
@@ -522,33 +522,33 @@ const PayPage = () => {
   return (
     <>
       <SEO
-        title="Pay with Otto – Otto Africa"
-        description="Complete your payment in the Otto app. Download Otto to pay with gift cards, mobile money, and more."
-        keywords="pay, Otto, payment, scan to pay"
-        url={`https://ottoafrica.com/pay/${qrId || ""}${amount ? `?amount=${amount}` : ""}`}
+        title="Pay with Scan – Scan Africa"
+        description="Complete your payment in the Scan app. Download Scan to pay with gift cards, mobile money, and more."
+        keywords="pay, Scan, payment, scan to pay"
+        url={`https://scanafrica.com/pay/${qrId || ""}${amount ? `?amount=${amount}` : ""}`}
       />
       <div className="gift-card-share-container">
         <div className="gift-card-share-content">
           <img
             src="/img/logos/Favicon - Black@4x-8.png"
-            alt="Otto"
+            alt="Scan"
             className="gift-card-share-logo"
           />
-          <h1>Pay with Otto</h1>
+          <h1>Pay with Scan</h1>
           <p className="gift-card-sender">
             {amountDisplay
               ? `Amount: ${amountDisplay}`
               : "Scan to pay this merchant"}
           </p>
           <p className="subhead">
-            Open the Otto app on your phone to choose your payment method and
+            Open the Scan app on your phone to choose your payment method and
             complete the payment.
           </p>
 
           <div className="benefits benefits-with-icons">
             <div className="benefit-item">
               <span className="benefit-icon" aria-hidden>
-                <OttoIcon name="credit-card-outline" size={20} />
+                <ScanIcon name="credit-card-outline" size={20} />
               </span>
               <span>
                 <strong>Gift cards, mobile money & more</strong> – Choose how
@@ -557,7 +557,7 @@ const PayPage = () => {
             </div>
             <div className="benefit-item">
               <span className="benefit-icon" aria-hidden>
-                <OttoIcon name="smartphone-outline" size={20} />
+                <ScanIcon name="smartphone-outline" size={20} />
               </span>
               <span>
                 <strong>Quick & secure</strong> – Pay in a few taps
@@ -565,7 +565,7 @@ const PayPage = () => {
             </div>
             <div className="benefit-item">
               <span className="benefit-icon" aria-hidden>
-                <OttoIcon name="shield-outline" size={20} />
+                <ScanIcon name="shield-outline" size={20} />
               </span>
               <span>
                 <strong>Safe</strong> – Your details stay protected

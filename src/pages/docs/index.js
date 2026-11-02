@@ -13,10 +13,10 @@ const DocsIndex = () => {
   return (
     <>
       <SEO
-        title="API Documentation - Otto Africa"
-        description="Complete API documentation for Otto Africa. Learn how to integrate payments, gift cards, loyalty programs, and QR codes into your application."
-        keywords="Otto API documentation, payment API, gift card API, loyalty program API, QR code API, Africa payments API"
-        url="https://ottoafrica.com/docs"
+        title="API Documentation - Scan Africa"
+        description="Complete API documentation for Scan Africa. Learn how to integrate payments, gift cards, loyalty programs, and QR codes into your application."
+        keywords="Scan API documentation, payment API, gift card API, loyalty program API, QR code API, Africa payments API"
+        url="https://scanafrica.com/docs"
       />
       <DocsLayout currentPage="/docs">
         <div className="docs-content">
@@ -25,9 +25,9 @@ const DocsIndex = () => {
           </h1>
 
           <DocsOpener
-            lead="Otto is the public partner API at https://api.ottoafrica.com. These docs cover Payments, Identity, Loyalty, LLM Conversations, and Accounting."
+            lead="Scan is the public partner API at https://api.scanafrica.com. These docs cover Payments, Identity, Loyalty, LLM Conversations, and Accounting."
             when="Start here when you join as a partner. Open Getting started for the first request. Open a module page when you already know the product."
-            why="Partners call Otto, not provider hosts. One Bearer key and one host keep collect, PIN, loyalty, and books on the same contract."
+            why="Partners call Scan, not provider hosts. One Bearer key and one host keep collect, PIN, loyalty, and books on the same contract."
             how="Create an API key. Send Authorization: Bearer sk_test_.... Read When to use, Why, and How at the top of each page, then follow the paths on that page."
           />
 
@@ -39,7 +39,7 @@ const DocsIndex = () => {
               </h2>
               <p className="text-gray-600 mb-6 text-base">
                 Make your first API request in minutes. Learn the basics of the
-                Otto platform.
+                Scan platform.
               </p>
               <Link
                 to="/docs/getting-started"
@@ -68,24 +68,24 @@ const DocsIndex = () => {
               <div className="text-pink-600">
                 import{" "}
                 <span className="text-gray-800">
-                  &#123; OttoCustomerSdk &#125;
+                  &#123; ScanCustomerSdk &#125;
                 </span>{" "}
                 from{" "}
                 <span className="text-green-600">
-                  "@ottoafrica/customer-sdk-js"
+                  "@scanafrica/customer-sdk-js"
                 </span>
                 ;
               </div>
               <div className="text-blue-600 mt-2">
                 const{" "}
                 <span className="text-gray-800">
-                  sdk = new OttoCustomerSdk(&#123;
+                  sdk = new ScanCustomerSdk(&#123;
                 </span>
               </div>
               <div className="text-gray-800 ml-4">
                 baseUrl:{" "}
                 <span className="text-green-600">
-                  "https://api.ottoafrica.com"
+                  "https://api.scanafrica.com"
                 </span>
                 ,
               </div>
@@ -110,7 +110,7 @@ const DocsIndex = () => {
                   to="/docs/sdks"
                   className="text-gray-500 hover:text-black underline-offset-2 hover:underline"
                 >
-                  npm @ottoafrica/*
+                  npm @scanafrica/*
                 </Link>
                 <span className="text-gray-400"> — loyalty SDKs</span>
               </div>
@@ -123,8 +123,8 @@ const DocsIndex = () => {
               Platform modules
             </h2>
             <p className="text-gray-600 mb-4 text-sm">
-              Partners call Otto at <code>https://api.ottoafrica.com</code>.
-              Each module page states what it does and lists the Otto paths.
+              Partners call Scan at <code>https://api.scanafrica.com</code>.
+              Each module page states what it does and lists the Scan paths.
             </p>
             <ul className="space-y-2 text-sm text-gray-600 list-disc list-inside">
               <li>
@@ -188,7 +188,7 @@ const DocsIndex = () => {
                 >
                   Demo Bank
                 </Link>{" "}
-                — simulate NUBAN and MoMo credits into Otto Cash wallets (local /
+                — simulate NUBAN and MoMo credits into Scan Cash wallets (local /
                 test / staging)
               </li>
               <li>
@@ -206,7 +206,7 @@ const DocsIndex = () => {
                 <code>MB_CASH</code> settlements
               </li>
               <li>
-                Otto-to-Otto transfers support lookup by phone, email, name, or{" "}
+                Scan-to-Scan transfers support lookup by phone, email, name, or{" "}
                 <code>@tag</code>
               </li>
             </ul>
@@ -224,7 +224,7 @@ const DocsIndex = () => {
               <Link to="/docs/payments" className="docs-card block">
                 <h3 className="text-lg font-semibold mb-2">Payments</h3>
                 <p className="text-gray-600 text-sm">
-                  Collect money and send payouts through Otto.
+                  Collect money and send payouts through Scan.
                 </p>
               </Link>
               <Link to="/docs/identity" className="docs-card block">
@@ -312,7 +312,7 @@ const DocsIndex = () => {
                 </li>
                 <li>
                   <a
-                    href="https://api.ottoafrica.com/api/health"
+                    href="https://api.scanafrica.com/api/health"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:text-black transition-colors text-sm"

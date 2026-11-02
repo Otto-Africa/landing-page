@@ -25,15 +25,15 @@ const ENV_ALIASES = {
 const DEFAULT_API_HOSTS = {
   [ENV.LOCAL]: "http://localhost:3000",
   [ENV.TEST]: "https://api-test.ottoafrica.com",
-  [ENV.STAGING]: "https://staging-api.ottoafrica.com",
-  [ENV.PRODUCTION]: "https://api.ottoafrica.com",
+  [ENV.STAGING]: "http://10.11.12.119",
+  [ENV.PRODUCTION]: "https://api.scanafrica.com",
 };
 
 const DEFAULT_MERCHANT_PORTAL_HOSTS = {
   [ENV.LOCAL]: "http://localhost:3001",
-  [ENV.TEST]: "https://business-test.ottoafrica.com",
-  [ENV.STAGING]: "https://business-staging.ottoafrica.com",
-  [ENV.PRODUCTION]: "https://business.ottoafrica.com",
+  [ENV.TEST]: "https://business-test.scanafrica.com",
+  [ENV.STAGING]: "https://business-staging.scanafrica.com",
+  [ENV.PRODUCTION]: "https://business.scanafrica.com",
 };
 
 function envUrl(name) {
@@ -107,7 +107,7 @@ export function getMerchantPortalBaseUrl() {
 
 /**
  * Provider (FCL) docs stay on local, test, and staging only.
- * Production docs show the Otto API that partners call.
+ * Production docs show the Scan API that partners call.
  */
 export function showInternalDocs() {
   return APP_ENV !== ENV.PRODUCTION;

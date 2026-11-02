@@ -23,22 +23,22 @@ const RateLimits = () => {
   return (
     <>
       <SEO
-        title="Rate Limits - Otto Africa API Documentation"
-        description="Learn about Otto Africa API rate limits, how to handle rate limit errors, and best practices for API usage."
-        keywords="API rate limits, rate limiting, API throttling, request limits, Otto rate limits"
-        url="https://ottoafrica.com/docs/rate-limits"
+        title="Rate Limits - Scan Africa API Documentation"
+        description="Learn about Scan Africa API rate limits, how to handle rate limit errors, and best practices for API usage."
+        keywords="API rate limits, rate limiting, API throttling, request limits, Scan rate limits"
+        url="https://scanafrica.com/docs/rate-limits"
       />
       <DocsLayout
         currentPage="/docs/rate-limits"
       
       onThisPageItems={onThisPageItems}
-      nutshell="Otto API uses rate limiting to ensure fair usage and system stability."
+      nutshell="Scan API uses rate limiting to ensure fair usage and system stability."
     >
       <div className="docs-content">
         <h1 id="overview">Rate Limits</h1>
 
         <DocsOpener
-          lead="Rate limits cap how many requests one API key can send in a time window. Otto returns HTTP 429 when you exceed the cap."
+          lead="Rate limits cap how many requests one API key can send in a time window. Scan returns HTTP 429 when you exceed the cap."
           when="Use this page when you see 429, when you poll status, or when you batch jobs. Prefer webhooks over tight polling."
           why="Limits keep the API available for all merchants. Your integration must back off instead of hammering."
           how="Read rate-limit headers on each response. If you receive 429, wait Retry-After or the remaining window, then retry. Spread list calls. Cache readiness."

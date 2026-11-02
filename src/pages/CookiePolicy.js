@@ -16,10 +16,10 @@ const CookiePolicy = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Cookie Policy - Otto Africa"
-        description="Otto Africa's Cookie Policy. Learn how we use cookies and similar tracking technologies on our website and services."
-        keywords="cookie policy, cookies, tracking technologies, Otto Africa cookies"
-        url="https://ottoafrica.com/cookie-policy"
+        title="Cookie Policy - Scan Africa"
+        description="Scan Africa's Cookie Policy. Learn how we use cookies and similar tracking technologies on our website and services."
+        keywords="cookie policy, cookies, tracking technologies, Scan Africa cookies"
+        url="https://scanafrica.com/cookie-policy"
       />
       <Header />
 
@@ -40,7 +40,7 @@ const CookiePolicy = () => {
             <div className="mb-8">
               <h2 className="text-2xl font-medium text-gray-900 mb-4">1. Introduction</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
-                This Cookie Policy explains how Otto ("we," "our," or "us") uses cookies and similar tracking technologies on our website, mobile applications, and related services.
+                This Cookie Policy explains how Scan ("we," "our," or "us") uses cookies and similar tracking technologies on our website, mobile applications, and related services.
               </p>
             </div>
 
@@ -48,7 +48,7 @@ const CookiePolicy = () => {
               // MERCHANT COOKIES
               <div className="animate-fade-in">
                 <h2 className="text-2xl font-medium text-gray-900 mt-8 mb-4">2. Cookies for Business Users</h2>
-                <p className="text-gray-700 mb-4">When you access the Otto Merchant Portal or use our business tools, we use specific cookies to:</p>
+                <p className="text-gray-700 mb-4">When you access the Scan Merchant Portal or use our business tools, we use specific cookies to:</p>
                 <ul className="list-disc pl-6 mb-6 text-gray-700">
                   <li><strong>Maintain Session Security:</strong> Ensure that your business dashboard session remains secure and times out appropriately to protect financial data.</li>
                   <li><strong>Analytics:</strong> Understand which business tools (e.g., Reports, Team Management) are most used to improve our B2B offerings.</li>
@@ -59,7 +59,7 @@ const CookiePolicy = () => {
               // CUSTOMER COOKIES
               <div className="animate-fade-in">
                 <h2 className="text-2xl font-medium text-gray-900 mt-8 mb-4">2. Cookies for Personal Users</h2>
-                <p className="text-gray-700 mb-4">When you use the Otto Customer App or website, we use cookies to:</p>
+                <p className="text-gray-700 mb-4">When you use the Scan Customer App or website, we use cookies to:</p>
                 <ul className="list-disc pl-6 mb-6 text-gray-700">
                   <li><strong>App Functionality:</strong> Keep you logged in (if selected) and remember your last used payment methods.</li>
                   <li><strong>Marketing:</strong> Show you relevant promotions or discounts based on your usage patterns (only with your consent).</li>
@@ -89,7 +89,7 @@ const CookiePolicy = () => {
 
               <h2 className="text-2xl font-medium text-gray-900 mt-8 mb-4">5. Contact Us</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                If you have any questions about our use of cookies, please contact us at <a href="mailto:privacy@ottoafrica.com" className="text-otto-blue hover:underline">privacy@ottoafrica.com</a>.
+                If you have any questions about our use of cookies, please contact us at <a href="mailto:privacy@scanafrica.com" className="text-scan-blue hover:underline">privacy@scanafrica.com</a>.
               </p>
             </div>
           </div>

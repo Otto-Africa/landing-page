@@ -27,31 +27,31 @@ const GiftCards = () => {
   return (
     <>
       <SEO
-        title="Gift Cards API - Otto Africa API Documentation"
-        description="Learn how to create, manage, and redeem digital gift cards using Otto Africa API. Complete guide with code examples."
-        keywords="gift card API, digital gift cards, gift card management, gift card redemption, Otto gift cards"
-        url="https://ottoafrica.com/docs/gift-cards"
+        title="Gift Cards API - Scan Africa API Documentation"
+        description="Learn how to create, manage, and redeem digital gift cards using Scan Africa API. Complete guide with code examples."
+        keywords="gift card API, digital gift cards, gift card management, gift card redemption, Scan gift cards"
+        url="https://scanafrica.com/docs/gift-cards"
       />
       <DocsLayout
         currentPage="/docs/gift-cards"
       
       onThisPageItems={onThisPageItems}
-      nutshell="Otto supports two gift card types: templates (reusable designs) and instances (individual purchased cards). Use the API to create templates, manage instances, verify balances, and process redemptions."
+      nutshell="Scan supports two gift card types: templates (reusable designs) and instances (individual purchased cards). Use the API to create templates, manage instances, verify balances, and process redemptions."
     >
       <div className="docs-content">
         <h1 id="overview">Gift Cards API</h1>
 
         <DocsOpener
-          lead="A gift card is stored value on Otto. A template is the reusable design. An instance is one purchased card with a balance."
+          lead="A gift card is stored value on Scan. A template is the reusable design. An instance is one purchased card with a balance."
           when="Use gift cards when you sell stored-value cards, issue a card after purchase, check a balance, or redeem at checkout. Use Loyalty when you track points, not cash value."
-          why="Templates keep denominations and rules in one place. Instances carry the live balance. Otto records issue and redeem so your store and Otto stay aligned."
+          why="Templates keep denominations and rules in one place. Instances carry the live balance. Scan records issue and redeem so your store and Scan stay aligned."
           how="Authenticate with a Bearer API key. POST a template, then create instances. Verify a card before you redeem. POST redeem with the amount in pesewas. Read the instance ID for the new balance."
         />
 
         <h2>Overview</h2>
 
         <p>
-          Otto supports two types of gift cards:
+          Scan supports two types of gift cards:
         </p>
 
         <ul className="list-disc list-inside space-y-2 mb-6">
@@ -62,7 +62,7 @@ const GiftCards = () => {
         <h2 id="merchant-types">Merchant Types & Gift Card Types</h2>
 
         <p>
-          Otto distinguishes two <strong>merchant categories</strong> (set at signup): <strong>Merchant</strong> and <strong>Investment provider</strong>.
+          Scan distinguishes two <strong>merchant categories</strong> (set at signup): <strong>Merchant</strong> and <strong>Investment provider</strong>.
         </p>
         <ul className="list-disc list-inside space-y-2 mb-4">
           <li><strong>Merchant:</strong> Can create and manage <strong>regular gift cards</strong> only (templates and instances).</li>
@@ -72,7 +72,7 @@ const GiftCards = () => {
           Gift card templates have a <code>certificate_type</code>: <code>STANDARD</code> (regular gift card) or <code>INVESTMENT</code> (investment certificate). When creating a template via the API, you may send <code>certificate_type</code>; default is <code>STANDARD</code>. Only businesses registered as <strong>Investment providers</strong> may create templates with <code>certificate_type: "INVESTMENT"</code>; otherwise the API returns <strong>403</strong>.
         </p>
         <p>
-          Listing templates (e.g. <code>GET /merchant/giftcards/templates</code>) returns all templates for your business; each includes <code>certificate_type</code>. For the Investment Certificates API (list certificates, reconciliation, sync value), see <a href="/docs/investment-certificates" className="text-otto-blue hover:underline">Investment Certificates</a> — those endpoints are only available to businesses registered as Investment providers.
+          Listing templates (e.g. <code>GET /merchant/giftcards/templates</code>) returns all templates for your business; each includes <code>certificate_type</code>. For the Investment Certificates API (list certificates, reconciliation, sync value), see <a href="/docs/investment-certificates" className="text-scan-blue hover:underline">Investment Certificates</a> — those endpoints are only available to businesses registered as Investment providers.
         </p>
         <p>
           <strong>API keys:</strong> Keys are scoped by your business type. Keys created for a <strong>Merchant</strong> business can call gift card, transactions, and related endpoints but <em>cannot</em> call investment certificate endpoints. Keys created for an <strong>Investment provider</strong> business have full access, including investment certificate endpoints. In the merchant portal (Settings → API Keys), each key shows its type (Merchant or Investment provider).
@@ -97,7 +97,7 @@ const GiftCards = () => {
           requestMethod="POST"
           requestUrl="/merchant/giftcard-templates"
           examples={{
-            curl: `curl -X POST "https://api.ottoafrica.com/merchant/giftcard-templates" \\
+            curl: `curl -X POST "https://api.scanafrica.com/merchant/giftcard-templates" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -109,7 +109,7 @@ const GiftCards = () => {
     "text_color": "#FFFFFF",
     "expires_in_days": 365
   }'`,
-            javascript: `const response = await fetch('https://api.ottoafrica.com/merchant/giftcard-templates', {
+            javascript: `const response = await fetch('https://api.scanafrica.com/merchant/giftcard-templates', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -130,7 +130,7 @@ const data = await response.json();`,
             python: `import requests
 
 response = requests.post(
-    'https://api.ottoafrica.com/merchant/giftcard-templates',
+    'https://api.scanafrica.com/merchant/giftcard-templates',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -211,7 +211,7 @@ data = response.json()`
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/merchant/giftcard-templates?page=1&per_page=15" \\
+          code={`curl -X GET "https://api.scanafrica.com/merchant/giftcard-templates?page=1&per_page=15" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -225,7 +225,7 @@ data = response.json()`
 
         <CodeBlock
           language="bash"
-          code={`curl -X PUT "https://api.ottoafrica.com/merchant/giftcard-templates/123" \\
+          code={`curl -X PUT "https://api.scanafrica.com/merchant/giftcard-templates/123" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -238,7 +238,7 @@ data = response.json()`
 
         <p>
           Once you have templates, you can create individual gift card instances for customers.
-          Each instance has a unique code and can be redeemed through Otto's mobile apps.
+          Each instance has a unique code and can be redeemed through Scan's mobile apps.
         </p>
 
         <h3>List Gift Card Instances</h3>
@@ -251,7 +251,7 @@ data = response.json()`
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/merchant/giftcards?page=1&per_page=20&status=active" \\
+          code={`curl -X GET "https://api.scanafrica.com/merchant/giftcards?page=1&per_page=20&status=active" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -265,7 +265,7 @@ data = response.json()`
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/merchant/giftcards/ABC123456/verify" \\
+          code={`curl -X GET "https://api.scanafrica.com/merchant/giftcards/ABC123456/verify" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -289,14 +289,14 @@ data = response.json()`
           requestMethod="POST"
           requestUrl="/merchant/giftcards/{code}/redeem"
           examples={{
-            curl: `curl -X POST "https://api.ottoafrica.com/merchant/giftcards/ABC123456/redeem" \\
+            curl: `curl -X POST "https://api.scanafrica.com/merchant/giftcards/ABC123456/redeem" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
     "amount": 25.00,
     "transaction_reference": "TXN-12345"
   }'`,
-            javascript: `const response = await fetch('https://api.ottoafrica.com/merchant/giftcards/ABC123456/redeem', {
+            javascript: `const response = await fetch('https://api.scanafrica.com/merchant/giftcards/ABC123456/redeem', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -312,7 +312,7 @@ const data = await response.json();`,
             python: `import requests
 
 response = requests.post(
-    'https://api.ottoafrica.com/merchant/giftcards/ABC123456/redeem',
+    'https://api.scanafrica.com/merchant/giftcards/ABC123456/redeem',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -382,7 +382,7 @@ data = response.json()`
         </ul>
 
         <div className="docs-alert success">
-          <strong>Need Help?</strong> Check the <a href="https://api.ottoafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for complete endpoint documentation,
+          <strong>Need Help?</strong> Check the <a href="https://api.scanafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for complete endpoint documentation,
           or visit our <a href="/docs/support" className="underline">Support page</a>.
         </div>
       </div>

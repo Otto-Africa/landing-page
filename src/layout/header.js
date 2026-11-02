@@ -1,7 +1,7 @@
 import { Drawer } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import OttoIcon from "../components/OttoIcon";
+import ScanIcon from "../components/ScanIcon";
 
 /**
  * Header.
@@ -44,13 +44,13 @@ const Header = () => {
 			title: "Business",
 			subtitle: "Text Here for QR ",
 			icon: "/img/logos/Favicon - White@4x-8.png",
-			route: "/why-choose-otto-business",
+			route: "/why-choose-scan-business",
 		},
 		{
 			title: "Personal",
 			subtitle: "Text Here for QR ",
 			icon: "/img/logos/Favicon - White@4x-8.png",
-			route: "/why-choose-otto-personal",
+			route: "/why-choose-scan-personal",
 		},
 	];
 	useEffect(() => {
@@ -103,7 +103,7 @@ const Header = () => {
 					onClick={() => {
 						setOpenNavBar(true);
 					}}>
-					<OttoIcon name="menu-outline" size={22} />
+					<ScanIcon name="menu-outline" size={22} />
 				</div>
 				{openNavBar && (
 					<Drawer
@@ -121,7 +121,7 @@ const Header = () => {
 												);
 											}}>
 											<p className="font-semibold text-base">
-												Why Otto
+												Why Scan
 											</p>
 											{mobileWhyOpen && (
 												<div className="pl-2 space-y-6 font-semibold my-6">
@@ -196,7 +196,7 @@ const Header = () => {
 									<div className="flex flex-col space-y-6">
 										<div className="flex gap-3 items-center">
 											<div className="bg-[#1b3359] text-white h-[28px] w-[28px] flex items-center justify-center rounded-full">
-												<OttoIcon name="phone-outline" size={12} />{" "}
+												<ScanIcon name="phone-outline" size={12} />{" "}
 											</div>
 											<p className="text-slate-500 font-semibold">
 												Support
@@ -223,15 +223,15 @@ const Header = () => {
 
 				{/* Desktop Nav Bar */}
 				<div className="hidden lg:flex w-full justify-between items-center">
-					{/* Why Otto */}
+					{/* Why Scan */}
 					<ul className="flex space-x-8">
 						<li
 							ref={whyRef}
 							className="relative"
 							onClick={setOpenWhy}>
 							<div className="cursor-pointer flex items-center space-x-2">
-								<p className="text-slate-500">Why Otto</p>{" "}
-								<OttoIcon name="chevron-down-outline" size={14} className="-mt-1 text-slate-500" />
+								<p className="text-slate-500">Why Scan</p>{" "}
+								<ScanIcon name="chevron-down-outline" size={14} className="-mt-1 text-slate-500" />
 							</div>
 							{whyIsOpen && (
 								<div className="bg-white border rounded-2xl overflow-hidden top-8 absolute z-50 w-[40vh]">
@@ -277,7 +277,7 @@ const Header = () => {
 							onClick={setOpenAbout}>
 							<div className="cursor-pointer flex items-center space-x-2">
 								<p className="text-slate-500">About</p>{" "}
-								<OttoIcon name="chevron-down-outline" size={14} className="-mt-1 text-slate-500" />
+								<ScanIcon name="chevron-down-outline" size={14} className="-mt-1 text-slate-500" />
 							</div>
 							{aboutIsOpen && (
 								<div className="bg-gray-50 border rounded-2xl overflow-hidden top-8 absolute z-50 w-[60vh]">
@@ -314,16 +314,16 @@ const Header = () => {
 										<div className="p-8">
 											<li className="space-y-4">
 												<ul className="cursor-pointer">
-													About Otto
+													About Scan
 												</ul>
 												<ul className="cursor-pointer">
-													Otto Team
+													Scan Team
 												</ul>
 												<ul
 													className="cursor-pointer"
 													onClick={() =>
 														navigate(
-															"/otto-data-deletion"
+															"/scan-data-deletion"
 														)
 													}>
 													Account Deletion

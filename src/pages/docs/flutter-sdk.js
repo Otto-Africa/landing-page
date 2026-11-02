@@ -23,21 +23,21 @@ const FlutterSdkDocs = () => {
   return (
     <>
       <SEO
-        title="Flutter SDK - Otto Africa API Documentation"
-        description="Integrate Otto payments in Flutter apps using the Otto Flutter SDK."
-        keywords="Otto Flutter SDK, Flutter payment sdk, mobile payment integration"
-        url="https://ottoafrica.com/docs/sdks/flutter"
+        title="Flutter SDK - Scan Africa API Documentation"
+        description="Integrate Scan payments in Flutter apps using the Scan Flutter SDK."
+        keywords="Scan Flutter SDK, Flutter payment sdk, mobile payment integration"
+        url="https://scanafrica.com/docs/sdks/flutter"
       />
       <DocsLayout
         currentPage="/docs/sdks"
         onThisPageItems={onThisPageItems}
-        nutshell="Use Otto Flutter SDK with server-side transaction initialization and a native payment sheet UI."
+        nutshell="Use Scan Flutter SDK with server-side transaction initialization and a native payment sheet UI."
       >
         <div className="docs-content">
           <h1 id="introduction">Flutter SDK</h1>
 
           <DocsOpener
-            lead="The Flutter SDK presents Otto payment UI on Android and iOS from one codebase. Your server still initializes the transaction."
+            lead="The Flutter SDK presents Scan payment UI on Android and iOS from one codebase. Your server still initializes the transaction."
             when="Use Flutter when one Dart app must checkout on both platforms. Do not put a live API key in the client."
             why="Initialize on the server so secrets stay off the device. The sheet is only the customer step."
             how="Initialize with REST and a Bearer key. Pass the access code into the Flutter SDK. Present the sheet. Confirm with GET or a webhook."
@@ -53,7 +53,7 @@ const FlutterSdkDocs = () => {
           <h2 id="installation">Installation</h2>
           <CodeBlock
             language="yaml"
-            code={`dependencies:\n  otto_flutter_sdk: ^0.1.0`}
+            code={`dependencies:\n  scan_flutter_sdk: ^0.1.0`}
           />
           <CodeBlock language="bash" code={`flutter pub get`} />
 
@@ -62,7 +62,7 @@ const FlutterSdkDocs = () => {
             language="bash"
             requestMethod="POST"
             requestUrl="/api/merchant/transactions/initialize"
-            code={`curl -X POST "https://api.ottoafrica.com/api/merchant/transactions/initialize" \\
+            code={`curl -X POST "https://api.scanafrica.com/api/merchant/transactions/initialize" \\
   -H "Authorization: Bearer sk_live_or_test_key" \\
   -H "Content-Type: application/json" \\
   -d '{\n    "email":"customer@email.com",\n    "amount":500000\n  }'`}
@@ -71,13 +71,13 @@ const FlutterSdkDocs = () => {
           <h2 id="present">Present payment sheet</h2>
           <CodeBlock
             language="dart"
-            code={`final result = await OttoPaymentSheet.present(\n  context: context,\n  accessCode: accessCode,\n);`}
+            code={`final result = await ScanPaymentSheet.present(\n  context: context,\n  accessCode: accessCode,\n);`}
           />
 
           <h2 id="result">Handle result</h2>
           <CodeBlock
             language="dart"
-            code={`switch (result.status) {\n  case OttoPaymentStatus.completed:\n    // Verify result.reference on your server\n    break;\n  case OttoPaymentStatus.cancelled:\n    break;\n  case OttoPaymentStatus.failed:\n    // Log and handle error\n    break;\n}`}
+            code={`switch (result.status) {\n  case ScanPaymentStatus.completed:\n    // Verify result.reference on your server\n    break;\n  case ScanPaymentStatus.cancelled:\n    break;\n  case ScanPaymentStatus.failed:\n    // Log and handle error\n    break;\n}`}
           />
         </div>
       </DocsLayout>

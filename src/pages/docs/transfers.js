@@ -7,7 +7,7 @@ import DocsOpener from "../../components/DocsOpener";
 import "./docs.css";
 
 /**
- * Otto transfer APIs for wallet, MoMo, and bank.
+ * Scan transfer APIs for wallet, MoMo, and bank.
  */
 const Transfers = () => {
   const onThisPageItems = [
@@ -29,23 +29,23 @@ const Transfers = () => {
   return (
     <>
       <SEO
-        title="Transfers API - Otto Africa Documentation"
-        description="Send money between Otto wallets or to mobile money and bank accounts through the Otto API."
-        keywords="Otto transfers, wallet transfer, mobile money, bank payout"
-        url="https://ottoafrica.com/docs/transfers"
+        title="Transfers API - Scan Africa Documentation"
+        description="Send money between Scan wallets or to mobile money and bank accounts through the Scan API."
+        keywords="Scan transfers, wallet transfer, mobile money, bank payout"
+        url="https://scanafrica.com/docs/transfers"
       />
       <DocsLayout
         currentPage="/docs/transfers"
         onThisPageItems={onThisPageItems}
-        nutshell="Confirm the recipient on Otto, then submit. Use Otto paths. Do not call a provider host from your app."
+        nutshell="Confirm the recipient on Scan, then submit. Use Scan paths. Do not call a provider host from your app."
       >
         <div className="docs-content">
           <h1 id="overview">Transfers</h1>
 
           <DocsOpener
-            lead="Transfers move money between Otto wallets or to an external mobile-money or bank account. All calls go to Otto, not to a provider host."
-            when="Use Transfers when you already know the recipient and want to send funds now. Use wallet transfers for Otto users. Use external transfers for MoMo or bank. Use Payments collect when you want to receive money."
-            why="Name check and send must happen in order. Otto confirms the beneficiary first, then submits an idempotent send. That reduces payouts to the wrong account."
+            lead="Transfers move money between Scan wallets or to an external mobile-money or bank account. All calls go to Scan, not to a provider host."
+            when="Use Transfers when you already know the recipient and want to send funds now. Use wallet transfers for Scan users. Use external transfers for MoMo or bank. Use Payments collect when you want to receive money."
+            why="Name check and send must happen in order. Scan confirms the beneficiary first, then submits an idempotent send. That reduces payouts to the wrong account."
             how="Authenticate. GET readiness if you need available rails. POST confirm or validate, then POST submit or send. Keep an idempotency key. Poll the resource ID and listen for webhooks."
           />
 
@@ -61,7 +61,7 @@ const Transfers = () => {
 
           <h2 id="wallet">Wallet transfers</h2>
           <p>
-            Send money to another Otto wallet. Confirm the recipient first.
+            Send money to another Scan wallet. Confirm the recipient first.
             Then submit.
           </p>
           <table className="docs-table mb-6">

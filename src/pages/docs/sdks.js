@@ -12,23 +12,23 @@ const published = [
   {
     name: "Events SDK (Node)",
     registry: "npm",
-    publishedName: "@ottoafrica/events-sdk-node",
+    publishedName: "@scanafrica/events-sdk-node",
     version: "0.1.1",
-    url: `${NPM_BASE}/@ottoafrica/events-sdk-node`,
+    url: `${NPM_BASE}/@scanafrica/events-sdk-node`,
   },
   {
     name: "Customer SDK (JS)",
     registry: "npm",
-    publishedName: "@ottoafrica/customer-sdk-js",
+    publishedName: "@scanafrica/customer-sdk-js",
     version: "0.1.1",
-    url: `${NPM_BASE}/@ottoafrica/customer-sdk-js`,
+    url: `${NPM_BASE}/@scanafrica/customer-sdk-js`,
   },
   {
     name: "Loyalty popup widget",
     registry: "npm",
-    publishedName: "@ottoafrica/loyalty-popup-widget",
+    publishedName: "@scanafrica/loyalty-popup-widget",
     version: "0.1.1",
-    url: `${NPM_BASE}/@ottoafrica/loyalty-popup-widget`,
+    url: `${NPM_BASE}/@scanafrica/loyalty-popup-widget`,
   },
 ];
 
@@ -55,28 +55,28 @@ const SDKs = () => {
   return (
     <>
       <SEO
-        title="SDKs & Libraries - Otto Africa API Documentation"
-        description="Official Otto npm SDKs for loyalty events, browser customer flows, and popup widgets."
-        keywords="Otto SDK, npm, loyalty SDK, JavaScript SDK, Node SDK"
-        url="https://ottoafrica.com/docs/sdks"
+        title="SDKs & Libraries - Scan Africa API Documentation"
+        description="Official Scan npm SDKs for loyalty events, browser customer flows, and popup widgets."
+        keywords="Scan SDK, npm, loyalty SDK, JavaScript SDK, Node SDK"
+        url="https://scanafrica.com/docs/sdks"
       />
       <DocsLayout
         currentPage="/docs/sdks"
-        nutshell="Published loyalty SDKs live on npm under @ottoafrica. Install from the registry; see Loyalty docs for API + client-token flow."
+        nutshell="Published loyalty SDKs live on npm under @scanafrica. Install from the registry; see Loyalty docs for API + client-token flow."
       >
         <div className="docs-content">
           <h1 className="text-4xl font-bold text-[#0D1B2A] mb-4">SDKs & Libraries</h1>
 
           <DocsOpener
-            lead="Otto publishes npm packages for loyalty: server events, a browser customer SDK, and an optional popup."
+            lead="Scan publishes npm packages for loyalty: server events, a browser customer SDK, and an optional popup."
             when="Use an SDK when you trigger loyalty from Node or a browser. Use the REST Payments API for collect and payout. Do not wait for unpublished Flutter or Python scaffolds."
             why="Packages wrap tokens and events so you do not copy loyalty HTTP by hand. Payments stay on REST because checkout must start on your server."
-            how="Install @ottoafrica/events-sdk-node, @ottoafrica/customer-sdk-js, or @ottoafrica/loyalty-popup-widget from npm. Follow the JavaScript SDK page. Keep a Bearer key on the server only."
+            how="Install @scanafrica/events-sdk-node, @scanafrica/customer-sdk-js, or @scanafrica/loyalty-popup-widget from npm. Follow the JavaScript SDK page. Keep a Bearer key on the server only."
           />
 
           <h2 className="text-2xl font-bold text-[#0D1B2A] mb-3">Published on npm (ready to use)</h2>
           <p className="text-gray-600 mb-4 text-sm">
-            Scope: <code className="bg-gray-100 px-1 rounded">@ottoafrica/*</code>. Current line on npm is{" "}
+            Scope: <code className="bg-gray-100 px-1 rounded">@scanafrica/*</code>. Current line on npm is{" "}
             <strong>v0.1.1</strong>.
           </p>
           <div className="overflow-x-auto mb-8">
@@ -118,9 +118,9 @@ const SDKs = () => {
           <CodeBlock
             language="bash"
             code={`# Install what you need (loyalty / merchant server + browser)
-npm install @ottoafrica/events-sdk-node
-npm install @ottoafrica/customer-sdk-js
-npm install @ottoafrica/loyalty-popup-widget`}
+npm install @scanafrica/events-sdk-node
+npm install @scanafrica/customer-sdk-js
+npm install @scanafrica/loyalty-popup-widget`}
           />
 
           <p className="text-gray-600 mb-8 text-sm">
@@ -130,12 +130,12 @@ npm install @ottoafrica/loyalty-popup-widget`}
             </Link>{" "}
             and the backend reference under <code>backend/sdks</code> in the{" "}
             <a
-              href="https://github.com/Otto-Africa/backend"
+              href="https://github.com/Scan-Africa/backend"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#00B4D8] hover:underline"
             >
-              Otto-Africa/backend
+              Scan-Africa/backend
             </a>{" "}
             repository.
           </p>
@@ -207,7 +207,7 @@ npm install @ottoafrica/loyalty-popup-widget`}
             >
               <h3 className="text-[#00B4D8] font-semibold text-lg mb-2">JavaScript & Node</h3>
               <p className="text-gray-600 text-sm">
-                Published <code>@ottoafrica/*</code> loyalty SDKs, REST flows, and browser usage.
+                Published <code>@scanafrica/*</code> loyalty SDKs, REST flows, and browser usage.
               </p>
             </Link>
           </div>

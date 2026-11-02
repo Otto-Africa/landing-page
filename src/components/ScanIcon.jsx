@@ -2,10 +2,10 @@ import React from "react";
 import * as eva from "eva-icons";
 
 /**
- * Otto Icon.
+ * Scan Icon.
  * Reusable components isolate presentation from data fetching so design updates do not touch API code.
  */
-const OttoIcon = ({ name, size = 18, fill = "currentColor", className }) => {
+const ScanIcon = ({ name, size = 18, fill = "currentColor", className }) => {
   const icon = eva.icons[name];
   const svg = icon
     ? icon.toSvg({ width: size, height: size, fill })
@@ -20,5 +20,5 @@ const OttoIcon = ({ name, size = 18, fill = "currentColor", className }) => {
   );
 };
 
-export default OttoIcon;
+export default ScanIcon;
 

@@ -22,10 +22,10 @@ const Support = () => {
   return (
     <>
       <SEO
-        title="Support - Otto Africa API Documentation"
-        description="Get help integrating Otto's API. Contact our support team via email or GitHub issues for technical questions and assistance."
-        keywords="Otto API support, developer support, API help, technical support, API documentation support"
-        url="https://ottoafrica.com/docs/support"
+        title="Support - Scan Africa API Documentation"
+        description="Get help integrating Scan's API. Contact our support team via email or GitHub issues for technical questions and assistance."
+        keywords="Scan API support, developer support, API help, technical support, API documentation support"
+        url="https://scanafrica.com/docs/support"
       />
       <DocsLayout
         currentPage="/docs/support"
@@ -36,9 +36,9 @@ const Support = () => {
           <h1 id="overview">Support</h1>
 
           <DocsOpener
-            lead="Support is how you reach Otto when an integration fails or a live collect needs investigation."
-            when="Use email or GitHub when docs and error codes do not explain the failure. Include request time, path, and the Otto error code."
-            why="Money APIs need a named channel. Support can match your request to Otto logs only if you send identifiers."
+            lead="Support is how you reach Scan when an integration fails or a live collect needs investigation."
+            when="Use email or GitHub when docs and error codes do not explain the failure. Include request time, path, and the Scan error code."
+            why="Money APIs need a named channel. Support can match your request to Scan logs only if you send identifiers."
             how="Read error-handling first. Then email or open a GitHub issue with the path, HTTP status, code, and request id. Do not send live API keys."
           />
 
@@ -68,10 +68,10 @@ const Support = () => {
                 Send us an email for technical questions and support.
               </p>
               <a
-                href="mailto:contact@ottoafrica.com"
-                className="text-otto-blue hover:text-black font-medium text-sm"
+                href="mailto:contact@scanafrica.com"
+                className="text-scan-blue hover:text-black font-medium text-sm"
               >
-                contact@ottoafrica.com
+                contact@scanafrica.com
               </a>
             </div>
 
@@ -98,8 +98,8 @@ const Support = () => {
                 Report bugs and request features on GitHub.
               </p>
               <a
-                href="https://github.com/ottoafrica/api-issues"
-                className="text-otto-blue hover:text-black font-medium text-sm"
+                href="https://github.com/scanafrica/api-issues"
+                className="text-scan-blue hover:text-black font-medium text-sm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -124,7 +124,7 @@ const Support = () => {
                 <strong>Solution:</strong> Ensure your API key starts with{" "}
                 <code>sk_live_</code> for production or <code>sk_test_</code>{" "}
                 for test environment. Both use the same endpoint (
-                <code>https://api.ottoafrica.com</code>).
+                <code>https://api.scanafrica.com</code>).
               </div>
             </div>
 
@@ -133,7 +133,7 @@ const Support = () => {
                 Webhook Signature Verification
               </h4>
               <p className="text-gray-600 text-sm mb-4">
-                Webhook payloads include an <code>X-Otto-Signature</code>{" "}
+                Webhook payloads include an <code>X-Scan-Signature</code>{" "}
                 header. Verify against the raw body. <code>collect.paid</code>{" "}
                 is recorded for every settlement — configure a URL in the
                 merchant app to receive POSTs.
@@ -142,7 +142,7 @@ const Support = () => {
                 <strong>Help:</strong> Check our{" "}
                 <a
                   href="/docs/webhooks"
-                  className="text-otto-blue hover:text-black"
+                  className="text-scan-blue hover:text-black"
                 >
                   webhooks guide
                 </a>{" "}
@@ -204,8 +204,8 @@ const Support = () => {
           </div>
 
           <a
-            href="https://github.com/ottoafrica/api-issues/issues/new"
-            className="inline-flex items-center bg-otto-blue text-white px-6 py-3 rounded-full hover:bg-black transition-colors duration-200 font-semibold"
+            href="https://github.com/scanafrica/api-issues/issues/new"
+            className="inline-flex items-center bg-scan-blue text-white px-6 py-3 rounded-full hover:bg-black transition-colors duration-200 font-semibold"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -236,17 +236,17 @@ const Support = () => {
                 <p>
                   📧{" "}
                   <a
-                    href="mailto:contact@ottoafrica.com"
-                    className="text-otto-blue hover:text-black"
+                    href="mailto:contact@scanafrica.com"
+                    className="text-scan-blue hover:text-black"
                   >
-                    contact@ottoafrica.com
+                    contact@scanafrica.com
                   </a>
                 </p>
                 <p>
                   📖{" "}
                   <a
-                    href="https://github.com/ottoafrica/api-issues"
-                    className="text-otto-blue hover:text-black"
+                    href="https://github.com/scanafrica/api-issues"
+                    className="text-scan-blue hover:text-black"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

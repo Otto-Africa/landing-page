@@ -17,10 +17,10 @@ const BusinessSolutions = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Business Solutions - Otto Africa"
+        title="Business Solutions - Scan Africa"
         description="Enterprise-grade payment solutions for modern businesses. Scale your business with advanced analytics, team management, and comprehensive financial tools."
         keywords="business payment solutions, enterprise payments, payment processing for businesses, payment infrastructure, business payment API"
-        url="https://ottoafrica.com/solutions/business"
+        url="https://scanafrica.com/solutions/business"
       />
       <Header />
 
@@ -30,7 +30,7 @@ const BusinessSolutions = () => {
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-6 scroll-animate">
               Payment Solutions for
-              <span className="block text-otto-blue font-medium">Modern Businesses</span>
+              <span className="block text-scan-blue font-medium">Modern Businesses</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Scale your business with enterprise-grade payment processing, advanced analytics,
@@ -38,14 +38,14 @@ const BusinessSolutions = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://merchant.ottoafrica.com/signup"
-                className="bg-otto-blue text-white px-8 py-4 rounded-full hover:bg-black transition-colors duration-200 font-semibold text-lg"
+                href="https://merchant.scanafrica.com/signup"
+                className="bg-scan-blue text-white px-8 py-4 rounded-full hover:bg-black transition-colors duration-200 font-semibold text-lg"
               >
                 Start Enterprise Trial
               </a>
               <a
                 href="#features"
-                className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full hover:border-otto-blue hover:text-otto-blue transition-colors duration-200 font-semibold text-lg"
+                className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full hover:border-scan-blue hover:text-scan-blue transition-colors duration-200 font-semibold text-lg"
               >
                 Explore Features
               </a>
@@ -60,7 +60,7 @@ const BusinessSolutions = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center scroll-animate" style={{ animationDelay: '100ms' }}>
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-otto-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-scan-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
@@ -112,7 +112,7 @@ const BusinessSolutions = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-8 border border-gray-200 scroll-animate" style={{ animationDelay: '200ms' }}>
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                <svg className="w-6 h-6 text-otto-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-scan-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
@@ -289,19 +289,19 @@ const BusinessSolutions = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-otto-blue">
+      <section className="py-20 bg-scan-blue">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-medium text-white mb-6">
             Ready to Scale Your Business?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Join leading enterprises already using Otto to power their payment infrastructure.
+            Join leading enterprises already using Scan to power their payment infrastructure.
             Get started with a personalized demo and custom pricing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://merchant.ottoafrica.com/demo"
-              className="bg-white text-otto-blue px-8 py-4 rounded-full hover:bg-gray-50 transition-colors duration-200 font-semibold text-lg"
+              href="https://merchant.scanafrica.com/demo"
+              className="bg-white text-scan-blue px-8 py-4 rounded-full hover:bg-gray-50 transition-colors duration-200 font-semibold text-lg"
             >
               Schedule Demo
             </a>

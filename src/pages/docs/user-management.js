@@ -25,10 +25,10 @@ const UserManagement = () => {
   return (
     <>
       <SEO
-        title="User Management API - Otto Africa API Documentation"
-        description="Learn how to create, manage, and control access for users in your merchant account using Otto Africa API."
-        keywords="user management API, team members, user roles, access control, Otto user management"
-        url="https://ottoafrica.com/docs/user-management"
+        title="User Management API - Scan Africa API Documentation"
+        description="Learn how to create, manage, and control access for users in your merchant account using Scan Africa API."
+        keywords="user management API, team members, user roles, access control, Scan user management"
+        url="https://scanafrica.com/docs/user-management"
       />
       <DocsLayout
         currentPage="/docs/user-management"
@@ -42,7 +42,7 @@ const UserManagement = () => {
         <DocsOpener
           lead="User Management creates staff accounts for one merchant business. Roles limit what each person can do in the portal and on the API."
           when="Use this page when you add staff, change a role, or deactivate access. Use Identity API keys for partner servers. Use customer register for end users, not staff."
-          why="Money operations need named people with the least privilege. Otto stores staff on the merchant so audit trails stay inside the business."
+          why="Money operations need named people with the least privilege. Scan stores staff on the merchant so audit trails stay inside the business."
           how="Authenticate as a merchant. POST /api/merchant/users with email and role. List, update, or deactivate users. Assign permissions from the roles table on this page."
         />
 
@@ -81,7 +81,7 @@ const UserManagement = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="bash"
-                  code={`curl -X POST "https://api.ottoafrica.com/api/merchant/users" \\
+                  code={`curl -X POST "https://api.scanafrica.com/api/merchant/users" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -97,7 +97,7 @@ const UserManagement = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="javascript"
-                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/users', {
+                  code={`const response = await fetch('https://api.scanafrica.com/api/merchant/users', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -122,7 +122,7 @@ const data = await response.json();`}
                   code={`import requests
 
 response = requests.post(
-    'https://api.ottoafrica.com/api/merchant/users',
+    'https://api.scanafrica.com/api/merchant/users',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -192,7 +192,7 @@ data = response.json()`}
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/users?page=1&per_page=10&role=cashier" \\
+          code={`curl -X GET "https://api.scanafrica.com/api/merchant/users?page=1&per_page=10&role=cashier" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -246,7 +246,7 @@ data = response.json()`}
 
         <CodeBlock
           language="bash"
-          code={`curl -X PUT "https://api.ottoafrica.com/api/merchant/users/456" \\
+          code={`curl -X PUT "https://api.scanafrica.com/api/merchant/users/456" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -269,7 +269,7 @@ data = response.json()`}
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/users/roles" \\
+          code={`curl -X GET "https://api.scanafrica.com/api/merchant/users/roles" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -309,7 +309,7 @@ data = response.json()`}
 
         <CodeBlock
           language="bash"
-          code={`curl -X DELETE "https://api.ottoafrica.com/api/merchant/users/456" \\
+          code={`curl -X DELETE "https://api.scanafrica.com/api/merchant/users/456" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -321,7 +321,7 @@ data = response.json()`}
         <div className="docs-alert success">
           <strong>Need Help?</strong> Check the{" "}
           <a
-            href="https://api.ottoafrica.com/api/docs"
+            href="https://api.scanafrica.com/api/docs"
             className="underline"
             target="_blank"
             rel="noopener noreferrer"

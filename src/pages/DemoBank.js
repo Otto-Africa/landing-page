@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import SEO from "../components/SEO";
-import OttoIcon from "../components/OttoIcon";
+import ScanIcon from "../components/ScanIcon";
 import { getApiUrl } from "../config/env";
 import "./DemoBank.css";
 
@@ -53,7 +53,7 @@ const DemoBank = () => {
   );
 
   const bankLabel = useMemo(
-    () => (rail === "momo" ? momoMeta.label : "Otto Wallet Bank"),
+    () => (rail === "momo" ? momoMeta.label : "Scan Wallet Bank"),
     [rail, momoMeta.label],
   );
 
@@ -226,14 +226,14 @@ const DemoBank = () => {
     <div className="demo-bank-page">
       <SEO
         title="Demo bank – Test payments (Ghana)"
-        description="Test GHS credits into Otto Cash wallets in local, test, and staging."
-        url="https://ottoafrica.com/demo-bank"
+        description="Test GHS credits into Scan Cash wallets in local, test, and staging."
+        url="https://scanafrica.com/demo-bank"
       />
 
       <div className="demo-bank-shell">
         <header className="demo-bank-header">
           <div className="demo-bank-brand">
-            <OttoIcon
+            <ScanIcon
               name="home-outline"
               className="demo-bank-logo"
               size={24}
@@ -244,8 +244,8 @@ const DemoBank = () => {
             </div>
           </div>
           <p className="demo-bank-subtitle">
-            Send test credits into Otto Cash wallets (888… merchant, 999…
-            customer). Settlements post to the Otto Cash ledger in real time.
+            Send test credits into Scan Cash wallets (888… merchant, 999…
+            customer). Settlements post to the Scan Cash ledger in real time.
           </p>
         </header>
 
@@ -354,7 +354,7 @@ const DemoBank = () => {
                   )}
                   {lookup.is_wallet_topup && (
                     <p className="demo-bank-meta">
-                      Otto wallet top-up · any amount
+                      Scan wallet top-up · any amount
                     </p>
                   )}
                   {paymentStatus && (
@@ -479,8 +479,8 @@ const DemoBank = () => {
             Available in local, test, and staging.{" "}
             <a href="/docs/testing#demo-bank">Read the testing guide</a> or{" "}
             <a href="/docs/webhooks">webhook docs</a>. Collect-in virtual
-            accounts (<code>777</code>) are removed. Merchant Otto Cash uses{" "}
-            <code>888</code>; customer Otto Cash uses <code>999</code>.
+            accounts (<code>777</code>) are removed. Merchant Scan Cash uses{" "}
+            <code>888</code>; customer Scan Cash uses <code>999</code>.
             MoMo test numbers use Ghana prefixes: MTN <code>23324…</code>,
             Vodafone <code>23320…</code>, AirtelTigo <code>23327…</code>,
             followed by the entity digit (<code>8</code> merchant wallet,{" "}

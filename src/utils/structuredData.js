@@ -7,18 +7,18 @@
 export const getOrganizationSchema = () => ({
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Otto Africa",
-  url: "https://ottoafrica.com",
+  name: "Scan Africa",
+  url: "https://scanafrica.com",
   logo: {
     "@type": "ImageObject",
-    url: "https://ottoafrica.com/img/logos/Favicon%20-%20Black@4x-8.png",
+    url: "https://scanafrica.com/img/logos/Favicon%20-%20Black@4x-8.png",
     width: 512,
     height: 512,
-    caption: "Otto Africa Logo",
+    caption: "Scan Africa Logo",
   },
   image: {
     "@type": "ImageObject",
-    url: "https://ottoafrica.com/img/logos/Favicon%20-%20Black@4x-8.png",
+    url: "https://scanafrica.com/img/logos/Favicon%20-%20Black@4x-8.png",
     width: 512,
     height: 512,
   },
@@ -28,12 +28,12 @@ export const getOrganizationSchema = () => ({
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "Customer Service",
-    email: "contact@ottoafrica.com",
+    email: "contact@scanafrica.com",
     availableLanguage: ["English"],
   },
   sameAs: [
-    "https://twitter.com/ottoafrica",
-    "https://linkedin.com/company/ottoafrica",
+    "https://twitter.com/scanafrica",
+    "https://linkedin.com/company/scanafrica",
   ],
   address: {
     "@type": "PostalAddress",
@@ -46,10 +46,10 @@ export const getOrganizationSchema = () => ({
     name: "Ghana",
   },
   keywords:
-    "Otto, Otto Africa, Ghana fintech, payment API, gift cards, loyalty programs, fintech Ghana, payment infrastructure, QR payments, digital payments, payment solutions, API payments, gift card API, loyalty API, fintech API, payment gateway",
+    "Scan, Scan Africa, Ghana fintech, payment API, gift cards, loyalty programs, fintech Ghana, payment infrastructure, QR payments, digital payments, payment solutions, API payments, gift card API, loyalty API, fintech API, payment gateway",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Otto Africa Services",
+    name: "Scan Africa Services",
     itemListElement: [
       {
         "@type": "Offer",
@@ -86,19 +86,19 @@ export const getOrganizationSchema = () => ({
 export const getWebsiteSchema = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Otto Africa",
-  url: "https://ottoafrica.com",
+  name: "Scan Africa",
+  url: "https://scanafrica.com",
   description: "Payment infrastructure for Africa's most ambitious businesses",
   publisher: {
     "@type": "Organization",
-    name: "Otto Africa",
+    name: "Scan Africa",
   },
   potentialAction: [
     {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://ottoafrica.com/docs",
+        urlTemplate: "https://scanafrica.com/docs",
       },
       "query-input": "optional name=search_term_string",
     },
@@ -110,31 +110,31 @@ export const getWebsiteSchema = () => ({
         "@type": "ListItem",
         position: 1,
         name: "Get Started",
-        url: "https://business.ottoafrica.com/merchant-onboard",
+        url: "https://business.scanafrica.com/merchant-onboard",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "API Documentation",
-        url: "https://ottoafrica.com/docs",
+        url: "https://scanafrica.com/docs",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "About Us",
-        url: "https://ottoafrica.com/about",
+        url: "https://scanafrica.com/about",
       },
       {
         "@type": "ListItem",
         position: 4,
         name: "Contact",
-        url: "https://ottoafrica.com/contact",
+        url: "https://scanafrica.com/contact",
       },
       {
         "@type": "ListItem",
         position: 5,
         name: "Documentation",
-        url: "https://ottoafrica.com/docs/getting-started",
+        url: "https://scanafrica.com/docs/getting-started",
       },
     ],
   },
@@ -147,7 +147,7 @@ export const getWebsiteSchema = () => ({
 export const getSoftwareApplicationSchema = () => ({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Otto Payment Platform",
+  name: "Scan Payment Platform",
   applicationCategory: "FinanceApplication",
   operatingSystem: "Web, iOS, Android",
   offers: {
@@ -221,10 +221,10 @@ export const getProductSchema = (product) => ({
 export const getLocalBusinessSchema = () => ({
   "@context": "https://schema.org",
   "@type": "FinancialService",
-  name: "Otto Africa",
+  name: "Scan Africa",
   description:
     "Leading fintech platform in Ghana offering payment API, gift cards, and loyalty programs",
-  url: "https://ottoafrica.com",
+  url: "https://scanafrica.com",
   address: {
     "@type": "PostalAddress",
     addressCountry: "GH",
@@ -242,7 +242,7 @@ export const getLocalBusinessSchema = () => ({
     "Payment API",
   ],
   keywords:
-    "Otto, Ghana fintech, payment API Ghana, gift cards Ghana, loyalty programs Ghana",
+    "Scan, Ghana fintech, payment API Ghana, gift cards Ghana, loyalty programs Ghana",
 });
 
 /**
@@ -255,50 +255,50 @@ export const getFAQSchemaForLanding = () => ({
   mainEntity: [
     {
       "@type": "Question",
-      name: "What is Otto Africa?",
+      name: "What is Scan Africa?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Otto Africa is a leading fintech platform in Ghana that provides payment API, digital gift cards, and loyalty programs for businesses. We offer payment infrastructure solutions for businesses across Ghana and Africa.",
+        text: "Scan Africa is a leading fintech platform in Ghana that provides payment API, digital gift cards, and loyalty programs for businesses. We offer payment infrastructure solutions for businesses across Ghana and Africa.",
       },
     },
     {
       "@type": "Question",
-      name: "Does Otto Africa offer payment API in Ghana?",
+      name: "Does Scan Africa offer payment API in Ghana?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, Otto Africa provides a comprehensive payment API for businesses in Ghana. Our API enables businesses to accept payments, manage gift cards, and implement loyalty programs seamlessly.",
+        text: "Yes, Scan Africa provides a comprehensive payment API for businesses in Ghana. Our API enables businesses to accept payments, manage gift cards, and implement loyalty programs seamlessly.",
       },
     },
     {
       "@type": "Question",
-      name: "How do gift cards work with Otto Africa?",
+      name: "How do gift cards work with Scan Africa?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Otto Africa offers digital gift card solutions for businesses in Ghana. You can create, sell, and manage gift cards with custom designs and instant delivery through our gift card API.",
+        text: "Scan Africa offers digital gift card solutions for businesses in Ghana. You can create, sell, and manage gift cards with custom designs and instant delivery through our gift card API.",
       },
     },
     {
       "@type": "Question",
-      name: "Can I create loyalty programs with Otto Africa?",
+      name: "Can I create loyalty programs with Scan Africa?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, Otto Africa provides a loyalty API that allows businesses in Ghana to create points-based rewards, tiered membership levels, and personalized offers to drive customer engagement and repeat business.",
+        text: "Yes, Scan Africa provides a loyalty API that allows businesses in Ghana to create points-based rewards, tiered membership levels, and personalized offers to drive customer engagement and repeat business.",
       },
     },
     {
       "@type": "Question",
-      name: "Is Otto Africa a fintech company in Ghana?",
+      name: "Is Scan Africa a fintech company in Ghana?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, Otto Africa is a fintech company based in Ghana, providing payment infrastructure, gift cards, and loyalty program solutions for businesses across Ghana and Africa.",
+        text: "Yes, Scan Africa is a fintech company based in Ghana, providing payment infrastructure, gift cards, and loyalty program solutions for businesses across Ghana and Africa.",
       },
     },
     {
       "@type": "Question",
-      name: "What payment methods does Otto Africa support?",
+      name: "What payment methods does Scan Africa support?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Otto Africa supports QR code payments, digital gift cards, and various payment methods through our payment API. We enable businesses in Ghana to accept payments seamlessly.",
+        text: "Scan Africa supports QR code payments, digital gift cards, and various payment methods through our payment API. We enable businesses in Ghana to accept payments seamlessly.",
       },
     },
   ],

@@ -25,24 +25,24 @@ const QRCodes = () => {
   return (
     <>
       <SEO
-        title="QR Codes API - Otto Africa API Documentation"
-        description="Learn how to generate, manage, and scan QR codes for payments using Otto Africa API. Complete QR code integration guide."
-        keywords="QR code API, payment QR codes, QR code generation, QR code scanning, Otto QR codes"
-        url="https://ottoafrica.com/docs/qr-codes"
+        title="QR Codes API - Scan Africa API Documentation"
+        description="Learn how to generate, manage, and scan QR codes for payments using Scan Africa API. Complete QR code integration guide."
+        keywords="QR code API, payment QR codes, QR code generation, QR code scanning, Scan QR codes"
+        url="https://scanafrica.com/docs/qr-codes"
       />
       <DocsLayout
         currentPage="/docs/qr-codes"
       
       onThisPageItems={onThisPageItems}
-      nutshell="Generate QR codes for payments and manage static QR codes so customers can pay instantly in the Otto app."
+      nutshell="Generate QR codes for payments and manage static QR codes so customers can pay instantly in the Scan app."
     >
       <div className="docs-content">
         <h1 id="overview">QR Codes API</h1>
 
         <DocsOpener
           lead="A QR code is a scan target that starts a collect. Dynamic codes carry one amount. Static codes stay at a till and accept an amount at scan."
-          when="Use QR when a customer pays in the Otto app at a counter or on a printed code. Use Payments collect when you invoice by API without a scan."
-          why="The code is the customer-facing handle. Otto still records the collect. You get status from GET and from webhooks, not from the image alone."
+          when="Use QR when a customer pays in the Scan app at a counter or on a printed code. Use Payments collect when you invoice by API without a scan."
+          why="The code is the customer-facing handle. Scan still records the collect. You get status from GET and from webhooks, not from the image alone."
           how="Authenticate. POST /api/merchant/qr/generate for a dynamic code, or create a static QR. Show the image. When the customer scans, listen for collect.paid or poll status."
         />
 
@@ -87,7 +87,7 @@ const QRCodes = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="bash"
-                  code={`curl -X POST "https://api.ottoafrica.com/api/merchant/qr/generate" \\
+                  code={`curl -X POST "https://api.scanafrica.com/api/merchant/qr/generate" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -103,7 +103,7 @@ const QRCodes = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="javascript"
-                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/qr/generate', {
+                  code={`const response = await fetch('https://api.scanafrica.com/api/merchant/qr/generate', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -130,7 +130,7 @@ const data = await response.json();
                   code={`import requests
 
 response = requests.post(
-    'https://api.ottoafrica.com/api/merchant/qr/generate',
+    'https://api.scanafrica.com/api/merchant/qr/generate',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -160,8 +160,8 @@ data = response.json()
   "status": "success",
   "data": {
     "qr_code_id": "qr_abc123",
-    "qr_code_url": "https://api.ottoafrica.com/qr/qr_abc123.png",
-    "qr_data": "OTTO:DYNAMIC:ABC123",
+    "qr_code_url": "https://api.scanafrica.com/qr/qr_abc123.png",
+    "qr_data": "SCAN:DYNAMIC:ABC123",
     "amount": 25.00,
     "expires_at": "2024-01-15T11:30:00Z"
   }
@@ -186,7 +186,7 @@ data = response.json()
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/qr/static" \\
+          code={`curl -X GET "https://api.scanafrica.com/api/merchant/qr/static" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -201,7 +201,7 @@ data = response.json()
 
         <CodeBlock
           language="bash"
-          code={`curl -X POST "https://api.ottoafrica.com/api/merchant/qr/static" \\
+          code={`curl -X POST "https://api.scanafrica.com/api/merchant/qr/static" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -248,11 +248,11 @@ data = response.json()
               <div className="tab-pane">
                 <CodeBlock
                   language="bash"
-                  code={`curl -X POST "https://api.ottoafrica.com/api/merchant/qr/scan" \\
+                  code={`curl -X POST "https://api.scanafrica.com/api/merchant/qr/scan" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
-    "qr_data": "OTTO:DYNAMIC:ABC123",
+    "qr_data": "SCAN:DYNAMIC:ABC123",
     "amount": 25.00,
     "customer_id": "CUST-456"
   }'`}
@@ -263,14 +263,14 @@ data = response.json()
               <div className="tab-pane">
                 <CodeBlock
                   language="javascript"
-                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/qr/scan', {
+                  code={`const response = await fetch('https://api.scanafrica.com/api/merchant/qr/scan', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    qr_data: 'OTTO:DYNAMIC:ABC123',
+    qr_data: 'SCAN:DYNAMIC:ABC123',
     amount: 25.00,
     customer_id: 'CUST-456'
   })
@@ -287,13 +287,13 @@ const data = await response.json();`}
                   code={`import requests
 
 response = requests.post(
-    'https://api.ottoafrica.com/api/merchant/qr/scan',
+    'https://api.scanafrica.com/api/merchant/qr/scan',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
     },
     json={
-        'qr_data': 'OTTO:DYNAMIC:ABC123',
+        'qr_data': 'SCAN:DYNAMIC:ABC123',
         'amount': 25.00,
         'customer_id': 'CUST-456'
     }
@@ -343,7 +343,7 @@ data = response.json()`}
         <div className="docs-alert success">
           <strong>Need Help?</strong> Check the{" "}
           <a
-            href="https://api.ottoafrica.com/api/docs"
+            href="https://api.scanafrica.com/api/docs"
             className="underline"
             target="_blank"
             rel="noopener noreferrer"

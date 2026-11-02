@@ -25,10 +25,10 @@ const FclOverview = () => {
     <>
       <SEO
         noindex
-        title="FCL Provider APIs - Otto Africa Documentation"
+        title="FCL Provider APIs - Scan Africa Documentation"
         description="Documentation for FCL Payment Gateway, Unified External Channels, and Core Banking APIs."
-        keywords="FCL API, Payment Gateway, Unified External Channels, Core Banking, Otto documentation"
-        url="https://ottoafrica.com/fcl"
+        keywords="FCL API, Payment Gateway, Unified External Channels, Core Banking, Scan documentation"
+        url="https://scanafrica.com/fcl"
       />
       <DocsLayout
         currentPage="/fcl"
@@ -39,17 +39,17 @@ const FclOverview = () => {
           <h1 id="overview">FCL provider APIs</h1>
 
           <DocsOpener
-            lead="FCL is the bank provider Otto calls. These pages are the provider contracts. They are not the Otto merchant API."
-            when="Use this section only when you work on Otto adapters. Partners must not call FCL. Partners use https://api.ottoafrica.com with a Bearer key."
+            lead="FCL is the bank provider Scan calls. These pages are the provider contracts. They are not the Scan merchant API."
+            when="Use this section only when you work on Scan adapters. Partners must not call FCL. Partners use https://api.scanafrica.com with a Bearer key."
             why="Payment Gateway, Unified External Channels, and Core Banking own different steps. Success on one API is not proof of success on another."
-            how="Read architecture. Then open Gateway, Unified, or Core Banking. Authenticate with X-Api-Key on the provider host. Do not send Otto sk_ keys here."
+            how="Read architecture. Then open Gateway, Unified, or Core Banking. Authenticate with X-Api-Key on the provider host. Do not send Scan sk_ keys here."
           />
 
           <div className="docs-alert warning">
             <strong>Internal:</strong> These pages document the provider
-            contracts that Otto calls. They are not published on production.
+            contracts that Scan calls. They are not published on production.
             External developers use the{" "}
-            <Link to="/docs/payments">Otto Payments API</Link>.
+            <Link to="/docs/payments">Scan Payments API</Link>.
           </div>
 
           <h2 id="three-apis">Three APIs</h2>

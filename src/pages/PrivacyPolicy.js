@@ -20,10 +20,10 @@ const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title={`${userType === 'merchant' ? 'Merchant' : 'Customer'} Privacy Policy - Otto Africa`}
-        description={`Otto Africa's ${userType} Privacy Policy. Learn how we collect, use, and protect your information.`}
-        keywords="privacy policy, data protection, user privacy, merchant privacy, Otto Africa"
-        url="https://ottoafrica.com/privacy-policy"
+        title={`${userType === 'merchant' ? 'Merchant' : 'Customer'} Privacy Policy - Scan Africa`}
+        description={`Scan Africa's ${userType} Privacy Policy. Learn how we collect, use, and protect your information.`}
+        keywords="privacy policy, data protection, user privacy, merchant privacy, Scan Africa"
+        url="https://scanafrica.com/privacy-policy"
       />
       <Header />
 
@@ -44,7 +44,7 @@ const PrivacyPolicy = () => {
             <div className="mb-8">
               <h2 className="text-2xl font-medium text-gray-900 mb-4">1. Introduction</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
-                Otto ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our payment platform, mobile applications, and related services (collectively, the "Services").
+                Scan ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our payment platform, mobile applications, and related services (collectively, the "Services").
               </p>
             </div>
 
@@ -153,10 +153,10 @@ const PrivacyPolicy = () => {
                 <p className="text-gray-700">
                   <strong>Email:</strong>{" "}
                   <a
-                    href="mailto:privacy@ottoafrica.com"
-                    className="text-otto-blue hover:text-black"
+                    href="mailto:privacy@scanafrica.com"
+                    className="text-scan-blue hover:text-black"
                   >
-                    privacy@ottoafrica.com
+                    privacy@scanafrica.com
                   </a>
                 </p>
               </div>

@@ -16,10 +16,10 @@ const GatewayReference = () => {
     <>
       <SEO
         noindex
-        title="Payment Gateway Endpoint Reference - Otto Africa Documentation"
+        title="Payment Gateway Endpoint Reference - Scan Africa Documentation"
         description="Endpoint catalog for the FCL Payment Gateway Client API."
         keywords="FCL Payment Gateway endpoints, collections, disbursements"
-        url="https://ottoafrica.com/fcl/gateway-reference"
+        url="https://scanafrica.com/fcl/gateway-reference"
       />
       <DocsLayout
         currentPage="/fcl/gateway-reference"
@@ -30,7 +30,7 @@ const GatewayReference = () => {
           <DocsOpener
             lead="This catalog lists Payment Gateway Client API paths relative to the Gateway base URL."
             when="Use this page to look up a method and path. Use the quickstart for the first collect."
-            why="The catalog is the list of rails Otto can call. It is not the Otto merchant API."
+            why="The catalog is the list of rails Scan can call. It is not the Scan merchant API."
             how="Find the group. Copy the method and path. Send X-Api-Key. Confirm completion with webhook, not create HTTP 200."
           />
 

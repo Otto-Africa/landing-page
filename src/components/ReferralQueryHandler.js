@@ -5,8 +5,8 @@ import {
   useLocation,
 } from "react-router-dom";
 
-const STORAGE_KEY = "otto_referral_code";
-const CHANNEL_KEY = "otto_referral_channel";
+const STORAGE_KEY = "scan_referral_code";
+const CHANNEL_KEY = "scan_referral_channel";
 
 /**
  * Persists ?ref= / ?channel= to sessionStorage.
@@ -45,4 +45,4 @@ export default function ReferralQueryHandler() {
   return null;
 }
 
-export { STORAGE_KEY as OTTO_REFERRAL_STORAGE_KEY };
+export { STORAGE_KEY as SCAN_REFERRAL_STORAGE_KEY };

@@ -17,7 +17,7 @@ const ApiShowcase = () => {
     'create-gift-card': {
       title: 'Create Gift Card',
       description: 'Create a new gift card template with custom denominations',
-      curl: `curl -X POST "https://api.ottoafrica.com/merchant/giftcard-templates" \\
+      curl: `curl -X POST "https://api.scanafrica.com/merchant/giftcard-templates" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -25,7 +25,7 @@ const ApiShowcase = () => {
     "denominations": [25, 50, 100],
     "currency": "GHS"
   }'`,
-      javascript: `const response = await fetch('https://api.ottoafrica.com/merchant/giftcard-templates', {
+      javascript: `const response = await fetch('https://api.scanafrica.com/merchant/giftcard-templates', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -42,7 +42,7 @@ const data = await response.json();`,
       python: `import requests
 
 response = requests.post(
-    'https://api.ottoafrica.com/merchant/giftcard-templates',
+    'https://api.scanafrica.com/merchant/giftcard-templates',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -59,9 +59,9 @@ data = response.json()`
     'list-transactions': {
       title: 'List Transactions',
       description: 'Retrieve transaction history with filtering',
-      curl: `curl -X GET "https://api.ottoafrica.com/merchant/transactions?page=1&per_page=20" \\
+      curl: `curl -X GET "https://api.scanafrica.com/merchant/transactions?page=1&per_page=20" \\
   -H "Authorization: Bearer your_api_key"`,
-      javascript: `const response = await fetch('https://api.ottoafrica.com/merchant/transactions?page=1&per_page=20', {
+      javascript: `const response = await fetch('https://api.scanafrica.com/merchant/transactions?page=1&per_page=20', {
   method: 'GET',
   headers: {
     'Authorization': 'Bearer your_api_key'
@@ -72,7 +72,7 @@ const transactions = await response.json();`,
       python: `import requests
 
 response = requests.get(
-    'https://api.ottoafrica.com/merchant/transactions',
+    'https://api.scanafrica.com/merchant/transactions',
     headers={
         'Authorization': 'Bearer your_api_key'
     },
@@ -87,11 +87,11 @@ transactions = response.json()`
     'redeem-gift-card': {
       title: 'Redeem Gift Card',
       description: 'Process a gift card redemption',
-      curl: `curl -X POST "https://api.ottoafrica.com/merchant/giftcards/ABC123/redeem" \\
+      curl: `curl -X POST "https://api.scanafrica.com/merchant/giftcards/ABC123/redeem" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{"amount": 25.00}'`,
-      javascript: `const response = await fetch('https://api.ottoafrica.com/merchant/giftcards/ABC123/redeem', {
+      javascript: `const response = await fetch('https://api.scanafrica.com/merchant/giftcards/ABC123/redeem', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -106,7 +106,7 @@ const result = await response.json();`,
       python: `import requests
 
 response = requests.post(
-    'https://api.ottoafrica.com/merchant/giftcards/ABC123/redeem',
+    'https://api.scanafrica.com/merchant/giftcards/ABC123/redeem',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -170,12 +170,12 @@ result = response.json()`
                   onClick={() => setActiveTab(key)}
                   className={`w-full text-left p-4 rounded-lg border transition-all duration-300 transform hover:scale-[1.02] scroll-animate ${
                     activeTab === key
-                      ? 'border-otto-blue bg-gray-50 shadow-md'
-                      : 'border-gray-200 bg-white hover:border-otto-blue'
+                      ? 'border-scan-blue bg-gray-50 shadow-md'
+                      : 'border-gray-200 bg-white hover:border-scan-blue'
                   }`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <h3 className={`font-medium ${activeTab === key ? 'text-otto-blue' : 'text-gray-900'}`}>
+                  <h3 className={`font-medium ${activeTab === key ? 'text-scan-blue' : 'text-gray-900'}`}>
                     {example.title}
                   </h3>
                   <p className="text-sm text-gray-600 mt-1">
@@ -188,7 +188,7 @@ result = response.json()`
             <div className="text-center">
               <Link
                 to="/docs/getting-started"
-                className="inline-flex items-center text-otto-blue hover:text-black font-medium transition-colors duration-200"
+                className="inline-flex items-center text-scan-blue hover:text-black font-medium transition-colors duration-200"
               >
                 View complete documentation
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -240,7 +240,7 @@ result = response.json()`
                             }}
                             className={`w-full text-left px-4 py-2 text-sm transition-colors ${
                               selectedLanguage === lang.key
-                                ? 'bg-gray-50 text-otto-blue font-medium'
+                                ? 'bg-gray-50 text-scan-blue font-medium'
                                 : 'text-gray-700 hover:bg-gray-50'
                             }`}
                 >
@@ -288,7 +288,7 @@ result = response.json()`
         {/* API Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="text-2xl font-light text-otto-blue mb-1">RESTful</div>
+            <div className="text-2xl font-light text-scan-blue mb-1">RESTful</div>
             <div className="text-sm text-gray-600">API Design</div>
           </div>
           <div className="text-center">

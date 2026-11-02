@@ -23,10 +23,10 @@ const InvestmentCertificates = () => {
   return (
     <>
       <SEO
-        title="Investment Certificates API - Otto Africa API Documentation"
+        title="Investment Certificates API - Scan Africa API Documentation"
         description="API for investment providers: list certificates, reconciliation, sync value. Only available for businesses registered as Investment providers."
-        keywords="investment certificates API, investment gift certificates, investment provider, Otto API"
-        url="https://ottoafrica.com/docs/investment-certificates"
+        keywords="investment certificates API, investment gift certificates, investment provider, Scan API"
+        url="https://scanafrica.com/docs/investment-certificates"
       />
       <DocsLayout
         currentPage="/docs/investment-certificates"
@@ -40,7 +40,7 @@ const InvestmentCertificates = () => {
           <DocsOpener
             lead="Investment certificates are gift products for recipients. Only a business with type INVESTMENT_PROVIDER can call these paths."
             when="Use this page if you are an investment provider listing certificates, reconciling value, or creating an INVESTMENT gift template. Ordinary merchants get HTTP 403."
-            why="Investment products need extra controls. Otto gates the API on business type so a retail merchant cannot issue certificates."
+            why="Investment products need extra controls. Scan gates the API on business type so a retail merchant cannot issue certificates."
             how="Use a Bearer key created for an Investment provider business. Call /api/merchant/investment-certificates. Create templates with certificate_type INVESTMENT. See Gift Cards for merchant types."
           />
 
@@ -49,7 +49,7 @@ const InvestmentCertificates = () => {
           </div>
 
           <p>
-            Two merchant types exist: <strong>Merchant</strong> (gift cards, loyalty, payments) and <strong>Investment provider</strong> (same plus investment gift certificates). Only Investment providers can create gift card templates with <code>certificate_type: "INVESTMENT"</code> and call the Investment Certificates endpoints below. See <a href="/docs/gift-cards#merchant-types" className="text-otto-blue hover:underline">Gift Cards – Merchant Types & Gift Card Types</a> for the full picture.
+            Two merchant types exist: <strong>Merchant</strong> (gift cards, loyalty, payments) and <strong>Investment provider</strong> (same plus investment gift certificates). Only Investment providers can create gift card templates with <code>certificate_type: "INVESTMENT"</code> and call the Investment Certificates endpoints below. See <a href="/docs/gift-cards#merchant-types" className="text-scan-blue hover:underline">Gift Cards – Merchant Types & Gift Card Types</a> for the full picture.
           </p>
 
           <h2 id="provider-only">Investment Provider Only</h2>
@@ -69,7 +69,7 @@ const InvestmentCertificates = () => {
           <p>Returns certificates for the current provider. Optional query params: <code>status</code>, <code>date_from</code>, <code>date_to</code>, <code>per_page</code>.</p>
           <CodeBlock
             language="bash"
-            code={`curl -X GET "https://api.ottoafrica.com/api/merchant/investment-certificates?per_page=20" \\
+            code={`curl -X GET "https://api.scanafrica.com/api/merchant/investment-certificates?per_page=20" \\
   -H "Authorization: Bearer your_token"`}
           />
 
@@ -81,7 +81,7 @@ const InvestmentCertificates = () => {
           </div>
           <CodeBlock
             language="bash"
-            code={`curl -X GET "https://api.ottoafrica.com/api/merchant/investment-certificates/reconciliation" \\
+            code={`curl -X GET "https://api.scanafrica.com/api/merchant/investment-certificates/reconciliation" \\
   -H "Authorization: Bearer your_token"`}
           />
 
@@ -95,11 +95,11 @@ const InvestmentCertificates = () => {
 
           <h2 id="gift-card-templates">Creating Investment Templates</h2>
           <p>
-            To offer investment certificates, create a <strong>gift card template</strong> with <code>certificate_type: "INVESTMENT"</code> via the Gift Cards API (<code>POST /merchant/giftcards/create</code>). Only Investment providers can set <code>certificate_type</code> to <code>INVESTMENT</code>; see <a href="/docs/gift-cards#merchant-types" className="text-otto-blue hover:underline">Gift Cards – Merchant Types & Gift Card Types</a>.
+            To offer investment certificates, create a <strong>gift card template</strong> with <code>certificate_type: "INVESTMENT"</code> via the Gift Cards API (<code>POST /merchant/giftcards/create</code>). Only Investment providers can set <code>certificate_type</code> to <code>INVESTMENT</code>; see <a href="/docs/gift-cards#merchant-types" className="text-scan-blue hover:underline">Gift Cards – Merchant Types & Gift Card Types</a>.
           </p>
 
           <p className="mt-6">
-            <strong>Need Help?</strong> Visit our <a href="/docs/support" className="underline">Support page</a> or the <a href="https://api.ottoafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for detailed endpoint documentation.
+            <strong>Need Help?</strong> Visit our <a href="/docs/support" className="underline">Support page</a> or the <a href="https://api.scanafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for detailed endpoint documentation.
           </p>
         </div>
       </DocsLayout>

@@ -34,10 +34,10 @@ const CoreBanking = () => {
       <>
         <SEO
           noindex
-          title={`${endpoint.name} - Core Banking - Otto Africa Documentation`}
+          title={`${endpoint.name} - Core Banking - Scan Africa Documentation`}
           description={`Core Banking ${endpoint.path}`}
           keywords={`FCL Core Banking ${endpoint.path}`}
-          url={`https://ottoafrica.com/fcl/core-banking/${endpoint.id}`}
+          url={`https://scanafrica.com/fcl/core-banking/${endpoint.id}`}
         />
         <DocsLayout
           currentPage={`/fcl/core-banking/${endpoint.id}`}
@@ -119,10 +119,10 @@ const CoreBanking = () => {
     <>
       <SEO
         noindex
-        title="Core Banking API - Otto Africa Documentation"
+        title="Core Banking API - Scan Africa Documentation"
         description="FCL Core Banking for account enquiry, facilities, investments, and Field postings."
         keywords="FCL Core Banking, Field Deposit, Field Withdrawal"
-        url="https://ottoafrica.com/fcl/core-banking"
+        url="https://scanafrica.com/fcl/core-banking"
       />
       <DocsLayout
         currentPage="/fcl/core-banking"
@@ -134,7 +134,7 @@ const CoreBanking = () => {
 
           <DocsOpener
             lead="Core Banking supplies account, investment, and facility enquiry. It also supplies CBS Field postings for existing customers."
-            when="Use Core Banking when Otto must read a ledger or post a Field entry. Do not use it to execute a Gateway payout."
+            when="Use Core Banking when Scan must read a ledger or post a Field entry. Do not use it to execute a Gateway payout."
             why="Field postings record ledger changes. They do not move external rails. Mixing this with Gateway causes double meaning for success."
             how="Use the independent Core Banking key. Call enquiry first. Post Fields only for existing customers. Treat this contract as separate from Gateway and Unified."
           />

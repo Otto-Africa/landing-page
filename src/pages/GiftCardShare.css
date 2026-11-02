@@ -443,7 +443,7 @@
 
 /* ---------- Gift Receive page refinements (premium, minimal) ---------- */
 
-/* 1. Card: Otto top-right, merchant top-left, centered value + GIFT BALANCE */
+/* 1. Card: Scan top-right, merchant top-left, centered value + GIFT BALANCE */
 .gift-card-receive .gift-receive-card {
   position: relative;
   display: flex;
@@ -453,7 +453,7 @@
   padding: 24px;
 }
 
-.gift-receive-card-otto-logo {
+.gift-receive-card-scan-logo {
   position: absolute;
   top: 16px;
   right: 16px;

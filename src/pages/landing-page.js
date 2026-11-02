@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../layout/layout";
 import QRCodeChanger from "../qrcode-changer";
-import OttoIcon from "../components/OttoIcon";
+import ScanIcon from "../components/ScanIcon";
 
 /**
  * Landing Page.
@@ -207,7 +207,7 @@ const LandingPage = () => {
                     <div className="pt-1 pb-4 space-y-3">
                       <p className="text-xl font-bold">Open on Mobile</p>
                       <p className="text-base lg:w-[80%]">
-                        Scan with your phone’s camera or the Otto app to pay
+                        Scan with your phone’s camera or the Scan app to pay
                       </p>
                     </div>
                   </div>
@@ -220,7 +220,7 @@ const LandingPage = () => {
                     <div className="flex gap-4 lg:bg-gray-50 lg:pb-6 pt-8 lg:px-6 rounded-2xl w-[90%]">
                       <div className="lg:hidden">
                         <div className="mt-1 bg-[#1b3359] h-8 w-8 flex items-center justify-center rounded-full">
-                          <OttoIcon name="checkmark-outline" fill="white" size={16} />
+                          <ScanIcon name="checkmark-outline" fill="white" size={16} />
                         </div>
                       </div>
                       <div className="justify-center flex flex-col lg:mt-6">

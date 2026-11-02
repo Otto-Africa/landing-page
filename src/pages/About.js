@@ -18,10 +18,10 @@ const About = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="About Us - Otto Africa"
-        description="Learn about Otto Africa - the payment infrastructure platform built for Africa's most ambitious businesses. Discover our mission, vision, and commitment to transforming payments across the continent."
-        keywords="about Otto Africa, payment platform, fintech company, Africa fintech, payment solutions company"
-        url="https://ottoafrica.com/about"
+        title="About Us - Scan Africa"
+        description="Learn about Scan Africa - the payment infrastructure platform built for Africa's most ambitious businesses. Discover our mission, vision, and commitment to transforming payments across the continent."
+        keywords="about Scan Africa, payment platform, fintech company, Africa fintech, payment solutions company"
+        url="https://scanafrica.com/about"
       />
       <Header />
 
@@ -31,7 +31,7 @@ const About = () => {
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-6 scroll-animate">
               Powering Africa's
-              <span className="block text-otto-blue font-medium">
+              <span className="block text-scan-blue font-medium">
                 Digital Economy
               </span>
             </h1>
@@ -68,7 +68,7 @@ const About = () => {
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 scroll-animate delay-300">
               <div className="grid grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-otto-blue mb-2">
+                  <div className="text-3xl font-bold text-scan-blue mb-2">
                     2023
                   </div>
                   <div className="text-sm text-gray-600">Founded</div>
@@ -99,7 +99,7 @@ const About = () => {
               Founders
             </h2>
             <p className="text-xl text-gray-600 scroll-animate delay-100">
-              The innovators behind Otto's success
+              The innovators behind Scan's success
             </p>
           </div>
 
@@ -120,7 +120,7 @@ const About = () => {
               <h3 className="text-xl font-medium text-gray-900 mb-1">
                 Kofi Addo Atuah
               </h3>
-              <p className="text-otto-blue font-medium mb-2">
+              <p className="text-scan-blue font-medium mb-2">
                 Cofounder / Tech Lead
               </p>
               <p className="text-gray-600 text-sm">
@@ -144,7 +144,7 @@ const About = () => {
               <h3 className="text-xl font-medium text-gray-900 mb-1">
                 Jonathan Addo Atuah
               </h3>
-              <p className="text-otto-blue font-medium mb-2">
+              <p className="text-scan-blue font-medium mb-2">
                 Cofounder / Business Lead
               </p>
               <p className="text-gray-600 text-sm">
@@ -168,7 +168,7 @@ const About = () => {
               <h3 className="text-xl font-medium text-gray-900 mb-1">
                 Amen Olabode
               </h3>
-              <p className="text-otto-blue font-medium mb-2">
+              <p className="text-scan-blue font-medium mb-2">
                 Head of Product
               </p>
               <p className="text-gray-600 text-sm">
@@ -198,7 +198,7 @@ const About = () => {
             >
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
-                  className="w-8 h-8 text-otto-blue"
+                  className="w-8 h-8 text-scan-blue"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -303,18 +303,18 @@ const About = () => {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-20 bg-otto-blue">
+      <section className="py-20 bg-scan-blue">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-medium text-white mb-6">
             Ready to Build Something Amazing?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Join thousands of businesses already using Otto to power their
+            Join thousands of businesses already using Scan to power their
             growth. Let's discuss how we can help transform your business.
           </p>
           <a
             href="/contact"
-            className="bg-white text-otto-blue px-8 py-4 rounded-full hover:bg-gray-50 transition-colors duration-200 font-semibold text-lg"
+            className="bg-white text-scan-blue px-8 py-4 rounded-full hover:bg-gray-50 transition-colors duration-200 font-semibold text-lg"
           >
             Get In Touch
           </a>

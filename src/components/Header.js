@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getMerchantPortalUrl } from '../utils/getMerchantPortalUrl';
-import OttoIcon from './OttoIcon';
+import ScanIcon from './ScanIcon';
 
 /**
  * Header.
@@ -35,7 +35,7 @@ const Header = () => {
             <Link to="/">
               <img
                 src="/img/logos/Logo Black.png"
-                alt="Otto Africa Logo"
+                alt="Scan Africa Logo"
                 loading="eager"
                 className="h-10 w-auto"
               />
@@ -50,7 +50,7 @@ const Header = () => {
                 className="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium flex items-center"
               >
                 Solutions
-                <OttoIcon
+                <ScanIcon
                   name="chevron-down-outline"
                   size={16}
                   className={`ml-1 transition-transform ${isSolutionsOpen ? 'rotate-180' : ''}`}
@@ -93,7 +93,7 @@ const Header = () => {
             </a>
             <a
               href={getMerchantPortalUrl()}
-              className="bg-otto-blue text-white px-6 py-2 rounded-full hover:bg-black transition-colors duration-200 font-medium"
+              className="bg-scan-blue text-white px-6 py-2 rounded-full hover:bg-black transition-colors duration-200 font-medium"
             >
               Get Started
             </a>
@@ -105,7 +105,7 @@ const Header = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-600 hover:text-gray-900 p-2"
             >
-              <OttoIcon
+              <ScanIcon
                 name={isMobileMenuOpen ? 'close-outline' : 'menu-outline'}
                 size={24}
                 className="h-6 w-6"
@@ -150,7 +150,7 @@ const Header = () => {
                   </a>
                   <a
                     href={getMerchantPortalUrl()}
-                    className="block bg-otto-blue text-white px-4 py-2 rounded-full text-center hover:bg-black transition-colors duration-200"
+                    className="block bg-scan-blue text-white px-4 py-2 rounded-full text-center hover:bg-black transition-colors duration-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Get Started

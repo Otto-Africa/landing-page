@@ -10,10 +10,10 @@ const QRPayments = () => {
 	return (
 		<>
 			<SEO
-				title="QR Payments - Otto Africa"
-				description="Learn about Otto Africa's QR code payment solutions. Accept payments quickly and securely using QR codes for your business."
-				keywords="QR payments, QR code payments, QR code, payment solutions, Otto Africa QR"
-				url="https://ottoafrica.com/about/qr-payments"
+				title="QR Payments - Scan Africa"
+				description="Learn about Scan Africa's QR code payment solutions. Accept payments quickly and securely using QR codes for your business."
+				keywords="QR payments, QR code payments, QR code, payment solutions, Scan Africa QR"
+				url="https://scanafrica.com/about/qr-payments"
 			/>
 			<Layout />
 		</>

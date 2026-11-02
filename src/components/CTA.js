@@ -11,14 +11,14 @@ const CTA = () => {
   const ctaRef = useScrollAnimation({ threshold: 0.1 });
 
   return (
-    <section ref={ctaRef} className="py-20 bg-otto-blue">
+    <section ref={ctaRef} className="py-20 bg-scan-blue">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-4xl md:text-5xl font-medium text-white mb-6 scroll-animate">
             Ready to Get Started?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto scroll-animate delay-100">
-            Join thousands of businesses already using Otto to accept payments,
+            Join thousands of businesses already using Scan to accept payments,
             manage gift cards, and build customer loyalty. Download the app or
             sign up today.
           </p>
@@ -26,13 +26,13 @@ const CTA = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 scroll-animate delay-200">
             <a
               href={merchantPortalUrl}
-              className="bg-white text-otto-blue px-8 py-4 rounded-full hover:bg-gray-50 transition-all duration-300 font-semibold text-lg transform hover:scale-105"
+              className="bg-white text-scan-blue px-8 py-4 rounded-full hover:bg-gray-50 transition-all duration-300 font-semibold text-lg transform hover:scale-105"
             >
               Get Started
             </a>
             <div className="flex gap-3 justify-center scroll-animate delay-300">
               <a
-                href="https://play.google.com/store/apps/details?id=com.otto.customer"
+                href="https://play.google.com/store/apps/details?id=com.scan.customer"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-black text-white px-6 py-4 rounded-full hover:bg-gray-800 transition-colors duration-200 font-medium text-sm flex items-center gap-2"
@@ -47,7 +47,7 @@ const CTA = () => {
                 Google Play
               </a>
               <a
-                href="https://apps.apple.com/app/otto-mobile/id1234567890"
+                href="https://apps.apple.com/app/scan-mobile/id1234567890"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-black text-white px-6 py-4 rounded-full hover:bg-gray-800 transition-colors duration-200 font-medium text-sm flex items-center gap-2"

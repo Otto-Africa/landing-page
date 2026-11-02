@@ -23,15 +23,15 @@ const IosSdkDocs = () => {
   return (
     <>
       <SEO
-        title="iOS SDK - Otto Africa API Documentation"
-        description="Integrate Otto payments in iOS apps using the Otto iOS SDK."
-        keywords="Otto iOS SDK, Swift payment sdk, iOS payment integration"
-        url="https://ottoafrica.com/docs/sdks/ios"
+        title="iOS SDK - Scan Africa API Documentation"
+        description="Integrate Scan payments in iOS apps using the Scan iOS SDK."
+        keywords="Scan iOS SDK, Swift payment sdk, iOS payment integration"
+        url="https://scanafrica.com/docs/sdks/ios"
       />
       <DocsLayout
         currentPage="/docs/sdks"
         onThisPageItems={onThisPageItems}
-        nutshell="Integrate Otto payment flows in iOS using a server-initialized access code and a native payment sheet."
+        nutshell="Integrate Scan payment flows in iOS using a server-initialized access code and a native payment sheet."
       >
         <div className="docs-content">
           <h1 id="introduction">iOS SDK</h1>
@@ -39,7 +39,7 @@ const IosSdkDocs = () => {
           <DocsOpener
             lead="The iOS SDK shows a native payment sheet. Your server still starts the transaction. The app only presents UI."
             when="Use the iOS SDK when a native app must take card or wallet checkout. Do not put a live API key in the app."
-            why="The sheet keeps PAN entry off your screens. Otto still owns the collect record because initialize happens on the server."
+            why="The sheet keeps PAN entry off your screens. Scan still owns the collect record because initialize happens on the server."
             how="Initialize on the server with a Bearer key. Pass the access code to the app. Present the payment sheet. Handle the result, then confirm with GET or a webhook."
           />
 
@@ -54,7 +54,7 @@ const IosSdkDocs = () => {
           <p>Add the SDK using Swift Package Manager:</p>
           <CodeBlock
             language="swift"
-            code={`dependencies: [\n  .package(url: "https://github.com/ottoafrica/otto-ios-sdk.git", from: "0.1.0")\n]`}
+            code={`dependencies: [\n  .package(url: "https://github.com/scanafrica/scan-ios-sdk.git", from: "0.1.0")\n]`}
           />
 
           <h2 id="initialize">Initialize transaction</h2>
@@ -66,7 +66,7 @@ const IosSdkDocs = () => {
             language="bash"
             requestMethod="POST"
             requestUrl="/api/merchant/transactions/initialize"
-            code={`curl -X POST "https://api.ottoafrica.com/api/merchant/transactions/initialize" \\
+            code={`curl -X POST "https://api.scanafrica.com/api/merchant/transactions/initialize" \\
   -H "Authorization: Bearer sk_live_or_test_key" \\
   -H "Content-Type: application/json" \\
   -d '{\n    "email":"customer@email.com",\n    "amount":500000\n  }'`}
@@ -75,7 +75,7 @@ const IosSdkDocs = () => {
           <h2 id="payment-sheet">Payment sheet</h2>
           <CodeBlock
             language="swift"
-            code={`import OttoIOSSDK\n\nlet paymentSheet = OttoPaymentSheet()\npaymentSheet.present(accessCode: accessCode, from: self)`}
+            code={`import ScanIOSSDK\n\nlet paymentSheet = ScanPaymentSheet()\npaymentSheet.present(accessCode: accessCode, from: self)`}
           />
 
           <h2 id="result">Payment result</h2>

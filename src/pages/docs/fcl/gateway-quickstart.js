@@ -39,10 +39,10 @@ const GatewayQuickstart = () => {
     <>
       <SEO
         noindex
-        title="Payment Gateway Quickstart - Otto Africa Documentation"
+        title="Payment Gateway Quickstart - Scan Africa Documentation"
         description="Collect GHS with the FCL Payment Gateway: create an API key, register a webhook, then create a collection."
         keywords="FCL Payment Gateway quickstart, mobile money collection"
-        url="https://ottoafrica.com/fcl/gateway-quickstart"
+        url="https://scanafrica.com/fcl/gateway-quickstart"
       />
       <DocsLayout
         currentPage="/fcl/gateway-quickstart"
@@ -54,7 +54,7 @@ const GatewayQuickstart = () => {
 
           <DocsOpener
             lead="This procedure collects GHS from a mobile-money wallet. Card checkout and disbursements use the same pattern."
-            when="Use this page for the first Gateway collect in a lab. Do not use it as the Otto partner quickstart."
+            when="Use this page for the first Gateway collect in a lab. Do not use it as the Scan partner quickstart."
             why="Create, providerRef, webhook, then poll is the order that avoids treating HTTP 200 as paid."
             how="Send X-Api-Key. Create the request. Keep providerRef. Wait for the webhook. Poll status as a backup."
           />

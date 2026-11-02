@@ -10,7 +10,7 @@ const Testimonials = () => {
   const testimonialsRef = useScrollAnimation({ threshold: 0.1 });
   const testimonials = [
     {
-      quote: "Otto transformed our payment process. Our customers love the QR payment system - it's fast, secure, and incredibly easy to use.",
+      quote: "Scan transformed our payment process. Our customers love the QR payment system - it's fast, secure, and incredibly easy to use.",
       author: "Sarah Johnson",
       role: "CEO, TechStart Ghana",
       company: "TechStart Ghana",
@@ -24,14 +24,14 @@ const Testimonials = () => {
       avatar: "/img/team-2.jpg"
     },
     {
-      quote: "Otto's loyalty program keeps our customers coming back. The points system is intuitive and the analytics are game-changing for our business.",
+      quote: "Scan's loyalty program keeps our customers coming back. The points system is intuitive and the analytics are game-changing for our business.",
       author: "Grace Mensah",
       role: "Marketing Director, Urban Eats",
       company: "Urban Eats",
       avatar: "/img/team-3.jpg"
     },
     {
-      quote: "We've tried many payment solutions, but Otto stands out. The API is robust, the support is excellent, and our integration was seamless.",
+      quote: "We've tried many payment solutions, but Scan stands out. The API is robust, the support is excellent, and our integration was seamless.",
       author: "David Nkrumah",
       role: "CTO, FinTech Solutions",
       company: "FinTech Solutions",
@@ -47,7 +47,7 @@ const Testimonials = () => {
             Loved by Businesses Across Ghana
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto scroll-animate delay-100">
-            See what our customers say about transforming their business with Otto.
+            See what our customers say about transforming their business with Scan.
           </p>
         </div>
 

@@ -1,4 +1,4 @@
-/* Otto Developer Documentation Styles */
+/* Scan Developer Documentation Styles */
 
 .docs-container {
   font-family: 'Google Sans', system-ui, sans-serif;
@@ -393,12 +393,12 @@
   border: 1px solid #e5e7eb;
 }
 
-/* Otto Blue Color */
-.text-otto-blue {
+/* Scan Blue Color */
+.text-scan-blue {
   color: #1B3359;
 }
 
-.bg-otto-blue {
+.bg-scan-blue {
   background-color: #1B3359;
 }
 

@@ -30,10 +30,10 @@ const FclGateway = () => {
     <>
       <SEO
         noindex
-        title="FCL Payment Gateway - Otto Africa Documentation"
+        title="FCL Payment Gateway - Scan Africa Documentation"
         description="FCL Payment Gateway for collections, disbursements, name enquiry, and webhooks."
         keywords="FCL Payment Gateway, mobile money, disbursement, GhIPSS, MojoPay"
-        url="https://ottoafrica.com/fcl/gateway"
+        url="https://scanafrica.com/fcl/gateway"
       />
       <DocsLayout
         currentPage="/fcl/gateway"
@@ -45,7 +45,7 @@ const FclGateway = () => {
 
           <DocsOpener
             lead="Payment Gateway collects GHS and pays out GHS for the merchant. Rails include mobile money, MojoPay card checkout, and bank transfer with GhIPSS name enquiry."
-            when="Use Gateway when Otto must debit or credit an external rail. Use Unified for PIN and customer products. Use Core Banking for ledger posts."
+            when="Use Gateway when Scan must debit or credit an external rail. Use Unified for PIN and customer products. Use Core Banking for ledger posts."
             why="Gateway owns providerRef and webhook SUCCESS. That is the rail result. It is not a Core Banking booking."
             how="Send X-Api-Key. Create the collection or disbursement. Keep providerRef. Wait for the webhook. Poll status as a backup."
           />

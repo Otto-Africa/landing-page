@@ -30,9 +30,9 @@ const Checkout = () => {
     return (
       <div className="min-h-screen bg-white flex flex-col">
         <SEO
-          title="Checkout - Otto Africa"
+          title="Checkout - Scan Africa"
           description="Complete your subscription purchase"
-          url="https://ottoafrica.com/checkout"
+          url="https://scanafrica.com/checkout"
         />
         <Header />
 
@@ -44,11 +44,11 @@ const Checkout = () => {
               </h1>
               <p className="text-xl text-gray-600 mb-8 scroll-animate delay-100">
                 Please select a subscription plan from the{" "}
-                <a href={getMerchantPortalUrl("/settings?tab=subscription")} className="text-otto-blue hover:text-black">
+                <a href={getMerchantPortalUrl("/settings?tab=subscription")} className="text-scan-blue hover:text-black">
                   merchant portal
                 </a>{" "}
                 or{" "}
-                <a href="/pricing" className="text-otto-blue hover:text-black">
+                <a href="/pricing" className="text-scan-blue hover:text-black">
                   view our pricing page
                 </a>
                 .
@@ -65,14 +65,14 @@ const Checkout = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO
-        title="Redirecting - Otto Africa"
+        title="Redirecting - Scan Africa"
         description="Redirecting to merchant portal"
-        url="https://ottoafrica.com/checkout"
+        url="https://scanafrica.com/checkout"
       />
       <Header />
       <section ref={heroRef} className="flex-1 bg-white flex items-center justify-center min-h-0">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-otto-blue mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-scan-blue mx-auto mb-4"></div>
           <p className="text-gray-600">Redirecting to merchant portal...</p>
         </div>
       </section>

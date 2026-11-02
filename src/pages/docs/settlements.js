@@ -25,10 +25,10 @@ const Settlements = () => {
   return (
     <>
       <SEO
-        title="Settlements API - Otto Africa API Documentation"
-        description="Learn how to track settlements, view balance, and manage payouts using Otto Africa API. Complete settlements guide."
-        keywords="settlements API, payout management, settlement balance, payment settlements, Otto settlements"
-        url="https://ottoafrica.com/docs/settlements"
+        title="Settlements API - Scan Africa API Documentation"
+        description="Learn how to track settlements, view balance, and manage payouts using Scan Africa API. Complete settlements guide."
+        keywords="settlements API, payout management, settlement balance, payment settlements, Scan settlements"
+        url="https://scanafrica.com/docs/settlements"
       />
       <DocsLayout
         currentPage="/docs/settlements"
@@ -40,9 +40,9 @@ const Settlements = () => {
         <h1 id="overview">Settlements API</h1>
 
         <DocsOpener
-          lead="A settlement is the batch of funds Otto pays to your business after collects complete. This page is history, balance, and upcoming payouts."
+          lead="A settlement is the batch of funds Scan pays to your business after collects complete. This page is history, balance, and upcoming payouts."
           when="Use settlements when you reconcile bank receipts or check available balance. Use transactions for line-level events. Use payouts when you send money out now."
-          why="Collect success is not the same as money in your bank. Settlement records close that gap so finance can match Otto to the statement."
+          why="Collect success is not the same as money in your bank. Settlement records close that gap so finance can match Scan to the statement."
           how="Authenticate. GET /api/merchant/settlements for history. GET a settlement ID for detail. Read current balance and upcoming settlement endpoints when you plan cash."
         />
 
@@ -81,7 +81,7 @@ const Settlements = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="bash"
-                  code={`curl -X GET "https://api.ottoafrica.com/api/merchant/settlements?page=1&per_page=10&status=paid" \\
+                  code={`curl -X GET "https://api.scanafrica.com/api/merchant/settlements?page=1&per_page=10&status=paid" \\
   -H "Authorization: Bearer your_api_key"`}
                 />
               </div>
@@ -90,7 +90,7 @@ const Settlements = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="javascript"
-                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/settlements?page=1&per_page=10&status=paid', {
+                  code={`const response = await fetch('https://api.scanafrica.com/api/merchant/settlements?page=1&per_page=10&status=paid', {
   method: 'GET',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -109,7 +109,7 @@ const data = await response.json();`}
                   code={`import requests
 
 response = requests.get(
-    'https://api.ottoafrica.com/api/merchant/settlements',
+    'https://api.scanafrica.com/api/merchant/settlements',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -211,7 +211,7 @@ data = response.json()`}
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/settlements/settlement_123" \\
+          code={`curl -X GET "https://api.scanafrica.com/api/merchant/settlements/settlement_123" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -247,7 +247,7 @@ data = response.json()`}
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/settlements/balance" \\
+          code={`curl -X GET "https://api.scanafrica.com/api/merchant/settlements/balance" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -278,7 +278,7 @@ data = response.json()`}
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/settlements/upcoming" \\
+          code={`curl -X GET "https://api.scanafrica.com/api/merchant/settlements/upcoming" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -290,7 +290,7 @@ data = response.json()`}
         <div className="docs-alert success">
           <strong>Need Help?</strong> Check the{" "}
           <a
-            href="https://api.ottoafrica.com/api/docs"
+            href="https://api.scanafrica.com/api/docs"
             className="underline"
             target="_blank"
             rel="noopener noreferrer"

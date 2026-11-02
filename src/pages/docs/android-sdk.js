@@ -15,7 +15,7 @@ const AndroidSdkDocs = () => {
     { href: "#when-why-how", label: "When, why, and how" },
     { href: "#requirements", label: "Project requirements" },
     { href: "#installation", label: "Installation" },
-    { href: "#builder", label: "Otto builder" },
+    { href: "#builder", label: "Scan builder" },
     { href: "#initialize", label: "Initialize transaction" },
     { href: "#payment-sheet", label: "Payment sheet" },
     { href: "#result", label: "Payment result" },
@@ -24,10 +24,10 @@ const AndroidSdkDocs = () => {
   return (
     <>
       <SEO
-        title="Android SDK - Otto Africa API Documentation"
-        description="Integrate Otto payments in Android apps using our SDK."
-        keywords="Otto Android SDK, mobile payment sdk, Android payment integration"
-        url="https://ottoafrica.com/docs/sdks/android"
+        title="Android SDK - Scan Africa API Documentation"
+        description="Integrate Scan payments in Android apps using our SDK."
+        keywords="Scan Android SDK, mobile payment sdk, Android payment integration"
+        url="https://scanafrica.com/docs/sdks/android"
       />
       <DocsLayout currentPage="/docs/sdks" onThisPageItems={onThisPageItems}>
         <div className="docs-content">
@@ -36,8 +36,8 @@ const AndroidSdkDocs = () => {
           <DocsOpener
             lead="The Android SDK shows a payment sheet after your server initializes a transaction."
             when="Use the Android SDK for native checkout. Do not put a live API key in the APK."
-            why="PAN entry belongs in Otto UI. The collect still starts on your server so you control amount and metadata."
-            how="POST initialize with a Bearer key. Pass the access code to OttoBuilder. Present the sheet. Confirm with GET or a webhook."
+            why="PAN entry belongs in Scan UI. The collect still starts on your server so you control amount and metadata."
+            how="POST initialize with a Bearer key. Pass the access code to ScanBuilder. Present the sheet. Confirm with GET or a webhook."
           />
 
           <h2 id="requirements">Project requirements</h2>
@@ -51,24 +51,24 @@ const AndroidSdkDocs = () => {
 
           <h2 id="installation">Installation</h2>
           <p>
-            Add the Otto Android UI package to your app-level dependencies:
+            Add the Scan Android UI package to your app-level dependencies:
           </p>
           <CodeBlock
             language="gradle"
-            code={`dependencies {\n  implementation "com.otto.android:otto-ui:0.1.0"\n}`}
+            code={`dependencies {\n  implementation "com.scan.android:scan-ui:0.1.0"\n}`}
           />
           <p>
             Sync your project and confirm the SDK classes are available in your
             app module.
           </p>
 
-          <h2 id="builder">Otto builder</h2>
+          <h2 id="builder">Scan builder</h2>
           <p>
-            Initialize Otto in your app startup path using the builder pattern.
+            Initialize Scan in your app startup path using the builder pattern.
           </p>
           <CodeBlock
             language="kotlin"
-            code={`import com.otto.android.core.Otto\n\nOtto.builder()\n  .setPublicKey("pk_test_xxxxx")\n  .setLoggingEnabled(true)\n  .build()`}
+            code={`import com.scan.android.core.Scan\n\nScan.builder()\n  .setPublicKey("pk_test_xxxxx")\n  .setLoggingEnabled(true)\n  .build()`}
           />
 
           <h2 id="initialize">Initialize transaction</h2>
@@ -78,7 +78,7 @@ const AndroidSdkDocs = () => {
           </p>
           <CodeBlock
             language="bash"
-            code={`curl -X POST "https://api.ottoafrica.com/api/merchant/transactions/initialize" \\\n  -H "Authorization: Bearer sk_live_or_test_key" \\\n  -H "Content-Type: application/json" \\\n  -d '{\n    "email": "customer@email.com",\n    "amount": 500000\n  }'`}
+            code={`curl -X POST "https://api.scanafrica.com/api/merchant/transactions/initialize" \\\n  -H "Authorization: Bearer sk_live_or_test_key" \\\n  -H "Content-Type: application/json" \\\n  -d '{\n    "email": "customer@email.com",\n    "amount": 500000\n  }'`}
           />
           <p>
             Return the generated `access_code` to your Android app, then launch
@@ -92,7 +92,7 @@ const AndroidSdkDocs = () => {
           </p>
           <CodeBlock
             language="kotlin"
-            code={`import com.otto.android.ui.paymentsheet.PaymentSheet\n\nprivate lateinit var paymentSheet: PaymentSheet\n\noverride fun onCreate(savedInstanceState: Bundle?) {\n  super.onCreate(savedInstanceState)\n  paymentSheet = PaymentSheet(this, ::onPaymentComplete)\n}\n\nfun pay(accessCode: String) {\n  paymentSheet.launch(accessCode)\n}`}
+            code={`import com.scan.android.ui.paymentsheet.PaymentSheet\n\nprivate lateinit var paymentSheet: PaymentSheet\n\noverride fun onCreate(savedInstanceState: Bundle?) {\n  super.onCreate(savedInstanceState)\n  paymentSheet = PaymentSheet(this, ::onPaymentComplete)\n}\n\nfun pay(accessCode: String) {\n  paymentSheet.launch(accessCode)\n}`}
           />
 
           <h2 id="result">Payment result</h2>

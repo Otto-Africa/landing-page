@@ -26,10 +26,10 @@ const GettingStarted = () => {
   return (
     <>
       <SEO
-        title="Getting Started - Otto Africa API Documentation"
-        description="Get started with Otto Africa API. Learn how to create API keys, make your first API call, and integrate payments, gift cards, and loyalty programs."
-        keywords="Otto API getting started, API integration guide, create API key, first API call, payment integration"
-        url="https://ottoafrica.com/docs/getting-started"
+        title="Getting Started - Scan Africa API Documentation"
+        description="Get started with Scan Africa API. Learn how to create API keys, make your first API call, and integrate payments, gift cards, and loyalty programs."
+        keywords="Scan API getting started, API integration guide, create API key, first API call, payment integration"
+        url="https://scanafrica.com/docs/getting-started"
       />
       <DocsLayout
         currentPage="/docs/getting-started"
@@ -38,16 +38,16 @@ const GettingStarted = () => {
       nutshell="Create an API key in your Merchant Portal, authenticate requests with Bearer tokens, and start making API calls."
     >
       <div className="docs-content">
-        <h1 id="overview">Getting Started with Otto API</h1>
+        <h1 id="overview">Getting Started with Scan API</h1>
 
         <DocsOpener
-          lead="This guide shows a partner how to call the Otto API for the first time. Otto is the public gateway at https://api.ottoafrica.com."
+          lead="This guide shows a partner how to call the Scan API for the first time. Scan is the public gateway at https://api.scanafrica.com."
           when="Use this page when you start a new integration. You need a Merchant Portal account and an API key before collect, loyalty, or gift card calls."
           why="One host and one Bearer key is enough to reach Payments, Identity, Loyalty, LLM, and Accounting. You do not call provider hosts from your app."
           how="Create an API key in the Merchant Portal. Send Authorization: Bearer YOUR_API_KEY. Start with GET /api/merchant/transactions, then create a resource such as a gift card template or a collect."
         />
 
-        <h2 id="what-you-can-do">What You Can Do with Otto API</h2>
+        <h2 id="what-you-can-do">What You Can Do with Scan API</h2>
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           <div className="docs-card">
@@ -61,7 +61,7 @@ const GettingStarted = () => {
           <div className="docs-card">
             <h3 className="text-lg font-semibold mb-2">💰 Payments</h3>
             <p className="text-gray-600">
-              Collect invoices and pay out to wallets or bank accounts through Otto.
+              Collect invoices and pay out to wallets or bank accounts through Scan.
             </p>
           </div>
 
@@ -102,7 +102,7 @@ const GettingStarted = () => {
         </p>
 
         <ol className="list-decimal list-inside space-y-2 mb-6">
-          <li>Log in to your <a href={getMerchantPortalUrl()} className="text-otto-blue hover:underline">Merchant Portal</a></li>
+          <li>Log in to your <a href={getMerchantPortalUrl()} className="text-scan-blue hover:underline">Merchant Portal</a></li>
           <li>Navigate to <strong>Settings → API</strong></li>
           <li>Click <strong>"Create API Key"</strong></li>
           <li>Give your key a descriptive name (e.g., "Production E-commerce Integration")</li>
@@ -127,10 +127,10 @@ const GettingStarted = () => {
           requestMethod="GET"
           requestUrl="/api/merchant/transactions"
           examples={{
-            curl: `curl -X GET "https://api.ottoafrica.com/api/merchant/transactions" \\
+            curl: `curl -X GET "https://api.scanafrica.com/api/merchant/transactions" \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json"`,
-            javascript: `const response = await fetch('https://api.ottoafrica.com/api/merchant/transactions', {
+            javascript: `const response = await fetch('https://api.scanafrica.com/api/merchant/transactions', {
   method: 'GET',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -143,7 +143,7 @@ console.log(data);`,
             python: `import requests
 
 response = requests.get(
-    'https://api.ottoafrica.com/api/merchant/transactions',
+    'https://api.scanafrica.com/api/merchant/transactions',
     headers={
         'Authorization': 'Bearer YOUR_API_KEY',
         'Content-Type': 'application/json'
@@ -175,7 +175,7 @@ print(data)`
           requestMethod="POST"
           requestUrl="/api/merchant/giftcard-templates"
           examples={{
-            curl: `curl -X POST "https://api.ottoafrica.com/api/merchant/giftcard-templates" \\
+            curl: `curl -X POST "https://api.scanafrica.com/api/merchant/giftcard-templates" \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -185,7 +185,7 @@ print(data)`
     "currency": "GHS",
     "expires_in_days": 365
   }'`,
-            javascript: `const response = await fetch('https://api.ottoafrica.com/api/merchant/giftcard-templates', {
+            javascript: `const response = await fetch('https://api.scanafrica.com/api/merchant/giftcard-templates', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -205,7 +205,7 @@ console.log(data);`,
             python: `import requests
 
 response = requests.post(
-    'https://api.ottoafrica.com/api/merchant/giftcard-templates',
+    'https://api.scanafrica.com/api/merchant/giftcard-templates',
     headers={
         'Authorization': 'Bearer YOUR_API_KEY',
         'Content-Type': 'application/json'
@@ -249,7 +249,7 @@ print(data)`
         </ol>
 
         <p>
-          Learn more about webhooks in our <a href="/docs/webhooks" className="text-otto-blue hover:underline">Webhooks guide</a>.
+          Learn more about webhooks in our <a href="/docs/webhooks" className="text-scan-blue hover:underline">Webhooks guide</a>.
         </p>
 
         <h2>Step 5: Go Live</h2>
@@ -260,7 +260,7 @@ print(data)`
 
         <ul className="list-disc list-inside space-y-2 mb-6">
           <li>Replace test API keys (starting with <code>sk_test_</code>) with live keys (starting with <code>sk_live_</code>)</li>
-          <li>The API endpoint remains the same: <code>https://api.ottoafrica.com</code></li>
+          <li>The API endpoint remains the same: <code>https://api.scanafrica.com</code></li>
           <li>Update webhook URLs to production endpoints</li>
           <li>Implement proper error handling and retries</li>
           <li>Monitor your API usage in the Merchant Portal</li>
@@ -274,27 +274,27 @@ print(data)`
         </p>
 
         <div className="grid md:grid-cols-2 gap-4 mb-8">
-          <a href="/docs/payments" className="docs-card p-4 transition-all duration-200 hover:border-otto-blue">
+          <a href="/docs/payments" className="docs-card p-4 transition-all duration-200 hover:border-scan-blue">
             <h3 className="font-semibold mb-2">Payments</h3>
-            <p className="text-sm text-gray-600">Collect invoices and send payouts through Otto</p>
+            <p className="text-sm text-gray-600">Collect invoices and send payouts through Scan</p>
           </a>
 
-          <a href="/docs/identity" className="docs-card p-4 transition-all duration-200 hover:border-otto-blue">
+          <a href="/docs/identity" className="docs-card p-4 transition-all duration-200 hover:border-scan-blue">
             <h3 className="font-semibold mb-2">Identity</h3>
             <p className="text-sm text-gray-600">Login, API keys, PIN, and sessions</p>
           </a>
 
-          <a href="/docs/loyalty" className="docs-card p-4 transition-all duration-200 hover:border-otto-blue">
+          <a href="/docs/loyalty" className="docs-card p-4 transition-all duration-200 hover:border-scan-blue">
             <h3 className="font-semibold mb-2">Loyalty Management</h3>
             <p className="text-sm text-gray-600">Programs, members, and rewards</p>
           </a>
 
-          <a href="/docs/llm" className="docs-card p-4 transition-all duration-200 hover:border-otto-blue">
+          <a href="/docs/llm" className="docs-card p-4 transition-all duration-200 hover:border-scan-blue">
             <h3 className="font-semibold mb-2">LLM Conversations</h3>
             <p className="text-sm text-gray-600">CosmoLLM chat, cases, and actions</p>
           </a>
 
-          <a href="/docs/accounting" className="docs-card p-4 transition-all duration-200 hover:border-otto-blue">
+          <a href="/docs/accounting" className="docs-card p-4 transition-all duration-200 hover:border-scan-blue">
             <h3 className="font-semibold mb-2">Accounting</h3>
             <p className="text-sm text-gray-600">Sales, bills, tax, and reconcile</p>
           </a>
@@ -302,7 +302,7 @@ print(data)`
 
         <div className="docs-alert success">
           <strong>Need Help?</strong> Check out our <a href="/docs/support" className="underline">Support page</a> or
-          visit the <a href="https://api.ottoafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for detailed documentation.
+          visit the <a href="https://api.scanafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for detailed documentation.
         </div>
       </div>
     </DocsLayout>

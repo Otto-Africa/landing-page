@@ -16,10 +16,10 @@ const AccountDeletion = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title={`How to Delete Your ${userType === 'merchant' ? 'Business' : 'Customer'} Account - Otto Africa`}
-        description={`Learn how to delete your Otto Africa ${userType} account. Step-by-step instructions and important information.`}
-        keywords={`delete account, account deletion, remove account, Otto Africa ${userType} deletion`}
-        url="https://ottoafrica.com/account-deletion"
+        title={`How to Delete Your ${userType === 'merchant' ? 'Business' : 'Customer'} Account - Scan Africa`}
+        description={`Learn how to delete your Scan Africa ${userType} account. Step-by-step instructions and important information.`}
+        keywords={`delete account, account deletion, remove account, Scan Africa ${userType} deletion`}
+        url="https://scanafrica.com/account-deletion"
       />
       <Header />
 
@@ -70,7 +70,7 @@ const AccountDeletion = () => {
                 </h2>
                 <ol className="list-decimal pl-6 mb-6 text-gray-700 space-y-4">
                   <li>
-                    <strong>Open the Otto Merchant App</strong> on your mobile device
+                    <strong>Open the Scan Merchant App</strong> on your mobile device
                   </li>
                   <li>
                     <strong>Navigate to Profile:</strong> Tap on your profile icon or menu, then select "Profile"
@@ -141,7 +141,7 @@ const AccountDeletion = () => {
                 </h2>
                 <ol className="list-decimal pl-6 mb-6 text-gray-700 space-y-4">
                   <li>
-                    <strong>Open the Otto Customer App</strong> on your mobile device
+                    <strong>Open the Scan Customer App</strong> on your mobile device
                   </li>
                   <li>
                     <strong>Navigate to Profile:</strong> Tap on your profile icon or menu, then select "Profile"
@@ -207,7 +207,7 @@ const AccountDeletion = () => {
               <ul className="list-none pl-0 mb-6 text-gray-700 space-y-2">
                 <li className="flex items-center">
                   <span className="font-semibold w-24">Email:</span>
-                  <a href="mailto:support@ottoafrica.com" className="text-otto-blue hover:underline">support@ottoafrica.com</a>
+                  <a href="mailto:support@scanafrica.com" className="text-scan-blue hover:underline">support@scanafrica.com</a>
                 </li>
                 <li className="flex items-center">
                   <span className="font-semibold w-24">In-App:</span>

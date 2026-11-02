@@ -25,10 +25,10 @@ const GatewayWebhooks = () => {
     <>
       <SEO
         noindex
-        title="Payment Gateway Webhooks - Otto Africa Documentation"
+        title="Payment Gateway Webhooks - Scan Africa Documentation"
         description="Register and handle FCL Payment Gateway callback notifications."
         keywords="FCL webhook, callbackUrl, payment status"
-        url="https://ottoafrica.com/fcl/gateway-webhooks"
+        url="https://scanafrica.com/fcl/gateway-webhooks"
       />
       <DocsLayout
         currentPage="/fcl/gateway-webhooks"
@@ -40,8 +40,8 @@ const GatewayWebhooks = () => {
 
           <DocsOpener
             lead="Gateway posts JSON to a callback URL when a transaction reaches SUCCESS or FAILED. That callback is the primary success signal."
-            when="Use this page when Otto must trust rail completion. Polls can stay PENDING while the webhook holds the real result."
-            why="Create HTTP 200 is only accepted. Without the webhook, Otto cannot mark collect paid on the rail."
+            when="Use this page when Scan must trust rail completion. Polls can stay PENDING while the webhook holds the real result."
+            why="Create HTTP 200 is only accepted. Without the webhook, Scan cannot mark collect paid on the rail."
             how="Register a default callback or pass callbackUrl on create. Verify the post. Then poll status as backup."
           />
 

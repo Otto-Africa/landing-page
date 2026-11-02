@@ -7,7 +7,7 @@ import DocsOpener from "../../components/DocsOpener";
 import "./docs.css";
 
 /**
- * Otto funding-flow API.
+ * Scan funding-flow API.
  */
 const FundingFlows = () => {
   const onThisPageItems = [
@@ -27,23 +27,23 @@ const FundingFlows = () => {
   return (
     <>
       <SEO
-        title="Funding Flows API - Otto Africa Documentation"
-        description="Start wallet, savings, investment, and pay funding flows on the Otto API."
-        keywords="Otto funding flows, wallet top-up, payout, savings"
-        url="https://ottoafrica.com/docs/funding-flows"
+        title="Funding Flows API - Scan Africa Documentation"
+        description="Start wallet, savings, investment, and pay funding flows on the Scan API."
+        keywords="Scan funding flows, wallet top-up, payout, savings"
+        url="https://scanafrica.com/docs/funding-flows"
       />
       <DocsLayout
         currentPage="/docs/funding-flows"
         onThisPageItems={onThisPageItems}
-        nutshell="Start a funding flow on Otto. Read the snapshot. Refresh only when you resume a pending step."
+        nutshell="Start a funding flow on Scan. Read the snapshot. Refresh only when you resume a pending step."
       >
         <div className="docs-content">
           <h1 id="overview">Funding flows</h1>
 
           <DocsOpener
-            lead="A funding flow is one Otto operation that deposits, transfers, or pays out money for a product. Otto tracks the steps until the flow completes or needs review."
-            when="Use a funding flow when a customer or merchant funds a wallet, savings plan, or investment, or when Otto must pay out from that product. Do not use it for a simple collect invoice. Use Payments collect for that."
-            why="Otto must keep one record for a multi-step money movement. The flow ID lets you read status, resume a pending step, and reconcile later. Without a flow, you cannot tell if a MoMo debit landed in the product."
+            lead="A funding flow is one Scan operation that deposits, transfers, or pays out money for a product. Scan tracks the steps until the flow completes or needs review."
+            when="Use a funding flow when a customer or merchant funds a wallet, savings plan, or investment, or when Scan must pay out from that product. Do not use it for a simple collect invoice. Use Payments collect for that."
+            why="Scan must keep one record for a multi-step money movement. The flow ID lets you read status, resume a pending step, and reconcile later. Without a flow, you cannot tell if a MoMo debit landed in the product."
             how="Call POST /api/merchant/funding-flows or the customer path with product, mode, amountMinor, and a six-digit transaction PIN. Then GET the flow ID for a snapshot. POST /refresh only when you resume an authorized pending step."
           />
 

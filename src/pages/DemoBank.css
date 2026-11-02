@@ -1,28 +1,28 @@
-/* Otto Demo Bank — tokens from UI_STYLE_GUIDE.md */
+/* Scan Demo Bank — tokens from UI_STYLE_GUIDE.md */
 .demo-bank-page {
-  --otto-primary: #1b3359;
-  --otto-primary-hover: #152847;
-  --otto-text-primary: #121212;
-  --otto-text-secondary: #575654;
-  --otto-text-tertiary: #98a2b3;
-  --otto-border: #e0e0e0;
-  --otto-border-strong: #c4c4c4;
-  --otto-success-bg: #ecfdf3;
-  --otto-success-text: #027a48;
-  --otto-success-border: #d1fadf;
-  --otto-danger-text: #e31b54;
-  --otto-focus-ring: #1b3359;
-  --otto-page-bg: #f5f7fa;
-  --otto-page-bg-end: #dbe9ff;
+  --scan-primary: #1b3359;
+  --scan-primary-hover: #152847;
+  --scan-text-primary: #121212;
+  --scan-text-secondary: #575654;
+  --scan-text-tertiary: #98a2b3;
+  --scan-border: #e0e0e0;
+  --scan-border-strong: #c4c4c4;
+  --scan-success-bg: #ecfdf3;
+  --scan-success-text: #027a48;
+  --scan-success-border: #d1fadf;
+  --scan-danger-text: #e31b54;
+  --scan-focus-ring: #1b3359;
+  --scan-page-bg: #f5f7fa;
+  --scan-page-bg-end: #dbe9ff;
 
   min-height: 100vh;
   background: linear-gradient(
     180deg,
-    var(--otto-page-bg) 0%,
-    var(--otto-page-bg-end) 100%
+    var(--scan-page-bg) 0%,
+    var(--scan-page-bg-end) 100%
   );
   padding: 2.5rem 1.25rem 3rem;
-  color: var(--otto-text-primary);
+  color: var(--scan-text-primary);
   font-family: "Google Sans", system-ui, sans-serif;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .demo-bank-logo {
-  color: var(--otto-text-secondary);
+  color: var(--scan-text-secondary);
   flex-shrink: 0;
   margin-top: 0.15rem;
 }
@@ -50,7 +50,7 @@
 .demo-bank-kicker {
   margin: 0;
   font-size: 0.875rem;
-  color: var(--otto-text-secondary);
+  color: var(--scan-text-secondary);
 }
 
 .demo-bank-header h1 {
@@ -58,24 +58,24 @@
   font-size: 1.75rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: var(--otto-text-primary);
+  color: var(--scan-text-primary);
 }
 
 .demo-bank-subtitle {
   margin: 0.75rem 0 0;
-  color: var(--otto-text-secondary);
+  color: var(--scan-text-secondary);
   line-height: 1.5;
   font-size: 0.9375rem;
 }
 
 .demo-bank-subtitle a {
-  color: var(--otto-primary);
+  color: var(--scan-primary);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .demo-bank-subtitle a:hover {
-  color: var(--otto-primary-hover);
+  color: var(--scan-primary-hover);
 }
 
 .demo-bank-card {
@@ -93,57 +93,57 @@
 }
 
 .demo-bank-rail-toggle button {
-  border: 1px solid var(--otto-border);
+  border: 1px solid var(--scan-border);
   background: #f9f9f9;
   border-radius: 999px;
   padding: 0.625rem 0.5rem;
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--otto-text-primary);
+  color: var(--scan-text-primary);
   cursor: pointer;
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .demo-bank-rail-toggle button:hover:not(.active) {
-  border-color: var(--otto-border-strong);
+  border-color: var(--scan-border-strong);
 }
 
 .demo-bank-rail-toggle button.active {
-  background: var(--otto-primary);
-  border-color: var(--otto-primary);
+  background: var(--scan-primary);
+  border-color: var(--scan-primary);
   color: #ffffff;
 }
 
 .demo-bank-beneficiary {
   padding: 0 0 1rem;
   margin-bottom: 1rem;
-  border-bottom: 1px solid var(--otto-border);
+  border-bottom: 1px solid var(--scan-border);
 }
 
 .demo-bank-section-label {
   margin: 0;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--otto-text-primary);
+  color: var(--scan-text-primary);
 }
 
 .demo-bank-beneficiary h2 {
   margin: 0.375rem 0 0;
   font-size: 1.0625rem;
   font-weight: 600;
-  color: var(--otto-text-primary);
+  color: var(--scan-text-primary);
 }
 
 .demo-bank-amount {
   margin: 0.25rem 0 0;
   font-size: 1.375rem;
   font-weight: 600;
-  color: var(--otto-text-primary);
+  color: var(--scan-text-primary);
 }
 
 .demo-bank-meta {
   margin: 0.25rem 0 0;
-  color: var(--otto-text-secondary);
+  color: var(--scan-text-secondary);
   font-size: 0.875rem;
 }
 
@@ -157,53 +157,53 @@
   gap: 0.375rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--otto-text-primary);
+  color: var(--scan-text-primary);
 }
 
 .demo-bank-form input,
 .demo-bank-form select {
-  border: 1px solid var(--otto-border);
+  border: 1px solid var(--scan-border);
   border-radius: 10px;
   padding: 0.75rem 0.875rem;
   font-size: 1rem;
   font-family: inherit;
-  color: var(--otto-text-primary);
+  color: var(--scan-text-primary);
   background: #ffffff;
 }
 
 .demo-bank-form input::placeholder {
-  color: var(--otto-text-tertiary);
+  color: var(--scan-text-tertiary);
 }
 
 .demo-bank-form input:focus,
 .demo-bank-form select:focus {
-  outline: 2px solid var(--otto-focus-ring);
+  outline: 2px solid var(--scan-focus-ring);
   outline-offset: 0;
-  border-color: var(--otto-focus-ring);
+  border-color: var(--scan-focus-ring);
 }
 
 .demo-bank-form input:read-only {
-  color: var(--otto-text-secondary);
+  color: var(--scan-text-secondary);
   background: #ffffff;
 }
 
 .demo-bank-hint {
   margin: -0.25rem 0 0;
-  color: var(--otto-text-secondary);
+  color: var(--scan-text-secondary);
   font-size: 0.875rem;
 }
 
 .demo-bank-error {
   margin: 0;
-  color: var(--otto-danger-text);
+  color: var(--scan-danger-text);
   font-size: 0.875rem;
   line-height: 1.45;
 }
 
 .demo-bank-success {
-  background: var(--otto-success-bg);
-  border: 1px solid var(--otto-success-border);
-  color: var(--otto-success-text);
+  background: var(--scan-success-bg);
+  border: 1px solid var(--scan-success-border);
+  color: var(--scan-success-text);
   border-radius: 10px;
   padding: 0.75rem 0.875rem;
   font-size: 0.875rem;
@@ -238,7 +238,7 @@
   margin-top: 0.25rem;
   border: none;
   border-radius: 999px;
-  background: var(--otto-primary);
+  background: var(--scan-primary);
   color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
@@ -249,7 +249,7 @@
 }
 
 .demo-bank-submit:hover:not(:disabled) {
-  background: var(--otto-primary-hover);
+  background: var(--scan-primary-hover);
 }
 
 .demo-bank-submit:disabled {
@@ -260,8 +260,8 @@
 .demo-bank-footnote {
   margin: 1.25rem 0 0;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--otto-border);
-  color: var(--otto-text-secondary);
+  border-top: 1px solid var(--scan-border);
+  color: var(--scan-text-secondary);
   font-size: 0.8125rem;
   line-height: 1.5;
 }
@@ -269,5 +269,5 @@
 .demo-bank-footnote code {
   font-family: "Google Sans Mono", ui-monospace, monospace;
   font-size: 0.8125rem;
-  color: var(--otto-text-primary);
+  color: var(--scan-text-primary);
 }

@@ -26,15 +26,15 @@ const JavascriptSdkDocs = () => {
   return (
     <>
       <SEO
-        title="JavaScript SDK - Otto Africa API Documentation"
-        description="Otto loyalty SDKs on npm: @ottoafrica/customer-sdk-js, events-sdk-node, loyalty-popup-widget."
-        keywords="Otto JavaScript SDK, Node SDK, loyalty SDK, npm"
-        url="https://ottoafrica.com/docs/sdks/javascript"
+        title="JavaScript SDK - Scan Africa API Documentation"
+        description="Scan loyalty SDKs on npm: @scanafrica/customer-sdk-js, events-sdk-node, loyalty-popup-widget."
+        keywords="Scan JavaScript SDK, Node SDK, loyalty SDK, npm"
+        url="https://scanafrica.com/docs/sdks/javascript"
       />
       <DocsLayout
         currentPage="/docs/sdks"
         onThisPageItems={onThisPageItems}
-        nutshell="Use @ottoafrica/* on npm (v0.1.1) for loyalty: browser customer SDK, server events SDK, optional popup. Payments still use REST + keys for initialize."
+        nutshell="Use @scanafrica/* on npm (v0.1.1) for loyalty: browser customer SDK, server events SDK, optional popup. Payments still use REST + keys for initialize."
       >
         <div className="docs-content">
           <h1 id="introduction">JavaScript & Node SDKs</h1>
@@ -43,7 +43,7 @@ const JavascriptSdkDocs = () => {
             lead="Published npm packages cover loyalty: merchant event triggers, customer-facing browser calls, and an optional popup."
             when="Use these packages when you fire loyalty events from Node or when a customer site must show loyalty UI. Initialize card payments on your server with REST, not in the browser SDK."
             why="Loyalty tokens and event shapes are easy to get wrong. The packages keep that contract in one place."
-            how="Install @ottoafrica/customer-sdk-js, @ottoafrica/events-sdk-node, or @ottoafrica/loyalty-popup-widget. Keep secret keys on the server. See install and initialize below."
+            how="Install @scanafrica/customer-sdk-js, @scanafrica/events-sdk-node, or @scanafrica/loyalty-popup-widget. Keep secret keys on the server. See install and initialize below."
           />
 
           <h2 id="published-npm">Published on npm</h2>
@@ -57,35 +57,35 @@ const JavascriptSdkDocs = () => {
           <ul className="list-disc pl-6 mb-6 text-gray-700">
             <li>
               <a
-                href="https://www.npmjs.com/package/@ottoafrica/customer-sdk-js"
+                href="https://www.npmjs.com/package/@scanafrica/customer-sdk-js"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#00B4D8] hover:underline"
               >
-                @ottoafrica/customer-sdk-js
+                @scanafrica/customer-sdk-js
               </a>{" "}
               — browser (or any JS runtime) client using a short-lived <strong>client token</strong> from{" "}
               <code>POST /api/auth/client-token</code>.
             </li>
             <li>
               <a
-                href="https://www.npmjs.com/package/@ottoafrica/events-sdk-node"
+                href="https://www.npmjs.com/package/@scanafrica/events-sdk-node"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#00B4D8] hover:underline"
               >
-                @ottoafrica/events-sdk-node
+                @scanafrica/events-sdk-node
               </a>{" "}
               — merchant server with API key; emit loyalty triggers / record activity.
             </li>
             <li>
               <a
-                href="https://www.npmjs.com/package/@ottoafrica/loyalty-popup-widget"
+                href="https://www.npmjs.com/package/@scanafrica/loyalty-popup-widget"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#00B4D8] hover:underline"
               >
-                @ottoafrica/loyalty-popup-widget
+                @scanafrica/loyalty-popup-widget
               </a>{" "}
               — optional helper to open a loyalty popup wired to the customer SDK.
             </li>
@@ -94,11 +94,11 @@ const JavascriptSdkDocs = () => {
           <h2 id="installation">Installation</h2>
           <CodeBlock
             language="bash"
-            code={`npm install @ottoafrica/customer-sdk-js
+            code={`npm install @scanafrica/customer-sdk-js
 # optional — merchant backend
-npm install @ottoafrica/events-sdk-node
+npm install @scanafrica/events-sdk-node
 # optional — popup helper (browser)
-npm install @ottoafrica/loyalty-popup-widget`}
+npm install @scanafrica/loyalty-popup-widget`}
           />
 
           <h2 id="initialize">Initialize transaction (payments)</h2>
@@ -114,7 +114,7 @@ npm install @ottoafrica/loyalty-popup-widget`}
             language="bash"
             requestMethod="POST"
             requestUrl="/api/merchant/transactions/initialize"
-            code={`curl -X POST "https://api.ottoafrica.com/api/merchant/transactions/initialize" \\
+            code={`curl -X POST "https://api.scanafrica.com/api/merchant/transactions/initialize" \\
   -H "Authorization: Bearer sk_live_or_test_key" \\
   -H "Content-Type: application/json" \\
   -d '{\n    "email":"customer@email.com",\n    "amount":500000\n  }'`}
@@ -122,14 +122,14 @@ npm install @ottoafrica/loyalty-popup-widget`}
 
           <h2 id="browser">Browser usage (customer SDK)</h2>
           <p>
-            Mint a client token on your server, then construct <code>OttoCustomerSdk</code> in the browser.
+            Mint a client token on your server, then construct <code>ScanCustomerSdk</code> in the browser.
           </p>
           <CodeBlock
             language="javascript"
-            code={`import { OttoCustomerSdk } from "@ottoafrica/customer-sdk-js";
+            code={`import { ScanCustomerSdk } from "@scanafrica/customer-sdk-js";
 
-const sdk = new OttoCustomerSdk({
-  baseUrl: "https://api.ottoafrica.com",
+const sdk = new ScanCustomerSdk({
+  baseUrl: "https://api.scanafrica.com",
   clientToken: "<from POST /api/auth/client-token>",
 });
 
@@ -141,11 +141,11 @@ console.log(res);`}
           <p>Server-side merchant automation with your API key (not the customer client token).</p>
           <CodeBlock
             language="javascript"
-            code={`import { OttoEventsSdk } from "@ottoafrica/events-sdk-node";
+            code={`import { ScanEventsSdk } from "@scanafrica/events-sdk-node";
 
-const events = new OttoEventsSdk({
-  baseUrl: "https://api.ottoafrica.com",
-  apiKey: process.env.OTTO_SECRET_KEY,
+const events = new ScanEventsSdk({
+  baseUrl: "https://api.scanafrica.com",
+  apiKey: process.env.SCAN_SECRET_KEY,
 });
 
 await events.trackTrigger("purchase_completed", {
@@ -158,15 +158,15 @@ await events.trackTrigger("purchase_completed", {
           <h2 id="popup">Popup widget (browser)</h2>
           <CodeBlock
             language="javascript"
-            code={`import { openOttoLoyaltyPopup } from "@ottoafrica/loyalty-popup-widget";
-import { OttoCustomerSdk } from "@ottoafrica/customer-sdk-js";
+            code={`import { openScanLoyaltyPopup } from "@scanafrica/loyalty-popup-widget";
+import { ScanCustomerSdk } from "@scanafrica/customer-sdk-js";
 
-const customerSdk = new OttoCustomerSdk({
-  baseUrl: "https://api.ottoafrica.com",
+const customerSdk = new ScanCustomerSdk({
+  baseUrl: "https://api.scanafrica.com",
   clientToken: "<token>",
 });
 
-openOttoLoyaltyPopup({
+openScanLoyaltyPopup({
   memberCode: "ABCD-EFGH-IJKL",
   customerSdk,
   onError: (e) => console.error(e),

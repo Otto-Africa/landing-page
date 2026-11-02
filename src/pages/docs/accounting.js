@@ -34,10 +34,10 @@ const Accounting = () => {
   return (
     <>
       <SEO
-        title="Accounting API - Otto Africa Documentation"
-        description="Record sales and bills, settle invoices, remit tax, and reconcile books on the Otto API."
-        keywords="Otto accounting, record sale, record bill, reconcile, period close"
-        url="https://ottoafrica.com/docs/accounting"
+        title="Accounting API - Scan Africa Documentation"
+        description="Record sales and bills, settle invoices, remit tax, and reconcile books on the Scan API."
+        keywords="Scan accounting, record sale, record bill, reconcile, period close"
+        url="https://scanafrica.com/docs/accounting"
       />
       <DocsLayout
         currentPage="/docs/accounting"
@@ -48,9 +48,9 @@ const Accounting = () => {
           <h1 id="purpose">Accounting</h1>
 
           <DocsOpener
-            lead="Accounting records money events that belong in the books even when Otto did not collect or pay out on a rail."
-            when="Use Accounting when cash already arrived, a supplier bill must be booked, an invoice was paid off-platform, tax must be remitted, or you close a period. Use Payments when Otto must collect or pay out online."
-            why="Books must match cash, bank, and tax even for walk-in sales. Otto keeps one ledger for those events so reports stay complete."
+            lead="Accounting records money events that belong in the books even when Scan did not collect or pay out on a rail."
+            when="Use Accounting when cash already arrived, a supplier bill must be booked, an invoice was paid off-platform, tax must be remitted, or you close a period. Use Payments when Scan must collect or pay out online."
+            why="Books must match cash, bank, and tax even for walk-in sales. Scan keeps one ledger for those events so reports stay complete."
             how="Authenticate as a merchant. POST record-sale or record-bill. Mark collect invoices paid with a PIN. Settle bills, remit tax, then reconcile petty cash or import a bank statement. Amounts use pesewas."
           />
 
@@ -106,7 +106,7 @@ const Accounting = () => {
 
           <h2 id="settle">Mark paid and settle</h2>
           <p>
-            Mark a collect invoice paid when the customer paid outside Otto.
+            Mark a collect invoice paid when the customer paid outside Scan.
             Settle a pay bill when you paid the supplier.
           </p>
           <table className="docs-table mb-6">

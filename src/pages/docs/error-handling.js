@@ -23,25 +23,25 @@ const ErrorHandling = () => {
   return (
     <>
       <SEO
-        title="Error Handling - Otto Africa API Documentation"
-        description="Learn how to handle errors and exceptions when using Otto Africa API. Complete error handling guide with examples."
-        keywords="API error handling, error codes, exception handling, API errors, Otto error handling"
-        url="https://ottoafrica.com/docs/error-handling"
+        title="Error Handling - Scan Africa API Documentation"
+        description="Learn how to handle errors and exceptions when using Scan Africa API. Complete error handling guide with examples."
+        keywords="API error handling, error codes, exception handling, API errors, Scan error handling"
+        url="https://scanafrica.com/docs/error-handling"
       />
       <DocsLayout
         currentPage="/docs/error-handling"
       
       onThisPageItems={onThisPageItems}
-      nutshell="Understand Otto API error formats and how to handle them consistently in your integration."
+      nutshell="Understand Scan API error formats and how to handle them consistently in your integration."
     >
       <div className="docs-content">
         <h1 id="overview">Error Handling</h1>
 
         <DocsOpener
-          lead="Otto returns conventional HTTP status codes and a JSON body with status, message, and code. Treat that body as the source of truth for retries."
+          lead="Scan returns conventional HTTP status codes and a JSON body with status, message, and code. Treat that body as the source of truth for retries."
           when="Use this page when you map HTTP 4xx/5xx, show a user message, or decide whether to retry. Do not retry 401 or PIN lock without a new credential."
           why="One error shape lets every client log the same code. That is how support traces a failed collect."
-          how="Read the HTTP status. Parse JSON. Branch on code. Retry only idempotent 5xx with backoff. Surface message to operators. Keep the request id if Otto returns one."
+          how="Read the HTTP status. Parse JSON. Branch on code. Retry only idempotent 5xx with backoff. Surface message to operators. Keep the request id if Scan returns one."
         />
 
         <h2 id="error-format">Error Response Format</h2>
@@ -199,7 +199,7 @@ const ErrorHandling = () => {
           language="javascript"
           code={`async function makeRequest() {
   try {
-    const response = await fetch('https://api.ottoafrica.com/api/merchant/giftcards', {
+    const response = await fetch('https://api.scanafrica.com/api/merchant/giftcards', {
       method: 'POST',
       headers: {
         'Authorization': 'Bearer your_api_key',
@@ -258,7 +258,7 @@ const ErrorHandling = () => {
 
 try:
     response = requests.post(
-        'https://api.ottoafrica.com/api/merchant/giftcards',
+        'https://api.scanafrica.com/api/merchant/giftcards',
         headers={
             'Authorization': 'Bearer your_api_key',
             'Content-Type': 'application/json'

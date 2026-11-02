@@ -7,7 +7,7 @@ import "./GiftCardShare.css";
 /**
  * Investment certificate link: a fixed deposit someone booked at FCL in the
  * recipient's name. The preview shows who sent it and its term only; claiming
- * happens in the Otto app, with the account opened on the phone it was sent to.
+ * happens in the Scan app, with the account opened on the phone it was sent to.
  */
 const STATE_COPY = {
   PAID: "Being booked with FCL",
@@ -44,7 +44,7 @@ const InvestmentGiftReceive = () => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
     if (isMobile) {
-      const deepLink = `ottoafrica://investment-gift/receive?token=${encodeURIComponent(token)}`;
+      const deepLink = `scanafrica://investment-gift/receive?token=${encodeURIComponent(token)}`;
       window.location.href = deepLink;
       const t = setTimeout(() => {
         setShowDownload(true);
@@ -80,16 +80,16 @@ const InvestmentGiftReceive = () => {
   }, [token, isChecking]);
 
   const handlePlayStore = () => {
-    window.open("https://play.google.com/store/apps/details?id=com.otto.customer", "_blank");
+    window.open("https://play.google.com/store/apps/details?id=com.scan.customer", "_blank");
   };
 
   const handleAppStore = () => {
-    window.open("https://apps.apple.com/app/otto/id123456789", "_blank");
+    window.open("https://apps.apple.com/app/scan/id123456789", "_blank");
   };
 
   const tryOpenApp = () => {
     if (!token) return;
-    const deepLink = `ottoafrica://investment-gift/receive?token=${encodeURIComponent(token)}`;
+    const deepLink = `scanafrica://investment-gift/receive?token=${encodeURIComponent(token)}`;
     window.location.href = deepLink;
     setTimeout(() => setShowDownload(true), 2000);
   };
@@ -109,7 +109,7 @@ const InvestmentGiftReceive = () => {
   if (error && !gift) {
     return (
       <>
-        <SEO title="Investment Gift – Otto Africa" description="View your Otto Africa investment gift." url="https://ottoafrica.com/investment-gift/receive" />
+        <SEO title="Investment Gift – Scan Africa" description="View your Scan Africa investment gift." url="https://scanafrica.com/investment-gift/receive" />
         <div className="gift-card-share-container">
           <div className="gift-card-share-content">
             <div className="gift-card-icon">📈</div>
@@ -124,9 +124,9 @@ const InvestmentGiftReceive = () => {
   return (
     <>
       <SEO
-        title="You received an investment gift – Otto Africa"
-        description={gift ? `${gift.senderName} sent you a fixed deposit (${gift.productName}).` : "View your Otto Africa investment gift."}
-        url={`https://ottoafrica.com/investment-gift/receive?token=${token || ""}`}
+        title="You received an investment gift – Scan Africa"
+        description={gift ? `${gift.senderName} sent you a fixed deposit (${gift.productName}).` : "View your Scan Africa investment gift."}
+        url={`https://scanafrica.com/investment-gift/receive?token=${token || ""}`}
       />
       <div className="gift-card-share-container">
         <div className="gift-card-share-content">
@@ -145,8 +145,8 @@ const InvestmentGiftReceive = () => {
               </div>
 
               {gift.message && <p className="gift-card-cta-text">“{gift.message}”</p>}
-              {gift.claimed && <p className="gift-card-cta-text">This certificate has been claimed. Open the Otto app to view it.</p>}
-              {!gift.claimed && <p className="gift-card-cta-text">Download the Otto app and sign up or sign in with the phone number this gift was sent to. Once your account is open, open this link in the app to claim it. There's no deadline.</p>}
+              {gift.claimed && <p className="gift-card-cta-text">This certificate has been claimed. Open the Scan app to view it.</p>}
+              {!gift.claimed && <p className="gift-card-cta-text">Download the Scan app and sign up or sign in with the phone number this gift was sent to. Once your account is open, open this link in the app to claim it. There's no deadline.</p>}
 
               {(showDownload || !/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) && (
                 <div className="download-buttons">

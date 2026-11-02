@@ -21,10 +21,10 @@ const FclArchitecture = () => {
     <>
       <SEO
         noindex
-        title="FCL Architecture - Otto Africa Documentation"
+        title="FCL Architecture - Scan Africa Documentation"
         description="How FCL Payment Gateway, Unified External Channels, and Core Banking work together."
         keywords="FCL architecture, Payment Gateway, Core Banking, Unified API"
-        url="https://ottoafrica.com/fcl/architecture"
+        url="https://scanafrica.com/fcl/architecture"
       />
       <DocsLayout
         currentPage="/fcl/architecture"
@@ -36,8 +36,8 @@ const FclArchitecture = () => {
 
           <DocsOpener
             lead="FCL supplies three APIs. Each API owns a different part of the banking flow."
-            when="Read this page before you map an Otto money movement to FCL calls. Use it when you debug a flow that succeeded on one API and failed on another."
-            why="A Gateway success does not prove a Core Banking post. Otto must treat each API as a separate owner."
+            when="Read this page before you map an Scan money movement to FCL calls. Use it when you debug a flow that succeeded on one API and failed on another."
+            why="A Gateway success does not prove a Core Banking post. Scan must treat each API as a separate owner."
             how="Identify which API owns the step. Call that host with its own key. Wait for that API's completion signal. Do not skip Unified PIN or customer steps."
           />
 

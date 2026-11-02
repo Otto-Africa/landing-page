@@ -30,11 +30,11 @@ export function getStoreUrlForOS(os) {
 
 /**
  * Customer app pay deep link — must match Android/iOS intent filters
- * (`ottoafrica://pay/{qrId}?amount=&c=`).
+ * (`scanafrica://pay/{qrId}?amount=&c=`).
  */
 export function buildPayDeepLink(qrId, amount, collectId) {
   const id = encodeURIComponent(String(qrId || "").trim());
-  const base = `ottoafrica://pay/${id}`;
+  const base = `scanafrica://pay/${id}`;
   const params = new URLSearchParams();
   if (amount != null && String(amount).trim() !== "") {
     params.set("amount", String(amount).trim());
@@ -47,7 +47,7 @@ export function buildPayDeepLink(qrId, amount, collectId) {
 }
 
 /**
- * Try to open the native Otto customer app. Calls `onAppOpened` when the page
+ * Try to open the native Scan customer app. Calls `onAppOpened` when the page
  * loses focus (likely handoff to the app). Calls `onFallback` after timeout if
  * the app did not open.
  *

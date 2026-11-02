@@ -32,10 +32,10 @@ const LlmConversations = () => {
   return (
     <>
       <SEO
-        title="LLM Conversations API - Otto Africa Documentation"
-        description="CosmoLLM chat, cases, documents, briefing, and actions on the Otto merchant API."
-        keywords="Otto CosmoLLM, LLM conversations, merchant chat API"
-        url="https://ottoafrica.com/docs/llm"
+        title="LLM Conversations API - Scan Africa Documentation"
+        description="CosmoLLM chat, cases, documents, briefing, and actions on the Scan merchant API."
+        keywords="Scan CosmoLLM, LLM conversations, merchant chat API"
+        url="https://scanafrica.com/docs/llm"
       />
       <DocsLayout
         currentPage="/docs/llm"
@@ -46,8 +46,8 @@ const LlmConversations = () => {
           <h1 id="purpose">LLM Conversations</h1>
 
           <DocsOpener
-            lead="CosmoLLM is the merchant conversation API. Chat about business data, open cases, attach documents, and preview actions before Otto runs them."
-            when="Use CosmoLLM when a merchant asks a question, tracks a work item (a case), or needs Otto to propose an action. Do not use it as a public chatbot for customers."
+            lead="CosmoLLM is the merchant conversation API. Chat about business data, open cases, attach documents, and preview actions before Scan runs them."
+            when="Use CosmoLLM when a merchant asks a question, tracks a work item (a case), or needs Scan to propose an action. Do not use it as a public chatbot for customers."
             why="Merchants need a guided path over invoices, collect status, and documents. Preview lets a person confirm before execute changes data."
             how="Authenticate with a merchant session or API key. POST /api/merchant/cosmollm/chat with a message. Create cases and documents as needed. POST actions/preview, then actions/execute only after you accept the payload."
           />
@@ -58,7 +58,7 @@ const LlmConversations = () => {
 
           <h2 id="chat">Chat</h2>
           <p>
-            Send a message to CosmoLLM. Otto returns a reply and can keep a
+            Send a message to CosmoLLM. Scan returns a reply and can keep a
             session ID for later turns.
           </p>
           <table className="docs-table mb-6">
@@ -228,7 +228,7 @@ const LlmConversations = () => {
 
           <h2 id="actions">Actions</h2>
           <p>
-            Preview an action before Otto runs it. Then execute the approved
+            Preview an action before Scan runs it. Then execute the approved
             action.
           </p>
           <table className="docs-table mb-6">

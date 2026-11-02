@@ -72,10 +72,10 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Contact Us - Otto Africa"
-        description="Get in touch with Otto Africa. Have questions about our payment infrastructure? Need help getting started? Want to explore partnership opportunities? We'd love to hear from you."
-        keywords="contact Otto, support, customer service, payment solutions support, fintech support"
-        url="https://ottoafrica.com/contact"
+        title="Contact Us - Scan Africa"
+        description="Get in touch with Scan Africa. Have questions about our payment infrastructure? Need help getting started? Want to explore partnership opportunities? We'd love to hear from you."
+        keywords="contact Scan, support, customer service, payment solutions support, fintech support"
+        url="https://scanafrica.com/contact"
       />
       <Header />
 
@@ -85,10 +85,10 @@ const Contact = () => {
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-6 scroll-animate">
               Let's Build Something
-              <span className="block text-otto-blue font-medium">Together</span>
+              <span className="block text-scan-blue font-medium">Together</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 scroll-animate delay-100">
-              Have questions about Otto? Need help getting started? Want to explore partnership opportunities?
+              Have questions about Scan? Need help getting started? Want to explore partnership opportunities?
               We'd love to hear from you.
             </p>
           </div>
@@ -202,7 +202,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-otto-blue text-white px-8 py-4 rounded-full hover:bg-black transition-colors duration-200 font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-scan-blue text-white px-8 py-4 rounded-full hover:bg-black transition-colors duration-200 font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
@@ -219,16 +219,16 @@ const Contact = () => {
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Need immediate help?</h3>
                   <div className="space-y-4">
                     <div className="flex items-start">
-                      <div className="w-10 h-10 bg-otto-blue/10 rounded-lg flex items-center justify-center mr-4">
-                        <svg className="w-5 h-5 text-otto-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-10 h-10 bg-scan-blue/10 rounded-lg flex items-center justify-center mr-4">
+                        <svg className="w-5 h-5 text-scan-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                       </div>
                       <div>
                         <div className="font-medium text-gray-900">Email Support</div>
                         <div className="text-gray-600">Response within 24 hours</div>
-                        <a href="mailto:contact@ottoafrica.com" className="text-otto-blue hover:text-black font-medium mt-1">
-                          contact@ottoafrica.com
+                        <a href="mailto:contact@scanafrica.com" className="text-scan-blue hover:text-black font-medium mt-1">
+                          contact@scanafrica.com
                         </a>
                       </div>
                     </div>
@@ -269,23 +269,23 @@ const Contact = () => {
 
           <div className="space-y-6">
             <div className="bg-white rounded-lg p-6 scroll-animate" style={{ animationDelay: '200ms' }}>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">How do I get started with Otto?</h3>
-              <p className="text-gray-600">Sign up for a free account at merchant.ottoafrica.com and start processing payments immediately. Our onboarding process takes less than 10 minutes.</p>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">How do I get started with Scan?</h3>
+              <p className="text-gray-600">Sign up for a free account at merchant.scanafrica.com and start processing payments immediately. Our onboarding process takes less than 10 minutes.</p>
             </div>
 
             <div className="bg-white rounded-lg p-6 scroll-animate" style={{ animationDelay: '300ms' }}>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">What are the fees for using Otto?</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">What are the fees for using Scan?</h3>
               <p className="text-gray-600">We offer competitive pricing with no setup fees. QR payments are free. Service charges for gift cards and loyalty programs are applied dynamically during purchases - you only pay when you use the service.</p>
             </div>
 
             <div className="bg-white rounded-lg p-6 scroll-animate" style={{ animationDelay: '400ms' }}>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Is Otto secure?</h3>
-              <p className="text-gray-600">Yes, Otto is PCI DSS Level 1 compliant and uses bank-grade encryption. We employ multiple layers of security including end-to-end encryption, fraud detection, and regular security audits.</p>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Is Scan secure?</h3>
+              <p className="text-gray-600">Yes, Scan is PCI DSS Level 1 compliant and uses bank-grade encryption. We employ multiple layers of security including end-to-end encryption, fraud detection, and regular security audits.</p>
             </div>
 
             <div className="bg-white rounded-lg p-6 scroll-animate" style={{ animationDelay: '500ms' }}>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Do you support international payments?</h3>
-              <p className="text-gray-600">Currently, Otto focuses on the Ghanaian market with support for major local payment methods. We're expanding to other African countries soon.</p>
+              <p className="text-gray-600">Currently, Scan focuses on the Ghanaian market with support for major local payment methods. We're expanding to other African countries soon.</p>
             </div>
           </div>
         </div>

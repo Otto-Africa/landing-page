@@ -24,35 +24,35 @@ const Webhooks = () => {
   return (
     <>
       <SEO
-        title="Webhooks - Otto Africa API Documentation"
-        description="Configure merchant webhooks for collect.paid and payment events. Learn about delivery retries, signature verification, and testing with Otto Demo Bank."
-        keywords="Otto webhooks, collect.paid, webhook configuration, webhook events, payment webhooks, real-time notifications"
-        url="https://ottoafrica.com/docs/webhooks"
+        title="Webhooks - Scan Africa API Documentation"
+        description="Configure merchant webhooks for collect.paid and payment events. Learn about delivery retries, signature verification, and testing with Scan Demo Bank."
+        keywords="Scan webhooks, collect.paid, webhook configuration, webhook events, payment webhooks, real-time notifications"
+        url="https://scanafrica.com/docs/webhooks"
       />
       <DocsLayout
         currentPage="/docs/webhooks"
         onThisPageItems={onThisPageItems}
-        nutshell="Otto records every collect settlement and POSTs collect.paid to your endpoint when configured, with up to three delivery attempts and full HTTP status logging."
+        nutshell="Scan records every collect settlement and POSTs collect.paid to your endpoint when configured, with up to three delivery attempts and full HTTP status logging."
       >
         <div className="docs-content">
           <h1 id="overview">Webhooks</h1>
 
           <DocsOpener
-            lead="A webhook is a signed HTTP POST from Otto to your HTTPS URL when an event occurs. The primary payment event is collect.paid."
+            lead="A webhook is a signed HTTP POST from Scan to your HTTPS URL when an event occurs. The primary payment event is collect.paid."
             when="Use webhooks when your server must react as soon as a collect settles, without polling every few seconds. Still poll as a backup if you cannot miss a delivery."
-            why="Otto records every settlement. If you register an endpoint, Otto posts collect.paid up to three times and logs HTTP status. That is how your ledger stays in sync with Otto."
+            why="Scan records every settlement. If you register an endpoint, Scan posts collect.paid up to three times and logs HTTP status. That is how your ledger stays in sync with Scan."
             how="Register a URL in the merchant app or POST /api/merchant/webhooks. Store the signing secret. Verify the signature on each POST. Return HTTP 2xx quickly. Read the payload for the collect ID and status."
           />
 
           <p>
-            Otto sends a signed HTTP POST to your endpoint. Configure the URL
+            Scan sends a signed HTTP POST to your endpoint. Configure the URL
             below.
           </p>
 
           <div className="docs-alert info">
             <strong>Always recorded:</strong> Every successful collect
             settlement triggers a <code>collect.paid</code> webhook dispatch for
-            your business, even if you have not configured a URL yet. Otto
+            your business, even if you have not configured a URL yet. Scan
             stores an audit row with status <code>unconfigured</code> until you
             add an endpoint in the merchant app or via API.
           </div>
@@ -60,21 +60,21 @@ const Webhooks = () => {
           <h2 id="configure">Configure Webhooks</h2>
 
           <p>
-            Set up your webhook endpoint in the Otto Merchant app or via API.
+            Set up your webhook endpoint in the Scan Merchant app or via API.
           </p>
 
           <h3>Via Merchant App</h3>
 
           <ol className="list-decimal list-inside space-y-2 mb-6">
             <li>
-              Open <strong>Profile → Webhooks</strong> in the Otto Merchant app
+              Open <strong>Profile → Webhooks</strong> in the Scan Merchant app
             </li>
             <li>
               Enter your HTTPS endpoint URL ( <code>http://localhost</code> is
               allowed in development )
             </li>
             <li>
-              Save — Otto subscribes you to default Collect &amp; Pay events
+              Save — Scan subscribes you to default Collect &amp; Pay events
               automatically
             </li>
             <li>
@@ -96,11 +96,11 @@ const Webhooks = () => {
 
           <CodeBlock
             language="bash"
-            code={`curl -X PUT "https://api.ottoafrica.com/api/merchant/webhooks/primary" \\
+            code={`curl -X PUT "https://api.scanafrica.com/api/merchant/webhooks/primary" \\
   -H "Authorization: Bearer your_merchant_token" \\
   -H "Content-Type: application/json" \\
   -d '{
-    "url": "https://your-app.com/webhooks/otto",
+    "url": "https://your-app.com/webhooks/scan",
     "events": ["collect.paid", "collect.created", "payment.completed"],
     "is_active": true
   }'`}
@@ -124,7 +124,7 @@ const Webhooks = () => {
               <h4 className="font-semibold text-gray-900 mb-2">collect.paid</h4>
               <p className="text-gray-600 text-sm">
                 Fired when an invoice collect intent settles (bank transfer,
-                MoMo, or Otto Wallet inbound). This is the main event for
+                MoMo, or Scan Wallet inbound). This is the main event for
                 payment confirmation.
               </p>
             </div>
@@ -149,8 +149,8 @@ const Webhooks = () => {
 
           <p className="text-sm text-gray-600">
             Gift card, loyalty, and legacy payment events may also be available
-            depending on your Otto products. If you omit an <code>events</code>{" "}
-            array when configuring a webhook, Otto defaults to all Collect &amp;
+            depending on your Scan products. If you omit an <code>events</code>{" "}
+            array when configuring a webhook, Scan defaults to all Collect &amp;
             Pay events above.
           </p>
 
@@ -165,10 +165,10 @@ const Webhooks = () => {
 
           <CodeBlock
             language="http"
-            code={`X-Otto-Signature: sha256=abc123...
-X-Otto-Event: collect.paid
+            code={`X-Scan-Signature: sha256=abc123...
+X-Scan-Event: collect.paid
 Content-Type: application/json
-User-Agent: Otto-Webhooks/1.0`}
+User-Agent: Scan-Webhooks/1.0`}
           />
 
           <h3>
@@ -199,7 +199,7 @@ User-Agent: Otto-Webhooks/1.0`}
           <h2 id="security">Security & Verification</h2>
 
           <p>
-            Verify webhook authenticity using the <code>X-Otto-Signature</code>{" "}
+            Verify webhook authenticity using the <code>X-Scan-Signature</code>{" "}
             header and your webhook secret.
           </p>
 
@@ -237,7 +237,7 @@ function verifyWebhookSignature(rawBody, signatureHeader, secret) {
               </li>
               <li>
                 Handle duplicate <code>collect.paid</code> events idempotently
-                (settlements are idempotent on Otto&apos;s side too)
+                (settlements are idempotent on Scan&apos;s side too)
               </li>
             </ul>
           </div>
@@ -245,7 +245,7 @@ function verifyWebhookSignature(rawBody, signatureHeader, secret) {
           <h2 id="retries">Retries & Delivery</h2>
 
           <p>
-            When your endpoint URL is configured and active, Otto delivers
+            When your endpoint URL is configured and active, Scan delivers
             webhooks with up to <strong>three attempts</strong> per event:
           </p>
 
@@ -320,21 +320,21 @@ function verifyWebhookSignature(rawBody, signatureHeader, secret) {
 
           <p>
             Deliveries are stored in <code>webhook_deliveries</code> per
-            business. When no URL is configured, Otto still writes an audit row
+            business. When no URL is configured, Scan still writes an audit row
             so you can confirm the event fired during integration testing.
           </p>
 
           <h2 id="testing">Testing with Demo Bank</h2>
 
           <p>
-            The fastest way to trigger an Otto Cash credit in sandbox is Otto
+            The fastest way to trigger an Scan Cash credit in sandbox is Scan
             Demo Bank. Invoice <code>collect.paid</code> is no longer driven by
-            a dedicated NUBAN — pay invoices with QR, mobile money, or Otto
+            a dedicated NUBAN — pay invoices with QR, mobile money, or Scan
             Cash.
           </p>
 
           <ol className="list-decimal list-inside space-y-2 mb-6">
-            <li>Copy a merchant or customer Otto Cash NUBAN (888… / 999…)</li>
+            <li>Copy a merchant or customer Scan Cash NUBAN (888… / 999…)</li>
             <li>
               Open{" "}
               <a href="/demo-bank" className="text-[#00B4D8] hover:underline">
@@ -344,7 +344,7 @@ function verifyWebhookSignature(rawBody, signatureHeader, secret) {
             </li>
             <li>Send a test credit — retired 777 numbers return 410</li>
             <li>
-              Check your endpoint (or Otto&apos;s delivery audit) for{" "}
+              Check your endpoint (or Scan&apos;s delivery audit) for{" "}
               <code>collect.paid</code>
             </li>
           </ol>

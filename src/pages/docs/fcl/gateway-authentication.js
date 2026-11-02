@@ -34,10 +34,10 @@ const GatewayAuthentication = () => {
     <>
       <SEO
         noindex
-        title="Payment Gateway Authentication - Otto Africa Documentation"
+        title="Payment Gateway Authentication - Scan Africa Documentation"
         description="Authenticate to the FCL Payment Gateway with the X-Api-Key header."
         keywords="FCL Payment Gateway authentication, X-Api-Key, fpk_"
-        url="https://ottoafrica.com/fcl/gateway-authentication"
+        url="https://scanafrica.com/fcl/gateway-authentication"
       />
       <DocsLayout
         currentPage="/fcl/gateway-authentication"
@@ -48,15 +48,15 @@ const GatewayAuthentication = () => {
           <h1 id="overview">Payment Gateway authentication</h1>
 
           <DocsOpener
-            lead="Almost every Payment Gateway request needs the X-Api-Key header. This is not Otto Bearer authentication."
-            when="Use this page when a Gateway call returns 401 or when you wire a new Otto adapter. Partners never send fpk_ keys from an app."
-            why="Otto sk_ keys and FCL fpk_ keys are different contracts. Mixing them fails auth on both hosts."
-            how="Put X-Api-Key on each Gateway request. Do not send Authorization: Bearer. See Otto authentication for partner keys."
+            lead="Almost every Payment Gateway request needs the X-Api-Key header. This is not Scan Bearer authentication."
+            when="Use this page when a Gateway call returns 401 or when you wire a new Scan adapter. Partners never send fpk_ keys from an app."
+            why="Scan sk_ keys and FCL fpk_ keys are different contracts. Mixing them fails auth on both hosts."
+            how="Put X-Api-Key on each Gateway request. Do not send Authorization: Bearer. See Scan authentication for partner keys."
           />
 
           <p>
             See{" "}
-            <Link to="/docs/authentication">Otto authentication</Link> for
+            <Link to="/docs/authentication">Scan authentication</Link> for
             partner Bearer keys.
           </p>
 

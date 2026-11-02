@@ -27,10 +27,10 @@ Content-Type: application/json`;
     <>
       <SEO
         noindex
-        title="Unified External Channels - Otto Africa Documentation"
+        title="Unified External Channels - Scan Africa Documentation"
         description="FCL Unified External Channels API for products, customers, OTP, and PIN Management."
         keywords="FCL Unified API, External Channels, PIN Management"
-        url="https://ottoafrica.com/fcl/unified"
+        url="https://scanafrica.com/fcl/unified"
       />
       <DocsLayout
         currentPage="/fcl/unified"
@@ -42,7 +42,7 @@ Content-Type: application/json`;
 
           <DocsOpener
             lead="Unified External Channels covers products, customer onboarding, investments, loans, OTP, refunds, and PIN Management."
-            when="Use Unified when Otto must create a customer, manage a product, send OTP, or run PIN. Do not use Gateway results to certify these paths."
+            when="Use Unified when Scan must create a customer, manage a product, send OTP, or run PIN. Do not use Gateway results to certify these paths."
             why="This contract is separate from Payment Gateway. Historical Gateway traffic does not prove Unified availability."
             how="Call the Unified base URL with that API's key. Start with products and PIN. See the catalog below for method-path pairs."
           />
@@ -93,7 +93,7 @@ Content-Type: application/json`;
             customer PIN with security questions.
           </p>
           <p>
-            Otto routes customer PIN operations to these Unified endpoints. Otto
+            Scan routes customer PIN operations to these Unified endpoints. Scan
             does not store the local transaction PIN table.
           </p>
           <p>

@@ -8,7 +8,7 @@ Disallow: /api/
 Disallow: /*.json$
 
 # Sitemap
-Sitemap: https://ottoafrica.com/sitemap.xml
+Sitemap: https://scanafrica.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1

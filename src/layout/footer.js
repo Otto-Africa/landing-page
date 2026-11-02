@@ -104,7 +104,7 @@ const Footer = () => {
 							</div>
 						</div>
 						<div className="text-slate-500 text-justify text-base font-medium leading-6 tracking-tight my-auto">
-							© Otto Technologies 2023
+							© Scan Technologies 2023
 						</div>
 					</div>
 				</div>

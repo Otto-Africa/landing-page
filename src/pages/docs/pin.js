@@ -7,7 +7,7 @@ import DocsOpener from "../../components/DocsOpener";
 import "./docs.css";
 
 /**
- * Otto transaction PIN API.
+ * Scan transaction PIN API.
  */
 const PinDocs = () => {
   const onThisPageItems = [
@@ -32,15 +32,15 @@ const PinDocs = () => {
   return (
     <>
       <SEO
-        title="Transaction PIN API - Otto Africa Documentation"
-        description="Create, verify, update, and recover a six-digit Otto transaction PIN."
-        keywords="Otto PIN, transaction PIN, security questions"
-        url="https://ottoafrica.com/docs/pin"
+        title="Transaction PIN API - Scan Africa Documentation"
+        description="Create, verify, update, and recover a six-digit Scan transaction PIN."
+        keywords="Scan PIN, transaction PIN, security questions"
+        url="https://scanafrica.com/docs/pin"
       />
       <DocsLayout
         currentPage="/docs/pin"
         onThisPageItems={onThisPageItems}
-        nutshell="Call Otto PIN paths. Use a six-digit PIN and one security question. Do not retry a failed verify automatically."
+        nutshell="Call Scan PIN paths. Use a six-digit PIN and one security question. Do not retry a failed verify automatically."
       >
         <div className="docs-content">
           <h1 id="overview">Transaction PIN</h1>
@@ -48,12 +48,12 @@ const PinDocs = () => {
           <DocsOpener
             lead="A transaction PIN is a six-digit code that authorizes payouts and some funding flows. Setup also stores one security question for recovery."
             when="Use PIN paths when a user has no PIN yet, must change a PIN, forgot a PIN, or must verify a PIN before a money-out call. Login can return pin_setup_required. Complete setup before payouts."
-            why="Otto must confirm the actor for money-out. The PIN stays at Otto. Your app never stores the PIN table. Failed verify must not auto-retry. Three failures lock verify for 30 minutes."
+            why="Scan must confirm the actor for money-out. The PIN stays at Scan. Your app never stores the PIN table. Failed verify must not auto-retry. Three failures lock verify for 30 minutes."
             how="GET security questions. POST /pin/create with pin, confirm_pin, security_question_id, and security_answer. Verify with POST .../check_transaction_pin. Customer and merchant paths are the same after /api/customer or /api/merchant."
           />
 
           <p>
-            Call Otto with a user session or a Bearer API key that has the
+            Call Scan with a user session or a Bearer API key that has the
             correct scope.
           </p>
 

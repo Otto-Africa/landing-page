@@ -5,32 +5,32 @@ import { useEffect } from 'react';
  * Reusable components isolate presentation from data fetching so design updates do not touch API code.
  */
 const SEO = ({
-  title = "Otto Africa - Scale without limits. Payment Infrastructure for Africa",
+  title = "Scan Africa - Scale without limits. Payment Infrastructure for Africa",
   description = "The all-in-one payment infrastructure built for Africa's most ambitious businesses. Accept payments, manage gift cards, and launch loyalty programs with ease.",
   keywords = "payment infrastructure, QR payments, digital gift cards, loyalty programs, Africa payments, Ghana payments, fintech, payment solutions, business payments",
-  image = "https://ottoafrica.com/img/logos/Favicon%20-%20Black@4x-8.png",
-  url = "https://ottoafrica.com",
+  image = "https://scanafrica.com/img/logos/Favicon%20-%20Black@4x-8.png",
+  url = "https://scanafrica.com",
   type = "website",
-  author = "Otto Africa",
+  author = "Scan Africa",
   noindex = false,
   structuredData = null,
 }) => {
-  const fullTitle = title.includes('Otto') ? title : `${title} | Otto Africa`;
+  const fullTitle = title.includes('Scan') ? title : `${title} | Scan Africa`;
   
-  // Normalize URL: ensure it's https://ottoafrica.com (no www, no trailing slash except root)
-  let fullUrl = url.startsWith('http') ? url : `https://ottoafrica.com${url}`;
+  // Normalize URL: ensure it's https://scanafrica.com (no www, no trailing slash except root)
+  let fullUrl = url.startsWith('http') ? url : `https://scanafrica.com${url}`;
   // Remove www if present and ensure https
   fullUrl = fullUrl.replace(/^https?:\/\/(www\.)?/, 'https://');
   // Remove trailing slash except for root domain
-  if (fullUrl !== 'https://ottoafrica.com' && fullUrl.endsWith('/')) {
+  if (fullUrl !== 'https://scanafrica.com' && fullUrl.endsWith('/')) {
     fullUrl = fullUrl.slice(0, -1);
   }
-  // Ensure it starts with https://ottoafrica.com (canonical domain)
-  if (!fullUrl.startsWith('https://ottoafrica.com')) {
-    fullUrl = fullUrl.replace(/^https?:\/\/[^/]+/, 'https://ottoafrica.com');
+  // Ensure it starts with https://scanafrica.com (canonical domain)
+  if (!fullUrl.startsWith('https://scanafrica.com')) {
+    fullUrl = fullUrl.replace(/^https?:\/\/[^/]+/, 'https://scanafrica.com');
   }
   
-  const fullImage = image.startsWith('http') ? image : `https://ottoafrica.com${image}`;
+  const fullImage = image.startsWith('http') ? image : `https://scanafrica.com${image}`;
 
   useEffect(() => {
     // Update document title
@@ -68,7 +68,7 @@ const SEO = ({
     updateMetaTag('og:image', fullImage, true);
     updateMetaTag('og:image:width', '1200', true);
     updateMetaTag('og:image:height', '630', true);
-    updateMetaTag('og:site_name', 'Otto Africa', true);
+    updateMetaTag('og:site_name', 'Scan Africa', true);
     updateMetaTag('og:locale', 'en_US', true);
 
     // Twitter
@@ -77,15 +77,15 @@ const SEO = ({
     updateMetaTag('twitter:title', fullTitle);
     updateMetaTag('twitter:description', description);
     updateMetaTag('twitter:image', fullImage);
-    updateMetaTag('twitter:site', '@ottoafrica');
-    updateMetaTag('twitter:creator', '@ottoafrica');
+    updateMetaTag('twitter:site', '@scanafrica');
+    updateMetaTag('twitter:creator', '@scanafrica');
 
     // Additional Meta Tags
     updateMetaTag('theme-color', '#1B3359');
     updateMetaTag('msapplication-TileColor', '#1B3359');
     updateMetaTag('apple-mobile-web-app-capable', 'yes');
     updateMetaTag('apple-mobile-web-app-status-bar-style', 'black-translucent');
-    updateMetaTag('apple-mobile-web-app-title', 'Otto Africa');
+    updateMetaTag('apple-mobile-web-app-title', 'Scan Africa');
 
     // Update canonical link
     let canonicalLink = document.querySelector('link[rel="canonical"]');

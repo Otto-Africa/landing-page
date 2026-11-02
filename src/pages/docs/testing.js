@@ -26,10 +26,10 @@ const Testing = () => {
   return (
     <>
       <SEO
-        title="Testing - Otto Africa API Documentation"
-        description="Learn how to test your Otto Africa API integration using test API keys and test mode. Complete testing guide."
-        keywords="API testing, test mode, test API keys, integration testing, Otto API testing"
-        url="https://ottoafrica.com/docs/testing"
+        title="Testing - Scan Africa API Documentation"
+        description="Learn how to test your Scan Africa API integration using test API keys and test mode. Complete testing guide."
+        keywords="API testing, test mode, test API keys, integration testing, Scan API testing"
+        url="https://scanafrica.com/docs/testing"
       />
       <DocsLayout
         currentPage="/docs/testing"
@@ -62,7 +62,7 @@ const Testing = () => {
               <li>
                 Use the same API endpoint:{" "}
                 <code className="bg-green-100 px-2 py-1 rounded">
-                  https://api.ottoafrica.com
+                  https://api.scanafrica.com
                 </code>
               </li>
               <li>
@@ -114,11 +114,11 @@ const Testing = () => {
           <CodeBlock
             language="bash"
             code={`# Test environment - uses test databases
-curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
+curl -X GET "https://api.scanafrica.com/api/merchant/giftcards" \\
   -H "Authorization: Bearer sk_test_your_test_key_here"
 
 # Production environment - uses live databases
-curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
+curl -X GET "https://api.scanafrica.com/api/merchant/giftcards" \\
   -H "Authorization: Bearer sk_live_your_live_key_here"`}
           />
 
@@ -296,26 +296,26 @@ curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
             </div>
           </div>
 
-          <h2 id="demo-bank">Demo Bank (Otto Cash NUBAN / MoMo)</h2>
+          <h2 id="demo-bank">Demo Bank (Scan Cash NUBAN / MoMo)</h2>
 
           <p>
-            Otto Cash wallets use Otto-issued identifiers (
+            Scan Cash wallets use Scan-issued identifiers (
             <code>888…</code> merchant, <code>999…</code> customer). Collect-in
             virtual accounts are <strong>removed</strong>. On{" "}
             <strong>local and test</strong> (with{" "}
             <code>APP_ENV=local</code> or <code>test</code>; demo bank is on by
             default there), use{" "}
             <a href="/demo-bank" className="text-[#00B4D8] hover:underline">
-              Otto Demo Bank
+              Scan Demo Bank
             </a>{" "}
-            to simulate a credit into an Otto Cash wallet without a real
-            payment processor. Invoices are paid with QR, mobile money, or Otto
+            to simulate a credit into an Scan Cash wallet without a real
+            payment processor. Invoices are paid with QR, mobile money, or Scan
             Cash — not a dedicated NUBAN.
           </p>
 
           <div className="docs-alert info">
             Demo Bank is disabled on staging and production. Wallet credits use
-            the Otto Cash ledger path (<code>otto.wallet.inbound</code> /
+            the Scan Cash ledger path (<code>scan.wallet.inbound</code> /
             demo-bank transfer).
           </div>
 
@@ -325,7 +325,7 @@ curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
             </h4>
             <ol className="text-blue-800 text-sm space-y-2 list-decimal list-inside">
               <li>
-                Copy an Otto Cash NUBAN (<code>888…</code> / <code>999…</code>)
+                Copy an Scan Cash NUBAN (<code>888…</code> / <code>999…</code>)
                 or matching MoMo number from a merchant or customer wallet
                 screen.
               </li>
@@ -334,7 +334,7 @@ curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
                 <a href="/demo-bank" className="underline">
                   /demo-bank
                 </a>
-                , paste the account number, and confirm lookup shows an Otto
+                , paste the account number, and confirm lookup shows an Scan
                 Cash wallet.
               </li>
               <li>
@@ -351,7 +351,7 @@ curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
             <strong>/api/public/demo-bank/lookup</strong>
             <br />
             <span className="description">
-              Resolve an Otto Cash wallet — query params: <code>account</code>,{" "}
+              Resolve an Scan Cash wallet — query params: <code>account</code>,{" "}
               <code>rail</code> (<code>nuban</code> | <code>momo</code>),
               optional <code>network</code> for MoMo
             </span>
@@ -362,32 +362,32 @@ curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
             <strong>/api/public/demo-bank/transfer</strong>
             <br />
             <span className="description">
-              Simulate an inbound credit onto an Otto Cash wallet
+              Simulate an inbound credit onto an Scan Cash wallet
             </span>
           </div>
 
           <CodeBlock
             language="bash"
-            code={`# Lookup an Otto Cash wallet (customer NUBAN)
+            code={`# Lookup an Scan Cash wallet (customer NUBAN)
 curl "http://localhost:3000/api/public/demo-bank/lookup?account=9990000002&rail=nuban"
 
-# Simulate bank transfer into Otto Cash
+# Simulate bank transfer into Scan Cash
 curl -X POST "http://localhost:3000/api/public/demo-bank/transfer" \\
   -H "Content-Type: application/json" \\
   -d '{"account_number":"9990000002","amount_minor":1200,"rail":"nuban","narration":"Test top-up"}'
 
-# Direct inbound webhook (Otto Cash only)
-curl -X POST "http://localhost:3000/api/webhooks/otto-wallet/inbound" \\
+# Direct inbound webhook (Scan Cash only)
+curl -X POST "http://localhost:3000/api/webhooks/scan-wallet/inbound" \\
   -H "Content-Type: application/json" \\
-  -H "X-Otto-Signature: <hmac-of-body>" \\
-  -d '{"event":"otto.wallet.inbound","data":{"account_number":"9990000002","amount_minor":1200}}'`}
+  -H "X-Scan-Signature: <hmac-of-body>" \\
+  -d '{"event":"scan.wallet.inbound","data":{"account_number":"9990000002","amount_minor":1200}}'`}
           />
 
           <h2 id="webhooks">Testing Webhooks</h2>
 
           <p>
             Every collect settlement triggers a <code>collect.paid</code>{" "}
-            dispatch for your business — even before you configure a URL. Otto
+            dispatch for your business — even before you configure a URL. Scan
             records an audit row with status <code>unconfigured</code> until you
             add an endpoint.
           </p>
@@ -405,10 +405,10 @@ curl -X POST "http://localhost:3000/api/webhooks/otto-wallet/inbound" \\
             <li>Pay an invoice with QR or mobile money (not Demo Bank VA)</li>
             <li>
               Confirm your endpoint receives a signed POST with{" "}
-              <code>X-Otto-Event: collect.paid</code>
+              <code>X-Scan-Event: collect.paid</code>
             </li>
             <li>
-              Return <code>200</code> — Otto retries up to three times and logs
+              Return <code>200</code> — Scan retries up to three times and logs
               each HTTP status code
             </li>
           </ol>
@@ -442,7 +442,7 @@ curl -X POST "http://localhost:3000/api/webhooks/otto-wallet/inbound" \\
           <ul className="list-disc list-inside space-y-2 mb-6">
             <li>
               <strong>Wallet balance</strong> — Collect settlements post to your
-              spendable Otto wallet (<code>MB_CASH</code> ledger accounts),
+              spendable Scan wallet (<code>MB_CASH</code> ledger accounts),
               visible on the merchant dashboard.
             </li>
             <li>
@@ -455,7 +455,7 @@ curl -X POST "http://localhost:3000/api/webhooks/otto-wallet/inbound" \\
               double-settle.
             </li>
             <li>
-              <strong>Otto transfers</strong> — Send to another Otto user by
+              <strong>Scan transfers</strong> — Send to another Scan user by
               phone, email, name, or
               <code>@tag</code> from the merchant app transfer screen.
             </li>
@@ -473,7 +473,7 @@ curl -X POST "http://localhost:3000/api/webhooks/otto-wallet/inbound" \\
             <p className="text-red-800 text-sm mb-4">
               Replace all test API keys with live keys before going to
               production. The API endpoint remains the same (
-              <code>https://api.ottoafrica.com</code>), but you must use live
+              <code>https://api.scanafrica.com</code>), but you must use live
               keys.
             </p>
             <ul className="text-red-800 text-sm space-y-1">
@@ -495,7 +495,7 @@ curl -X POST "http://localhost:3000/api/webhooks/otto-wallet/inbound" \\
           <div className="docs-alert success">
             <strong>Need Help?</strong> Check the{" "}
             <a
-              href="https://api.ottoafrica.com/api/docs"
+              href="https://api.scanafrica.com/api/docs"
               className="underline"
               target="_blank"
               rel="noopener noreferrer"

@@ -27,10 +27,10 @@ const Identity = () => {
   return (
     <>
       <SEO
-        title="Identity API - Otto Africa Documentation"
-        description="Otto Identity: register, login, API keys, transaction PIN, biometric flags, and MFA."
-        keywords="Otto identity, login, register, API key, transaction PIN, MFA"
-        url="https://ottoafrica.com/docs/identity"
+        title="Identity API - Scan Africa Documentation"
+        description="Scan Identity: register, login, API keys, transaction PIN, biometric flags, and MFA."
+        keywords="Scan identity, login, register, API key, transaction PIN, MFA"
+        url="https://scanafrica.com/docs/identity"
       />
       <DocsLayout
         currentPage="/docs/identity"
@@ -41,14 +41,14 @@ const Identity = () => {
           <h1 id="purpose">Identity</h1>
 
           <DocsOpener
-            lead="Identity proves who the caller is before Otto opens money or data paths. Users log in. Partner apps use a Bearer API key."
+            lead="Identity proves who the caller is before Scan opens money or data paths. Users log in. Partner apps use a Bearer API key."
             when="Use Identity when you register a merchant or customer, log in, mint or revoke API keys, set a transaction PIN, or manage sessions and MFA."
-            why="Otto must know the actor and the business. Without Identity, collect, payout, and loyalty calls have no owner. API keys keep partner servers off user passwords."
+            why="Scan must know the actor and the business. Without Identity, collect, payout, and loyalty calls have no owner. API keys keep partner servers off user passwords."
             how="Users POST login or the customer flow. Partners create a key in the Merchant Portal or POST /api/merchant/api-keys, then send Authorization: Bearer sk_test_... or sk_live_.... PIN paths sit under /profile/pin."
           />
 
           <p>
-            Base URL: <code>https://api.ottoafrica.com</code>
+            Base URL: <code>https://api.scanafrica.com</code>
           </p>
 
           <h2 id="auth">Login and register</h2>

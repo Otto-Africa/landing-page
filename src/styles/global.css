@@ -1,4 +1,4 @@
-/* Global Styles - Otto Mobile App Inspired Design */
+/* Global Styles - Scan Mobile App Inspired Design */
 
 * {
   box-sizing: border-box;
@@ -19,7 +19,7 @@ body {
   background-color: #ffffff;
 }
 
-/* Otto Mobile App Typography */
+/* Scan Mobile App Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Google Sans', system-ui, sans-serif;
 }
@@ -207,14 +207,14 @@ a:hover {
 .mt-12 { margin-top: 48px; }
 .mt-16 { margin-top: 64px; }
 
-/* Otto Mobile App Color Palette */
+/* Scan Mobile App Color Palette */
 .text-center { text-align: center; }
 .text-white { color: #ffffff; }
 .text-black { color: #000000; }
 .text-gray-900 { color: #121212; } /* textPrimary */
 .text-gray-600 { color: #575654; } /* textSecondary */
 .text-gray-500 { color: #98A2B3; } /* gullGrey */
-.text-otto-blue { color: #1B3359; } /* primary */
+.text-scan-blue { color: #1B3359; } /* primary */
 .text-green-600 { color: #039855; } /* hazeGreen */
 .text-purple-600 { color: #870B81; } /* violetEggplant */
 .text-yellow-600 { color: #F1954B; } /* cardOrange */
@@ -223,7 +223,7 @@ a:hover {
 .bg-white { background-color: #ffffff; }
 .bg-gray-50 { background-color: #F6F6F6; } /* wildSand */
 .bg-gray-900 { background-color: #000000; }
-.bg-otto-blue { background-color: #1B3359; } /* primary */
+.bg-scan-blue { background-color: #1B3359; } /* primary */
 .bg-green-600 { background-color: #039855; } /* hazeGreen */
 .bg-purple-600 { background-color: #870B81; } /* violetEggplant */
 

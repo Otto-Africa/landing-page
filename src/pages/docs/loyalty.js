@@ -27,10 +27,10 @@ const Loyalty = () => {
   return (
     <>
       <SEO
-        title="Loyalty Management API - Otto Africa Documentation"
-        description="Create loyalty programs, enroll members, manage rewards, and redeem points on the Otto API."
-        keywords="Otto loyalty, loyalty programs, rewards, member code, points"
-        url="https://ottoafrica.com/docs/loyalty"
+        title="Loyalty Management API - Scan Africa Documentation"
+        description="Create loyalty programs, enroll members, manage rewards, and redeem points on the Scan API."
+        keywords="Scan loyalty, loyalty programs, rewards, member code, points"
+        url="https://scanafrica.com/docs/loyalty"
       />
       <DocsLayout
         currentPage="/docs/loyalty"
@@ -43,7 +43,7 @@ const Loyalty = () => {
           <DocsOpener
             lead="Loyalty Management lets a merchant run a points program. Members earn rewards. Customers redeem those rewards."
             when="Use this module when you create a program, list members, define rewards, or let a customer redeem. Use Gift Cards when the product is a stored-value card, not points."
-            why="A program is the rule set for one business. Otto keeps members and rewards on that program so checkout and the app share the same balance."
+            why="A program is the rule set for one business. Scan keeps members and rewards on that program so checkout and the app share the same balance."
             how="Authenticate as a merchant. POST /api/merchant/loyalty/programs, then create rewards under the program ID. Customers GET memberships and POST /api/customer/loyalty/rewards/redeem."
           />
 

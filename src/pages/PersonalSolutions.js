@@ -15,10 +15,10 @@ const PersonalSolutions = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Personal Payment Solutions - Otto Africa"
+        title="Personal Payment Solutions - Scan Africa"
         description="Simple and secure payment solutions for individuals. Send money, receive payments, and manage your finances with ease."
         keywords="personal payments, individual payment solutions, send money, receive payments, personal finance"
-        url="https://ottoafrica.com/solutions/personal"
+        url="https://scanafrica.com/solutions/personal"
       />
       <Header />
         {/* Hero Section */}
@@ -27,7 +27,7 @@ const PersonalSolutions = () => {
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-5xl md:text-7xl font-medium text-gray-900 mb-6 leading-tight scroll-animate">
                 Payment Solutions for
-                <span className="block text-otto-blue font-medium">Everyone</span>
+                <span className="block text-scan-blue font-medium">Everyone</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 Simple, secure, and convenient payment solutions designed for individuals.
@@ -51,7 +51,7 @@ const PersonalSolutions = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white p-8 rounded-xl border border-gray-100 scroll-animate" style={{ animationDelay: '200ms' }}>
-                <div className="w-16 h-16 bg-otto-blue rounded-full flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-scan-blue rounded-full flex items-center justify-center mb-6">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M12 15h4.01M12 21h4.01M12 18h4.01M12 9h4.01M12 6h4.01" />
                   </svg>
@@ -83,7 +83,7 @@ const PersonalSolutions = () => {
               </div>
 
               <div className="bg-white p-8 rounded-xl border border-gray-100 scroll-animate" style={{ animationDelay: '300ms' }}>
-                <div className="w-16 h-16 bg-otto-blue rounded-full flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-scan-blue rounded-full flex items-center justify-center mb-6">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                   </svg>
@@ -115,14 +115,14 @@ const PersonalSolutions = () => {
               </div>
 
               <div className="bg-white p-8 rounded-xl border border-gray-100 scroll-animate" style={{ animationDelay: '400ms' }}>
-                <div className="w-16 h-16 bg-otto-blue rounded-full flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-scan-blue rounded-full flex items-center justify-center mb-6">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Loyalty Rewards</h3>
                 <p className="text-gray-600 mb-6">
-                  Earn points and rewards when you pay with Otto. Get exclusive deals and benefits.
+                  Earn points and rewards when you pay with Scan. Get exclusive deals and benefits.
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center text-sm text-gray-600">
@@ -150,17 +150,17 @@ const PersonalSolutions = () => {
         </section>
 
         {/* Download Section */}
-        <section className="py-20 bg-otto-blue">
+        <section className="py-20 bg-scan-blue">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl md:text-5xl font-medium text-white mb-6">
               Get Started Today
             </h2>
             <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
-              Download the Otto mobile app and experience seamless payments for all your personal needs.
+              Download the Scan mobile app and experience seamless payments for all your personal needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://play.google.com/store/apps/details?id=com.otto.customer"
+                href="https://play.google.com/store/apps/details?id=com.scan.customer"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-black text-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition-colors duration-200 font-medium text-sm flex items-center justify-center gap-2"
@@ -171,7 +171,7 @@ const PersonalSolutions = () => {
                 Google Play
               </a>
               <a
-                href="https://apps.apple.com/app/otto-mobile/id1234567890"
+                href="https://apps.apple.com/app/scan-mobile/id1234567890"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-black text-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition-colors duration-200 font-medium text-sm flex items-center justify-center gap-2"

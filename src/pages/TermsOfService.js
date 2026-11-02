@@ -20,10 +20,10 @@ const TermsOfService = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title={`${userType === 'merchant' ? 'Merchant' : 'Customer'} Terms of Service - Otto Africa`}
-        description={`Otto Africa's ${userType === 'merchant' ? 'Merchant Service Agreement' : 'User Agreement'}. Read our terms and conditions for using our payment platform.`}
-        keywords="terms of service, terms and conditions, user agreement, merchant agreement, Otto Africa terms"
-        url="https://ottoafrica.com/terms-of-service"
+        title={`${userType === 'merchant' ? 'Merchant' : 'Customer'} Terms of Service - Scan Africa`}
+        description={`Scan Africa's ${userType === 'merchant' ? 'Merchant Service Agreement' : 'User Agreement'}. Read our terms and conditions for using our payment platform.`}
+        keywords="terms of service, terms and conditions, user agreement, merchant agreement, Scan Africa terms"
+        url="https://scanafrica.com/terms-of-service"
       />
       <Header />
 
@@ -46,7 +46,7 @@ const TermsOfService = () => {
               <div className="animate-fade-in">
                 <h2 className="text-3xl font-semibold text-gray-900 mb-6">Merchant Service Agreement</h2>
                 <p className="text-gray-700 mb-6">
-                  This Merchant Service Agreement ("Agreement") is a legal contract between you ("Merchant", "you", or "your") and Otto Africa ("Otto", "we", "us", or "our"). By registering for a Business Account or using our services to accept payments, you agree to be bound by this Agreement.
+                  This Merchant Service Agreement ("Agreement") is a legal contract between you ("Merchant", "you", or "your") and Scan Africa ("Scan", "we", "us", or "our"). By registering for a Business Account or using our services to accept payments, you agree to be bound by this Agreement.
                 </p>
 
                 <h3 className="text-2xl font-medium text-gray-900 mt-8 mb-4">1. Merchant Obligations</h3>
@@ -54,7 +54,7 @@ const TermsOfService = () => {
                   1.1 <strong>Compliance:</strong> You agree to comply with all applicable laws, regulations, and payment network rules (e.g., Visa, Mastercard) in connection with your use of the Services.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  1.2 <strong>Prohibited Businesses:</strong> You represent and warrant that you are not engaged in any business or activity prohibited by Otto, including but not limited to: illegal drugs, gambling, adult content, weapons, counterfeit goods, or shell banks.
+                  1.2 <strong>Prohibited Businesses:</strong> You represent and warrant that you are not engaged in any business or activity prohibited by Scan, including but not limited to: illegal drugs, gambling, adult content, weapons, counterfeit goods, or shell banks.
                 </p>
                 <p className="text-gray-700 mb-4">
                   1.3 <strong>KYC/KYB:</strong> You must provide accurate business information and documentation for Know Your Customer/Business (KYC/KYB) verification. We reserve the right to suspend settlements until verification is complete.
@@ -81,13 +81,13 @@ const TermsOfService = () => {
 
                 <h3 className="text-2xl font-medium text-gray-900 mt-8 mb-4">4. Indemnification and Limitation of Liability</h3>
                 <p className="text-gray-700 mb-4">
-                  4.1 <strong>Indemnification:</strong> You agree to indemnify, defend, and hold harmless Otto, its directors, officers, employees, and agents from any claims, losses, damages, liabilities, costs, and expenses (including legal fees) arising out of or related to: (a) your use of the Services; (b) your violation of this Agreement; (c) your violation of any applicable law or third-party right; (d) the goods or services you sell; or (e) any fines or penalties imposed by payment networks.
+                  4.1 <strong>Indemnification:</strong> You agree to indemnify, defend, and hold harmless Scan, its directors, officers, employees, and agents from any claims, losses, damages, liabilities, costs, and expenses (including legal fees) arising out of or related to: (a) your use of the Services; (b) your violation of this Agreement; (c) your violation of any applicable law or third-party right; (d) the goods or services you sell; or (e) any fines or penalties imposed by payment networks.
                 </p>
                 <p className="text-gray-700 mb-4">
                   4.2 <strong>No Warranty:</strong> THE SERVICES ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  4.3 <strong>Limitation:</strong> IN NO EVENT SHALL OTTO BE LIABLE FOR LOST PROFITS, DATA, OR ANY INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL OR PUNITIVE DAMAGES. OUR TOTAL LIABILITY SHALL NOT EXCEED THE FEES PAID BY YOU TO US IN THE PRECEDING THREE (3) MONTHS.
+                  4.3 <strong>Limitation:</strong> IN NO EVENT SHALL SCAN BE LIABLE FOR LOST PROFITS, DATA, OR ANY INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL OR PUNITIVE DAMAGES. OUR TOTAL LIABILITY SHALL NOT EXCEED THE FEES PAID BY YOU TO US IN THE PRECEDING THREE (3) MONTHS.
                 </p>
 
                 <h3 className="text-2xl font-medium text-gray-900 mt-8 mb-4">5. API Usage and Data Security</h3>
@@ -104,7 +104,7 @@ const TermsOfService = () => {
               <div className="animate-fade-in">
                 <h2 className="text-3xl font-semibold text-gray-900 mb-6">User Terms of Service</h2>
                 <p className="text-gray-700 mb-6">
-                  These User Terms of Service ("Terms") govern your access to and use of the Otto Africa mobile application and services as a consumer ("Customer", "you", or "User"). By creating an account, you agree to these Terms, including identity checks and opening an Otto wallet. That agreement is collected at signup and is not asked for again during account setup.
+                  These User Terms of Service ("Terms") govern your access to and use of the Scan Africa mobile application and services as a consumer ("Customer", "you", or "User"). By creating an account, you agree to these Terms, including identity checks and opening an Scan wallet. That agreement is collected at signup and is not asked for again during account setup.
                 </p>
 
                 <h3 className="text-2xl font-medium text-gray-900 mt-8 mb-4">1. Account Use</h3>
@@ -120,15 +120,15 @@ const TermsOfService = () => {
                   2.1 <strong>Funding:</strong> You may fund your wallet using approved methods (e.g., Mobile Money, Card). We reserve the right to impose limits on funding amounts.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  2.2 <strong>Transactions:</strong> Transactions are final once authorized. We are not responsible for goods or services purchased from third-party merchants using Otto. Disputes regarding quality or delivery must be resolved directly with the merchant.
+                  2.2 <strong>Transactions:</strong> Transactions are final once authorized. We are not responsible for goods or services purchased from third-party merchants using Scan. Disputes regarding quality or delivery must be resolved directly with the merchant.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  2.3 <strong>Wallet account:</strong> Opening an Otto wallet may require your legal name, Ghana Card, a photo of that card, a selfie, and your contact details. You agree to those checks when you accept these Terms at signup.
+                  2.3 <strong>Wallet account:</strong> Opening an Scan wallet may require your legal name, Ghana Card, a photo of that card, a selfie, and your contact details. You agree to those checks when you accept these Terms at signup.
                 </p>
 
                 <h3 className="text-2xl font-medium text-gray-900 mt-8 mb-4">3. Gift Cards and Rewards</h3>
                 <p className="text-gray-700 mb-4">
-                  3.1 <strong>Gift Cards:</strong> Gift cards purchased or received via Otto are subject to the specific terms displayed at purchase. Unless required by law, gift cards are non-refundable and cannot be redeemed for cash.
+                  3.1 <strong>Gift Cards:</strong> Gift cards purchased or received via Scan are subject to the specific terms displayed at purchase. Unless required by law, gift cards are non-refundable and cannot be redeemed for cash.
                 </p>
                 <p className="text-gray-700 mb-4">
                   3.2 <strong>Loyalty Points:</strong> Loyalty points have no cash value and may expire or be revoked if your account is inactive or if we suspect abuse of the program.
@@ -146,7 +146,7 @@ const TermsOfService = () => {
 
                 <h3 className="text-2xl font-medium text-gray-900 mt-8 mb-4">5. Indemnification and Liability</h3>
                 <p className="text-gray-700 mb-4">
-                  5.1 <strong>Indemnification:</strong> You agree to indemnify and hold harmless Otto against all claims related to your misuse of the App or violation of these Terms.
+                  5.1 <strong>Indemnification:</strong> You agree to indemnify and hold harmless Scan against all claims related to your misuse of the App or violation of these Terms.
                 </p>
                 <p className="text-gray-700 mb-4">
                   5.2 <strong>Limitation:</strong> We are not liable for service interruptions, data loss, or third-party actions. Our liability is limited to the amount of fees you paid us in the last 12 months.
@@ -175,7 +175,7 @@ const TermsOfService = () => {
 
               <h3 className="text-xl font-medium text-gray-900 mt-6 mb-2">Contact Us</h3>
               <p className="text-gray-700 mb-4">
-                If you have any questions about these Terms, please contact us at <a href="mailto:legal@ottoafrica.com" className="text-otto-blue hover:underline">legal@ottoafrica.com</a>.
+                If you have any questions about these Terms, please contact us at <a href="mailto:legal@scanafrica.com" className="text-scan-blue hover:underline">legal@scanafrica.com</a>.
               </p>
             </div>
           </div>

@@ -7,7 +7,7 @@ import DocsOpener from "../../components/DocsOpener";
 import "./docs.css";
 
 /**
- * Otto Payments API. Partners call Otto. Otto talks to providers.
+ * Scan Payments API. Partners call Scan. Scan talks to providers.
  */
 const Payments = () => {
   const onThisPageItems = [
@@ -39,23 +39,23 @@ const Payments = () => {
   return (
     <>
       <SEO
-        title="Payments API - Otto Africa Documentation"
-        description="Collect and pay through the Otto API. Authenticate with a Bearer API key on api.ottoafrica.com."
-        keywords="Otto payments API, collect, transfer, payout, merchant API"
-        url="https://ottoafrica.com/docs/payments"
+        title="Payments API - Scan Africa Documentation"
+        description="Collect and pay through the Scan API. Authenticate with a Bearer API key on api.scanafrica.com."
+        keywords="Scan payments API, collect, transfer, payout, merchant API"
+        url="https://scanafrica.com/docs/payments"
       />
       <DocsLayout
         currentPage="/docs/payments"
         onThisPageItems={onThisPageItems}
-        nutshell="Call the Otto API at api.ottoafrica.com. Use a Bearer API key. Otto collects and pays on your behalf."
+        nutshell="Call the Scan API at api.scanafrica.com. Use a Bearer API key. Scan collects and pays on your behalf."
       >
         <div className="docs-content">
           <h1 id="overview">Payments</h1>
 
           <DocsOpener
-            lead="Payments is the Otto module that moves money into and out of wallets. Your app calls Otto. Otto talks to rails and providers for you."
-            when="Use Payments when you collect an invoice, accept a QR or link payment, or send a payout to mobile money or a bank. Use Transfers for Otto-to-Otto wallet sends. Use Funding flows for product deposits."
-            why="Partners need one public API for money movement. Otto authenticates the caller, records the movement, and returns status. You do not send provider keys from your app."
+            lead="Payments is the Scan module that moves money into and out of wallets. Your app calls Scan. Scan talks to rails and providers for you."
+            when="Use Payments when you collect an invoice, accept a QR or link payment, or send a payout to mobile money or a bank. Use Transfers for Scan-to-Scan wallet sends. Use Funding flows for product deposits."
+            why="Partners need one public API for money movement. Scan authenticates the caller, records the movement, and returns status. You do not send provider keys from your app."
             how="Authenticate with a Bearer API key. POST /api/merchant/collect to receive money. POST /api/merchant/transfer to pay out. Read the resource by ID and listen for webhooks. Amounts use pesewas."
           />
 
@@ -63,7 +63,7 @@ const Payments = () => {
             Related pages: <Link to="/docs/transfers">transfers</Link>,{" "}
             <Link to="/docs/funding-flows">funding flows</Link>, and{" "}
             <Link to="/docs/webhooks">webhooks</Link>. Base URL:{" "}
-            <code>https://api.ottoafrica.com</code>.
+            <code>https://api.scanafrica.com</code>.
           </p>
           <p>
             Header: <code>Authorization: Bearer sk_live_...</code> or{" "}
@@ -140,7 +140,7 @@ const Payments = () => {
             flow uses <code>/api/public/collect/:publicId</code>.
           </p>
           <p>
-            Otto posts <code>collect.paid</code> to your webhook when the
+            Scan posts <code>collect.paid</code> to your webhook when the
             collect settles. See <Link to="/docs/webhooks">webhooks</Link>.
           </p>
 
@@ -198,7 +198,7 @@ const Payments = () => {
 
           <h2 id="status">Status</h2>
           <p>
-            HTTP 200 on create means Otto accepted the request. It does not
+            HTTP 200 on create means Scan accepted the request. It does not
             mean the money movement is complete.
           </p>
           <p>

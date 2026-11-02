@@ -8,19 +8,19 @@ echo "Setting up Landing Page environment files..."
 
 URL_BLOCK='
 LOCAL_BASE_URL=http://localhost:3000
-TEST_BASE_URL=https://api-test.ottoafrica.com
-STAGING_BASE_URL=https://staging-api.ottoafrica.com
-PROD_BASE_URL=https://api.ottoafrica.com
+TEST_BASE_URL=https://api-test.scanafrica.com
+STAGING_BASE_URL=https://staging-api.scanafrica.com
+PROD_BASE_URL=https://api.scanafrica.com
 
 LOCAL_MERCHANT_PORTAL_URL=http://localhost:3001
-TEST_MERCHANT_PORTAL_URL=https://business-test.ottoafrica.com
-STAGING_MERCHANT_PORTAL_URL=https://business-staging.ottoafrica.com
-PROD_MERCHANT_PORTAL_URL=https://business.ottoafrica.com
+TEST_MERCHANT_PORTAL_URL=https://business-test.scanafrica.com
+STAGING_MERCHANT_PORTAL_URL=https://business-staging.scanafrica.com
+PROD_MERCHANT_PORTAL_URL=https://business.scanafrica.com
 '
 
 # .env.local
 cat > .env.local << EOF
-# Otto Landing Page - Local
+# Scan Landing Page - Local
 APP_ENV=local
 PORT=3003
 ${URL_BLOCK}
@@ -29,7 +29,7 @@ echo "  - .env.local"
 
 # .env.test
 cat > .env.test << EOF
-# Otto Landing Page - Test
+# Scan Landing Page - Test
 APP_ENV=test
 PORT=3003
 ${URL_BLOCK}
@@ -38,7 +38,7 @@ echo "  - .env.test"
 
 # .env.staging
 cat > .env.staging << EOF
-# Otto Landing Page - Staging
+# Scan Landing Page - Staging
 APP_ENV=staging
 PORT=3003
 ${URL_BLOCK}
@@ -47,7 +47,7 @@ echo "  - .env.staging"
 
 # .env.production
 cat > .env.production << EOF
-# Otto Landing Page - Production
+# Scan Landing Page - Production
 APP_ENV=prod
 PORT=3003
 ${URL_BLOCK}

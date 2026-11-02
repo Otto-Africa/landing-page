@@ -50,7 +50,7 @@ const Hero = () => {
           <h1 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-medium text-gray-900 mb-8 leading-tight scroll-animate">
             <span
               key={currentWordIndex}
-              className="block text-otto-blue font-medium animate-fade-in"
+              className="block text-scan-blue font-medium animate-fade-in"
             >
               {words[currentWordIndex]}
             </span>
@@ -68,7 +68,7 @@ const Hero = () => {
           <div className="scroll-animate delay-200">
             <a
               href={merchantPortalUrl}
-              className="inline-flex items-center gap-2 bg-otto-blue text-white px-10 py-5 rounded-full hover:bg-black transition-all duration-300 font-semibold text-lg md:text-xl"
+              className="inline-flex items-center gap-2 bg-scan-blue text-white px-10 py-5 rounded-full hover:bg-black transition-all duration-300 font-semibold text-lg md:text-xl"
             >
               Get Started for Free
               <svg

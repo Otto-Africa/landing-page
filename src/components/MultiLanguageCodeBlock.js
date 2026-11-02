@@ -142,7 +142,7 @@ const MultiLanguageCodeBlock = ({
                       }}
                       className={`w-full text-left px-4 py-2 text-sm transition-colors ${
                         selectedLanguage === lang.key
-                          ? 'bg-gray-50 text-otto-blue font-medium'
+                          ? 'bg-gray-50 text-scan-blue font-medium'
                           : 'text-gray-700 hover:bg-gray-50'
                       }`}
                     >

@@ -14,10 +14,10 @@ const Security = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Security - Otto Africa"
-        description="Learn about Otto Africa's security measures, PCI DSS compliance, encryption, and fraud protection to keep your data and transactions safe."
-        keywords="security, data protection, PCI DSS, encryption, fraud protection, Otto Africa security"
-        url="https://ottoafrica.com/security"
+        title="Security - Scan Africa"
+        description="Learn about Scan Africa's security measures, PCI DSS compliance, encryption, and fraud protection to keep your data and transactions safe."
+        keywords="security, data protection, PCI DSS, encryption, fraud protection, Scan Africa security"
+        url="https://scanafrica.com/security"
       />
       <Header />
 
@@ -28,7 +28,7 @@ const Security = () => {
               Security
             </h1>
             <p className="text-gray-600 mb-8">
-              At Otto, security is our top priority. We are committed to protecting your data and ensuring the safety of all transactions.
+              At Scan, security is our top priority. We are committed to protecting your data and ensuring the safety of all transactions.
             </p>
           </div>
 
@@ -36,7 +36,7 @@ const Security = () => {
             <div className="scroll-animate delay-100">
               <h2 className="text-2xl font-medium text-gray-900 mt-8 mb-4">1. Our Security Commitment</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
-                Otto is committed to maintaining the highest standards of security to protect your personal information, financial data, and transactions. We employ industry-leading security measures and continuously monitor and improve our security practices to stay ahead of emerging threats.
+                Scan is committed to maintaining the highest standards of security to protect your personal information, financial data, and transactions. We employ industry-leading security measures and continuously monitor and improve our security practices to stay ahead of emerging threats.
               </p>
             </div>
 
@@ -147,10 +147,10 @@ const Security = () => {
                 <p className="text-gray-700 mb-4">
                   <strong>Email:</strong>{" "}
                   <a
-                    href="mailto:contact@ottoafrica.com"
-                    className="text-otto-blue hover:text-black"
+                    href="mailto:contact@scanafrica.com"
+                    className="text-scan-blue hover:text-black"
                   >
-                    contact@ottoafrica.com
+                    contact@scanafrica.com
                   </a>
                 </p>
                 <p className="text-gray-700 text-sm">

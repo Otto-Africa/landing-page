@@ -26,10 +26,10 @@ const Authentication = () => {
   return (
     <>
       <SEO
-        title="Authentication - Otto Africa API Documentation"
-        description="Learn how to authenticate with Otto Africa API using API keys. Understand test vs production keys and how to securely make API requests."
-        keywords="Otto API authentication, API keys, Bearer token, API security, test API keys, production API keys"
-        url="https://ottoafrica.com/docs/authentication"
+        title="Authentication - Scan Africa API Documentation"
+        description="Learn how to authenticate with Scan Africa API using API keys. Understand test vs production keys and how to securely make API requests."
+        keywords="Scan API authentication, API keys, Bearer token, API security, test API keys, production API keys"
+        url="https://scanafrica.com/docs/authentication"
       />
       <DocsLayout
         currentPage="/docs/authentication"
@@ -40,10 +40,10 @@ const Authentication = () => {
         <h1 id="overview">API Authentication</h1>
 
         <DocsOpener
-          lead="Partner apps prove identity to Otto with a Bearer API key. Otto uses that key to choose test or live data and to apply scopes."
-          when="Use this page when you create a key, send your first request, or debug 401 Unauthorized. User login tokens are for apps, not for server-to-server Otto API calls."
+          lead="Partner apps prove identity to Scan with a Bearer API key. Scan uses that key to choose test or live data and to apply scopes."
+          when="Use this page when you create a key, send your first request, or debug 401 Unauthorized. User login tokens are for apps, not for server-to-server Scan API calls."
           why="A key prefix (sk_test_ or sk_live_) selects the environment on the same host. Scopes limit what the key can do. That keeps production data off test code."
-          how="Create a key in the Merchant Portal or via Identity API keys. Send Authorization: Bearer sk_test_... or sk_live_... on every request to https://api.ottoafrica.com. Do not send provider keys from your app."
+          how="Create a key in the Merchant Portal or via Identity API keys. Send Authorization: Bearer sk_test_... or sk_live_... on every request to https://api.scanafrica.com. Do not send provider keys from your app."
         />
 
         <h2 id="api-keys">API Key Management</h2>
@@ -68,7 +68,7 @@ const Authentication = () => {
         <h3>API Key Format</h3>
 
         <p>
-          Otto uses environment-aware API keys. The key prefix determines whether requests are routed to
+          Scan uses environment-aware API keys. The key prefix determines whether requests are routed to
           test or production databases:
         </p>
 
@@ -99,7 +99,7 @@ const Authentication = () => {
 
         <div className="docs-alert info">
           <strong>Same Endpoint:</strong> Both test and live keys use the same API endpoint
-          (<code>https://api.ottoafrica.com</code>). The environment is automatically determined by the key prefix.
+          (<code>https://api.scanafrica.com</code>). The environment is automatically determined by the key prefix.
         </div>
 
         <p>
@@ -114,7 +114,7 @@ const Authentication = () => {
         <h2 id="scopes">API Key Scopes</h2>
 
         <p>
-          Otto uses scope-based permissions to control what each API key can access. This follows
+          Scan uses scope-based permissions to control what each API key can access. This follows
           the principle of least privilege - only grant the minimum permissions needed.
         </p>
 
@@ -217,7 +217,7 @@ const Authentication = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="bash"
-                  code={`curl -X GET "https://api.ottoafrica.com/api/merchant/transactions" \\
+                  code={`curl -X GET "https://api.scanafrica.com/api/merchant/transactions" \\
   -H "Authorization: Bearer sk_test_your_api_key_here" \\
   -H "Content-Type: application/json"`}
                 />
@@ -227,7 +227,7 @@ const Authentication = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="javascript"
-                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/transactions', {
+                  code={`const response = await fetch('https://api.scanafrica.com/api/merchant/transactions', {
   method: 'GET',
   headers: {
     'Authorization': 'Bearer sk_test_your_api_key_here',
@@ -244,7 +244,7 @@ const Authentication = () => {
                   code={`import requests
 
 response = requests.get(
-    'https://api.ottoafrica.com/api/merchant/transactions',
+    'https://api.scanafrica.com/api/merchant/transactions',
     headers={
         'Authorization': 'Bearer sk_test_your_api_key_here',
         'Content-Type': 'application/json'
@@ -259,21 +259,21 @@ response = requests.get(
         <h2 id="rate-limiting">Rate Limiting</h2>
 
         <p>
-          Otto implements rate limiting to ensure fair usage and system stability. Rate limits are
+          Scan implements rate limiting to ensure fair usage and system stability. Rate limits are
           applied per API key and reset periodically.
         </p>
 
         <div className="grid md:grid-cols-3 gap-4 mb-6">
           <div className="docs-card p-4 text-center">
-            <div className="text-2xl font-bold text-otto-blue mb-1">60</div>
+            <div className="text-2xl font-bold text-scan-blue mb-1">60</div>
             <div className="text-sm text-gray-600">requests per minute</div>
           </div>
           <div className="docs-card p-4 text-center">
-            <div className="text-2xl font-bold text-otto-blue mb-1">1,000</div>
+            <div className="text-2xl font-bold text-scan-blue mb-1">1,000</div>
             <div className="text-sm text-gray-600">requests per hour</div>
           </div>
           <div className="docs-card p-4 text-center">
-            <div className="text-2xl font-bold text-otto-blue mb-1">10,000</div>
+            <div className="text-2xl font-bold text-scan-blue mb-1">10,000</div>
             <div className="text-sm text-gray-600">requests per day</div>
           </div>
         </div>
@@ -371,7 +371,7 @@ response = requests.get(
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.ottoafrica.com/api/health" \\
+          code={`curl -X GET "https://api.scanafrica.com/api/health" \\
   -H "Authorization: Bearer sk_test_your_api_key_here"`}
         />
 
@@ -382,7 +382,7 @@ response = requests.get(
 
         <div className="docs-alert info">
           <strong>Need Help?</strong> Visit our <a href="/docs/support" className="underline">Support page</a> or
-          check the <a href="https://api.ottoafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for detailed endpoint documentation.
+          check the <a href="https://api.scanafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for detailed endpoint documentation.
         </div>
       </div>
     </DocsLayout>

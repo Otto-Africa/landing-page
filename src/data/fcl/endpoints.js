@@ -358,7 +358,7 @@ export const endpoints = [
 }`,
     responseExample: `{
   "providerRef": "CS_F5A242825E",
-  "merchantReference": "OTTO-DOC-1787924325",
+  "merchantReference": "SCAN-DOC-1787924325",
   "status": "PENDING",
   "checkoutUrl": "https://omni.mojo-pay.com/pay/CS_F5A242825E"
 }`,
@@ -596,7 +596,7 @@ export const endpoints = [
     notes: [
       "Unknown DIS-UNKNOWN → 404 empty body.",
       "Earlier 0.01 MOMO payout (below 2 GHS floor) stayed PENDING on poll: under-floor, not proof that Hubtel never settles.",
-      "Configure merchant callback before money-moving tests; Otto must implement/trust FCL callbacks.",
+      "Configure merchant callback before money-moving tests; Scan must implement/trust FCL callbacks.",
     ],
     pathParams: [
       {

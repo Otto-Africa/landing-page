@@ -79,7 +79,7 @@ const CookieConsent = () => {
                   We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept All", you consent to our use of cookies.{" "}
                   <a
                     href="/cookie-policy"
-                    className="text-otto-blue hover:text-black underline"
+                    className="text-scan-blue hover:text-black underline"
                   >
                     Learn more
                   </a>
@@ -100,7 +100,7 @@ const CookieConsent = () => {
                 </button>
                 <button
                   onClick={handleAcceptAll}
-                  className="px-4 py-2 text-sm font-medium text-white bg-otto-blue rounded-full hover:bg-black transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-white bg-scan-blue rounded-full hover:bg-black transition-colors"
                 >
                   Accept All
                 </button>
@@ -161,7 +161,7 @@ const CookieConsent = () => {
                     </p>
                   </div>
                   <div className="ml-4">
-                    <div className="relative inline-block w-12 h-6 bg-otto-blue rounded-full cursor-not-allowed opacity-50">
+                    <div className="relative inline-block w-12 h-6 bg-scan-blue rounded-full cursor-not-allowed opacity-50">
                       <div className="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
                     </div>
                   </div>
@@ -184,7 +184,7 @@ const CookieConsent = () => {
                       onClick={() => handleTogglePreference("analytics")}
                       className={`relative inline-block w-12 h-6 rounded-full transition-colors ${
                         preferences.analytics
-                          ? "bg-otto-blue"
+                          ? "bg-scan-blue"
                           : "bg-gray-300"
                       }`}
                     >
@@ -216,7 +216,7 @@ const CookieConsent = () => {
                       onClick={() => handleTogglePreference("marketing")}
                       className={`relative inline-block w-12 h-6 rounded-full transition-colors ${
                         preferences.marketing
-                          ? "bg-otto-blue"
+                          ? "bg-scan-blue"
                           : "bg-gray-300"
                       }`}
                     >
@@ -236,7 +236,7 @@ const CookieConsent = () => {
             <div className="flex flex-col sm:flex-row gap-3 mt-8">
               <button
                 onClick={handleSavePreferences}
-                className="flex-1 px-6 py-3 text-sm font-semibold text-white bg-otto-blue rounded-full hover:bg-black transition-colors"
+                className="flex-1 px-6 py-3 text-sm font-semibold text-white bg-scan-blue rounded-full hover:bg-black transition-colors"
               >
                 Save Preferences
               </button>

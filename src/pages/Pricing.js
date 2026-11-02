@@ -66,7 +66,7 @@ const Pricing = () => {
   const handleSubscribe = async (tier, months = 1) => {
     if (!token) {
       // Redirect to merchant portal for authentication
-      window.location.href = "https://merchant.ottoafrica.com/signup";
+      window.location.href = "https://merchant.scanafrica.com/signup";
       return;
     }
 
@@ -182,9 +182,9 @@ const Pricing = () => {
     return (
       <div className="min-h-screen bg-white">
         <SEO
-          title="Complete Subscription - Otto Africa"
-          description="Complete your subscription purchase for Otto Africa"
-          url="https://ottoafrica.com/pricing"
+          title="Complete Subscription - Scan Africa"
+          description="Complete your subscription purchase for Scan Africa"
+          url="https://scanafrica.com/pricing"
         />
         <Header />
 
@@ -194,7 +194,7 @@ const Pricing = () => {
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-6 scroll-animate">
                 Complete Your
-                <span className="block text-otto-blue font-medium">
+                <span className="block text-scan-blue font-medium">
                   Subscription
                 </span>
               </h1>
@@ -204,7 +204,7 @@ const Pricing = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl border-2 border-otto-blue p-8 max-w-2xl mx-auto scroll-animate delay-200">
+            <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl border-2 border-scan-blue p-8 max-w-2xl mx-auto scroll-animate delay-200">
               {error && (
                 <div className="mb-6 p-4 bg-red-50 text-red-800 border border-red-200 rounded-lg">
                   {error}
@@ -247,7 +247,7 @@ const Pricing = () => {
                     <span className="text-lg font-semibold text-gray-900">
                       Total Amount
                     </span>
-                    <span className="text-2xl font-bold text-otto-blue">
+                    <span className="text-2xl font-bold text-scan-blue">
                       ₵{finalPrice.toFixed(2)}
                     </span>
                   </div>
@@ -259,7 +259,7 @@ const Pricing = () => {
                   handleSubscribe(selectedTier, parseInt(billingCycle))
                 }
                 disabled={isProcessing}
-                className="w-full bg-otto-blue text-white px-8 py-4 rounded-full hover:bg-black transition-colors duration-200 font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-scan-blue text-white px-8 py-4 rounded-full hover:bg-black transition-colors duration-200 font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isProcessing ? "Processing..." : "Complete Payment"}
               </button>
@@ -280,10 +280,10 @@ const Pricing = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Pricing - Otto Africa"
-        description="Simple, transparent pricing for Otto Africa. Choose the plan that fits your business. No hidden fees, no setup costs."
-        keywords="Otto pricing, payment platform pricing, subscription plans, business pricing, fintech pricing"
-        url="https://ottoafrica.com/pricing"
+        title="Pricing - Scan Africa"
+        description="Simple, transparent pricing for Scan Africa. Choose the plan that fits your business. No hidden fees, no setup costs."
+        keywords="Scan pricing, payment platform pricing, subscription plans, business pricing, fintech pricing"
+        url="https://scanafrica.com/pricing"
       />
       <Header />
 
@@ -293,7 +293,7 @@ const Pricing = () => {
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-6 scroll-animate">
               Simple, Transparent
-              <span className="block text-otto-blue font-medium">Pricing</span>
+              <span className="block text-scan-blue font-medium">Pricing</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 scroll-animate delay-100">
               Choose the plan that fits your business. No hidden fees, no setup
@@ -306,7 +306,7 @@ const Pricing = () => {
                 onClick={() => setBillingCycleState("monthly")}
                 className={`px-6 py-2 rounded-md font-medium transition-colors duration-200 ${
                   billingCycleState === "monthly"
-                    ? "bg-otto-blue text-white"
+                    ? "bg-scan-blue text-white"
                     : "text-gray-600 hover:text-gray-900"
                 }`}
               >
@@ -316,7 +316,7 @@ const Pricing = () => {
                 onClick={() => setBillingCycleState("yearly")}
                 className={`px-6 py-2 rounded-md font-medium transition-colors duration-200 ${
                   billingCycleState === "yearly"
-                    ? "bg-otto-blue text-white"
+                    ? "bg-scan-blue text-white"
                     : "text-gray-600 hover:text-gray-900"
                 }`}
               >
@@ -338,13 +338,13 @@ const Pricing = () => {
               <div
                 key={index}
                 className={`bg-gradient-to-br from-white to-gray-50 rounded-xl border-2 p-8 scroll-animate ${
-                  plan.popular ? "border-otto-blue relative" : "border-gray-200"
+                  plan.popular ? "border-scan-blue relative" : "border-gray-200"
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-otto-blue text-white px-4 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-scan-blue text-white px-4 py-1 rounded-full text-sm font-medium">
                       Most Popular
                     </span>
                   </div>
@@ -403,7 +403,7 @@ const Pricing = () => {
                   }
                   className={`block w-full text-center py-3 px-6 rounded-full font-semibold transition-colors duration-200 ${
                     plan.popular
-                      ? "bg-otto-blue text-white hover:bg-black"
+                      ? "bg-scan-blue text-white hover:bg-black"
                       : "bg-gray-100 text-gray-900 hover:bg-gray-200"
                   }`}
                 >
@@ -433,7 +433,7 @@ const Pricing = () => {
                 Are there any setup fees?
               </h3>
               <p className="text-gray-600">
-                No, we don't charge any setup fees. You can start using Otto
+                No, we don't charge any setup fees. You can start using Scan
                 immediately after signing up.
               </p>
             </div>
@@ -482,25 +482,25 @@ const Pricing = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-otto-blue">
+      <section className="py-20 bg-scan-blue">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-medium text-white mb-6">
             Ready to Get Started?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
             Join thousands of businesses already saving time and money with
-            Otto. Start your free trial today.
+            Scan. Start your free trial today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://merchant.ottoafrica.com/signup"
-              className="bg-white text-otto-blue px-8 py-4 rounded-full hover:bg-gray-50 transition-colors duration-200 font-semibold text-lg"
+              href="https://merchant.scanafrica.com/signup"
+              className="bg-white text-scan-blue px-8 py-4 rounded-full hover:bg-gray-50 transition-colors duration-200 font-semibold text-lg"
             >
               Start Accepting Payments
             </a>
             <a
               href="/contact"
-              className="border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-otto-blue transition-colors duration-200 font-semibold text-lg"
+              className="border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-scan-blue transition-colors duration-200 font-semibold text-lg"
             >
               Contact Us
             </a>
