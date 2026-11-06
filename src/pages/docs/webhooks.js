@@ -27,7 +27,7 @@ const Webhooks = () => {
         title="Webhooks - Scan Africa API Documentation"
         description="Configure merchant webhooks for collect.paid and payment events. Learn about delivery retries, signature verification, and testing with Scan Demo Bank."
         keywords="Scan webhooks, collect.paid, webhook configuration, webhook events, payment webhooks, real-time notifications"
-        url="https://scanafrica.com/docs/webhooks"
+        url="https://ottoafrica.com/docs/webhooks"
       />
       <DocsLayout
         currentPage="/docs/webhooks"
@@ -96,7 +96,7 @@ const Webhooks = () => {
 
           <CodeBlock
             language="bash"
-            code={`curl -X PUT "https://api.scanafrica.com/api/merchant/webhooks/primary" \\
+            code={`curl -X PUT "https://api.ottoafrica.com/api/merchant/webhooks/primary" \\
   -H "Authorization: Bearer your_merchant_token" \\
   -H "Content-Type: application/json" \\
   -d '{

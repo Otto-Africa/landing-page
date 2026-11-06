@@ -35,7 +35,7 @@ const PinDocs = () => {
         title="Transaction PIN API - Scan Africa Documentation"
         description="Create, verify, update, and recover a six-digit Scan transaction PIN."
         keywords="Scan PIN, transaction PIN, security questions"
-        url="https://scanafrica.com/docs/pin"
+        url="https://ottoafrica.com/docs/pin"
       />
       <DocsLayout
         currentPage="/docs/pin"

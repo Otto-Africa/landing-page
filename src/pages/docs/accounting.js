@@ -37,7 +37,7 @@ const Accounting = () => {
         title="Accounting API - Scan Africa Documentation"
         description="Record sales and bills, settle invoices, remit tax, and reconcile books on the Scan API."
         keywords="Scan accounting, record sale, record bill, reconcile, period close"
-        url="https://scanafrica.com/docs/accounting"
+        url="https://ottoafrica.com/docs/accounting"
       />
       <DocsLayout
         currentPage="/docs/accounting"

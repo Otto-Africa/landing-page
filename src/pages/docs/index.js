@@ -16,7 +16,7 @@ const DocsIndex = () => {
         title="API Documentation - Scan Africa"
         description="Complete API documentation for Scan Africa. Learn how to integrate payments, gift cards, loyalty programs, and QR codes into your application."
         keywords="Scan API documentation, payment API, gift card API, loyalty program API, QR code API, Africa payments API"
-        url="https://scanafrica.com/docs"
+        url="https://ottoafrica.com/docs"
       />
       <DocsLayout currentPage="/docs">
         <div className="docs-content">
@@ -25,7 +25,7 @@ const DocsIndex = () => {
           </h1>
 
           <DocsOpener
-            lead="Scan is the public partner API at https://api.scanafrica.com. These docs cover Payments, Identity, Loyalty, LLM Conversations, and Accounting."
+            lead="Scan is the public partner API at https://api.ottoafrica.com. These docs cover Payments, Identity, Loyalty, LLM Conversations, and Accounting."
             when="Start here when you join as a partner. Open Getting started for the first request. Open a module page when you already know the product."
             why="Partners call Scan, not provider hosts. One Bearer key and one host keep collect, PIN, loyalty, and books on the same contract."
             how="Create an API key. Send Authorization: Bearer sk_test_.... Read When to use, Why, and How at the top of each page, then follow the paths on that page."
@@ -85,7 +85,7 @@ const DocsIndex = () => {
               <div className="text-gray-800 ml-4">
                 baseUrl:{" "}
                 <span className="text-green-600">
-                  "https://api.scanafrica.com"
+                  "https://api.ottoafrica.com"
                 </span>
                 ,
               </div>
@@ -123,7 +123,7 @@ const DocsIndex = () => {
               Platform modules
             </h2>
             <p className="text-gray-600 mb-4 text-sm">
-              Partners call Scan at <code>https://api.scanafrica.com</code>.
+              Partners call Scan at <code>https://api.ottoafrica.com</code>.
               Each module page states what it does and lists the Scan paths.
             </p>
             <ul className="space-y-2 text-sm text-gray-600 list-disc list-inside">
@@ -312,7 +312,7 @@ const DocsIndex = () => {
                 </li>
                 <li>
                   <a
-                    href="https://api.scanafrica.com/api/health"
+                    href="https://api.ottoafrica.com/api/health"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:text-black transition-colors text-sm"

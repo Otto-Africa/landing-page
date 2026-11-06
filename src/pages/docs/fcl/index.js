@@ -28,7 +28,7 @@ const FclOverview = () => {
         title="FCL Provider APIs - Scan Africa Documentation"
         description="Documentation for FCL Payment Gateway, Unified External Channels, and Core Banking APIs."
         keywords="FCL API, Payment Gateway, Unified External Channels, Core Banking, Scan documentation"
-        url="https://scanafrica.com/fcl"
+        url="https://ottoafrica.com/fcl"
       />
       <DocsLayout
         currentPage="/fcl"
@@ -40,7 +40,7 @@ const FclOverview = () => {
 
           <DocsOpener
             lead="FCL is the bank provider Scan calls. These pages are the provider contracts. They are not the Scan merchant API."
-            when="Use this section only when you work on Scan adapters. Partners must not call FCL. Partners use https://api.scanafrica.com with a Bearer key."
+            when="Use this section only when you work on Scan adapters. Partners must not call FCL. Partners use https://api.ottoafrica.com with a Bearer key."
             why="Payment Gateway, Unified External Channels, and Core Banking own different steps. Success on one API is not proof of success on another."
             how="Read architecture. Then open Gateway, Unified, or Core Banking. Authenticate with X-Api-Key on the provider host. Do not send Scan sk_ keys here."
           />

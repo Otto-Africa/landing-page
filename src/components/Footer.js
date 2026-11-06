@@ -88,12 +88,12 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="https://blog.scanafrica.com" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">
+                <a href="https://blog.ottoafrica.com" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">
                   Blog
                 </a>
               </li>
               <li>
-                <a href="https://careers.scanafrica.com" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">
+                <a href="https://careers.ottoafrica.com" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">
                   Careers
                 </a>
               </li>

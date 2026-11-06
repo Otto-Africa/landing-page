@@ -41,7 +41,7 @@ const GatewayEndpoint = () => {
         title={`${endpoint.title} - Payment Gateway - Scan Africa Documentation`}
         description={endpoint.summary}
         keywords={`FCL ${endpoint.method} ${endpoint.path}`}
-        url={`https://scanafrica.com/fcl/gateway/api/${endpoint.id}`}
+        url={`https://ottoafrica.com/fcl/gateway/api/${endpoint.id}`}
       />
       <DocsLayout
         currentPage={`/fcl/gateway/api/${endpoint.id}`}

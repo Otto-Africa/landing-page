@@ -37,7 +37,7 @@ const GatewayAuthentication = () => {
         title="Payment Gateway Authentication - Scan Africa Documentation"
         description="Authenticate to the FCL Payment Gateway with the X-Api-Key header."
         keywords="FCL Payment Gateway authentication, X-Api-Key, fpk_"
-        url="https://scanafrica.com/fcl/gateway-authentication"
+        url="https://ottoafrica.com/fcl/gateway-authentication"
       />
       <DocsLayout
         currentPage="/fcl/gateway-authentication"

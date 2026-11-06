@@ -91,7 +91,7 @@ const InviteReferralPage = () => {
   const pageUrl =
     typeof window !== "undefined"
       ? window.location.href
-      : `https://scanafrica.com/invite/${encodeURIComponent(ref || "")}`;
+      : `https://ottoafrica.com/invite/${encodeURIComponent(ref || "")}`;
 
   if (!ref) {
     return (

@@ -28,7 +28,7 @@ const QRCodes = () => {
         title="QR Codes API - Scan Africa API Documentation"
         description="Learn how to generate, manage, and scan QR codes for payments using Scan Africa API. Complete QR code integration guide."
         keywords="QR code API, payment QR codes, QR code generation, QR code scanning, Scan QR codes"
-        url="https://scanafrica.com/docs/qr-codes"
+        url="https://ottoafrica.com/docs/qr-codes"
       />
       <DocsLayout
         currentPage="/docs/qr-codes"
@@ -87,7 +87,7 @@ const QRCodes = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="bash"
-                  code={`curl -X POST "https://api.scanafrica.com/api/merchant/qr/generate" \\
+                  code={`curl -X POST "https://api.ottoafrica.com/api/merchant/qr/generate" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -103,7 +103,7 @@ const QRCodes = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="javascript"
-                  code={`const response = await fetch('https://api.scanafrica.com/api/merchant/qr/generate', {
+                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/qr/generate', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -130,7 +130,7 @@ const data = await response.json();
                   code={`import requests
 
 response = requests.post(
-    'https://api.scanafrica.com/api/merchant/qr/generate',
+    'https://api.ottoafrica.com/api/merchant/qr/generate',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -160,7 +160,7 @@ data = response.json()
   "status": "success",
   "data": {
     "qr_code_id": "qr_abc123",
-    "qr_code_url": "https://api.scanafrica.com/qr/qr_abc123.png",
+    "qr_code_url": "https://api.ottoafrica.com/qr/qr_abc123.png",
     "qr_data": "SCAN:DYNAMIC:ABC123",
     "amount": 25.00,
     "expires_at": "2024-01-15T11:30:00Z"
@@ -186,7 +186,7 @@ data = response.json()
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.scanafrica.com/api/merchant/qr/static" \\
+          code={`curl -X GET "https://api.ottoafrica.com/api/merchant/qr/static" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -201,7 +201,7 @@ data = response.json()
 
         <CodeBlock
           language="bash"
-          code={`curl -X POST "https://api.scanafrica.com/api/merchant/qr/static" \\
+          code={`curl -X POST "https://api.ottoafrica.com/api/merchant/qr/static" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -248,7 +248,7 @@ data = response.json()
               <div className="tab-pane">
                 <CodeBlock
                   language="bash"
-                  code={`curl -X POST "https://api.scanafrica.com/api/merchant/qr/scan" \\
+                  code={`curl -X POST "https://api.ottoafrica.com/api/merchant/qr/scan" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -263,7 +263,7 @@ data = response.json()
               <div className="tab-pane">
                 <CodeBlock
                   language="javascript"
-                  code={`const response = await fetch('https://api.scanafrica.com/api/merchant/qr/scan', {
+                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/qr/scan', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -287,7 +287,7 @@ const data = await response.json();`}
                   code={`import requests
 
 response = requests.post(
-    'https://api.scanafrica.com/api/merchant/qr/scan',
+    'https://api.ottoafrica.com/api/merchant/qr/scan',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -343,7 +343,7 @@ data = response.json()`}
         <div className="docs-alert success">
           <strong>Need Help?</strong> Check the{" "}
           <a
-            href="https://api.scanafrica.com/api/docs"
+            href="https://api.ottoafrica.com/api/docs"
             className="underline"
             target="_blank"
             rel="noopener noreferrer"

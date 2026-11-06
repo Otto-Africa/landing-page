@@ -32,7 +32,7 @@ const Checkout = () => {
         <SEO
           title="Checkout - Scan Africa"
           description="Complete your subscription purchase"
-          url="https://scanafrica.com/checkout"
+          url="https://ottoafrica.com/checkout"
         />
         <Header />
 
@@ -67,7 +67,7 @@ const Checkout = () => {
       <SEO
         title="Redirecting - Scan Africa"
         description="Redirecting to merchant portal"
-        url="https://scanafrica.com/checkout"
+        url="https://ottoafrica.com/checkout"
       />
       <Header />
       <section ref={heroRef} className="flex-1 bg-white flex items-center justify-center min-h-0">

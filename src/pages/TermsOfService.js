@@ -23,7 +23,7 @@ const TermsOfService = () => {
         title={`${userType === 'merchant' ? 'Merchant' : 'Customer'} Terms of Service - Scan Africa`}
         description={`Scan Africa's ${userType === 'merchant' ? 'Merchant Service Agreement' : 'User Agreement'}. Read our terms and conditions for using our payment platform.`}
         keywords="terms of service, terms and conditions, user agreement, merchant agreement, Scan Africa terms"
-        url="https://scanafrica.com/terms-of-service"
+        url="https://ottoafrica.com/terms-of-service"
       />
       <Header />
 

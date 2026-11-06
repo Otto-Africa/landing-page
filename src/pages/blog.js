@@ -13,7 +13,7 @@ const Blog = () => {
 				title="Blog - Scan Africa"
 				description="Read the latest news, updates, and insights from Scan Africa. Learn about payment solutions, fintech trends, and how to grow your business."
 				keywords="Scan Africa blog, fintech blog, payment solutions blog, business insights"
-				url="https://scanafrica.com/blog"
+				url="https://ottoafrica.com/blog"
 			/>
 			<Layout />
 		</>

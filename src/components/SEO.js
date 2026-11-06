@@ -8,8 +8,8 @@ const SEO = ({
   title = "Scan Africa - Scale without limits. Payment Infrastructure for Africa",
   description = "The all-in-one payment infrastructure built for Africa's most ambitious businesses. Accept payments, manage gift cards, and launch loyalty programs with ease.",
   keywords = "payment infrastructure, QR payments, digital gift cards, loyalty programs, Africa payments, Ghana payments, fintech, payment solutions, business payments",
-  image = "https://scanafrica.com/img/logos/Favicon%20-%20Black@4x-8.png",
-  url = "https://scanafrica.com",
+  image = "https://ottoafrica.com/img/logos/Favicon%20-%20Black@4x-8.png",
+  url = "https://ottoafrica.com",
   type = "website",
   author = "Scan Africa",
   noindex = false,
@@ -17,20 +17,20 @@ const SEO = ({
 }) => {
   const fullTitle = title.includes('Scan') ? title : `${title} | Scan Africa`;
   
-  // Normalize URL: ensure it's https://scanafrica.com (no www, no trailing slash except root)
-  let fullUrl = url.startsWith('http') ? url : `https://scanafrica.com${url}`;
+  // Normalize URL: ensure it's https://ottoafrica.com (no www, no trailing slash except root)
+  let fullUrl = url.startsWith('http') ? url : `https://ottoafrica.com${url}`;
   // Remove www if present and ensure https
   fullUrl = fullUrl.replace(/^https?:\/\/(www\.)?/, 'https://');
   // Remove trailing slash except for root domain
-  if (fullUrl !== 'https://scanafrica.com' && fullUrl.endsWith('/')) {
+  if (fullUrl !== 'https://ottoafrica.com' && fullUrl.endsWith('/')) {
     fullUrl = fullUrl.slice(0, -1);
   }
-  // Ensure it starts with https://scanafrica.com (canonical domain)
-  if (!fullUrl.startsWith('https://scanafrica.com')) {
-    fullUrl = fullUrl.replace(/^https?:\/\/[^/]+/, 'https://scanafrica.com');
+  // Ensure it starts with https://ottoafrica.com (canonical domain)
+  if (!fullUrl.startsWith('https://ottoafrica.com')) {
+    fullUrl = fullUrl.replace(/^https?:\/\/[^/]+/, 'https://ottoafrica.com');
   }
   
-  const fullImage = image.startsWith('http') ? image : `https://scanafrica.com${image}`;
+  const fullImage = image.startsWith('http') ? image : `https://ottoafrica.com${image}`;
 
   useEffect(() => {
     // Update document title

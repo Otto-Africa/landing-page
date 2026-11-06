@@ -19,7 +19,7 @@ const AccountDeletion = () => {
         title={`How to Delete Your ${userType === 'merchant' ? 'Business' : 'Customer'} Account - Scan Africa`}
         description={`Learn how to delete your Scan Africa ${userType} account. Step-by-step instructions and important information.`}
         keywords={`delete account, account deletion, remove account, Scan Africa ${userType} deletion`}
-        url="https://scanafrica.com/account-deletion"
+        url="https://ottoafrica.com/account-deletion"
       />
       <Header />
 

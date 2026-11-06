@@ -58,7 +58,7 @@ const SDKs = () => {
         title="SDKs & Libraries - Scan Africa API Documentation"
         description="Official Scan npm SDKs for loyalty events, browser customer flows, and popup widgets."
         keywords="Scan SDK, npm, loyalty SDK, JavaScript SDK, Node SDK"
-        url="https://scanafrica.com/docs/sdks"
+        url="https://ottoafrica.com/docs/sdks"
       />
       <DocsLayout
         currentPage="/docs/sdks"

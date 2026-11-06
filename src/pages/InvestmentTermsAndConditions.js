@@ -18,7 +18,7 @@ const InvestmentTermsAndConditions = () => {
         title="Investment Certificate Terms and Conditions - Scan Africa"
         description="Terms and conditions for purchasing investment certificates on Scan. Scan facilitates access to third-party investment products; we do not provide investment advice or the underlying investments."
         keywords="investment certificate, terms and conditions, investment terms, Scan Africa, third-party investment"
-        url="https://scanafrica.com/investment-terms-and-conditions"
+        url="https://ottoafrica.com/investment-terms-and-conditions"
       />
       <Header />
 

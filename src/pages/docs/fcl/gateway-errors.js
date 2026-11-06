@@ -28,7 +28,7 @@ const GatewayErrors = () => {
         title="Payment Gateway Errors - Scan Africa Documentation"
         description="Observed HTTP statuses and error envelopes for the FCL Payment Gateway."
         keywords="FCL Payment Gateway errors, UNAUTHORIZED, ALL_PROVIDERS_FAILED"
-        url="https://scanafrica.com/fcl/gateway-errors"
+        url="https://ottoafrica.com/fcl/gateway-errors"
       />
       <DocsLayout
         currentPage="/fcl/gateway-errors"

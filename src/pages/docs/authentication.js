@@ -29,7 +29,7 @@ const Authentication = () => {
         title="Authentication - Scan Africa API Documentation"
         description="Learn how to authenticate with Scan Africa API using API keys. Understand test vs production keys and how to securely make API requests."
         keywords="Scan API authentication, API keys, Bearer token, API security, test API keys, production API keys"
-        url="https://scanafrica.com/docs/authentication"
+        url="https://ottoafrica.com/docs/authentication"
       />
       <DocsLayout
         currentPage="/docs/authentication"
@@ -43,7 +43,7 @@ const Authentication = () => {
           lead="Partner apps prove identity to Scan with a Bearer API key. Scan uses that key to choose test or live data and to apply scopes."
           when="Use this page when you create a key, send your first request, or debug 401 Unauthorized. User login tokens are for apps, not for server-to-server Scan API calls."
           why="A key prefix (sk_test_ or sk_live_) selects the environment on the same host. Scopes limit what the key can do. That keeps production data off test code."
-          how="Create a key in the Merchant Portal or via Identity API keys. Send Authorization: Bearer sk_test_... or sk_live_... on every request to https://api.scanafrica.com. Do not send provider keys from your app."
+          how="Create a key in the Merchant Portal or via Identity API keys. Send Authorization: Bearer sk_test_... or sk_live_... on every request to https://api.ottoafrica.com. Do not send provider keys from your app."
         />
 
         <h2 id="api-keys">API Key Management</h2>
@@ -99,7 +99,7 @@ const Authentication = () => {
 
         <div className="docs-alert info">
           <strong>Same Endpoint:</strong> Both test and live keys use the same API endpoint
-          (<code>https://api.scanafrica.com</code>). The environment is automatically determined by the key prefix.
+          (<code>https://api.ottoafrica.com</code>). The environment is automatically determined by the key prefix.
         </div>
 
         <p>
@@ -217,7 +217,7 @@ const Authentication = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="bash"
-                  code={`curl -X GET "https://api.scanafrica.com/api/merchant/transactions" \\
+                  code={`curl -X GET "https://api.ottoafrica.com/api/merchant/transactions" \\
   -H "Authorization: Bearer sk_test_your_api_key_here" \\
   -H "Content-Type: application/json"`}
                 />
@@ -227,7 +227,7 @@ const Authentication = () => {
               <div className="tab-pane">
                 <CodeBlock
                   language="javascript"
-                  code={`const response = await fetch('https://api.scanafrica.com/api/merchant/transactions', {
+                  code={`const response = await fetch('https://api.ottoafrica.com/api/merchant/transactions', {
   method: 'GET',
   headers: {
     'Authorization': 'Bearer sk_test_your_api_key_here',
@@ -244,7 +244,7 @@ const Authentication = () => {
                   code={`import requests
 
 response = requests.get(
-    'https://api.scanafrica.com/api/merchant/transactions',
+    'https://api.ottoafrica.com/api/merchant/transactions',
     headers={
         'Authorization': 'Bearer sk_test_your_api_key_here',
         'Content-Type': 'application/json'
@@ -371,7 +371,7 @@ response = requests.get(
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.scanafrica.com/api/health" \\
+          code={`curl -X GET "https://api.ottoafrica.com/api/health" \\
   -H "Authorization: Bearer sk_test_your_api_key_here"`}
         />
 
@@ -382,7 +382,7 @@ response = requests.get(
 
         <div className="docs-alert info">
           <strong>Need Help?</strong> Visit our <a href="/docs/support" className="underline">Support page</a> or
-          check the <a href="https://api.scanafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for detailed endpoint documentation.
+          check the <a href="https://api.ottoafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for detailed endpoint documentation.
         </div>
       </div>
     </DocsLayout>

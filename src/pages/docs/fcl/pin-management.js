@@ -42,7 +42,7 @@ const PinManagement = () => {
         title="PIN Management - Scan Africa Documentation"
         description="FCL Unified External Channels PIN Management: create, verify, update, and recover a six-digit customer PIN."
         keywords="FCL PIN Management, security questions, transaction PIN"
-        url="https://scanafrica.com/fcl/pin-management"
+        url="https://ottoafrica.com/fcl/pin-management"
       />
       <DocsLayout
         currentPage="/fcl/pin-management"

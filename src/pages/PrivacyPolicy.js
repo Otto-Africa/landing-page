@@ -23,7 +23,7 @@ const PrivacyPolicy = () => {
         title={`${userType === 'merchant' ? 'Merchant' : 'Customer'} Privacy Policy - Scan Africa`}
         description={`Scan Africa's ${userType} Privacy Policy. Learn how we collect, use, and protect your information.`}
         keywords="privacy policy, data protection, user privacy, merchant privacy, Scan Africa"
-        url="https://scanafrica.com/privacy-policy"
+        url="https://ottoafrica.com/privacy-policy"
       />
       <Header />
 

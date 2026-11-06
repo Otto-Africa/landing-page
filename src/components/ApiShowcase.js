@@ -17,7 +17,7 @@ const ApiShowcase = () => {
     'create-gift-card': {
       title: 'Create Gift Card',
       description: 'Create a new gift card template with custom denominations',
-      curl: `curl -X POST "https://api.scanafrica.com/merchant/giftcard-templates" \\
+      curl: `curl -X POST "https://api.ottoafrica.com/merchant/giftcard-templates" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -25,7 +25,7 @@ const ApiShowcase = () => {
     "denominations": [25, 50, 100],
     "currency": "GHS"
   }'`,
-      javascript: `const response = await fetch('https://api.scanafrica.com/merchant/giftcard-templates', {
+      javascript: `const response = await fetch('https://api.ottoafrica.com/merchant/giftcard-templates', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -42,7 +42,7 @@ const data = await response.json();`,
       python: `import requests
 
 response = requests.post(
-    'https://api.scanafrica.com/merchant/giftcard-templates',
+    'https://api.ottoafrica.com/merchant/giftcard-templates',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -59,9 +59,9 @@ data = response.json()`
     'list-transactions': {
       title: 'List Transactions',
       description: 'Retrieve transaction history with filtering',
-      curl: `curl -X GET "https://api.scanafrica.com/merchant/transactions?page=1&per_page=20" \\
+      curl: `curl -X GET "https://api.ottoafrica.com/merchant/transactions?page=1&per_page=20" \\
   -H "Authorization: Bearer your_api_key"`,
-      javascript: `const response = await fetch('https://api.scanafrica.com/merchant/transactions?page=1&per_page=20', {
+      javascript: `const response = await fetch('https://api.ottoafrica.com/merchant/transactions?page=1&per_page=20', {
   method: 'GET',
   headers: {
     'Authorization': 'Bearer your_api_key'
@@ -72,7 +72,7 @@ const transactions = await response.json();`,
       python: `import requests
 
 response = requests.get(
-    'https://api.scanafrica.com/merchant/transactions',
+    'https://api.ottoafrica.com/merchant/transactions',
     headers={
         'Authorization': 'Bearer your_api_key'
     },
@@ -87,11 +87,11 @@ transactions = response.json()`
     'redeem-gift-card': {
       title: 'Redeem Gift Card',
       description: 'Process a gift card redemption',
-      curl: `curl -X POST "https://api.scanafrica.com/merchant/giftcards/ABC123/redeem" \\
+      curl: `curl -X POST "https://api.ottoafrica.com/merchant/giftcards/ABC123/redeem" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{"amount": 25.00}'`,
-      javascript: `const response = await fetch('https://api.scanafrica.com/merchant/giftcards/ABC123/redeem', {
+      javascript: `const response = await fetch('https://api.ottoafrica.com/merchant/giftcards/ABC123/redeem', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -106,7 +106,7 @@ const result = await response.json();`,
       python: `import requests
 
 response = requests.post(
-    'https://api.scanafrica.com/merchant/giftcards/ABC123/redeem',
+    'https://api.ottoafrica.com/merchant/giftcards/ABC123/redeem',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'

@@ -25,7 +25,7 @@ const Support = () => {
         title="Support - Scan Africa API Documentation"
         description="Get help integrating Scan's API. Contact our support team via email or GitHub issues for technical questions and assistance."
         keywords="Scan API support, developer support, API help, technical support, API documentation support"
-        url="https://scanafrica.com/docs/support"
+        url="https://ottoafrica.com/docs/support"
       />
       <DocsLayout
         currentPage="/docs/support"
@@ -124,7 +124,7 @@ const Support = () => {
                 <strong>Solution:</strong> Ensure your API key starts with{" "}
                 <code>sk_live_</code> for production or <code>sk_test_</code>{" "}
                 for test environment. Both use the same endpoint (
-                <code>https://api.scanafrica.com</code>).
+                <code>https://api.ottoafrica.com</code>).
               </div>
             </div>
 

@@ -30,7 +30,7 @@ const GiftCards = () => {
         title="Gift Cards API - Scan Africa API Documentation"
         description="Learn how to create, manage, and redeem digital gift cards using Scan Africa API. Complete guide with code examples."
         keywords="gift card API, digital gift cards, gift card management, gift card redemption, Scan gift cards"
-        url="https://scanafrica.com/docs/gift-cards"
+        url="https://ottoafrica.com/docs/gift-cards"
       />
       <DocsLayout
         currentPage="/docs/gift-cards"
@@ -97,7 +97,7 @@ const GiftCards = () => {
           requestMethod="POST"
           requestUrl="/merchant/giftcard-templates"
           examples={{
-            curl: `curl -X POST "https://api.scanafrica.com/merchant/giftcard-templates" \\
+            curl: `curl -X POST "https://api.ottoafrica.com/merchant/giftcard-templates" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -109,7 +109,7 @@ const GiftCards = () => {
     "text_color": "#FFFFFF",
     "expires_in_days": 365
   }'`,
-            javascript: `const response = await fetch('https://api.scanafrica.com/merchant/giftcard-templates', {
+            javascript: `const response = await fetch('https://api.ottoafrica.com/merchant/giftcard-templates', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -130,7 +130,7 @@ const data = await response.json();`,
             python: `import requests
 
 response = requests.post(
-    'https://api.scanafrica.com/merchant/giftcard-templates',
+    'https://api.ottoafrica.com/merchant/giftcard-templates',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -211,7 +211,7 @@ data = response.json()`
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.scanafrica.com/merchant/giftcard-templates?page=1&per_page=15" \\
+          code={`curl -X GET "https://api.ottoafrica.com/merchant/giftcard-templates?page=1&per_page=15" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -225,7 +225,7 @@ data = response.json()`
 
         <CodeBlock
           language="bash"
-          code={`curl -X PUT "https://api.scanafrica.com/merchant/giftcard-templates/123" \\
+          code={`curl -X PUT "https://api.ottoafrica.com/merchant/giftcard-templates/123" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -251,7 +251,7 @@ data = response.json()`
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.scanafrica.com/merchant/giftcards?page=1&per_page=20&status=active" \\
+          code={`curl -X GET "https://api.ottoafrica.com/merchant/giftcards?page=1&per_page=20&status=active" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -265,7 +265,7 @@ data = response.json()`
 
         <CodeBlock
           language="bash"
-          code={`curl -X GET "https://api.scanafrica.com/merchant/giftcards/ABC123456/verify" \\
+          code={`curl -X GET "https://api.ottoafrica.com/merchant/giftcards/ABC123456/verify" \\
   -H "Authorization: Bearer your_api_key"`}
         />
 
@@ -289,14 +289,14 @@ data = response.json()`
           requestMethod="POST"
           requestUrl="/merchant/giftcards/{code}/redeem"
           examples={{
-            curl: `curl -X POST "https://api.scanafrica.com/merchant/giftcards/ABC123456/redeem" \\
+            curl: `curl -X POST "https://api.ottoafrica.com/merchant/giftcards/ABC123456/redeem" \\
   -H "Authorization: Bearer your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{
     "amount": 25.00,
     "transaction_reference": "TXN-12345"
   }'`,
-            javascript: `const response = await fetch('https://api.scanafrica.com/merchant/giftcards/ABC123456/redeem', {
+            javascript: `const response = await fetch('https://api.ottoafrica.com/merchant/giftcards/ABC123456/redeem', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer your_api_key',
@@ -312,7 +312,7 @@ const data = await response.json();`,
             python: `import requests
 
 response = requests.post(
-    'https://api.scanafrica.com/merchant/giftcards/ABC123456/redeem',
+    'https://api.ottoafrica.com/merchant/giftcards/ABC123456/redeem',
     headers={
         'Authorization': 'Bearer your_api_key',
         'Content-Type': 'application/json'
@@ -382,7 +382,7 @@ data = response.json()`
         </ul>
 
         <div className="docs-alert success">
-          <strong>Need Help?</strong> Check the <a href="https://api.scanafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for complete endpoint documentation,
+          <strong>Need Help?</strong> Check the <a href="https://api.ottoafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for complete endpoint documentation,
           or visit our <a href="/docs/support" className="underline">Support page</a>.
         </div>
       </div>

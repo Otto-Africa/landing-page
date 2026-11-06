@@ -23,7 +23,7 @@ const UnifiedReference = () => {
         title="Unified Endpoint Reference - Scan Africa Documentation"
         description="Endpoint register for FCL Unified External Channels."
         keywords="FCL Unified endpoints, PIN, OTP, investments, auto-debits"
-        url="https://scanafrica.com/fcl/unified-reference"
+        url="https://ottoafrica.com/fcl/unified-reference"
       />
       <DocsLayout
         currentPage="/fcl/unified-reference"

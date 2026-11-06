@@ -30,7 +30,7 @@ const Identity = () => {
         title="Identity API - Scan Africa Documentation"
         description="Scan Identity: register, login, API keys, transaction PIN, biometric flags, and MFA."
         keywords="Scan identity, login, register, API key, transaction PIN, MFA"
-        url="https://scanafrica.com/docs/identity"
+        url="https://ottoafrica.com/docs/identity"
       />
       <DocsLayout
         currentPage="/docs/identity"
@@ -48,7 +48,7 @@ const Identity = () => {
           />
 
           <p>
-            Base URL: <code>https://api.scanafrica.com</code>
+            Base URL: <code>https://api.ottoafrica.com</code>
           </p>
 
           <h2 id="auth">Login and register</h2>

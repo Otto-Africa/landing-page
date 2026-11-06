@@ -261,7 +261,7 @@ const PayPage = () => {
           title={`Pay ${merchantName} – Scan Africa`}
           description="Pay with mobile money on Scan."
           keywords="pay, Scan, mobile money, Ghana"
-          url={`https://scanafrica.com/pay/${qrId || ""}?c=${collectId}`}
+          url={`https://ottoafrica.com/pay/${qrId || ""}?c=${collectId}`}
         />
         <div className="gift-card-share-container">
           <div className="gift-card-share-content pay-web-form">
@@ -476,7 +476,7 @@ const PayPage = () => {
           title="Pay with Scan – Scan Africa"
           description="Download Scan to complete your payment."
           keywords="pay, Scan, payment, Ghana"
-          url={`https://scanafrica.com/pay/${qrId || ""}${amount ? `?amount=${amount}` : ""}`}
+          url={`https://ottoafrica.com/pay/${qrId || ""}${amount ? `?amount=${amount}` : ""}`}
         />
         <div className="gift-card-share-container">
           <div className="gift-card-share-content">
@@ -525,7 +525,7 @@ const PayPage = () => {
         title="Pay with Scan – Scan Africa"
         description="Complete your payment in the Scan app. Download Scan to pay with gift cards, mobile money, and more."
         keywords="pay, Scan, payment, scan to pay"
-        url={`https://scanafrica.com/pay/${qrId || ""}${amount ? `?amount=${amount}` : ""}`}
+        url={`https://ottoafrica.com/pay/${qrId || ""}${amount ? `?amount=${amount}` : ""}`}
       />
       <div className="gift-card-share-container">
         <div className="gift-card-share-content">

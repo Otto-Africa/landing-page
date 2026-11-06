@@ -42,7 +42,7 @@ const GatewayQuickstart = () => {
         title="Payment Gateway Quickstart - Scan Africa Documentation"
         description="Collect GHS with the FCL Payment Gateway: create an API key, register a webhook, then create a collection."
         keywords="FCL Payment Gateway quickstart, mobile money collection"
-        url="https://scanafrica.com/fcl/gateway-quickstart"
+        url="https://ottoafrica.com/fcl/gateway-quickstart"
       />
       <DocsLayout
         currentPage="/fcl/gateway-quickstart"

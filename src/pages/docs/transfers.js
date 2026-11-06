@@ -32,7 +32,7 @@ const Transfers = () => {
         title="Transfers API - Scan Africa Documentation"
         description="Send money between Scan wallets or to mobile money and bank accounts through the Scan API."
         keywords="Scan transfers, wallet transfer, mobile money, bank payout"
-        url="https://scanafrica.com/docs/transfers"
+        url="https://ottoafrica.com/docs/transfers"
       />
       <DocsLayout
         currentPage="/docs/transfers"

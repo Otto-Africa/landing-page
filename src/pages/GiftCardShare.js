@@ -97,7 +97,7 @@ const GiftCardShare = () => {
         title={merchantName ? `${giftTitle} from ${merchantName} – Scan Africa` : "Gift Card – Scan Africa"}
         description={merchantName ? `View your ${giftTitle} from ${merchantName}. Download the Scan app to access your digital gift card.` : "View your Scan Africa gift card. Download the Scan app to access and use your digital gift card."}
         keywords="gift card, digital gift card, Scan gift card"
-        url={`https://scanafrica.com/gift-cards/${id}`}
+        url={`https://ottoafrica.com/gift-cards/${id}`}
       />
       <div className="gift-card-share-container">
         <div className="gift-card-share-content">

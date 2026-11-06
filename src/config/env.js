@@ -24,16 +24,16 @@ const ENV_ALIASES = {
 
 const DEFAULT_API_HOSTS = {
   [ENV.LOCAL]: "http://localhost:3000",
-  [ENV.TEST]: "https://api-test.ottoafrica.com",
+  [ENV.TEST]: "http://10.11.12.118",
   [ENV.STAGING]: "http://10.11.12.119",
-  [ENV.PRODUCTION]: "https://api.scanafrica.com",
+  [ENV.PRODUCTION]: "https://api.ottoafrica.com",
 };
 
 const DEFAULT_MERCHANT_PORTAL_HOSTS = {
   [ENV.LOCAL]: "http://localhost:3001",
-  [ENV.TEST]: "https://business-test.scanafrica.com",
-  [ENV.STAGING]: "https://business-staging.scanafrica.com",
-  [ENV.PRODUCTION]: "https://business.scanafrica.com",
+  [ENV.TEST]: "https://business-test.ottoafrica.com",
+  [ENV.STAGING]: "https://business-staging.ottoafrica.com",
+  [ENV.PRODUCTION]: "https://business.ottoafrica.com",
 };
 
 function envUrl(name) {

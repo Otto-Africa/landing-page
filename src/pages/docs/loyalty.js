@@ -30,7 +30,7 @@ const Loyalty = () => {
         title="Loyalty Management API - Scan Africa Documentation"
         description="Create loyalty programs, enroll members, manage rewards, and redeem points on the Scan API."
         keywords="Scan loyalty, loyalty programs, rewards, member code, points"
-        url="https://scanafrica.com/docs/loyalty"
+        url="https://ottoafrica.com/docs/loyalty"
       />
       <DocsLayout
         currentPage="/docs/loyalty"

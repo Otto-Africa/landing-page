@@ -19,7 +19,7 @@ const GatewayReference = () => {
         title="Payment Gateway Endpoint Reference - Scan Africa Documentation"
         description="Endpoint catalog for the FCL Payment Gateway Client API."
         keywords="FCL Payment Gateway endpoints, collections, disbursements"
-        url="https://scanafrica.com/fcl/gateway-reference"
+        url="https://ottoafrica.com/fcl/gateway-reference"
       />
       <DocsLayout
         currentPage="/fcl/gateway-reference"

@@ -109,7 +109,7 @@ const InvestmentGiftReceive = () => {
   if (error && !gift) {
     return (
       <>
-        <SEO title="Investment Gift – Scan Africa" description="View your Scan Africa investment gift." url="https://scanafrica.com/investment-gift/receive" />
+        <SEO title="Investment Gift – Scan Africa" description="View your Scan Africa investment gift." url="https://ottoafrica.com/investment-gift/receive" />
         <div className="gift-card-share-container">
           <div className="gift-card-share-content">
             <div className="gift-card-icon">📈</div>
@@ -126,7 +126,7 @@ const InvestmentGiftReceive = () => {
       <SEO
         title="You received an investment gift – Scan Africa"
         description={gift ? `${gift.senderName} sent you a fixed deposit (${gift.productName}).` : "View your Scan Africa investment gift."}
-        url={`https://scanafrica.com/investment-gift/receive?token=${token || ""}`}
+        url={`https://ottoafrica.com/investment-gift/receive?token=${token || ""}`}
       />
       <div className="gift-card-share-container">
         <div className="gift-card-share-content">

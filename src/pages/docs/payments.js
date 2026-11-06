@@ -40,14 +40,14 @@ const Payments = () => {
     <>
       <SEO
         title="Payments API - Scan Africa Documentation"
-        description="Collect and pay through the Scan API. Authenticate with a Bearer API key on api.scanafrica.com."
+        description="Collect and pay through the Scan API. Authenticate with a Bearer API key on api.ottoafrica.com."
         keywords="Scan payments API, collect, transfer, payout, merchant API"
-        url="https://scanafrica.com/docs/payments"
+        url="https://ottoafrica.com/docs/payments"
       />
       <DocsLayout
         currentPage="/docs/payments"
         onThisPageItems={onThisPageItems}
-        nutshell="Call the Scan API at api.scanafrica.com. Use a Bearer API key. Scan collects and pays on your behalf."
+        nutshell="Call the Scan API at api.ottoafrica.com. Use a Bearer API key. Scan collects and pays on your behalf."
       >
         <div className="docs-content">
           <h1 id="overview">Payments</h1>
@@ -63,7 +63,7 @@ const Payments = () => {
             Related pages: <Link to="/docs/transfers">transfers</Link>,{" "}
             <Link to="/docs/funding-flows">funding flows</Link>, and{" "}
             <Link to="/docs/webhooks">webhooks</Link>. Base URL:{" "}
-            <code>https://api.scanafrica.com</code>.
+            <code>https://api.ottoafrica.com</code>.
           </p>
           <p>
             Header: <code>Authorization: Bearer sk_live_...</code> or{" "}

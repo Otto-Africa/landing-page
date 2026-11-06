@@ -37,7 +37,7 @@ const CoreBanking = () => {
           title={`${endpoint.name} - Core Banking - Scan Africa Documentation`}
           description={`Core Banking ${endpoint.path}`}
           keywords={`FCL Core Banking ${endpoint.path}`}
-          url={`https://scanafrica.com/fcl/core-banking/${endpoint.id}`}
+          url={`https://ottoafrica.com/fcl/core-banking/${endpoint.id}`}
         />
         <DocsLayout
           currentPage={`/fcl/core-banking/${endpoint.id}`}
@@ -122,7 +122,7 @@ const CoreBanking = () => {
         title="Core Banking API - Scan Africa Documentation"
         description="FCL Core Banking for account enquiry, facilities, investments, and Field postings."
         keywords="FCL Core Banking, Field Deposit, Field Withdrawal"
-        url="https://scanafrica.com/fcl/core-banking"
+        url="https://ottoafrica.com/fcl/core-banking"
       />
       <DocsLayout
         currentPage="/fcl/core-banking"

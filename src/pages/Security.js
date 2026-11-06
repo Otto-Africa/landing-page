@@ -17,7 +17,7 @@ const Security = () => {
         title="Security - Scan Africa"
         description="Learn about Scan Africa's security measures, PCI DSS compliance, encryption, and fraud protection to keep your data and transactions safe."
         keywords="security, data protection, PCI DSS, encryption, fraud protection, Scan Africa security"
-        url="https://scanafrica.com/security"
+        url="https://ottoafrica.com/security"
       />
       <Header />
 

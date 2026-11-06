@@ -19,7 +19,7 @@ const CookiePolicy = () => {
         title="Cookie Policy - Scan Africa"
         description="Scan Africa's Cookie Policy. Learn how we use cookies and similar tracking technologies on our website and services."
         keywords="cookie policy, cookies, tracking technologies, Scan Africa cookies"
-        url="https://scanafrica.com/cookie-policy"
+        url="https://ottoafrica.com/cookie-policy"
       />
       <Header />
 

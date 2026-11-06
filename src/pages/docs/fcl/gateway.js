@@ -33,7 +33,7 @@ const FclGateway = () => {
         title="FCL Payment Gateway - Scan Africa Documentation"
         description="FCL Payment Gateway for collections, disbursements, name enquiry, and webhooks."
         keywords="FCL Payment Gateway, mobile money, disbursement, GhIPSS, MojoPay"
-        url="https://scanafrica.com/fcl/gateway"
+        url="https://ottoafrica.com/fcl/gateway"
       />
       <DocsLayout
         currentPage="/fcl/gateway"

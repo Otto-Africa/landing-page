@@ -29,7 +29,7 @@ const GettingStarted = () => {
         title="Getting Started - Scan Africa API Documentation"
         description="Get started with Scan Africa API. Learn how to create API keys, make your first API call, and integrate payments, gift cards, and loyalty programs."
         keywords="Scan API getting started, API integration guide, create API key, first API call, payment integration"
-        url="https://scanafrica.com/docs/getting-started"
+        url="https://ottoafrica.com/docs/getting-started"
       />
       <DocsLayout
         currentPage="/docs/getting-started"
@@ -41,7 +41,7 @@ const GettingStarted = () => {
         <h1 id="overview">Getting Started with Scan API</h1>
 
         <DocsOpener
-          lead="This guide shows a partner how to call the Scan API for the first time. Scan is the public gateway at https://api.scanafrica.com."
+          lead="This guide shows a partner how to call the Scan API for the first time. Scan is the public gateway at https://api.ottoafrica.com."
           when="Use this page when you start a new integration. You need a Merchant Portal account and an API key before collect, loyalty, or gift card calls."
           why="One host and one Bearer key is enough to reach Payments, Identity, Loyalty, LLM, and Accounting. You do not call provider hosts from your app."
           how="Create an API key in the Merchant Portal. Send Authorization: Bearer YOUR_API_KEY. Start with GET /api/merchant/transactions, then create a resource such as a gift card template or a collect."
@@ -127,10 +127,10 @@ const GettingStarted = () => {
           requestMethod="GET"
           requestUrl="/api/merchant/transactions"
           examples={{
-            curl: `curl -X GET "https://api.scanafrica.com/api/merchant/transactions" \\
+            curl: `curl -X GET "https://api.ottoafrica.com/api/merchant/transactions" \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json"`,
-            javascript: `const response = await fetch('https://api.scanafrica.com/api/merchant/transactions', {
+            javascript: `const response = await fetch('https://api.ottoafrica.com/api/merchant/transactions', {
   method: 'GET',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -143,7 +143,7 @@ console.log(data);`,
             python: `import requests
 
 response = requests.get(
-    'https://api.scanafrica.com/api/merchant/transactions',
+    'https://api.ottoafrica.com/api/merchant/transactions',
     headers={
         'Authorization': 'Bearer YOUR_API_KEY',
         'Content-Type': 'application/json'
@@ -175,7 +175,7 @@ print(data)`
           requestMethod="POST"
           requestUrl="/api/merchant/giftcard-templates"
           examples={{
-            curl: `curl -X POST "https://api.scanafrica.com/api/merchant/giftcard-templates" \\
+            curl: `curl -X POST "https://api.ottoafrica.com/api/merchant/giftcard-templates" \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -185,7 +185,7 @@ print(data)`
     "currency": "GHS",
     "expires_in_days": 365
   }'`,
-            javascript: `const response = await fetch('https://api.scanafrica.com/api/merchant/giftcard-templates', {
+            javascript: `const response = await fetch('https://api.ottoafrica.com/api/merchant/giftcard-templates', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -205,7 +205,7 @@ console.log(data);`,
             python: `import requests
 
 response = requests.post(
-    'https://api.scanafrica.com/api/merchant/giftcard-templates',
+    'https://api.ottoafrica.com/api/merchant/giftcard-templates',
     headers={
         'Authorization': 'Bearer YOUR_API_KEY',
         'Content-Type': 'application/json'
@@ -260,7 +260,7 @@ print(data)`
 
         <ul className="list-disc list-inside space-y-2 mb-6">
           <li>Replace test API keys (starting with <code>sk_test_</code>) with live keys (starting with <code>sk_live_</code>)</li>
-          <li>The API endpoint remains the same: <code>https://api.scanafrica.com</code></li>
+          <li>The API endpoint remains the same: <code>https://api.ottoafrica.com</code></li>
           <li>Update webhook URLs to production endpoints</li>
           <li>Implement proper error handling and retries</li>
           <li>Monitor your API usage in the Merchant Portal</li>
@@ -302,7 +302,7 @@ print(data)`
 
         <div className="docs-alert success">
           <strong>Need Help?</strong> Check out our <a href="/docs/support" className="underline">Support page</a> or
-          visit the <a href="https://api.scanafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for detailed documentation.
+          visit the <a href="https://api.ottoafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for detailed documentation.
         </div>
       </div>
     </DocsLayout>

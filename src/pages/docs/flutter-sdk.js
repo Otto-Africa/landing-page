@@ -26,7 +26,7 @@ const FlutterSdkDocs = () => {
         title="Flutter SDK - Scan Africa API Documentation"
         description="Integrate Scan payments in Flutter apps using the Scan Flutter SDK."
         keywords="Scan Flutter SDK, Flutter payment sdk, mobile payment integration"
-        url="https://scanafrica.com/docs/sdks/flutter"
+        url="https://ottoafrica.com/docs/sdks/flutter"
       />
       <DocsLayout
         currentPage="/docs/sdks"
@@ -62,7 +62,7 @@ const FlutterSdkDocs = () => {
             language="bash"
             requestMethod="POST"
             requestUrl="/api/merchant/transactions/initialize"
-            code={`curl -X POST "https://api.scanafrica.com/api/merchant/transactions/initialize" \\
+            code={`curl -X POST "https://api.ottoafrica.com/api/merchant/transactions/initialize" \\
   -H "Authorization: Bearer sk_live_or_test_key" \\
   -H "Content-Type: application/json" \\
   -d '{\n    "email":"customer@email.com",\n    "amount":500000\n  }'`}

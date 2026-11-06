@@ -227,7 +227,7 @@ const DemoBank = () => {
       <SEO
         title="Demo bank – Test payments (Ghana)"
         description="Test GHS credits into Scan Cash wallets in local, test, and staging."
-        url="https://scanafrica.com/demo-bank"
+        url="https://ottoafrica.com/demo-bank"
       />
 
       <div className="demo-bank-shell">

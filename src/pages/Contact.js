@@ -75,7 +75,7 @@ const Contact = () => {
         title="Contact Us - Scan Africa"
         description="Get in touch with Scan Africa. Have questions about our payment infrastructure? Need help getting started? Want to explore partnership opportunities? We'd love to hear from you."
         keywords="contact Scan, support, customer service, payment solutions support, fintech support"
-        url="https://scanafrica.com/contact"
+        url="https://ottoafrica.com/contact"
       />
       <Header />
 
@@ -270,7 +270,7 @@ const Contact = () => {
           <div className="space-y-6">
             <div className="bg-white rounded-lg p-6 scroll-animate" style={{ animationDelay: '200ms' }}>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">How do I get started with Scan?</h3>
-              <p className="text-gray-600">Sign up for a free account at merchant.scanafrica.com and start processing payments immediately. Our onboarding process takes less than 10 minutes.</p>
+              <p className="text-gray-600">Sign up for a free account at merchant.ottoafrica.com and start processing payments immediately. Our onboarding process takes less than 10 minutes.</p>
             </div>
 
             <div className="bg-white rounded-lg p-6 scroll-animate" style={{ animationDelay: '300ms' }}>

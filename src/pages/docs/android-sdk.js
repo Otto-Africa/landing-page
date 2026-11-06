@@ -27,7 +27,7 @@ const AndroidSdkDocs = () => {
         title="Android SDK - Scan Africa API Documentation"
         description="Integrate Scan payments in Android apps using our SDK."
         keywords="Scan Android SDK, mobile payment sdk, Android payment integration"
-        url="https://scanafrica.com/docs/sdks/android"
+        url="https://ottoafrica.com/docs/sdks/android"
       />
       <DocsLayout currentPage="/docs/sdks" onThisPageItems={onThisPageItems}>
         <div className="docs-content">
@@ -78,7 +78,7 @@ const AndroidSdkDocs = () => {
           </p>
           <CodeBlock
             language="bash"
-            code={`curl -X POST "https://api.scanafrica.com/api/merchant/transactions/initialize" \\\n  -H "Authorization: Bearer sk_live_or_test_key" \\\n  -H "Content-Type: application/json" \\\n  -d '{\n    "email": "customer@email.com",\n    "amount": 500000\n  }'`}
+            code={`curl -X POST "https://api.ottoafrica.com/api/merchant/transactions/initialize" \\\n  -H "Authorization: Bearer sk_live_or_test_key" \\\n  -H "Content-Type: application/json" \\\n  -d '{\n    "email": "customer@email.com",\n    "amount": 500000\n  }'`}
           />
           <p>
             Return the generated `access_code` to your Android app, then launch

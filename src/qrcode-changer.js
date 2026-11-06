@@ -7,7 +7,7 @@ import QRCode from "qrcode.react";
  */
 const QRCodeChanger = ({ size }) => {
 	const qrDataList = [
-		"scanafrica.com",
+		"ottoafrica.com",
 		"Scan, Pay, Grow",
 		"Share Love with a gift card",
 		"Payments made easy"

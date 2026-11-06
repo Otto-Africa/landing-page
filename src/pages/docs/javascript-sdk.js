@@ -29,7 +29,7 @@ const JavascriptSdkDocs = () => {
         title="JavaScript SDK - Scan Africa API Documentation"
         description="Scan loyalty SDKs on npm: @scanafrica/customer-sdk-js, events-sdk-node, loyalty-popup-widget."
         keywords="Scan JavaScript SDK, Node SDK, loyalty SDK, npm"
-        url="https://scanafrica.com/docs/sdks/javascript"
+        url="https://ottoafrica.com/docs/sdks/javascript"
       />
       <DocsLayout
         currentPage="/docs/sdks"
@@ -114,7 +114,7 @@ npm install @scanafrica/loyalty-popup-widget`}
             language="bash"
             requestMethod="POST"
             requestUrl="/api/merchant/transactions/initialize"
-            code={`curl -X POST "https://api.scanafrica.com/api/merchant/transactions/initialize" \\
+            code={`curl -X POST "https://api.ottoafrica.com/api/merchant/transactions/initialize" \\
   -H "Authorization: Bearer sk_live_or_test_key" \\
   -H "Content-Type: application/json" \\
   -d '{\n    "email":"customer@email.com",\n    "amount":500000\n  }'`}
@@ -129,7 +129,7 @@ npm install @scanafrica/loyalty-popup-widget`}
             code={`import { ScanCustomerSdk } from "@scanafrica/customer-sdk-js";
 
 const sdk = new ScanCustomerSdk({
-  baseUrl: "https://api.scanafrica.com",
+  baseUrl: "https://api.ottoafrica.com",
   clientToken: "<from POST /api/auth/client-token>",
 });
 
@@ -144,7 +144,7 @@ console.log(res);`}
             code={`import { ScanEventsSdk } from "@scanafrica/events-sdk-node";
 
 const events = new ScanEventsSdk({
-  baseUrl: "https://api.scanafrica.com",
+  baseUrl: "https://api.ottoafrica.com",
   apiKey: process.env.SCAN_SECRET_KEY,
 });
 
@@ -162,7 +162,7 @@ await events.trackTrigger("purchase_completed", {
 import { ScanCustomerSdk } from "@scanafrica/customer-sdk-js";
 
 const customerSdk = new ScanCustomerSdk({
-  baseUrl: "https://api.scanafrica.com",
+  baseUrl: "https://api.ottoafrica.com",
   clientToken: "<token>",
 });
 

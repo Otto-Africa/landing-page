@@ -30,7 +30,7 @@ const FundingFlows = () => {
         title="Funding Flows API - Scan Africa Documentation"
         description="Start wallet, savings, investment, and pay funding flows on the Scan API."
         keywords="Scan funding flows, wallet top-up, payout, savings"
-        url="https://scanafrica.com/docs/funding-flows"
+        url="https://ottoafrica.com/docs/funding-flows"
       />
       <DocsLayout
         currentPage="/docs/funding-flows"

@@ -8,14 +8,14 @@ echo "Setting up Landing Page environment files..."
 
 URL_BLOCK='
 LOCAL_BASE_URL=http://localhost:3000
-TEST_BASE_URL=https://api-test.scanafrica.com
-STAGING_BASE_URL=https://staging-api.scanafrica.com
-PROD_BASE_URL=https://api.scanafrica.com
+TEST_BASE_URL=https://api-test.ottoafrica.com
+STAGING_BASE_URL=https://staging-api.ottoafrica.com
+PROD_BASE_URL=https://api.ottoafrica.com
 
 LOCAL_MERCHANT_PORTAL_URL=http://localhost:3001
-TEST_MERCHANT_PORTAL_URL=https://business-test.scanafrica.com
-STAGING_MERCHANT_PORTAL_URL=https://business-staging.scanafrica.com
-PROD_MERCHANT_PORTAL_URL=https://business.scanafrica.com
+TEST_MERCHANT_PORTAL_URL=https://business-test.ottoafrica.com
+STAGING_MERCHANT_PORTAL_URL=https://business-staging.ottoafrica.com
+PROD_MERCHANT_PORTAL_URL=https://business.ottoafrica.com
 '
 
 # .env.local

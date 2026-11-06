@@ -35,7 +35,7 @@ const LlmConversations = () => {
         title="LLM Conversations API - Scan Africa Documentation"
         description="CosmoLLM chat, cases, documents, briefing, and actions on the Scan merchant API."
         keywords="Scan CosmoLLM, LLM conversations, merchant chat API"
-        url="https://scanafrica.com/docs/llm"
+        url="https://ottoafrica.com/docs/llm"
       />
       <DocsLayout
         currentPage="/docs/llm"

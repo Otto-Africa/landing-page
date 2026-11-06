@@ -26,7 +26,7 @@ const InvestmentCertificates = () => {
         title="Investment Certificates API - Scan Africa API Documentation"
         description="API for investment providers: list certificates, reconciliation, sync value. Only available for businesses registered as Investment providers."
         keywords="investment certificates API, investment gift certificates, investment provider, Scan API"
-        url="https://scanafrica.com/docs/investment-certificates"
+        url="https://ottoafrica.com/docs/investment-certificates"
       />
       <DocsLayout
         currentPage="/docs/investment-certificates"
@@ -69,7 +69,7 @@ const InvestmentCertificates = () => {
           <p>Returns certificates for the current provider. Optional query params: <code>status</code>, <code>date_from</code>, <code>date_to</code>, <code>per_page</code>.</p>
           <CodeBlock
             language="bash"
-            code={`curl -X GET "https://api.scanafrica.com/api/merchant/investment-certificates?per_page=20" \\
+            code={`curl -X GET "https://api.ottoafrica.com/api/merchant/investment-certificates?per_page=20" \\
   -H "Authorization: Bearer your_token"`}
           />
 
@@ -81,7 +81,7 @@ const InvestmentCertificates = () => {
           </div>
           <CodeBlock
             language="bash"
-            code={`curl -X GET "https://api.scanafrica.com/api/merchant/investment-certificates/reconciliation" \\
+            code={`curl -X GET "https://api.ottoafrica.com/api/merchant/investment-certificates/reconciliation" \\
   -H "Authorization: Bearer your_token"`}
           />
 
@@ -99,7 +99,7 @@ const InvestmentCertificates = () => {
           </p>
 
           <p className="mt-6">
-            <strong>Need Help?</strong> Visit our <a href="/docs/support" className="underline">Support page</a> or the <a href="https://api.scanafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for detailed endpoint documentation.
+            <strong>Need Help?</strong> Visit our <a href="/docs/support" className="underline">Support page</a> or the <a href="https://api.ottoafrica.com/api/docs" className="underline" target="_blank" rel="noopener noreferrer">API Reference</a> for detailed endpoint documentation.
           </p>
         </div>
       </DocsLayout>

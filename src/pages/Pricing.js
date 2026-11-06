@@ -66,7 +66,7 @@ const Pricing = () => {
   const handleSubscribe = async (tier, months = 1) => {
     if (!token) {
       // Redirect to merchant portal for authentication
-      window.location.href = "https://merchant.scanafrica.com/signup";
+      window.location.href = "https://merchant.ottoafrica.com/signup";
       return;
     }
 
@@ -184,7 +184,7 @@ const Pricing = () => {
         <SEO
           title="Complete Subscription - Scan Africa"
           description="Complete your subscription purchase for Scan Africa"
-          url="https://scanafrica.com/pricing"
+          url="https://ottoafrica.com/pricing"
         />
         <Header />
 
@@ -283,7 +283,7 @@ const Pricing = () => {
         title="Pricing - Scan Africa"
         description="Simple, transparent pricing for Scan Africa. Choose the plan that fits your business. No hidden fees, no setup costs."
         keywords="Scan pricing, payment platform pricing, subscription plans, business pricing, fintech pricing"
-        url="https://scanafrica.com/pricing"
+        url="https://ottoafrica.com/pricing"
       />
       <Header />
 
@@ -493,7 +493,7 @@ const Pricing = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://merchant.scanafrica.com/signup"
+              href="https://merchant.ottoafrica.com/signup"
               className="bg-white text-scan-blue px-8 py-4 rounded-full hover:bg-gray-50 transition-colors duration-200 font-semibold text-lg"
             >
               Start Accepting Payments

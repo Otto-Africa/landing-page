@@ -28,7 +28,7 @@ const GatewayWebhooks = () => {
         title="Payment Gateway Webhooks - Scan Africa Documentation"
         description="Register and handle FCL Payment Gateway callback notifications."
         keywords="FCL webhook, callbackUrl, payment status"
-        url="https://scanafrica.com/fcl/gateway-webhooks"
+        url="https://ottoafrica.com/fcl/gateway-webhooks"
       />
       <DocsLayout
         currentPage="/fcl/gateway-webhooks"

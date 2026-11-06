@@ -822,3 +822,93 @@
   width: 100%;
   margin-top: 12px;
 }
+
+/* Gift receive page: gift first, then how to use it */
+.gift-card-receive .gift-receive-face {
+  aspect-ratio: 1.586;
+  max-width: 320px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+.gift-receive-face-shop {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.gift-receive-face-amount {
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: auto;
+}
+
+.gift-receive-face-from {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.gift-receive-message {
+  margin: 0 auto 20px;
+  max-width: 320px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #f4f5f4;
+  font-size: 15px;
+  color: #1f2a1a;
+}
+
+.gift-receive-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 320px;
+  margin: 0 auto 28px;
+}
+
+.gift-receive-cta,
+.gift-receive-cta-secondary {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.gift-receive-cta {
+  background: #2b7000;
+  color: #fff;
+}
+
+.gift-receive-cta-secondary {
+  color: #2b7000;
+}
+
+.gift-receive-steps-title {
+  font-size: 17px;
+  font-weight: 600;
+  text-align: left;
+  margin: 0 0 8px;
+}
+
+.gift-receive-steps {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  list-style: decimal;
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.45;
+  color: #3a4235;
+}
+
+.gift-receive-steps li {
+  margin-bottom: 8px;
+}

@@ -20,7 +20,7 @@ const BusinessSolutions = () => {
         title="Business Solutions - Scan Africa"
         description="Enterprise-grade payment solutions for modern businesses. Scale your business with advanced analytics, team management, and comprehensive financial tools."
         keywords="business payment solutions, enterprise payments, payment processing for businesses, payment infrastructure, business payment API"
-        url="https://scanafrica.com/solutions/business"
+        url="https://ottoafrica.com/solutions/business"
       />
       <Header />
 
@@ -38,7 +38,7 @@ const BusinessSolutions = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://merchant.scanafrica.com/signup"
+                href="https://merchant.ottoafrica.com/signup"
                 className="bg-scan-blue text-white px-8 py-4 rounded-full hover:bg-black transition-colors duration-200 font-semibold text-lg"
               >
                 Start Enterprise Trial
@@ -300,7 +300,7 @@ const BusinessSolutions = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://merchant.scanafrica.com/demo"
+              href="https://merchant.ottoafrica.com/demo"
               className="bg-white text-scan-blue px-8 py-4 rounded-full hover:bg-gray-50 transition-colors duration-200 font-semibold text-lg"
             >
               Schedule Demo

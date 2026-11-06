@@ -30,7 +30,7 @@ Content-Type: application/json`;
         title="Unified External Channels - Scan Africa Documentation"
         description="FCL Unified External Channels API for products, customers, OTP, and PIN Management."
         keywords="FCL Unified API, External Channels, PIN Management"
-        url="https://scanafrica.com/fcl/unified"
+        url="https://ottoafrica.com/fcl/unified"
       />
       <DocsLayout
         currentPage="/fcl/unified"

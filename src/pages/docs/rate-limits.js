@@ -26,7 +26,7 @@ const RateLimits = () => {
         title="Rate Limits - Scan Africa API Documentation"
         description="Learn about Scan Africa API rate limits, how to handle rate limit errors, and best practices for API usage."
         keywords="API rate limits, rate limiting, API throttling, request limits, Scan rate limits"
-        url="https://scanafrica.com/docs/rate-limits"
+        url="https://ottoafrica.com/docs/rate-limits"
       />
       <DocsLayout
         currentPage="/docs/rate-limits"

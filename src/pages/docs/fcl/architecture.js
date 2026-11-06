@@ -24,7 +24,7 @@ const FclArchitecture = () => {
         title="FCL Architecture - Scan Africa Documentation"
         description="How FCL Payment Gateway, Unified External Channels, and Core Banking work together."
         keywords="FCL architecture, Payment Gateway, Core Banking, Unified API"
-        url="https://scanafrica.com/fcl/architecture"
+        url="https://ottoafrica.com/fcl/architecture"
       />
       <DocsLayout
         currentPage="/fcl/architecture"

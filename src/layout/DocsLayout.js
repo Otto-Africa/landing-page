@@ -247,7 +247,7 @@ const DocsLayout = ({
               </Link>
             ) : null}
             <a
-              href="https://api.scanafrica.com/api/health"
+              href="https://api.ottoafrica.com/api/health"
               target="_blank"
               rel="noopener noreferrer"
               className="docs-nav-link"

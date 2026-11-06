@@ -21,7 +21,7 @@ const About = () => {
         title="About Us - Scan Africa"
         description="Learn about Scan Africa - the payment infrastructure platform built for Africa's most ambitious businesses. Discover our mission, vision, and commitment to transforming payments across the continent."
         keywords="about Scan Africa, payment platform, fintech company, Africa fintech, payment solutions company"
-        url="https://scanafrica.com/about"
+        url="https://ottoafrica.com/about"
       />
       <Header />
 

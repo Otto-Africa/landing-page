@@ -18,7 +18,7 @@ const PersonalSolutions = () => {
         title="Personal Payment Solutions - Scan Africa"
         description="Simple and secure payment solutions for individuals. Send money, receive payments, and manage your finances with ease."
         keywords="personal payments, individual payment solutions, send money, receive payments, personal finance"
-        url="https://scanafrica.com/solutions/personal"
+        url="https://ottoafrica.com/solutions/personal"
       />
       <Header />
         {/* Hero Section */}
