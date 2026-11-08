@@ -49,7 +49,7 @@ const JavascriptSdkDocs = () => {
           <h2 id="published-npm">Published on npm</h2>
           <p className="text-gray-600 mb-4">
             Current release line: <strong>v0.1.1</strong>. See also{" "}
-            <Link to="/docs/sdks" className="text-[#00B4D8] hover:underline">
+            <Link to="/docs/sdks" className="text-[#0B2B26] hover:underline">
               SDKs & Libraries
             </Link>{" "}
             for the full table and roadmap.
@@ -60,7 +60,7 @@ const JavascriptSdkDocs = () => {
                 href="https://www.npmjs.com/package/@scanafrica/customer-sdk-js"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#00B4D8] hover:underline"
+                className="text-[#0B2B26] hover:underline"
               >
                 @scanafrica/customer-sdk-js
               </a>{" "}
@@ -72,7 +72,7 @@ const JavascriptSdkDocs = () => {
                 href="https://www.npmjs.com/package/@scanafrica/events-sdk-node"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#00B4D8] hover:underline"
+                className="text-[#0B2B26] hover:underline"
               >
                 @scanafrica/events-sdk-node
               </a>{" "}
@@ -83,7 +83,7 @@ const JavascriptSdkDocs = () => {
                 href="https://www.npmjs.com/package/@scanafrica/loyalty-popup-widget"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#00B4D8] hover:underline"
+                className="text-[#0B2B26] hover:underline"
               >
                 @scanafrica/loyalty-popup-widget
               </a>{" "}
@@ -105,7 +105,7 @@ npm install @scanafrica/loyalty-popup-widget`}
           <p>
             Initialize the transaction on your server and return <code>access_code</code> to your frontend.
             Use your secret API key in the <code>Authorization</code> header (see{" "}
-            <Link to="/docs/authentication" className="text-[#00B4D8] hover:underline">
+            <Link to="/docs/authentication" className="text-[#0B2B26] hover:underline">
               Authentication
             </Link>
             ).

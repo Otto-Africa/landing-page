@@ -55,13 +55,13 @@ p {
 }
 
 a {
-  color: #1a73e8;
+  color: #0B2B26;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #1557b0;
+  color: #154E46;
 }
 
 /* Buttons */
@@ -74,8 +74,8 @@ a:hover {
   font-weight: 500;
   line-height: 1.5;
   color: #ffffff;
-  background-color: #1a73e8;
-  border: 1px solid #1a73e8;
+  background-color: #0B2B26;
+  border: 1px solid #0B2B26;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -214,7 +214,7 @@ a:hover {
 .text-gray-900 { color: #121212; } /* textPrimary */
 .text-gray-600 { color: #575654; } /* textSecondary */
 .text-gray-500 { color: #98A2B3; } /* gullGrey */
-.text-scan-blue { color: #1B3359; } /* primary */
+.text-scan-blue { color: #0B2B26; } /* primary */
 .text-green-600 { color: #039855; } /* hazeGreen */
 .text-purple-600 { color: #870B81; } /* violetEggplant */
 .text-yellow-600 { color: #F1954B; } /* cardOrange */
@@ -223,7 +223,7 @@ a:hover {
 .bg-white { background-color: #ffffff; }
 .bg-gray-50 { background-color: #F6F6F6; } /* wildSand */
 .bg-gray-900 { background-color: #000000; }
-.bg-scan-blue { background-color: #1B3359; } /* primary */
+.bg-scan-blue { background-color: #0B2B26; } /* primary */
 .bg-green-600 { background-color: #039855; } /* hazeGreen */
 .bg-purple-600 { background-color: #870B81; } /* violetEggplant */
 

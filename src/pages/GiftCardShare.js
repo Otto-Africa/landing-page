@@ -75,7 +75,7 @@ const GiftCardShare = () => {
   const merchantName = giftData?.merchant_name ?? null;
   const merchantLogo = giftData?.merchant_logo ?? null;
   const giftTitle = giftData?.giftcard_title ?? "Gift Card";
-  const colorCode = giftData?.color_code ?? "#1B3359";
+  const colorCode = giftData?.color_code ?? "#0B2B26";
   const normalizedColor = colorCode.startsWith("#") ? colorCode : `#${colorCode}`;
 
   if (isChecking) {

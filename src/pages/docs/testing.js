@@ -305,7 +305,7 @@ curl -X GET "https://api.ottoafrica.com/api/merchant/giftcards" \\
             <strong>local and test</strong> (with{" "}
             <code>APP_ENV=local</code> or <code>test</code>; demo bank is on by
             default there), use{" "}
-            <a href="/demo-bank" className="text-[#00B4D8] hover:underline">
+            <a href="/demo-bank" className="text-[#0B2B26] hover:underline">
               Scan Demo Bank
             </a>{" "}
             to simulate a credit into an Scan Cash wallet without a real
@@ -431,7 +431,7 @@ curl -X POST "http://localhost:3000/api/webhooks/scan-wallet/inbound" \\
 
           <p>
             Full details:{" "}
-            <a href="/docs/webhooks" className="text-[#00B4D8] hover:underline">
+            <a href="/docs/webhooks" className="text-[#0B2B26] hover:underline">
               Webhooks guide
             </a>
             .

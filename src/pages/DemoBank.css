@@ -1,7 +1,7 @@
 /* Scan Demo Bank — tokens from UI_STYLE_GUIDE.md */
 .demo-bank-page {
-  --scan-primary: #1b3359;
-  --scan-primary-hover: #152847;
+  --scan-primary: #0B2B26;
+  --scan-primary-hover: #154E46;
   --scan-text-primary: #121212;
   --scan-text-secondary: #575654;
   --scan-text-tertiary: #98a2b3;
@@ -11,9 +11,9 @@
   --scan-success-text: #027a48;
   --scan-success-border: #d1fadf;
   --scan-danger-text: #e31b54;
-  --scan-focus-ring: #1b3359;
-  --scan-page-bg: #f5f7fa;
-  --scan-page-bg-end: #dbe9ff;
+  --scan-focus-ring: #0B2B26;
+  --scan-page-bg: #F4F7F2;
+  --scan-page-bg-end: #EEFAF7;
 
   min-height: 100vh;
   background: linear-gradient(

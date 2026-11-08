@@ -56,7 +56,7 @@ const GatewayReference = () => {
                         <td>
                           <Link
                             to={`/fcl/gateway/api/${endpoint.id}`}
-                            className="text-[#00B4D8] hover:underline"
+                            className="text-[#0B2B26] hover:underline"
                           >
                             <code>{endpoint.path}</code>
                           </Link>

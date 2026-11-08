@@ -24,7 +24,7 @@ const Page404 = () => {
 					</p>
 					<div className="flex gap-4 mt-8">
 						<div
-							className={`text-[18px] ${"bg-[#1b3359] hover:bg-[#1e2d46] text-white"} text-[16px] text-center cursor-pointer  px-8 py-4 rounded-md w-fit`}
+							className={`text-[18px] ${"bg-[#0B2B26] hover:bg-[#0B2B26] text-white"} text-[16px] text-center cursor-pointer  px-8 py-4 rounded-md w-fit`}
 							onClick={() => {
 								navigate("/docs");
 							}}>

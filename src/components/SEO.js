@@ -81,8 +81,8 @@ const SEO = ({
     updateMetaTag('twitter:creator', '@scanafrica');
 
     // Additional Meta Tags
-    updateMetaTag('theme-color', '#1B3359');
-    updateMetaTag('msapplication-TileColor', '#1B3359');
+    updateMetaTag('theme-color', '#0B2B26');
+    updateMetaTag('msapplication-TileColor', '#0B2B26');
     updateMetaTag('apple-mobile-web-app-capable', 'yes');
     updateMetaTag('apple-mobile-web-app-status-bar-style', 'black-translucent');
     updateMetaTag('apple-mobile-web-app-title', 'Scan Africa');

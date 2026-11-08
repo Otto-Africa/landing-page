@@ -139,7 +139,7 @@ const InviteReferralPage = () => {
             className="gift-card-visual"
             style={{
               background:
-                "linear-gradient(145deg, #1B3359 0%, #2d4a7c 100%)",
+                "linear-gradient(145deg, #0B2B26 0%, #2d4a7c 100%)",
             }}
           >
             <div className="gift-card-visual-inner">

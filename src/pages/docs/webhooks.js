@@ -337,7 +337,7 @@ function verifyWebhookSignature(rawBody, signatureHeader, secret) {
             <li>Copy a merchant or customer Scan Cash NUBAN (888… / 999…)</li>
             <li>
               Open{" "}
-              <a href="/demo-bank" className="text-[#00B4D8] hover:underline">
+              <a href="/demo-bank" className="text-[#0B2B26] hover:underline">
                 Demo Bank
               </a>{" "}
               and enter that wallet number
@@ -353,7 +353,7 @@ function verifyWebhookSignature(rawBody, signatureHeader, secret) {
             See the full walkthrough in the{" "}
             <a
               href="/docs/testing#demo-bank"
-              className="text-[#00B4D8] hover:underline"
+              className="text-[#0B2B26] hover:underline"
             >
               Testing guide
             </a>

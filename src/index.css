@@ -1,3 +1,4 @@
+@import "@scan/design-system/css/tokens.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

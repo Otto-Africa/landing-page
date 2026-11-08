@@ -130,7 +130,7 @@ const DocsIndex = () => {
               <li>
                 <Link
                   to="/docs/payments"
-                  className="text-[#00B4D8] hover:underline"
+                  className="text-[#0B2B26] hover:underline"
                 >
                   Payments
                 </Link>{" "}
@@ -139,7 +139,7 @@ const DocsIndex = () => {
               <li>
                 <Link
                   to="/docs/identity"
-                  className="text-[#00B4D8] hover:underline"
+                  className="text-[#0B2B26] hover:underline"
                 >
                   Identity
                 </Link>{" "}
@@ -148,7 +148,7 @@ const DocsIndex = () => {
               <li>
                 <Link
                   to="/docs/loyalty"
-                  className="text-[#00B4D8] hover:underline"
+                  className="text-[#0B2B26] hover:underline"
                 >
                   Loyalty Management
                 </Link>{" "}
@@ -157,7 +157,7 @@ const DocsIndex = () => {
               <li>
                 <Link
                   to="/docs/llm"
-                  className="text-[#00B4D8] hover:underline"
+                  className="text-[#0B2B26] hover:underline"
                 >
                   LLM Conversations
                 </Link>{" "}
@@ -166,7 +166,7 @@ const DocsIndex = () => {
               <li>
                 <Link
                   to="/docs/accounting"
-                  className="text-[#00B4D8] hover:underline"
+                  className="text-[#0B2B26] hover:underline"
                 >
                   Accounting
                 </Link>{" "}
@@ -184,7 +184,7 @@ const DocsIndex = () => {
               <li>
                 <Link
                   to="/demo-bank"
-                  className="text-[#00B4D8] hover:underline"
+                  className="text-[#0B2B26] hover:underline"
                 >
                   Demo Bank
                 </Link>{" "}
@@ -194,7 +194,7 @@ const DocsIndex = () => {
               <li>
                 <Link
                   to="/docs/webhooks"
-                  className="text-[#00B4D8] hover:underline"
+                  className="text-[#0B2B26] hover:underline"
                 >
                   Webhooks
                 </Link>{" "}

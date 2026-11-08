@@ -22,11 +22,11 @@
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(27, 51, 89, 0.2);
-  background: linear-gradient(145deg, #1B3359 0%, #2d4a7c 100%);
+  background: linear-gradient(145deg, #0B2B26 0%, #154E46 100%);
   background-image:
     radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
-    linear-gradient(145deg, #1B3359 0%, #2d4a7c 100%);
+    linear-gradient(145deg, #0B2B26 0%, #154E46 100%);
 }
 
 .gift-card-visual-inner {
@@ -129,7 +129,7 @@
 
 .gift-card-sender {
   font-size: 16px;
-  color: #1B3359;
+  color: #0B2B26;
   font-weight: 500;
   margin-bottom: 12px;
 }
@@ -168,7 +168,7 @@
   justify-content: center;
   border-radius: 10px;
   background: #f1f5f9;
-  color: #1B3359;
+  color: #0B2B26;
 }
 
 /* Download section */
@@ -181,8 +181,8 @@
 
 .gift-card-try-app-btn {
   background: transparent;
-  border: 2px solid #1B3359;
-  color: #1B3359;
+  border: 2px solid #0B2B26;
+  color: #0B2B26;
   padding: 12px 20px;
   border-radius: 9999px;
   font-size: 14px;
@@ -192,7 +192,7 @@
 }
 
 .gift-card-try-app-btn:hover {
-  background: #1B3359;
+  background: #0B2B26;
   color: #fff;
 }
 
@@ -218,7 +218,7 @@
 }
 
 .download-btn-ios {
-  background: #1B3359;
+  background: #0B2B26;
   color: #fff;
 }
 
@@ -270,12 +270,12 @@
 }
 
 .download-other-os:hover {
-  color: #1B3359;
+  color: #0B2B26;
 }
 
 .loading-spinner {
   border: 4px solid #f3f3f3;
-  border-top: 4px solid #1B3359;
+  border-top: 4px solid #0B2B26;
   border-radius: 50%;
   width: 48px;
   height: 48px;
@@ -401,7 +401,7 @@
 }
 
 .gift-card-receive .download-btn.app-store {
-  background: #1B3359;
+  background: #0B2B26;
   color: #fff;
 }
 
@@ -429,15 +429,15 @@
   font-size: 15px;
   font-weight: 600;
   background: transparent;
-  color: #1B3359;
-  border: 2px solid #1B3359;
+  color: #0B2B26;
+  border: 2px solid #0B2B26;
   cursor: pointer;
   margin-top: 16px;
   transition: all 0.2s ease;
 }
 
 .gift-card-receive .retry-btn:hover {
-  background: #1B3359;
+  background: #0B2B26;
   color: #fff;
 }
 
@@ -571,7 +571,7 @@
 /* 4. Utility icons – blue accent, stronger visibility */
 .gift-card-receive .gift-receive-benefits .benefit-icon {
   background: rgba(29, 78, 216, 0.08);
-  color: #1d4ed8;
+  color: #26695E;
 }
 
 .gift-card-receive .gift-receive-benefits {
@@ -724,7 +724,7 @@
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 8px;
-  color: #1b3359;
+  color: #0B2B26;
 }
 
 .pay-field-input {
@@ -754,7 +754,7 @@
 }
 
 .pay-network-chip.selected {
-  border-color: #1b3359;
+  border-color: #0B2B26;
   background: #f0f4fa;
   font-weight: 600;
 }
@@ -884,12 +884,12 @@
 }
 
 .gift-receive-cta {
-  background: #2b7000;
+  background: #0B2B26;
   color: #fff;
 }
 
 .gift-receive-cta-secondary {
-  color: #2b7000;
+  color: #0B2B26;
 }
 
 .gift-receive-steps-title {

@@ -65,7 +65,7 @@ const SDKs = () => {
         nutshell="Published loyalty SDKs live on npm under @scanafrica. Install from the registry; see Loyalty docs for API + client-token flow."
       >
         <div className="docs-content">
-          <h1 className="text-4xl font-bold text-[#0D1B2A] mb-4">SDKs & Libraries</h1>
+          <h1 className="text-4xl font-bold text-[#0B2B26] mb-4">SDKs & Libraries</h1>
 
           <DocsOpener
             lead="Scan publishes npm packages for loyalty: server events, a browser customer SDK, and an optional popup."
@@ -74,7 +74,7 @@ const SDKs = () => {
             how="Install @scanafrica/events-sdk-node, @scanafrica/customer-sdk-js, or @scanafrica/loyalty-popup-widget from npm. Follow the JavaScript SDK page. Keep a Bearer key on the server only."
           />
 
-          <h2 className="text-2xl font-bold text-[#0D1B2A] mb-3">Published on npm (ready to use)</h2>
+          <h2 className="text-2xl font-bold text-[#0B2B26] mb-3">Published on npm (ready to use)</h2>
           <p className="text-gray-600 mb-4 text-sm">
             Scope: <code className="bg-gray-100 px-1 rounded">@scanafrica/*</code>. Current line on npm is{" "}
             <strong>v0.1.1</strong>.
@@ -104,7 +104,7 @@ const SDKs = () => {
                         href={row.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#00B4D8] hover:underline"
+                        className="text-[#0B2B26] hover:underline"
                       >
                         View package
                       </a>
@@ -125,7 +125,7 @@ npm install @scanafrica/loyalty-popup-widget`}
 
           <p className="text-gray-600 mb-8 text-sm">
             Source of truth for integration details:{" "}
-            <Link to="/docs/loyalty" className="text-[#00B4D8] hover:underline">
+            <Link to="/docs/loyalty" className="text-[#0B2B26] hover:underline">
               Loyalty Programs
             </Link>{" "}
             and the backend reference under <code>backend/sdks</code> in the{" "}
@@ -133,14 +133,14 @@ npm install @scanafrica/loyalty-popup-widget`}
               href="https://github.com/Scan-Africa/backend"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#00B4D8] hover:underline"
+              className="text-[#0B2B26] hover:underline"
             >
               Scan-Africa/backend
             </a>{" "}
             repository.
           </p>
 
-          <h2 className="text-2xl font-bold text-[#0D1B2A] mb-3">Roadmap: not on a registry yet</h2>
+          <h2 className="text-2xl font-bold text-[#0B2B26] mb-3">Roadmap: not on a registry yet</h2>
           <p className="text-gray-600 mb-4 text-sm">
             These folders in <code>backend/sdks/packages</code> are scaffolds only—nothing to install until
             packaging and tests land.
@@ -168,7 +168,7 @@ npm install @scanafrica/loyalty-popup-widget`}
             </table>
           </div>
 
-          <h2 className="text-2xl font-bold text-[#0D1B2A] mb-4">Mobile & native guides</h2>
+          <h2 className="text-2xl font-bold text-[#0B2B26] mb-4">Mobile & native guides</h2>
           <p className="text-gray-600 mb-6 text-sm">
             Native payment SDK documentation (Android, iOS, Flutter) covers hosted checkout patterns. Loyalty
             npm packages above target browser and Node today.
@@ -178,7 +178,7 @@ npm install @scanafrica/loyalty-popup-widget`}
               to="/docs/sdks/android"
               className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-sm transition-shadow block"
             >
-              <h3 className="text-[#00B4D8] font-semibold text-lg mb-2">Android SDK</h3>
+              <h3 className="text-[#0B2B26] font-semibold text-lg mb-2">Android SDK</h3>
               <p className="text-gray-600 text-sm">
                 Installation, project requirements, initialization flow, payment sheet, and callback handling.
               </p>
@@ -187,7 +187,7 @@ npm install @scanafrica/loyalty-popup-widget`}
               to="/docs/sdks/ios"
               className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-sm transition-shadow block"
             >
-              <h3 className="text-[#00B4D8] font-semibold text-lg mb-2">iOS SDK</h3>
+              <h3 className="text-[#0B2B26] font-semibold text-lg mb-2">iOS SDK</h3>
               <p className="text-gray-600 text-sm">
                 Swift setup, server initialization, payment sheet, and result handling.
               </p>
@@ -196,7 +196,7 @@ npm install @scanafrica/loyalty-popup-widget`}
               to="/docs/sdks/flutter"
               className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-sm transition-shadow block"
             >
-              <h3 className="text-[#00B4D8] font-semibold text-lg mb-2">Flutter SDK</h3>
+              <h3 className="text-[#0B2B26] font-semibold text-lg mb-2">Flutter SDK</h3>
               <p className="text-gray-600 text-sm">
                 Cross-platform setup, initialize transaction, and present payment UI.
               </p>
@@ -205,7 +205,7 @@ npm install @scanafrica/loyalty-popup-widget`}
               to="/docs/sdks/javascript"
               className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-sm transition-shadow block"
             >
-              <h3 className="text-[#00B4D8] font-semibold text-lg mb-2">JavaScript & Node</h3>
+              <h3 className="text-[#0B2B26] font-semibold text-lg mb-2">JavaScript & Node</h3>
               <p className="text-gray-600 text-sm">
                 Published <code>@scanafrica/*</code> loyalty SDKs, REST flows, and browser usage.
               </p>

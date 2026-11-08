@@ -195,7 +195,7 @@ const Header = () => {
 									</ul>
 									<div className="flex flex-col space-y-6">
 										<div className="flex gap-3 items-center">
-											<div className="bg-[#1b3359] text-white h-[28px] w-[28px] flex items-center justify-center rounded-full">
+											<div className="bg-[#0B2B26] text-white h-[28px] w-[28px] flex items-center justify-center rounded-full">
 												<ScanIcon name="phone-outline" size={12} />{" "}
 											</div>
 											<p className="text-slate-500 font-semibold">
@@ -204,7 +204,7 @@ const Header = () => {
 										</div>
 
 										{/* <p className="text-slate-500">Login</p> */}
-										<div className="text-white w-fit text-[14px] border bg-[#1b3359] rounded-lg px-6 py-3">
+										<div className="text-white w-fit text-[14px] border bg-[#0B2B26] rounded-lg px-6 py-3">
 											Join the Waitlist
 										</div>
 										<div>
@@ -246,7 +246,7 @@ const Header = () => {
 																items.route
 															);
 														}}>
-														<div className="rounded-full w-[56px] h-[56px] flex items-center justify-center bg-[#1b3359]">
+														<div className="rounded-full w-[56px] h-[56px] flex items-center justify-center bg-[#0B2B26]">
 															<img
 																src={items.icon}
 																alt=""
@@ -292,7 +292,7 @@ const Header = () => {
 																items.route
 															);
 														}}>
-														<div className="rounded-full w-[56px] h-[56px] flex items-center justify-center bg-[#1b3359]">
+														<div className="rounded-full w-[56px] h-[56px] flex items-center justify-center bg-[#0B2B26]">
 															<img
 																src={items.icon}
 																alt=""
@@ -383,7 +383,7 @@ const Header = () => {
 					<div className="flex items-center space-x-8">
 						<p className="text-slate-500">Support</p>
 						{/* <p className="text-slate-500">Login</p> */}
-						<div className="text-white text-[14px] border bg-[#1b3359] rounded-lg px-6 py-3">
+						<div className="text-white text-[14px] border bg-[#0B2B26] rounded-lg px-6 py-3">
 							Join the Waitlist
 						</div>
 						<img

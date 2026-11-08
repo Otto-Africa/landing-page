@@ -47,10 +47,10 @@ const LandingPage = () => {
 
                     <div className=" mt-12 lg:mt-16">
                       <div className="flex lg:space-x-4">
-                        <button className="h-[48px] lg:h-[52px] bg-[#1b3359] text-white font-medium px-3 lg:px-6 rounded-lg ">
+                        <button className="h-[48px] lg:h-[52px] bg-[#0B2B26] text-white font-medium px-3 lg:px-6 rounded-lg ">
                           Join the Waitlist
                         </button>
-                        <button className="h-[48px] lg:h-[52px] text-[#1b3359]  px-6 rounded-lg ">
+                        <button className="h-[48px] lg:h-[52px] text-[#0B2B26]  px-6 rounded-lg ">
                           or Contact Us
                         </button>
                       </div>
@@ -219,7 +219,7 @@ const LandingPage = () => {
                   return (
                     <div className="flex gap-4 lg:bg-gray-50 lg:pb-6 pt-8 lg:px-6 rounded-2xl w-[90%]">
                       <div className="lg:hidden">
-                        <div className="mt-1 bg-[#1b3359] h-8 w-8 flex items-center justify-center rounded-full">
+                        <div className="mt-1 bg-[#0B2B26] h-8 w-8 flex items-center justify-center rounded-full">
                           <ScanIcon name="checkmark-outline" fill="white" size={16} />
                         </div>
                       </div>
@@ -237,7 +237,7 @@ const LandingPage = () => {
           </section>
           <section className="w-full flex items-center justify-center">
             <div className="flex w-full flex-col my-12 lg:py-12 lg:min-w-[1330px] lg:max-w-[1920px] px-[5%] lg:px-[17.5%] justify-center">
-              <div className="lg:flex justify-between items-center z-20 bg-[#1b3359] px-6 py-8 lg:px-16 lg:py-12 rounded-xl max-lg:px-5">
+              <div className="lg:flex justify-between items-center z-20 bg-[#0B2B26] px-6 py-8 lg:px-16 lg:py-12 rounded-xl max-lg:px-5">
                 <h1 className="text-white text-2xl lg:text-4xl font-bold lg:leading-[55px] tracking-tighter">
                   Sign up for free.
                   <br />

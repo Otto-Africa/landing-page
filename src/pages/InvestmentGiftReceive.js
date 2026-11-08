@@ -136,7 +136,7 @@ const InvestmentGiftReceive = () => {
 
           {gift && (
             <>
-              <div className="gift-card-preview" style={{ background: "#1b3359" }}>
+              <div className="gift-card-preview" style={{ background: "#0B2B26" }}>
                 <span className="gift-card-preview-title">Investment Certificate</span>
                 <span className="gift-card-preview-merchant">{gift.productName}</span>
                 <span className="gift-card-preview-value">

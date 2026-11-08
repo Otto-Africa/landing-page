@@ -17,7 +17,7 @@
   margin: 0;
   font-size: 18px;
   font-weight: 600;
-  color: #1b3359;
+  color: #0B2B26;
 }
 
 .pay-momo-amount {
@@ -48,9 +48,9 @@
 }
 
 .pay-momo-input:focus {
-  outline: 2px solid #1b3359;
+  outline: 2px solid #0B2B26;
   outline-offset: 0;
-  border-color: #1b3359;
+  border-color: #0B2B26;
 }
 
 .pay-momo-networks {
@@ -73,12 +73,12 @@
 }
 
 .pay-momo-network-chip:hover {
-  border-color: #1b3359;
+  border-color: #0B2B26;
 }
 
 .pay-momo-network-chip.active {
-  background: #1b3359;
-  border-color: #1b3359;
+  background: #0B2B26;
+  border-color: #0B2B26;
   color: #ffffff;
 }
 
@@ -149,7 +149,7 @@
 .pay-momo-secondary-link {
   background: transparent;
   border: none;
-  color: #1b3359;
+  color: #0B2B26;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
