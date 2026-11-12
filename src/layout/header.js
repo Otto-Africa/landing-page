@@ -82,7 +82,7 @@ const Header = () => {
 	}, []);
 
 	return (
-		<div className="fixed flex justify-center w-full bg-white z-50 border-b border-[#C9C9C9]/30">
+		<div className="fixed flex justify-center w-full bg-white z-50 border-b border-[#D8DEDC]/30">
 			<div className="bg-white w-full max-w-[1920px] mx-auto flex items-center h-[72px] lg:h-[88px] space-x-8 px-[5%]">
 				{/* < className="flex items-center space-x-8"> */}
 				{/* Logo */}

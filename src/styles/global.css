@@ -15,7 +15,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  color: #121212;
+  color: #161A1A;
   background-color: #ffffff;
 }
 
@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   line-height: 1.2;
   margin: 0 0 0.5em 0;
-  color: #202124;
+  color: #161A1A;
 }
 
 h1 {
@@ -51,7 +51,7 @@ h3 {
 
 p {
   margin: 0 0 1em 0;
-  color: #5f6368;
+  color: #6f7876;
 }
 
 a {
@@ -83,8 +83,8 @@ a:hover {
 }
 
 .btn-primary:hover {
-  background-color: #1557b0;
-  border-color: #1557b0;
+  background-color: #2675d1;
+  border-color: #2675d1;
 }
 
 .btn-secondary {
@@ -95,9 +95,9 @@ a:hover {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
-  color: #3c4043;
+  color: #3e4544;
   background-color: transparent;
-  border: 1px solid #dadce0;
+  border: 1px solid #D8DEDC;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -105,8 +105,8 @@ a:hover {
 }
 
 .btn-secondary:hover {
-  background-color: #f8f9fa;
-  border-color: #bdc1c6;
+  background-color: #f5f7f7;
+  border-color: #c1c9c7;
 }
 
 /* Layout */
@@ -207,30 +207,30 @@ a:hover {
 .mt-12 { margin-top: 48px; }
 .mt-16 { margin-top: 64px; }
 
-/* Scan Mobile App Color Palette */
+/* Scan Design System palette */
 .text-center { text-align: center; }
 .text-white { color: #ffffff; }
 .text-black { color: #000000; }
-.text-gray-900 { color: #121212; } /* textPrimary */
-.text-gray-600 { color: #575654; } /* textSecondary */
-.text-gray-500 { color: #98A2B3; } /* gullGrey */
-.text-scan-blue { color: #0B2B26; } /* primary */
-.text-green-600 { color: #039855; } /* hazeGreen */
-.text-purple-600 { color: #870B81; } /* violetEggplant */
-.text-yellow-600 { color: #F1954B; } /* cardOrange */
-.text-pink-600 { color: #C20E7A; } /* cardWine */
+.text-gray-900 { color: #161A1A; } /* neutral950 */
+.text-gray-600 { color: #3E4544; } /* neutral800 */
+.text-gray-500 { color: #A5AFAD; } /* neutral400 */
+.text-scan-blue { color: #0B2B26; } /* ink900 */
+.text-green-600 { color: #028D47; } /* green600 */
+.text-purple-600 { color: #7D55DF; } /* iris600 */
+.text-yellow-600 { color: #EA9818; } /* amber400 */
+.text-pink-600 { color: #C9420B; } /* coral600 */
 
 .bg-white { background-color: #ffffff; }
-.bg-gray-50 { background-color: #F6F6F6; } /* wildSand */
+.bg-gray-50 { background-color: #F5F7F7; } /* neutral50 */
 .bg-gray-900 { background-color: #000000; }
-.bg-scan-blue { background-color: #0B2B26; } /* primary */
-.bg-green-600 { background-color: #039855; } /* hazeGreen */
-.bg-purple-600 { background-color: #870B81; } /* violetEggplant */
+.bg-scan-blue { background-color: #0B2B26; } /* ink900 */
+.bg-green-600 { background-color: #028D47; } /* green600 */
+.bg-purple-600 { background-color: #7D55DF; } /* iris600 */
 
 /* Borders */
-.border { border: 1px solid #dadce0; }
-.border-t { border-top: 1px solid #dadce0; }
-.border-b { border-bottom: 1px solid #dadce0; }
+.border { border: 1px solid #D8DEDC; }
+.border-t { border-top: 1px solid #D8DEDC; }
+.border-b { border-bottom: 1px solid #D8DEDC; }
 .rounded-lg { border-radius: 8px; }
 .rounded-xl { border-radius: 12px; }
 
@@ -258,16 +258,16 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f3f4;
+  background: #eaeeed;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #dadce0;
+  background: #D8DEDC;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #bdc1c6;
+  background: #c1c9c7;
 }
 
 /* Focus styles - Remove default outline */
@@ -281,7 +281,7 @@ a:focus-visible {
 /* Only show outline for keyboard navigation (accessibility) */
 button:focus-visible:not(:active),
 a:focus-visible:not(:active) {
-  outline: 2px solid rgba(27, 51, 89, 0.3);
+  outline: 2px solid rgba(11, 43, 38, 0.3);
   outline-offset: 2px;
   border-radius: 4px;
 }

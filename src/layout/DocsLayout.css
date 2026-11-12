@@ -15,7 +15,7 @@
   right: 0;
   z-index: 100;
   background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #D8DEDC;
   padding: 0.75rem 0;
   height: 64px;
 }
@@ -42,7 +42,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #374151;
+  color: #3E4544;
 }
 
 .docs-logo {
@@ -76,16 +76,16 @@
   transform: translateY(-50%);
   width: 1.25rem;
   height: 1.25rem;
-  color: #9ca3af;
+  color: #A5AFAD;
 }
 
 .docs-search-input {
   width: 100%;
   padding: 0.5rem 0.75rem 0.5rem 2.75rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid #D8DEDC;
   border-radius: 0.375rem;
   font-size: 0.875rem;
-  background-color: #f9fafb;
+  background-color: #F5F7F7;
   transition: all 0.2s;
 }
 
@@ -102,7 +102,7 @@
 }
 
 .docs-nav-link {
-  color: #6b7280;
+  color: #6F7876;
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 500;
@@ -120,7 +120,7 @@
 }
 
 .docs-signup-btn {
-  background-color: #10b981;
+  background-color: #028D47;
   color: #ffffff;
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
@@ -131,7 +131,7 @@
 }
 
 .docs-signup-btn:hover {
-  background-color: #059669;
+  background-color: #016F37;
 }
 
 /* Body Layout */
@@ -200,7 +200,7 @@
 .docs-nav-section-chevron {
   display: inline-block;
   font-size: 0.7rem;
-  color: #9ca3af;
+  color: #A5AFAD;
   transform: rotate(-90deg);
   transition: transform 0.15s ease;
 }
@@ -218,7 +218,7 @@
   display: block;
   padding: 0.28rem 0.75rem;
   margin: 0.1rem 0.35rem;
-  color: #4b5563;
+  color: #565E5C;
   text-decoration: none;
   font-size: 0.8rem;
   transition: background-color 0.15s ease, color 0.15s ease;
@@ -231,7 +231,7 @@
 }
 
 .docs-nav-item.active {
-  background-color: #f3f4f6;
+  background-color: #EAEEED;
   color: #161A1A;
   font-weight: 500;
 }
@@ -281,7 +281,7 @@
 .docs-on-this-page {
   position: sticky;
   top: 2rem;
-  border-left: 1px solid #e5e7eb;
+  border-left: 1px solid #D8DEDC;
   padding-left: 1rem;
 }
 
@@ -301,7 +301,7 @@
 }
 
 .docs-on-this-page-link {
-  color: #6b7280;
+  color: #6F7876;
   text-decoration: none;
   font-size: 0.8125rem;
   transition: color 0.2s;
@@ -316,12 +316,12 @@
   right: 1.5rem;
   bottom: 1rem;
   left: 1rem;
-  background: #f3f4f6;
-  border: 1px solid #e5e7eb;
+  background: #EAEEED;
+  border: 1px solid #D8DEDC;
   border-radius: 8px;
   padding: 0.625rem 0.75rem;
   font-size: 0.8125rem;
-  color: #374151;
+  color: #3E4544;
 }
 
 /* Overlay for mobile */

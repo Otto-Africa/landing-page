@@ -32,7 +32,7 @@ const DocsIndex = () => {
           />
 
           {/* Quickstart Block (OpenAI Style) */}
-          <div className="bg-[#F7F7F8] rounded-2xl p-8 mb-12 flex flex-col lg:flex-row gap-8 items-center border border-gray-100">
+          <div className="bg-[#F5F7F7] rounded-2xl p-8 mb-12 flex flex-col lg:flex-row gap-8 items-center border border-gray-100">
             <div className="flex-1">
               <h2 className="text-2xl font-bold text-gray-900 mb-3">
                 Developer quickstart

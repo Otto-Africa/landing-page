@@ -17,7 +17,7 @@ const formatAmount = (value) =>
   })}`;
 
 const cardColor = (code) => {
-  const raw = String(code || "1B3359").trim().replace(/^#/, "");
+  const raw = String(code || "0B2B26").trim().replace(/^#/, "");
   return `#${raw.slice(0, 6)}`;
 };
 

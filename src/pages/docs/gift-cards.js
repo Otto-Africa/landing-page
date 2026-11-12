@@ -105,7 +105,7 @@ const GiftCards = () => {
     "description": "Perfect for birthday celebrations",
     "denominations": [25, 50, 100, 200],
     "currency": "GHS",
-    "background_color": "#FF6B6B",
+    "background_color": "#F24F4E",
     "text_color": "#FFFFFF",
     "expires_in_days": 365
   }'`,
@@ -120,7 +120,7 @@ const GiftCards = () => {
     description: 'Perfect for birthday celebrations',
     denominations: [25, 50, 100, 200],
     currency: 'GHS',
-    background_color: '#FF6B6B',
+    background_color: '#F24F4E',
     text_color: '#FFFFFF',
     expires_in_days: 365
   })
@@ -140,7 +140,7 @@ response = requests.post(
         'description': 'Perfect for birthday celebrations',
         'denominations': [25, 50, 100, 200],
         'currency': 'GHS',
-        'background_color': '#FF6B6B',
+        'background_color': '#F24F4E',
         'text_color': '#FFFFFF',
         'expires_in_days': 365
     }

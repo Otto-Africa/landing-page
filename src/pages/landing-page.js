@@ -30,7 +30,7 @@ const LandingPage = () => {
     <Layout
       body={
         <>
-          <section className="w-full bg-[#8dd9ff]/20 flex items-center justify-center pb-8">
+          <section className="w-full bg-[#a2caff]/20 flex items-center justify-center pb-8">
             <div className="relative pb-16 lg:min-w-[1330px] lg:max-w-[1920px] w-full px-[5%] lg:px-[17.5%] flex justify-center">
               <div className="w-full lg:max-w-8xl pt-40 lg:pt-64 relative lg:mx-auto ">
                 <div className=" w-full lg:flex lg:space-x-[80px]">
@@ -87,7 +87,7 @@ const LandingPage = () => {
                               </div>
                             </div>
                             <button
-                              className="text-white text-sm font-medium whitespace-nowrap bg-[#1b5459] self-center justify-center my-auto px-4 py-2.5 rounded-[40px]"
+                              className="text-white text-sm font-medium whitespace-nowrap bg-[#0b2b26] self-center justify-center my-auto px-4 py-2.5 rounded-[40px]"
                               aria-label="Send"
                             >
                               Send
@@ -124,7 +124,7 @@ const LandingPage = () => {
                             className="object-cover w-full h-full"
                           />
                         </div>
-                        {/* <div className="absolute top-56 lg:top-64 lg:rotate-[16deg] lg:-left-16 flex flex-col text-white font-medium bg-gradient-to-br from-[#1b5459] to-[#1e545a] w-full h-[210px] lg:h-2/3 rounded-3xl overflow-hidden">
+                        {/* <div className="absolute top-56 lg:top-64 lg:rotate-[16deg] lg:-left-16 flex flex-col text-white font-medium bg-gradient-to-br from-[#0b2b26] to-[#154e46] w-full h-[210px] lg:h-2/3 rounded-3xl overflow-hidden">
 												<div className="h-full justify-between z-10">
 													<div className="flex items-center place-items-center p-6 lg:p-10 lg:h-3/4">
 														<div className="flex space-x-6 items-center pt-16">
@@ -197,7 +197,7 @@ const LandingPage = () => {
                           <p className="font-semibold ml-3">Kwasi</p>
                         </div>
                         <button
-                          className="text-white text-sm font-medium whitespace-nowrap bg-[#1b5459] self-center aspect-[2.2857142857142856] justify-center my-auto px-4 py-2.5 rounded-[40px]"
+                          className="text-white text-sm font-medium whitespace-nowrap bg-[#0b2b26] self-center aspect-[2.2857142857142856] justify-center my-auto px-4 py-2.5 rounded-[40px]"
                           aria-label="Send"
                         >
                           Send
