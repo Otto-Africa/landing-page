@@ -42,4 +42,14 @@ function applyMobileStyleEnvAliases() {
 
 applyMobileStyleEnvAliases();
 
-module.exports = {};
+module.exports = {
+	webpack: {
+		configure: (config) => {
+			// @scan/design-system is a `file:` dependency (vendored under
+			// vendor/). Resolving the real path puts its CSS outside src/ and
+			// CRA's ModuleScopePlugin rejects it. Keep the node_modules path.
+			config.resolve = { ...config.resolve, symlinks: false };
+			return config;
+		},
+	},
+};

@@ -1,0 +1,50 @@
+{
+  "name": "@scan/design-system",
+  "version": "1.0.0",
+  "description": "Scan brand guidelines, design tokens, component styles and press kits.",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "ramps": "node scripts/ramps.mjs",
+    "build:tokens": "node scripts/build-tokens.mjs",
+    "build:illustrations": "node scripts/build-illustrations.mjs",
+    "render:3d": "node scripts/render-3d.mjs",
+    "build:press": "node scripts/build-press.mjs",
+    "upload:kits": "node scripts/upload-press-kits.mjs",
+    "build:site": "node scripts/build-site.mjs",
+    "build": "node scripts/build-tokens.mjs && node scripts/build-illustrations.mjs && node scripts/build-press.mjs && node scripts/build-site.mjs",
+    "check": "node scripts/build-tokens.mjs && node scripts/check.mjs",
+    "dev": "node scripts/serve-site.mjs",
+    "start": "node scripts/serve-site.mjs",
+    "preview": "node scripts/serve-site.mjs"
+  },
+  "devDependencies": {
+    "three": "0.170.0"
+  },
+  "exports": {
+    "./css/tokens.css": "./dist/css/tokens.css",
+    "./css/typography.css": "./dist/css/typography.css",
+    "./css/components.css": "./dist/css/components.css",
+    "./css/shadcn-bridge.css": "./dist/css/shadcn-bridge.css",
+    "./tailwind": "./dist/tailwind/preset.cjs",
+    "./tokens": {
+      "types": "./dist/js/tokens.d.ts",
+      "import": "./dist/js/tokens.mjs",
+      "require": "./dist/js/tokens.cjs"
+    },
+    "./tokens.json": "./dist/json/tokens.resolved.json"
+  },
+  "files": [
+    "dist/css",
+    "dist/js",
+    "dist/json",
+    "dist/tailwind",
+    "dist/scss",
+    "dist/flutter",
+    "tokens"
+  ]
+}

@@ -1,0 +1,210 @@
+/* Scan Design System: web component styles.
+ * Requires tokens.css. Every value comes from a token; no raw colours. */
+
+.scan-root {
+  font-family: var(--scan-font-family-ui);
+  color: var(--scan-color-text-default);
+  background: var(--scan-color-background-default);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------------------------------------------------------- Button */
+.scan-btn {
+  --_bg: var(--scan-color-background-brand-bold);
+  --_bg-hover: var(--scan-color-background-brand-bold-hovered);
+  --_bg-press: var(--scan-color-background-brand-bold-pressed);
+  --_fg: var(--scan-color-text-on-brand);
+  --_border: transparent;
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--scan-space-100);
+  min-height: var(--scan-component-button-height-md);
+  padding-inline: var(--scan-component-button-padding-md);
+  border-radius: var(--scan-component-button-radius);
+  border: var(--scan-border-width-default) solid var(--_border);
+  background: var(--_bg); color: var(--_fg);
+  font: var(--scan-typography-label-md); letter-spacing: var(--scan-typography-label-md-tracking);
+  cursor: pointer; text-decoration: none; white-space: nowrap;
+  transition: background-color var(--scan-duration-fast) var(--scan-easing-standard), transform var(--scan-duration-instant) var(--scan-easing-standard);
+}
+.scan-btn:hover { background: var(--_bg-hover); }
+.scan-btn:active { background: var(--_bg-press); transform: scale(0.98); }
+.scan-btn:focus-visible { outline: var(--scan-border-width-focus) solid var(--scan-color-border-focused); outline-offset: 2px; }
+.scan-btn[disabled], .scan-btn[aria-disabled="true"] {
+  background: var(--scan-color-background-disabled); color: var(--scan-color-text-disabled); cursor: not-allowed; transform: none;
+}
+.scan-btn--secondary { --_bg: var(--scan-color-background-neutral); --_bg-hover: var(--scan-color-background-neutral-hovered); --_bg-press: var(--scan-color-background-neutral-pressed); --_fg: var(--scan-color-text-default); }
+.scan-btn--outline { --_bg: transparent; --_bg-hover: var(--scan-color-background-neutral); --_bg-press: var(--scan-color-background-neutral-hovered); --_fg: var(--scan-color-text-default); --_border: var(--scan-color-border-bold); }
+.scan-btn--ghost { --_bg: transparent; --_bg-hover: var(--scan-color-background-neutral); --_bg-press: var(--scan-color-background-neutral-hovered); --_fg: var(--scan-color-text-brand); }
+.scan-btn--danger { --_bg: var(--scan-color-background-danger-bold); --_bg-hover: var(--scan-color-background-danger-bold); --_bg-press: var(--scan-color-background-danger-bold); --_fg: var(--scan-color-text-on-bold); }
+.scan-btn--accent { --_bg: var(--scan-color-background-accent-lime); --_bg-hover: var(--scan-color-lime-200); --_bg-press: var(--scan-color-lime-400); --_fg: var(--scan-color-text-on-accent); }
+.scan-btn--sm { min-height: var(--scan-component-button-height-sm); padding-inline: var(--scan-component-button-padding-sm); font: var(--scan-typography-label-md); }
+.scan-btn--lg { min-height: var(--scan-component-button-height-lg); padding-inline: var(--scan-component-button-padding-lg); font: var(--scan-typography-label-lg); }
+.scan-btn--block { display: flex; width: 100%; }
+.scan-btn--icon { padding-inline: 0; width: var(--scan-component-button-height-md); }
+
+/* ---------------------------------------------------------------- Field */
+.scan-field { display: grid; gap: var(--scan-space-075); }
+.scan-field__label { font: var(--scan-typography-label-md); color: var(--scan-color-text-default); }
+.scan-field__hint { font: var(--scan-typography-body-sm); color: var(--scan-color-text-subtlest); }
+.scan-field__error { font: var(--scan-typography-body-sm); color: var(--scan-color-text-danger); display: flex; gap: var(--scan-space-050); align-items: center; }
+.scan-input {
+  width: 100%; box-sizing: border-box; min-height: var(--scan-component-input-height);
+  padding-inline: var(--scan-component-input-padding);
+  border-radius: var(--scan-component-input-radius);
+  border: var(--scan-border-width-default) solid var(--scan-color-border-input);
+  background: var(--scan-color-background-default); color: var(--scan-color-text-default);
+  font: var(--scan-typography-body-lg);
+  transition: border-color var(--scan-duration-fast) var(--scan-easing-standard), box-shadow var(--scan-duration-fast) var(--scan-easing-standard);
+}
+.scan-input::placeholder { color: var(--scan-color-text-subtlest); }
+.scan-input:focus { outline: none; border-color: var(--scan-color-border-focused); box-shadow: 0 0 0 var(--scan-border-width-focus) var(--scan-color-border-focused); }
+.scan-input[aria-invalid="true"] { border-color: var(--scan-color-border-danger); }
+.scan-input--amount { font: var(--scan-typography-amount-lg); letter-spacing: var(--scan-typography-amount-lg-tracking); font-feature-settings: "tnum", "lnum"; text-align: center; border: 0; background: transparent; }
+
+/* ---------------------------------------------------------------- Card + list */
+.scan-card {
+  background: var(--scan-color-background-raised);
+  border-radius: var(--scan-component-card-radius);
+  padding: var(--scan-component-card-padding);
+  box-shadow: var(--scan-elevation-shadow-raised);
+}
+.scan-card--outline { box-shadow: none; border: var(--scan-border-width-default) solid var(--scan-color-border-default); }
+.scan-list { display: grid; background: var(--scan-color-background-raised); border-radius: var(--scan-component-card-radius); overflow: hidden; }
+.scan-row {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--scan-component-list-row-icon-gap);
+  padding: var(--scan-component-list-row-padding-y) var(--scan-space-200);
+}
+.scan-row + .scan-row { border-top: var(--scan-border-width-default) solid var(--scan-color-border-subtle); }
+.scan-row__title { font: var(--scan-typography-label-md); color: var(--scan-color-text-default); }
+.scan-row__meta { font: var(--scan-typography-body-sm); color: var(--scan-color-text-subtlest); }
+.scan-row__text { min-width: 0; display: grid; gap: 2px; }
+.scan-row__end { text-align: right; display: grid; gap: 2px; justify-items: end; }
+
+/* ---------------------------------------------------------------- Money */
+.scan-amount { font: var(--scan-typography-amount-md); letter-spacing: var(--scan-typography-amount-md-tracking); font-feature-settings: "tnum", "lnum"; color: var(--scan-color-text-money-debit); white-space: nowrap; }
+.scan-amount--credit { color: var(--scan-color-text-money-credit); }
+.scan-amount--hero { font: var(--scan-typography-amount-hero); letter-spacing: var(--scan-typography-amount-hero-tracking); }
+.scan-amount--lg { font: var(--scan-typography-amount-lg); letter-spacing: var(--scan-typography-amount-lg-tracking); }
+.scan-amount__minor { font-size: 0.6em; vertical-align: 0.55em; margin-left: 1px; }
+.scan-amount__currency { font-size: 0.75em; margin-right: 1px; }
+
+/* ---------------------------------------------------------------- Badge, chip, avatar */
+.scan-badge {
+  --_bg: var(--scan-color-background-neutral); --_fg: var(--scan-color-text-subtle);
+  display: inline-flex; align-items: center; gap: var(--scan-space-050);
+  min-height: var(--scan-component-badge-height); padding-inline: var(--scan-space-100);
+  border-radius: var(--scan-component-badge-radius); background: var(--_bg); color: var(--_fg);
+  font: var(--scan-typography-caption); letter-spacing: var(--scan-typography-caption-tracking); white-space: nowrap;
+}
+.scan-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.scan-badge--plain::before { display: none; }
+.scan-badge--success { --_bg: var(--scan-color-background-success); --_fg: var(--scan-color-text-success); }
+.scan-badge--warning { --_bg: var(--scan-color-background-warning); --_fg: var(--scan-color-text-warning); }
+.scan-badge--danger { --_bg: var(--scan-color-background-danger); --_fg: var(--scan-color-text-danger); }
+.scan-badge--info { --_bg: var(--scan-color-background-info); --_fg: var(--scan-color-text-info); }
+.scan-badge--brand { --_bg: var(--scan-color-background-brand-subtle); --_fg: var(--scan-color-text-brand); }
+
+.scan-chip {
+  display: inline-flex; align-items: center; gap: var(--scan-space-075); min-height: var(--scan-component-chip-height);
+  padding-inline: var(--scan-space-150); border-radius: var(--scan-component-chip-radius);
+  border: var(--scan-border-width-default) solid var(--scan-color-border-default); background: var(--scan-color-background-default);
+  color: var(--scan-color-text-default); font: var(--scan-typography-label-md); cursor: pointer;
+}
+.scan-chip[aria-pressed="true"] { background: var(--scan-color-background-selected-bold); color: var(--scan-color-text-on-brand); border-color: transparent; }
+
+.scan-avatar {
+  --_size: var(--scan-size-avatar-md);
+  width: var(--_size); height: var(--_size); border-radius: var(--scan-radius-full); flex: none;
+  display: grid; place-items: center; overflow: hidden;
+  background: var(--scan-color-background-brand-subtle); color: var(--scan-color-text-brand); font: var(--scan-typography-label-md);
+}
+.scan-avatar--sm { --_size: var(--scan-size-avatar-sm); font: var(--scan-typography-caption); }
+.scan-avatar--lg { --_size: var(--scan-size-avatar-lg); font: var(--scan-typography-heading-sm); }
+.scan-avatar--save { background: var(--scan-color-product-save-subtle); color: var(--scan-color-product-save-text); }
+.scan-avatar--invest { background: var(--scan-color-product-invest-subtle); color: var(--scan-color-product-invest-text); }
+.scan-avatar--gift { background: var(--scan-color-product-gift-subtle); color: var(--scan-color-product-gift-text); }
+.scan-avatar--pay { background: var(--scan-color-product-pay-subtle); color: var(--scan-color-product-pay-text); }
+
+/* ---------------------------------------------------------------- Feedback */
+.scan-banner {
+  --_bg: var(--scan-color-background-info); --_fg: var(--scan-color-text-info);
+  display: grid; grid-template-columns: auto 1fr; gap: var(--scan-space-150); align-items: start;
+  padding: var(--scan-space-150) var(--scan-space-200); border-radius: var(--scan-radius-md);
+  background: var(--_bg); color: var(--scan-color-text-default); font: var(--scan-typography-body-md);
+}
+.scan-banner__icon { color: var(--_fg); }
+.scan-banner__title { font: var(--scan-typography-label-md); color: var(--scan-color-text-default); }
+.scan-banner--success { --_bg: var(--scan-color-background-success); --_fg: var(--scan-color-icon-success); }
+.scan-banner--warning { --_bg: var(--scan-color-background-warning); --_fg: var(--scan-color-icon-warning); }
+.scan-banner--danger { --_bg: var(--scan-color-background-danger); --_fg: var(--scan-color-icon-danger); }
+
+.scan-toast {
+  display: inline-flex; align-items: center; gap: var(--scan-space-150);
+  padding: var(--scan-space-150) var(--scan-space-200); border-radius: var(--scan-radius-md);
+  background: var(--scan-color-background-inverse); color: var(--scan-color-text-inverse);
+  box-shadow: var(--scan-elevation-shadow-overlay); font: var(--scan-typography-body-md);
+}
+.scan-toast__action { color: inherit; font: var(--scan-typography-label-md); text-decoration: underline; background: none; border: 0; cursor: pointer; }
+
+.scan-skeleton {
+  border-radius: var(--scan-radius-sm);
+  background: linear-gradient(90deg, var(--scan-color-background-skeleton) 0%, var(--scan-color-background-skeleton-subtle) 50%, var(--scan-color-background-skeleton) 100%);
+  background-size: 200% 100%; animation: scan-shimmer 1.4s linear infinite;
+}
+@keyframes scan-shimmer { to { background-position: -200% 0; } }
+
+.scan-progress { height: 8px; border-radius: var(--scan-radius-full); background: var(--scan-color-background-neutral); overflow: hidden; }
+.scan-progress > span { display: block; height: 100%; border-radius: inherit; background: var(--scan-color-product-save-bold); }
+.scan-progress--invest > span { background: var(--scan-color-product-invest-bold); }
+
+/* ---------------------------------------------------------------- Overlays */
+.scan-sheet {
+  background: var(--scan-color-background-overlay); border-radius: var(--scan-component-sheet-radius) var(--scan-component-sheet-radius) 0 0;
+  box-shadow: var(--scan-elevation-shadow-overlay); padding: var(--scan-space-150) var(--scan-space-300) var(--scan-space-300);
+  display: grid; gap: var(--scan-space-200);
+}
+.scan-sheet__handle { justify-self: center; width: var(--scan-component-sheet-handle); height: 5px; border-radius: var(--scan-radius-full); background: var(--scan-color-border-default); }
+.scan-dialog {
+  background: var(--scan-color-background-overlay); border-radius: var(--scan-radius-xl); box-shadow: var(--scan-elevation-shadow-overlay);
+  padding: var(--scan-space-300); display: grid; gap: var(--scan-space-200); max-width: 360px;
+}
+
+/* ---------------------------------------------------------------- Navigation */
+.scan-tabbar {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; align-items: center;
+  background: var(--scan-color-background-default);
+  padding: var(--scan-space-100) var(--scan-space-100) var(--scan-space-150);
+}
+.scan-tabbar__item { display: grid; justify-items: center; gap: var(--scan-space-050); color: var(--scan-color-icon-subtle); font: var(--scan-typography-caption); }
+.scan-tabbar__item[aria-current="page"] { color: var(--scan-color-text-brand); font-weight: var(--scan-font-weight-semibold); }
+.scan-segmented { display: inline-grid; grid-auto-flow: column; padding: 3px; gap: 2px; border-radius: var(--scan-radius-full); background: var(--scan-color-background-neutral); }
+.scan-segmented > button { border: 0; background: transparent; color: var(--scan-color-text-subtle); font: var(--scan-typography-label-md); padding: var(--scan-space-075) var(--scan-space-200); border-radius: var(--scan-radius-full); cursor: pointer; }
+.scan-segmented > button[aria-pressed="true"] { background: var(--scan-color-background-default); color: var(--scan-color-text-default); box-shadow: var(--scan-elevation-shadow-raised); }
+
+/* ---------------------------------------------------------------- Controls */
+.scan-switch { appearance: none; width: 44px; height: 26px; border-radius: var(--scan-radius-full); background: var(--scan-color-background-neutral-pressed); position: relative; cursor: pointer; transition: background var(--scan-duration-fast) var(--scan-easing-standard); margin: 0; }
+.scan-switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--scan-color-white); box-shadow: var(--scan-elevation-shadow-raised); transition: transform var(--scan-duration-fast) var(--scan-easing-emphasized); }
+.scan-switch:checked { background: var(--scan-color-background-selected-bold); }
+.scan-switch:checked::after { transform: translateX(18px); }
+.scan-switch:focus-visible { outline: var(--scan-border-width-focus) solid var(--scan-color-border-focused); outline-offset: 2px; }
+
+/* ---------------------------------------------------------------- Scan frame + keypad */
+.scan-scanframe { position: relative; aspect-ratio: 1; width: 100%; max-width: 240px; border-radius: var(--scan-component-scanframe-radius); }
+.scan-scanframe__corner { position: absolute; width: var(--scan-component-scanframe-corner); height: var(--scan-component-scanframe-corner); border: var(--scan-component-scanframe-stroke) solid var(--scan-color-white); }
+.scan-scanframe__corner--tl { top: 0; left: 0; border-right: 0; border-bottom: 0; border-top-left-radius: var(--scan-component-scanframe-radius); }
+.scan-scanframe__corner--tr { top: 0; right: 0; border-left: 0; border-bottom: 0; border-top-right-radius: var(--scan-component-scanframe-radius); }
+.scan-scanframe__corner--bl { bottom: 0; left: 0; border-right: 0; border-top: 0; border-bottom-left-radius: var(--scan-component-scanframe-radius); }
+.scan-scanframe__corner--br { bottom: 0; right: 0; border-left: 0; border-top: 0; border-bottom-right-radius: var(--scan-component-scanframe-radius); }
+.scan-scanframe__beam { position: absolute; left: -6%; right: -6%; height: 6px; top: 50%; border-radius: 1px; background: var(--scan-color-lime-300); box-shadow: 0 0 24px var(--scan-color-lime-300); animation: scan-sweep 2.4s var(--scan-easing-standard) infinite alternate; }
+@keyframes scan-sweep { from { top: 12%; } to { top: 85%; } }
+
+.scan-keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--scan-space-100); max-width: 280px; }
+.scan-keypad > button { height: 56px; border: 0; border-radius: var(--scan-radius-lg); background: transparent; color: var(--scan-color-text-default); font: var(--scan-typography-heading-lg); font-feature-settings: "tnum"; cursor: pointer; }
+.scan-keypad > button:active { background: var(--scan-color-background-neutral); }
+.scan-pin { display: flex; gap: var(--scan-space-200); justify-content: center; }
+.scan-pin > span { width: 14px; height: 14px; border-radius: 50%; border: var(--scan-border-width-bold) solid var(--scan-color-border-bold); }
+.scan-pin > span[data-filled] { background: var(--scan-color-background-brand-bold); border-color: var(--scan-color-background-brand-bold); }
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-scanframe__beam, .scan-skeleton { animation: none; }
+  .scan-btn, .scan-switch, .scan-switch::after, .scan-input { transition: none; }
+}
