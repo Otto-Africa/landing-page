@@ -13,8 +13,8 @@ import PersonalSolutions from "./pages/PersonalSolutions";
 // Company pages
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
+import ExternalRedirect from "./components/ExternalRedirect";
+import { PRIVACY_POLICY_URL, TERMS_OF_USE_URL } from "./config/legalDocuments";
 import InvestmentTermsAndConditions from "./pages/InvestmentTermsAndConditions";
 import CookiePolicy from "./pages/CookiePolicy";
 import Security from "./pages/Security";
@@ -111,8 +111,8 @@ function App() {
         {/* Company pages */}
         <Route path={paths.ABOUT} element={<About />} />
         <Route path={paths.CONTACT} element={<Contact />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/privacy-policy" element={<ExternalRedirect to={PRIVACY_POLICY_URL} />} />
+        <Route path="/terms-of-service" element={<ExternalRedirect to={TERMS_OF_USE_URL} />} />
         <Route
           path="/investment-terms-and-conditions"
           element={<InvestmentTermsAndConditions />}

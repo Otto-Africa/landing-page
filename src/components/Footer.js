@@ -1,4 +1,5 @@
 import React from 'react';
+import { PRIVACY_POLICY_URL, TERMS_OF_USE_URL } from "../config/legalDocuments";
 import { Link } from 'react-router-dom';
 
 /**
@@ -142,12 +143,12 @@ const Footer = () => {
               © 2024 Scan. All rights reserved.
             </p>
             <div className="flex flex-wrap gap-6">
-              <Link to="/privacy-policy" className="text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200">
+              <a href={PRIVACY_POLICY_URL} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200">
                 Privacy Policy
-              </Link>
-              <Link to="/terms-of-service" className="text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200">
+              </a>
+              <a href={TERMS_OF_USE_URL} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200">
                 Terms of Service
-              </Link>
+              </a>
               <Link to="/cookie-policy" className="text-gray-600 hover:text-gray-900 text-sm transition-colors duration-200">
                 Cookie Policy
               </Link>
